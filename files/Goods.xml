@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfGood>
+  <Good>
+    <id>1</id>
+    <name>Ppas</name>
+    <price>404.44</price>
+    <Category id="2" name="Phones" />
+    <Producer id="1" name="Lenovo" country="Ukraine" />
+  </Good>
+  <Good>
+    <id>2</id>
+    <name>Pride</name>
+    <price>500.34</price>
+    <Category id="23" name="Clothes Shghh" />
+    <Producer id="1" name="Lenovo" country="Ukraine" />
+  </Good>
+  <Good>
+    <id>3</id>
+    <name>Nabisco</name>
+    <price>600.33</price>
+    <Category id="3" name="Shoes" />
+    <Producer id="3" name="Apple" country="Japan" />
+  </Good>
+</ArrayOfGood>
