@@ -1,0 +1,6 @@
+Id;Name;Price;Category.Id;Producer.Id
+1;BMW;30000,25;1;1
+2;Pencil;2;2;2
+3;Rose;5;3;3
+4;Audi;20000;1;4
+5;Iphone;750;4;1

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ArrayOfGood xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Good>
+    <Id>1</Id>
+    <Name>BMW</Name>
+    <Price>22222.76</Price>
+    <Category Id="1" Name="Auto" />
+    <Producer Id="3" Name="Hamann" Country="Germany" />
+  </Good>
+  <Good>
+    <Id>2</Id>
+    <Name>Iphone</Name>
+    <Price>1200.08</Price>
+    <Category Id="2" Name="Phone" />
+    <Producer Id="4" Name="Apple" Country="USA" />
+  </Good>
+</ArrayOfGood>

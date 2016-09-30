@@ -1,0 +1,9 @@
+D:\Programming\SoftServe\Task2_XML\Task2_XML\bin\Debug\Task2_XML.exe.config
+D:\Programming\SoftServe\Task2_XML\Task2_XML\bin\Debug\Task2_XML.exe
+D:\Programming\SoftServe\Task2_XML\Task2_XML\bin\Debug\Task2_XML.pdb
+D:\Programming\SoftServe\Task2_XML\Task2_XML\obj\Debug\Task2_XML.csprojResolveAssemblyReference.cache
+D:\Programming\SoftServe\Task2_XML\Task2_XML\obj\Debug\Task2_XML.exe
+D:\Programming\SoftServe\Task2_XML\Task2_XML\obj\Debug\Task2_XML.pdb
+D:\Programming\SoftServe\Tasks\Task2_XML\Task2_XML\bin\Debug\Task2_XML.exe.config
+D:\Programming\SoftServe\Tasks\Task2_XML\Task2_XML\obj\Debug\Task2_XML.exe
+D:\Programming\SoftServe\Tasks\Task2_XML\Task2_XML\obj\Debug\Task2_XML.pdb

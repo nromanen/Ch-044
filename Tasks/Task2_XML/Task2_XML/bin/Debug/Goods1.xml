@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ArrayOfGood xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Good>
+    <Id>10</Id>
+    <Name>Mon1</Name>
+    <Price>2.76</Price>
+    <Category Id="1" Name="Technique" />
+    <Producer Id="1" Name="Sony" Country="Korea" />
+  </Good>
+  <Good>
+    <Id>11</Id>
+    <Name>Heidy</Name>
+    <Price>12.08</Price>
+    <Category Id="2" Name="Toy" />
+    <Producer Id="1" Name="Sony" Country="Korea" />
+  </Good>
+  <Good>
+    <Id>12</Id>
+    <Name>Monkey</Name>
+    <Price>12.76</Price>
+    <Category Id="2" Name="Toy" />
+    <Producer Id="2" Name="NonSony" Country="Korea" />
+  </Good>
+</ArrayOfGood>

@@ -1,0 +1,11 @@
+D:\Programming\SoftServe\Tasks\Task1\Task1\bin\Debug\Task1.exe.config
+D:\Programming\SoftServe\Tasks\Task1\Task1\bin\Debug\Task1.exe
+D:\Programming\SoftServe\Tasks\Task1\Task1\bin\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1\Task1\obj\Debug\Task1.exe
+D:\Programming\SoftServe\Tasks\Task1\Task1\obj\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1_CSV_with_LINQ\Task1\bin\Debug\Task1.exe.config
+D:\Programming\SoftServe\Tasks\Task1_CSV_with_LINQ\Task1\obj\Debug\Task1.exe
+D:\Programming\SoftServe\Tasks\Task1_CSV_with_LINQ\Task1\obj\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1_CSV_with_LINQ\Task1\bin\Debug\Task1.exe
+D:\Programming\SoftServe\Tasks\Task1_CSV_with_LINQ\Task1\bin\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1_CSV_with_LINQ\Task1\obj\Debug\Task1_CSV_with_LINQ.csprojResolveAssemblyReference.cache

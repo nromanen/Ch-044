@@ -1,0 +1,12 @@
+D:\Programming\SoftServe\Task1\Task1\bin\Debug\Task1.exe.config
+D:\Programming\SoftServe\Task1\Task1\obj\Debug\Task1.csprojResolveAssemblyReference.cache
+D:\Programming\SoftServe\Task1\Task1\bin\Debug\Task1.exe
+D:\Programming\SoftServe\Task1\Task1\bin\Debug\Task1.pdb
+D:\Programming\SoftServe\Task1\Task1\obj\Debug\Task1.exe
+D:\Programming\SoftServe\Task1\Task1\obj\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1\Task1\bin\Debug\Task1.exe.config
+D:\Programming\SoftServe\Tasks\Task1\Task1\obj\Debug\Task1.exe
+D:\Programming\SoftServe\Tasks\Task1\Task1\obj\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1\Task1\bin\Debug\Task1.exe
+D:\Programming\SoftServe\Tasks\Task1\Task1\bin\Debug\Task1.pdb
+D:\Programming\SoftServe\Tasks\Task1\Task1\obj\Debug\Task1.csprojResolveAssemblyReference.cache
