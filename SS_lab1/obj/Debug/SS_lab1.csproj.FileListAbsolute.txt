@@ -1,0 +1,12 @@
+C:\Users\Zver\Desktop\SS_lab1\SS_lab1\bin\Debug\SS_lab1.exe.config
+C:\Users\Zver\Desktop\SS_lab1\SS_lab1\bin\Debug\SS_lab1.exe
+C:\Users\Zver\Desktop\SS_lab1\SS_lab1\bin\Debug\SS_lab1.pdb
+C:\Users\Zver\Desktop\SS_lab1\SS_lab1\obj\Debug\SS_lab1.csprojResolveAssemblyReference.cache
+C:\Users\Zver\Desktop\SS_lab1\SS_lab1\obj\Debug\SS_lab1.exe
+C:\Users\Zver\Desktop\SS_lab1\SS_lab1\obj\Debug\SS_lab1.pdb
+F:\programming\SS\SS_lab1\SS_lab1\bin\Debug\SS_lab1.exe.config
+F:\programming\SS\SS_lab1\SS_lab1\bin\Debug\SS_lab1.exe
+F:\programming\SS\SS_lab1\SS_lab1\bin\Debug\SS_lab1.pdb
+F:\programming\SS\SS_lab1\SS_lab1\obj\Debug\SS_lab1.exe
+F:\programming\SS\SS_lab1\SS_lab1\obj\Debug\SS_lab1.pdb
+F:\programming\SS\SS_lab1\SS_lab1\obj\Debug\SS_lab1.csprojResolveAssemblyReference.cache

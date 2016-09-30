@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfGoods>
+  <Good>
+    <id>10</id>
+    <name> Mon1 </name>
+    <price>2.76</price>
+    <Category id="1" name="Technique"></Category>
+    <Producer id="1" name="Sony" country="Korea"></Producer>
+  </Good>
+  <Good>
+    <id>11</id>
+    <name> Heidy </name>
+    <price>1.08</price>
+    <Category id="2" name="Toy"></Category>
+    <Producer id="1" name="Sony" country="Korea"></Producer>
+  </Good>
+  <Good>
+    <id>12</id>
+    <name> Monkey </name>
+    <price>12.76</price>
+    <Category id="2" name="Toy"></Category>
+    <Producer id="2" name="NonSony" country="Korea"></Producer>
+  </Good>
+</ArrayOfGoods>
