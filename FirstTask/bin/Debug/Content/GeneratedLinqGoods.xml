@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfGoods>
+  <Good>
+    <id>1</id>
+    <name>S7</name>
+    <price>6999</price>
+    <Category id="1" name="Phone"></Category>
+    <Producer id = "1" name = "Samsung" country = "Korea"></Producer>
+  </Good>
+  <Good>
+    <id>2</id>
+    <name>GalaxyNote</name>
+    <price>10999</price>
+    <Category id="4" name="Tablet"></Category>
+    <Producer id="4" name="Noname Producer" country="Noname country"></Producer>
+  </Good>
+  <Good>
+    <id>3</id>
+    <name>LSR500</name>
+    <price>1800</price>
+    <Category id="2" name="Periphery"></Category>
+    <Producer id="2" name="Sven" country="Finland"></Producer>
+  </Good>
+  <Good>
+    <id>4</id>
+    <name>FXD100</name>
+    <price>999</price>
+    <Category id="12" name="Noname Category"></Category>
+    <Producer id="12" name="Noname Producer" country="Noname country"></Producer>
+  </Good>
+  <Good>
+    <id>5</id>
+    <name>SuperTV</name>
+    <price>20000</price>
+    <Category id="3" name="Television"></Category>
+    <Producer id="3" name="A4Tech" country="China"></Producer>
+  </Good>
+</ArrayOfGoods>

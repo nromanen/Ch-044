@@ -1,0 +1,23 @@
+<ArrayOfGood>
+   <Good>
+       <id> 10 </id>
+       <name> Mon1 </name>
+       <price> 4 </price>
+       <Category id = "1" name = "Technique" />
+       <Producer id = "1" name = "Sony" country = "Korea" />
+   </Good>
+   <Good>
+       <id> 11 </id>
+       <name> Heidy </name>
+       <price> 18 </price>
+       <Category id = "2" name = "Toy" />
+       <Producer id = "1" name = "Sony" country = "Korea" />
+   </Good>
+   <Good>
+       <id> 12 </id>
+       <name> Monkey </name>
+       <price> 15 </price>
+       <Category id = "2" name = "Toy" />
+       <Producer id = "2" name = "NonSony" country = "Korea" />
+   </Good>
+</ArrayOfGood>

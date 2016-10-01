@@ -1,0 +1,14 @@
+c:\users\nromanen\documents\visual studio 2013\Projects\FirstTask\FirstTask\bin\Debug\FirstTask.exe.config
+c:\users\nromanen\documents\visual studio 2013\Projects\FirstTask\FirstTask\obj\Debug\FirstTask.csprojResolveAssemblyReference.cache
+D:\C# PROJECTS\FirstTask\FirstTask\bin\Debug\FirstTask.exe.config
+D:\C# PROJECTS\FirstTask\FirstTask\bin\Debug\FirstTask.exe
+D:\C# PROJECTS\FirstTask\FirstTask\bin\Debug\FirstTask.pdb
+D:\C# PROJECTS\FirstTask\FirstTask\obj\Debug\FirstTask.csprojResolveAssemblyReference.cache
+D:\C# PROJECTS\FirstTask\FirstTask\obj\Debug\FirstTask.exe
+D:\C# PROJECTS\FirstTask\FirstTask\obj\Debug\FirstTask.pdb
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\FirstTask.exe.config
+D:\SYProjectts\FirstTask\FirstTask\obj\Debug\FirstTask.exe
+D:\SYProjectts\FirstTask\FirstTask\obj\Debug\FirstTask.pdb
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\FirstTask.exe
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\FirstTask.pdb
+D:\SYProjectts\FirstTask\FirstTask\obj\Debug\FirstTask.csprojResolveAssemblyReference.cache

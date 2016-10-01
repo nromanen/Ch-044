@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ArrayOfProducersGoodsCount xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProducersGoodsCount>
+    <Producer>
+      <Id>1</Id>
+      <Name>Sony</Name>
+      <Country>Korea</Country>
+    </Producer>
+    <CountOfGoods>3</CountOfGoods>
+  </ProducersGoodsCount>
+  <ProducersGoodsCount>
+    <Producer>
+      <Id>2</Id>
+      <Name>NonSony</Name>
+      <Country>Korea</Country>
+    </Producer>
+    <CountOfGoods>1</CountOfGoods>
+  </ProducersGoodsCount>
+</ArrayOfProducersGoodsCount>

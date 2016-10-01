@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<ArrayOfGood xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Good>
+    <Id>1</Id>
+    <Name>S7</Name>
+    <Price>6999</Price>
+    <Category>
+      <Id>1</Id>
+      <Name>Phone</Name>
+    </Category>
+    <Producer>
+      <Id>1</Id>
+      <Name>Samsung</Name>
+      <Country>Korea</Country>
+    </Producer>
+  </Good>
+  <Good>
+    <Id>2</Id>
+    <Name>GalaxyNote</Name>
+    <Price>10999</Price>
+    <Category>
+      <Id>4</Id>
+      <Name>Tablet</Name>
+    </Category>
+    <Producer>
+      <Id>4</Id>
+      <Name>Noname Producer</Name>
+      <Country>Noname country</Country>
+    </Producer>
+  </Good>
+  <Good>
+    <Id>3</Id>
+    <Name>LSR500</Name>
+    <Price>1800</Price>
+    <Category>
+      <Id>2</Id>
+      <Name>Periphery</Name>
+    </Category>
+    <Producer>
+      <Id>2</Id>
+      <Name>Sven</Name>
+      <Country>Finland</Country>
+    </Producer>
+  </Good>
+  <Good>
+    <Id>4</Id>
+    <Name>FXD100</Name>
+    <Price>999</Price>
+    <Category>
+      <Id>12</Id>
+      <Name>Noname Category</Name>
+    </Category>
+    <Producer>
+      <Id>12</Id>
+      <Name>Noname Producer</Name>
+      <Country>Noname country</Country>
+    </Producer>
+  </Good>
+  <Good>
+    <Id>5</Id>
+    <Name>SuperTV</Name>
+    <Price>20000</Price>
+    <Category>
+      <Id>3</Id>
+      <Name>Television</Name>
+    </Category>
+    <Producer>
+      <Id>3</Id>
+      <Name>A4Tech</Name>
+      <Country>China</Country>
+    </Producer>
+  </Good>
+</ArrayOfGood>
