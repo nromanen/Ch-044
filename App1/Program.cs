@@ -7,10 +7,10 @@ namespace App1
     {
         static void Main(string[] args)
         {
-            string CategoryPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Categories.csv";
-            string ProducerPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Producers.csv";
-            string GoodsPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Goods.csv";
-            string GoodsXmlPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Goods.xml";
+            const string CategoryPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Categories.csv";
+            const string ProducerPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Producers.csv";
+            const string GoodsPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Goods.csv";
+            const string GoodsXmlPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Goods.xml";
             try
             {
                 var Manager = new ManagerXmlLinq();

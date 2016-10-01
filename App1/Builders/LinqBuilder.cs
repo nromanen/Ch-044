@@ -34,6 +34,7 @@ namespace App1
         }
         public static List<Good> ReadWithLinq(string path)
         {
+            IFormatProvider cultureUS = new System.Globalization.CultureInfo("en-US");
             var file = File.ReadAllText(path);
             var doc = XDocument.Parse(file);
 
@@ -42,7 +43,7 @@ namespace App1
                          {
                              Id = int.Parse(s.Element("id").Value),
                              Name = s.Element("name").Value,
-                             Price = decimal.Parse(s.Element("price").Value.Replace('.', ',')),
+                             Price = decimal.Parse(s.Element("price").Value,cultureUS),
 
                              Category = new Category()
                              {
