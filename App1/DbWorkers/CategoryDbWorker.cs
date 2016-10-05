@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,41 +9,78 @@ using System.Threading.Tasks;
 
 namespace App1
 {
-    public  class CategoryDbWorker:ConnectionManager
+    public  class CategoryDbWorker
     {
-        public List<Category> GetAll()
+        public static string connectionstring = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+
+        public Category GetById(int Id)
         {
-            List<Category> categories = new List<Category>();
-            string sql = "SELECT * FROM dbo.Categories";
-            using (SqlCommand cmd = new SqlCommand(sql, con))
+            using (SqlConnection connection = new SqlConnection(connectionstring))
             {
-                using (var reader = cmd.ExecuteReader())
+                connection.Open();
+                string sql = "SELECT Categories.Id,Categories.Name FROM dbo.Categories WHERE Categories.Id =@Id";
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
                 {
-                    while (reader.Read())
+                    cmd.Parameters.Add("@Id", SqlDbType.Int);
+                    cmd.Parameters["@Id"].Value = Id;
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        var category = new Category();
-                        category.Id = Convert.ToInt32(reader["Id"]);
-                        category.Name = reader["Name"].ToString();
-                        categories.Add(category);
+
+                        Category res = reader.Read()
+                       ? new Category
+                       {
+                           Id = (int)reader.GetValue(0),
+                           Name = reader.GetValue(1).ToString(),
+                       }
+                       : null;
+
+                        return res;
                     }
                 }
             }
-            return categories;
+        }
+
+        public List<Category> GetAll()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionstring))
+            {
+                connection.Open();
+                List<Category> categories = new List<Category>();
+                string sql = "SELECT * FROM dbo.Categories";
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var category = new Category();
+                            category.Id = Convert.ToInt32(reader["Id"]);
+                            category.Name = reader["Name"].ToString();
+                            categories.Add(category);
+                        }
+                    }
+                }
+                return categories;
+            }
         }
         public void InsertCategory(Category category)
         {
             try
             {
-                string sqlStatement = "INSERT INTO dbo.Categories(Id,Name) VALUES(@Id,@Name)";
-                using (SqlCommand cmd = new SqlCommand(sqlStatement, con))
+                using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
-                    cmd.Parameters.Add("@id", SqlDbType.Int);
-                    cmd.Parameters.Add("@Name", SqlDbType.Text);
+                    connection.Open();
+                    string sqlStatement = "INSERT INTO dbo.Categories(Id,Name) VALUES(@Id,@Name)";
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
+                    {
+                        cmd.Parameters.Add("@id", SqlDbType.Int);
+                        cmd.Parameters.Add("@Name", SqlDbType.Text);
 
-                    cmd.Parameters["@id"].Value = category.Id;
-                    cmd.Parameters["@Name"].Value = category.Name;
+                        cmd.Parameters["@id"].Value = category.Id;
+                        cmd.Parameters["@Name"].Value = category.Name;
 
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch(Exception ex)
@@ -54,17 +92,21 @@ namespace App1
         {
             try
             {
-                string sqlStatement = "INSERT INTO dbo.Categories(Id,Name) VALUES(@Id,@Name)";
-                using (SqlCommand cmd = new SqlCommand(sqlStatement, con))
+                using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
-                    cmd.Parameters.Add("@id", SqlDbType.Int);
-                    cmd.Parameters.Add("@Name", SqlDbType.Text);
-
-                    foreach (var cat in categories)
+                    connection.Open();
+                    string sqlStatement = "INSERT INTO dbo.Categories(Id,Name) VALUES(@Id,@Name)";
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
-                        cmd.Parameters["@id"].Value = cat.Id;
-                        cmd.Parameters["@Name"].Value = cat.Name;
-                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Add("@id", SqlDbType.Int);
+                        cmd.Parameters.Add("@Name", SqlDbType.Text);
+
+                        foreach (var cat in categories)
+                        {
+                            cmd.Parameters["@id"].Value = cat.Id;
+                            cmd.Parameters["@Name"].Value = cat.Name;
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
             }
@@ -77,12 +119,16 @@ namespace App1
         {
             try
             {
-                string sqlStatement = "UPDATE dbo.Categories SET Name=@Name WHERE Id=@Id";
-                using (SqlCommand cmd = new SqlCommand(sqlStatement, con))
+                using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
-                    cmd.Parameters.AddWithValue("@Id", Id);
-                    cmd.Parameters.AddWithValue("@Name", Name);
-                    cmd.ExecuteNonQuery();
+                    connection.Open();
+                    string sqlStatement = "UPDATE dbo.Categories SET Name=@Name WHERE Id=@Id";
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", Id);
+                        cmd.Parameters.AddWithValue("@Name", Name);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch(Exception ex)
@@ -94,10 +140,14 @@ namespace App1
         {
             try
             {
-                string sqlStatement = "DELETE FROM dbo.Categories WHERE Id = " + Id.ToString() + "";
-                using (SqlCommand cmd = new SqlCommand(sqlStatement, con))
+                using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
-                    cmd.ExecuteNonQuery();
+                    connection.Open();
+                    string sqlStatement = "DELETE FROM dbo.Categories WHERE Id = " + Id.ToString() + "";
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)

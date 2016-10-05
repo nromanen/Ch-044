@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\LinqBuilder.cs" />
-    <Compile Include="ConnectionManager.cs" />
     <Compile Include="DbWorkers\CategoryDbWorker.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="DbWorkers\GoodDbWorker.cs" />

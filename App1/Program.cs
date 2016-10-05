@@ -43,28 +43,29 @@ namespace App1
                     Name = "name2",
                     Country = "chinatown"
                 };
-
-                GoodDbWorker.OpenConnection(ConfigurationManager.ConnectionStrings["DB"].ConnectionString);
-                ProducerDbWorker.OpenConnection(ConfigurationManager.ConnectionStrings["DB"].ConnectionString);
-                CategoryDbWorker.OpenConnection(ConfigurationManager.ConnectionStrings["DB"].ConnectionString);
                 //CategoryDbWorker.InsertCategoriesList(Categories);
                 //ProducerDbWorker.InsertProducersList(Producers);
                 //GoodDbWorker.InsertGood(Goods[0]);
                 //GoodDbWorker.DeleteGoodById(1);
-                //var goodbase=GoodDbWorker.GetAll();
-                //var categorybase = CategoryDbWorker.GetAll();
-                //var producersbase =ProducerDbWorker.GetAll();
+                var goodbase=GoodDbWorker.GetAll();
+                var categorybase = CategoryDbWorker.GetAll();
+                var producersbase =ProducerDbWorker.GetAll();
+                foreach(var i in goodbase)
+                {
+                    Console.WriteLine(i.ToString());
+                }
                 //ProducerDbWorker.UpdateProducer(1, "NewName", "NewCountry");
-                //ProducerDbWorker.DeleteProducerById(7);
+                ProducerDbWorker.DeleteProducerById(3);
+                // var a =GoodDbWorker.GetById(1);
+                // var a=ProducerDbWorker.GetById(1);
+                var b = CategoryDbWorker.GetById(2);
+                GoodDbWorker.DeleteGoodWithForeignKeys(1);
+
                 //ProducerDbWorker.InsertProducer(prod);
-                CategoryDbWorker.InsertCategoriesList(Categories);
-                ProducerDbWorker.InsertProducersList(Producers);
-                GoodDbWorker.InsertGoodsList(Goods);
+                //CategoryDbWorker.InsertCategoriesList(Categories);
+                //ProducerDbWorker.InsertProducersList(Producers);
+                //GoodDbWorker.InsertGoodsList(Goods);
 
-
-                CategoryDbWorker.CloseConnection();
-                ProducerDbWorker.CloseConnection();
-                GoodDbWorker.CloseConnection();
                 Console.WriteLine("Done!");
             }
             catch (Exception exc)

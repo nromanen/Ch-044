@@ -12,7 +12,6 @@ namespace App1
     {
         public static List<Good> Full_Goods(List<Producer> Producers, List<Category> Categories, List<Good> Goods)
         {
-            List<Good> goodList = new List<Good>();
 
             var newGoodList = new List<Good>(Goods);
             foreach (var good in Goods)
