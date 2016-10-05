@@ -63,6 +63,12 @@ namespace App1
                 return categories;
             }
         }
+
+        internal void InsertCategory()
+        {
+            throw new NotImplementedException();
+        }
+
         public void InsertCategory(Category category)
         {
             try
@@ -115,7 +121,7 @@ namespace App1
                 Console.WriteLine("Error-it's imposssible to insert categories list to database,check the values!");
             }
         }
-        public void UpdateCategory(int Id, string Name)
+        public void UpdateCategory(Category category)
         {
             try
             {
@@ -125,8 +131,8 @@ namespace App1
                     string sqlStatement = "UPDATE dbo.Categories SET Name=@Name WHERE Id=@Id";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Id", Id);
-                        cmd.Parameters.AddWithValue("@Name", Name);
+                        cmd.Parameters.AddWithValue("@Id", category.Id);
+                        cmd.Parameters.AddWithValue("@Name", category.Name);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -153,6 +159,27 @@ namespace App1
             catch (Exception ex)
             {
                 Console.WriteLine("Category cant be deleted because it's a foreign key of Good.");
+            }
+        }
+        public void DeleteCategoryWithGoods(int Id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionstring))
+                {
+                    connection.Open();
+                    string sqlStatement = "DELETE FROM dbo.Goods WHERE CategoryId =" + Id.ToString() + "";
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                CategoryDbWorker cworker = new CategoryDbWorker();
+                cworker.DeleteCategoryById(Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error-it's impossbile to delete good with foreign keys!!");
             }
         }
     }

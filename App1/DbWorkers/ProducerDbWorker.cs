@@ -123,7 +123,7 @@ namespace App1
                 Console.WriteLine("Error-It's impossible to insert list of Producers with these values!");
             }
         }
-        public void UpdateProducer(int Id, string Name, string Country)
+        public void UpdateProducer(Producer producer)
         {
             try
             {
@@ -133,9 +133,9 @@ namespace App1
                     string sqlStatement = "UPDATE dbo.Producers SET Name=@Name,Country=@Country WHERE Id=@Id";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Id", Id);
-                        cmd.Parameters.AddWithValue("@Name", Name);
-                        cmd.Parameters.AddWithValue("@Country", Country);
+                        cmd.Parameters.AddWithValue("@Id", producer.Id);
+                        cmd.Parameters.AddWithValue("@Name", producer.Name);
+                        cmd.Parameters.AddWithValue("@Country", producer.Country);
                         cmd.ExecuteNonQuery();
                     }
                 }

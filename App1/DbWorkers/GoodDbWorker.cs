@@ -145,19 +145,21 @@ namespace App1
                 Console.WriteLine("Error-It's impossible to insert list of goods,check the values of keys!");
             }
         }
-        public void UpdateGood(int Id, string Name, decimal Price)
+        public void UpdateGood(Good good)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
                     connection.Open();
-                    string sqlStatement = "UPDATE dbo.Producers SET Name=@Name,Price=@Price WHERE Id=@Id";
+                    string sqlStatement = "UPDATE dbo.Goods SET Name=@Name,Price=@Price,CategoryId=@CategoryId,ProducerId=@ProducerId WHERE Id=@Id";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Id", Id);
-                        cmd.Parameters.AddWithValue("@Name", Name);
-                        cmd.Parameters.AddWithValue("@Price", Price);
+                        cmd.Parameters.AddWithValue("@Id", good.Id);
+                        cmd.Parameters.AddWithValue("@Name", good.Name);
+                        cmd.Parameters.AddWithValue("@Price", good.Price);
+                        cmd.Parameters.AddWithValue("@CategoryId", good.Category.Id);
+                        cmd.Parameters.AddWithValue("@ProducerId", good.Producer.Id);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -186,43 +188,6 @@ namespace App1
                 Console.WriteLine("Error-it's impossbile to delete good because of values!!");
             }
         }
-        public void DeleteGoodWithForeignKeys(int Id)
-        {
-            try
-            {
-                int CategoryId = 0;
-                int ProducerId = 0;
-                using (SqlConnection connection = new SqlConnection(connectionstring))
-                {
-                    connection.Open();
-                    string sqlStatement = "SELECT Goods.Id,Goods.CategoryId,Goods.ProducerId FROM dbo.Goods WHERE Goods.Id =@id";
-                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
-                    {
-                        cmd.Parameters.Add("@Id", SqlDbType.Int);
-                        cmd.Parameters["@Id"].Value = Id;
 
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                CategoryId = (int)reader.GetValue(1);
-                                ProducerId = (int)reader.GetValue(2);
-                            }
-                        }
-                    }
-                }
-
-                DeleteGoodById(Id);
-
-                ProducerDbWorker pworker = new ProducerDbWorker();
-                pworker.DeleteProducerById(ProducerId);
-                CategoryDbWorker cworker = new CategoryDbWorker();
-                cworker.DeleteCategoryById(CategoryId);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error-it's impossbile to delete good with foreign keys!!");
-            }
-        }
     }
 }
