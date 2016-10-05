@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfGood>
+  <Good>
+    <Id>1</Id>
+    <Name>Pants</Name>
+    <Price>30.2</Price>
+    <Category Id="4" Name="Clothes" />
+    <Producer Id="4" Name="Levis" Country="China" />
+  </Good>
+  <Good>
+    <Id>2</Id>
+    <Name>Gamburger</Name>
+    <Price>10.4</Price>
+    <Category Id="2" Name="Food" />
+    <Producer Id="2" Name="Ozzy" Country="Ukraine" />
+  </Good>
+  <Good>
+    <Id>3</Id>
+    <Name>GeForce</Name>
+    <Price>2000.0</Price>
+    <Category Id="3" Name="HardWare" />
+    <Producer Id="3" Name="Gigabyte" Country="UK" />
+  </Good>
+  <Good>
+    <Id>4</Id>
+    <Name>MsWord</Name>
+    <Price>1500.0</Price>
+    <Category Id="1" Name="Software" />
+    <Producer Id="1" Name="Office" Country="America" />
+  </Good>
+</ArrayOfGood>
