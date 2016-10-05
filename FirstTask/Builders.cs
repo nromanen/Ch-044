@@ -25,11 +25,18 @@ namespace FirstTask
         {
             XmlBuilderForProducers.WriteToXml(list, path);
         }
-        
         public List<Producer> ReadFromXml(string path)
         {
             return XmlBuilderForProducers.ReadFromXml(path);
-        } 
+        }
+        public List<Producer> ReadFromDb()
+        {
+            return DbBuilderForProducers.ReadFromDb();
+        }
+        public void WriteToDb(List<Producer> list)
+        {
+            DbBuilderForProducers.FillToDb(list);
+        }
     }
 
     class CategoryBuilder : IFileManager<List<Category>>
@@ -49,6 +56,14 @@ namespace FirstTask
         public List<Category> ReadFromXml(string path)
         {
             return XmlBuilderForCategories.ReadFromXml(path);
+        }
+        public List<Category> ReadFromDb()
+        {
+            return DbBuilderForCategories.ReadFromDb();
+        }
+        public void WriteToDb(List<Category> list)
+        {
+            DbBuilderForCategories.FillToDb(list);
         }
 
     }
@@ -84,6 +99,15 @@ namespace FirstTask
                 return XmlBuilderForGoods.ReadFromXmlLinq(path);
         }
 
+        public List<Good> ReadFromDb()
+        {
+            return DbBuilderForGoods.ReadFromDb();
+        }
+
+        public void WriteToDb(List<Good> list)
+        {
+            DbBuilderForGoods.FillToDb(list);
+        }
 
     }
 

@@ -110,6 +110,23 @@ namespace FirstTask
             this.MakeMappingXml();
         }
 
+        public void FillAllContextByDb()
+        {
+            //DbBuilderForGoods.DropGoodsDb(connString);
+            Producers = DbBuilderForProducers.ReadFromDb();
+            Categories = DbBuilderForCategories.ReadFromDb();
+            Goods = DbBuilderForGoods.ReadFromDb();
+
+            this.MakeMappingCsv();
+        }
+        public void WriteAllContextToDb()
+        {
+            DbBuilderForGoods.DropGoodsDb();
+            DbBuilderForProducers.FillToDb(Producers);
+            DbBuilderForCategories.FillToDb(Categories);
+            DbBuilderForGoods.FillToDb(Goods);
+        }
+
         public void MakeMappingXml()
         {
             Category category = null;
@@ -141,6 +158,41 @@ namespace FirstTask
                     Producers.Add(good.Producer);
                     good.Producer = Producers.Last();
                 }
+            }
+        }
+
+        public void MakeMappingForOneGood(Good good)
+        {
+            int categoryId = good.Category.Id;
+            int producerId = good.Producer.Id;
+            try
+            {
+                good.Category = (from category in Categories
+                                 where category.Id == categoryId
+                                 select category).First();
+            }
+            catch
+            {
+                Categories.Add(new Category(categoryId, "Noname Category"));
+                good.Category = Categories.Last();
+            }
+
+
+            /*if (good.Category == null)
+            {
+                    
+            }*/
+
+            try
+            {
+                good.Producer = (from producer in Producers
+                                 where producer.Id == producerId
+                                 select producer).First();
+            }
+            catch
+            {
+                Producers.Add(new Producer(producerId, "Noname Producer", "Noname country"));
+                good.Producer = Producers.Last();
             }
         }
     }
