@@ -34,24 +34,6 @@ namespace Goods.Managers
             }
             return newGoodList;
         }
-        public static void Xml_Serializer(string path, List<Good> Goods)
-        {
-            var formatter = new XmlSerializer(typeof(List<Good>));
-
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, Goods);
-            }
-        }
-        public static List<Good> Xml_Deserialize(string filename)
-        {
-            var serializer = new XmlSerializer(typeof(List<Good>));
-            using (var stream = new StreamReader(filename))
-            {
-                return (List<Good>)serializer.Deserialize(stream);
-
-            }
-        }
         public static void GoodsCounter(List<Good> goods)
         {
             List<string> countries = new List<string>();

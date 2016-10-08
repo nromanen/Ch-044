@@ -11,25 +11,20 @@ namespace Multithreading
 {
     public class ParseCsManager
     {
-        List<Thread> threads = new List<Thread>();
-        public void GetThreadList(List<string> Pathes)
-        {
-            foreach(var i in Pathes)
-            {
-                threads.Add(new Thread(()=>CalculateOne(i)));
-            }
-        }
 
         public void ManageThreadWork(List<string> pathes)
         {
-            int currentindex = 0;
-            foreach (var i in pathes)
+            Action<string> processFile = (string value) =>
             {
-                Thread.Sleep(100);
-                threads[currentindex].Start();
-                threads[currentindex].Join();
-                currentindex++;
-            }
+                Console.WriteLine(value);
+                CalculateOne(value);
+                Thread.Sleep(4000);
+            };
+
+            pathes.AsParallel()
+           .WithDegreeOfParallelism(2)
+             .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
+              .ForAll(processFile);
         }
 
         public List<string> GetPathes(string Path)
@@ -47,7 +42,7 @@ namespace Multithreading
             }
         }
 
-        public  int[] CalculateOne(string Path)
+        public int[] CalculateOne(string Path)
         {
             lock (this)
             {

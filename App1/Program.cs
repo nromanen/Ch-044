@@ -18,18 +18,17 @@ namespace App1
             const string ProducerPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Producers.csv";
             const string GoodsPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Goods.csv";
             const string GoodsXmlPath = @"C:\Users\Слава\Desktop\softserve ac\App1\files\Goods.xml";
-            string[] PathesofDir = new string[] { @"C:\Users\Слава\Desktop\softserve ac\App1\files\", @"C:\Users\Слава\Desktop\C#",@"C:\Users\Слава\Desktop\Новая папка" };
+            string[] PathesofDir = new string[] { @"C:\Users\Слава\Desktop\softserve ac\App1\files\", @"C:\Users\Слава\Desktop\C#", @"C:\Users\Слава\Desktop\Новая папка" };
             try
             {
                 ParseCsManager parser = new ParseCsManager();
 
-                var patheses=parser.GetPathes(@"C:\Users\Слава\Desktop\softserve ac\App1");
-                parser.GetThreadList(patheses);
+                var patheses = parser.GetPathes(@"C:\Users\Слава\Desktop\softserve ac\App1");
                 parser.ManageThreadWork(patheses);
 
 
                 ProducerEFManager gef = new ProducerEFManager();
-                var a=gef.Get(1);
+                var a = gef.Get(1);
 
 
 
@@ -43,5 +42,5 @@ namespace App1
             Console.ReadKey();
         }
     }
-    }
+}
 

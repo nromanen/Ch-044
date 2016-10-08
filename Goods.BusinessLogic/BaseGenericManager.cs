@@ -46,7 +46,7 @@ namespace Goods.BusinessLogic
         {
             using (var context = new GoodsContext())
             {
-                context.Entry(entity).State= EntityState.Modified;
+                context.Entry(entity).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
