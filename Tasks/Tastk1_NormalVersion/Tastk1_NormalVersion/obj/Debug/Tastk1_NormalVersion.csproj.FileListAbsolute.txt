@@ -14,3 +14,6 @@ D:\Programming\SoftServe\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\bin\Deb
 D:\Programming\SoftServe\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\bin\Debug\FileHelpers.dll
 D:\Programming\SoftServe\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\bin\Debug\FileHelpers.xml
 D:\Programming\SoftServe\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\obj\Debug\Tastk1_NormalVersion.csprojResolveAssemblyReference.cache
+D:\Programming\SoftServe\Repository\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\bin\Debug\Tastk1_NormalVersion.exe.config
+D:\Programming\SoftServe\Repository\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\obj\Debug\Tastk1_NormalVersion.exe
+D:\Programming\SoftServe\Repository\Tasks\Tastk1_NormalVersion\Tastk1_NormalVersion\obj\Debug\Tastk1_NormalVersion.pdb
