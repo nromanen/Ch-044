@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace SearcherWithThreads {
 	class Counter {
-		public int countofConsolas;
-		public int countofAssignment;
+		public int countOfSigns;
 		public int ThreadId;
 		public string filePath;
 
 		public override string ToString() {
 			var builder = new StringBuilder();
-			builder.AppendLine($"Consolas - {countofConsolas}");
-			builder.AppendLine($"Assignment - {countofAssignment}");
+			builder.AppendLine($"SignsCount - {countOfSigns}");
 			builder.AppendLine($"ThreadId - {ThreadId}");
 			builder.AppendLine($"FilePath - {filePath}");
 			return builder.ToString();

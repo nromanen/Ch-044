@@ -10,20 +10,18 @@ using System.Threading.Tasks;
 namespace SearcherWithThreads {
 
 	class SearcherWithThreads {
-		public List<string> GetPathes(string folderPath) {
-			List<string> pathes = Directory.GetFiles(folderPath, "*.cs", SearchOption.AllDirectories).ToList();
+		public List<string> GetPathes(string folderPath, string fileType) {
+			List<string> pathes = Directory.GetFiles(folderPath, fileType, SearchOption.AllDirectories).ToList();
 			return pathes;
 		}
 
-		public List<Counter> Searcher(string path) {
-			var maxThreads = 5;
+		public List<Counter> Searcher(string path, string fileType, string sign, int countThreads = 5) {
 			List<Counter> counters = new List<Counter>();
-			var files = GetPathes(path);
-			Parallel.ForEach(files, new ParallelOptions { MaxDegreeOfParallelism = maxThreads }, (filePath) => {
+			var files = GetPathes(path, fileType);
+			Parallel.ForEach(files, new ParallelOptions { MaxDegreeOfParallelism = countThreads }, (filePath) => {
 				var text = File.ReadAllText(filePath);
 				Counter c = new Counter() {
-					countofConsolas = Regex.Matches(text, "Console").Count,
-					countofAssignment = Regex.Matches(text, "=").Count,
+					countOfSigns = Regex.Matches(text, sign).Count,
 					ThreadId = Thread.CurrentThread.ManagedThreadId,
 					filePath = filePath
 				};
