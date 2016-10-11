@@ -19,6 +19,7 @@ namespace Goods.DbModels
         [XmlAttribute("name")]
         public string Name { get; set; }
 
+        public virtual ICollection<Good> Goods { get; set; }
         public override string ToString()
         {
             return Id + "/" + Name;

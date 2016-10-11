@@ -2,7 +2,7 @@
 using Goods.DbModels;
 using Multithreading;
 using System;
-using DataAccess;
+using DataAccessLogic;
 
 namespace App1
 {
@@ -17,25 +17,21 @@ namespace App1
             string[] PathesofDir = new string[] { @"C:\Users\Слава\Desktop\softserve ac\App1\files\", @"C:\Users\Слава\Desktop\C#", @"C:\Users\Слава\Desktop\Новая папка" };
             try
             {
-                //ParseManager parser = new ParseManager();
+                ParseManager parser = new ParseManager();
 
-                //var patheses = parser.GetPathes(@"C:\Users\Слава\Desktop\Taxi-master", @"*.cs");
+                var patheses = parser.GetPathes(@"C:\Users\Слава\Desktop\Taxi-master", @"*.cs");
 
-                //parser.ManageThreadWork(patheses, 5, "!=");
+                parser.ManageThreadWork(patheses, 5, "!=");
 
-                GoodsContext goodsc = new GoodsContext();
+                GoodsContext cont = new GoodsContext();
                 ProducerEFManager producermanager = new ProducerEFManager();
                 CategoryEFManager categorymanager = new CategoryEFManager();
-                var cat1 = categorymanager.Get(1);
-                var prod = producermanager.Get(1);
-                Good goodef = new Good { Id = 10, Name = "asdasd", Price = 333, Category = cat1, Producer = prod };
-                Good goodef2 = new Good { Id = 14, Name = "asdasd", Price = 333, CategoryId = 2, ProducerId = 1 };
+                var cat1 = categorymanager.Get(2, cont);
+                var prod = producermanager.Get(1, cont);
                 GoodEFManager goodmang = new GoodEFManager();
-                //  goodmang.Add(goodef2);
-                var tempobj = goodmang.Get(1);
-
-
-
+                var tempobj = goodmang.Get(1, cont);
+                tempobj.Category = cat1;
+                goodmang.Update(tempobj, cont);
 
 
 

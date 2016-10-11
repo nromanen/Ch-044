@@ -16,16 +16,12 @@ namespace Goods.DbModels
         public string Name { get; set; }
         [XmlElement("price")]
         public decimal Price { get; set; }
-        public int CategoryId { get; set; }
-        public int ProducerId { get; set; }
 
-        [ForeignKey("CategoryId")]
         [XmlElement("Category")]
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
 
-        [ForeignKey("ProducerId")]
         [XmlElement("Producer")]
-        public virtual Producer Producer { get; set; }
+        public Producer Producer { get; set; }
 
         public override string ToString()
         {

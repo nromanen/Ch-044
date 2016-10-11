@@ -11,45 +11,32 @@ namespace Goods.BusinessLogic
 {
     public class BaseGenericManager<T> where T : class
     {
-        public List<T> All()
+        public DbContext GoodsContext { get; set; }
+
+        public List<T> All(DbContext GoodsContext)
         {
-            using (var context = new GoodsContext())
-            {
-                return context.Set<T>().ToList();
-            }
+            return GoodsContext.Set<T>().ToList();
         }
-        public void Delete(T entity)
+        public void Delete(T entity, DbContext GoodsContext)
         {
-            using (var context = new GoodsContext())
-            {
-                context.Entry(entity).State = EntityState.Deleted;
-                context.SaveChanges();
-            }
+            GoodsContext.Entry(entity).State = EntityState.Deleted;
+            GoodsContext.SaveChanges();
         }
-        public void Add(T newItem)
+        public void Add(T newItem, DbContext GoodsContext)
         {
-            using (var context = new GoodsContext())
-            {
-                context.Set<T>().Add(newItem);
-                context.SaveChanges();
-            }
+            GoodsContext.Set<T>().Add(newItem);
+            GoodsContext.SaveChanges();
         }
 
-        public T Get(int Id)
+        public T Get(int Id, DbContext GoodsContext)
         {
-            using (var context = new GoodsContext())
-            {
-                var res = context.Set<T>().Find(Id);
-                return res;
-            }
+            var res = GoodsContext.Set<T>().Find(Id);
+            return res;
         }
-        public void Update(T entity)
+        public void Update(T entity, DbContext GoodsContext)
         {
-            using (var context = new GoodsContext())
-            {
-                context.Entry(entity).State = EntityState.Modified;
-                context.SaveChanges();
-            }
+            GoodsContext.Entry(entity).State = EntityState.Modified;
+            GoodsContext.SaveChanges();
         }
 
     }

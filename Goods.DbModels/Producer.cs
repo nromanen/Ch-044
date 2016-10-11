@@ -17,9 +17,11 @@ namespace Goods.DbModels
         [XmlAttribute("id")]
         public int Id { get; set; }
         [XmlAttribute("name")]
-        public string Name { get; set;  }
+        public string Name { get; set; }
         [XmlAttribute("country")]
         public string Country { get; set; }
+
+        public virtual ICollection<Good> Goods { get; set; }
         public override string ToString()
         {
             return Id + "/" + Name + "/" + Country;

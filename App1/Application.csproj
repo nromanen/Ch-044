@@ -63,8 +63,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\DAL.csproj">
-      <Project>{476e38dc-dbb4-411e-ac71-443fe6998ecb}</Project>
+    <ProjectReference Include="..\DataAccessLogic\DAL.csproj">
+      <Project>{55327ffb-8bde-48d6-96a6-0e6a6699549b}</Project>
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Goods.BusinessLogic\BAL.csproj">
