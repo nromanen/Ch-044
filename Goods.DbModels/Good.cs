@@ -18,10 +18,10 @@ namespace Goods.DbModels
         public decimal Price { get; set; }
 
         [XmlElement("Category")]
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         [XmlElement("Producer")]
-        public Producer Producer { get; set; }
+        public virtual Producer Producer { get; set; }
 
         public override string ToString()
         {

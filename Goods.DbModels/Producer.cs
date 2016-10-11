@@ -21,6 +21,7 @@ namespace Goods.DbModels
         [XmlAttribute("country")]
         public string Country { get; set; }
 
+        [XmlIgnore]
         public virtual ICollection<Good> Goods { get; set; }
         public override string ToString()
         {

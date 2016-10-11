@@ -28,6 +28,15 @@ namespace Goods.BusinessLogic
             GoodsContext.SaveChanges();
         }
 
+        public void AddList(List<T> collection, DbContext GoodsContext)
+        {
+            foreach (var item in collection)
+            {
+                GoodsContext.Set<T>().Add(item);
+                GoodsContext.SaveChanges();
+
+            }
+        }
         public T Get(int Id, DbContext GoodsContext)
         {
             var res = GoodsContext.Set<T>().Find(Id);

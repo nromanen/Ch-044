@@ -1,24 +1,58 @@
-ï»¿<?xml version="1.0" encoding="utf-8"?>
-<ArrayOfGood>
-  <Good>
-    <id>1</id>
-    <name>Ppas</name>
-    <price>404.44</price>
-    <Category id="2" name="Phones" />
-    <Producer id="1" name="Lenovo" country="Ukraine" />
-  </Good>
-  <Good>
-    <id>2</id>
-    <name>Pride</name>
-    <price>500.34</price>
-    <Category id="23" name="Clothes Shghh" />
-    <Producer id="1" name="Lenovo" country="Ukraine" />
-  </Good>
-  <Good>
-    <id>3</id>
-    <name>Nabisco</name>
-    <price>600.33</price>
-    <Category id="3" name="Shoes" />
-    <Producer id="3" name="Apple" country="Japan" />
-  </Good>
-</ArrayOfGood>
+<ArrayOfGoods>
+    <Good>
+        <id> 10 </id>
+        <name> Mon1 </name>
+        <price> 2.76 </price>
+        <Category id = "1" name = "Technique"></Category>
+        <Producer id = "1" name = "Sony" country = "Korea"></Producer>
+    </Good>
+    <Good>
+        <id> 13 </id>
+        <name> Mon2 </name>
+        <price> 452.76 </price>
+        <Category id = "1" name = "Technique"></Category>
+        <Producer id = "3" name = "Sony" country = "Ñhina"></Producer>
+    </Good>
+        <Good>
+        <id> 14 </id>
+        <name> Mon1 </name>
+        <price> 7892.76 </price>
+        <Category id = "1" name = "Technique"></Category>
+        <Producer id = "2" name = "SAMSUNG" country = "Korea"></Producer>
+    </Good>
+        <Good>
+        <id> 15 </id>
+        <name> Bread </name>
+        <price> 2.76 </price>
+        <Category id = "3" name = "Food"></Category>
+        <Producer id = "10" name = "CHHC" country = "Ukraine"></Producer>
+    </Good>
+        <Good>
+        <id> 16 </id>
+        <name> Comp 2454 </name>
+        <price> 5692.76 </price>
+        <Category id = "1" name = "Technique"></Category>
+        <Producer id = "1" name = "Sony" country = "Korea"></Producer>
+    </Good>
+        <Good>
+        <id> 20 </id>
+        <name> Milk </name>
+        <price> 92.76 </price>
+        <Category id = "3" name = "Food"></Category>
+        <Producer id = "1" name = "ChMZ" country = "Ukraine"></Producer>
+    </Good>
+    <Good>
+        <id> 11 </id>
+        <name> Heidy </name>
+        <price> 12.08 </price>
+        <Category id = "2" name = "Toy"></Category>
+        <Producer id = "1" name = "Sony" country = "Korea"></Producer>
+    </Good>
+    <Good>
+        <id> 12 </id>
+        <name> Monkey </name>
+        <price> 12.76 </price>
+        <Category id = "2" name = "Toy"></Category>
+        <Producer id = "4" name = "NonSony" country = "Korea"></Producer>
+    </Good>
+</ArrayOfGoods>
