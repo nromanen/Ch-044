@@ -10,16 +10,16 @@ using Goods.DbModels;
 
 namespace Goods.Managers
 {
-    public  class CategoryDbWorker
+    public class ProducerDbWorker
     {
         public static string connectionstring = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
 
-        public Category GetById(int Id)
+        public Producer Get(int Id)
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
-                string sql = "SELECT Categories.Id,Categories.Name FROM dbo.Categories WHERE Categories.Id =@Id";
+                string sql = "SELECT Producers.Id,Producers.Name,Producers.Country FROM dbo.Producers WHERE Producers.Id =@Id";
                 using (SqlCommand cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.Add("@Id", SqlDbType.Int);
@@ -27,11 +27,12 @@ namespace Goods.Managers
                     using (var reader = cmd.ExecuteReader())
                     {
 
-                        Category res = reader.Read()
-                       ? new Category
+                        Producer res = reader.Read()
+                       ? new Producer
                        {
                            Id = (int)reader.GetValue(0),
                            Name = reader.GetValue(1).ToString(),
+                           Country = reader.GetValue(2).ToString()
                        }
                        : null;
 
@@ -41,147 +42,129 @@ namespace Goods.Managers
             }
         }
 
-        public List<Category> GetAll()
+        public List<Producer> All()
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
-                List<Category> categories = new List<Category>();
-                string sql = "SELECT * FROM dbo.Categories";
+                List<Producer> producers = new List<Producer>();
+                string sql = "SELECT * FROM dbo.Producers";
                 using (SqlCommand cmd = new SqlCommand(sql, connection))
                 {
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            var category = new Category();
-                            category.Id = Convert.ToInt32(reader["Id"]);
-                            category.Name = reader["Name"].ToString();
-                            categories.Add(category);
+                            var producer = new Producer();
+                            producer.Id = Convert.ToInt32(reader["Id"]);
+                            producer.Name = reader["Name"].ToString();
+                            producer.Country = reader["Country"].ToString();
+                            producers.Add(producer);
                         }
                     }
                 }
-                return categories;
+
+                return producers;
             }
         }
+        public void Add(Producer producer)
 
-        internal void InsertCategory()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertCategory(Category category)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
                     connection.Open();
-                    string sqlStatement = "INSERT INTO dbo.Categories(Id,Name) VALUES(@Id,@Name)";
+                    string sqlStatement = "INSERT INTO dbo.Producers(Id,Name,Country) VALUES(@Id,@Name,@Country)";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
                         cmd.Parameters.Add("@id", SqlDbType.Int);
                         cmd.Parameters.Add("@Name", SqlDbType.Text);
+                        cmd.Parameters.Add("@Country", SqlDbType.Text);
 
-                        cmd.Parameters["@id"].Value = category.Id;
-                        cmd.Parameters["@Name"].Value = category.Name;
-
+                        cmd.Parameters["@id"].Value = producer.Id;
+                        cmd.Parameters["@Name"].Value = producer.Name;
+                        cmd.Parameters["@Country"].Value = producer.Country;
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Error-it's impossible to insert category,check the values!");
+                Console.WriteLine("Error-It's impossible to insert new producer with these values!");
             }
         }
-        public void InsertCategoriesList(List<Category> categories)
+        public void AddList(List<Producer> producers)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
                     connection.Open();
-                    string sqlStatement = "INSERT INTO dbo.Categories(Id,Name) VALUES(@Id,@Name)";
+                    string sqlStatement = "INSERT INTO dbo.Producers(Id,Name,Country) VALUES(@Id,@Name,@Country)";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
+
                         cmd.Parameters.Add("@id", SqlDbType.Int);
                         cmd.Parameters.Add("@Name", SqlDbType.Text);
+                        cmd.Parameters.Add("@Country", SqlDbType.Text);
 
-                        foreach (var cat in categories)
+                        foreach (var prod in producers)
                         {
-                            cmd.Parameters["@id"].Value = cat.Id;
-                            cmd.Parameters["@Name"].Value = cat.Name;
+                            cmd.Parameters["@id"].Value = prod.Id;
+                            cmd.Parameters["@Name"].Value = prod.Name;
+                            cmd.Parameters["@Country"].Value = prod.Country;
                             cmd.ExecuteNonQuery();
                         }
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Error-it's imposssible to insert categories list to database,check the values!");
+                Console.WriteLine("Error-It's impossible to insert list of Producers with these values!");
             }
         }
-        public void UpdateCategory(Category category)
+        public void Update(Producer producer)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
                     connection.Open();
-                    string sqlStatement = "UPDATE dbo.Categories SET Name=@Name WHERE Id=@Id";
+                    string sqlStatement = "UPDATE dbo.Producers SET Name=@Name,Country=@Country WHERE Id=@Id";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Id", category.Id);
-                        cmd.Parameters.AddWithValue("@Name", category.Name);
+                        cmd.Parameters.AddWithValue("@Id", producer.Id);
+                        cmd.Parameters.AddWithValue("@Name", producer.Name);
+                        cmd.Parameters.AddWithValue("@Country", producer.Country);
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Error-It's impossible to update Category check the values!");
+                Console.WriteLine("Error with updating Producer-Check values!");
             }
         }
-        public void DeleteCategoryById(int Id)
+        public void Delete(int Id)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionstring))
                 {
                     connection.Open();
-                    string sqlStatement = "DELETE FROM dbo.Categories WHERE Id = " + Id.ToString() + "";
+                    string sqlStatement = "DELETE FROM dbo.Producers WHERE Id = " + Id.ToString() + "";
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
                     {
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Category cant be deleted because it's a foreign key of Good.");
+                Console.WriteLine("Error-Producer cant be deleted because it's foreign key of Good");
             }
         }
-        public void DeleteCategoryWithGoods(int Id)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionstring))
-                {
-                    connection.Open();
-                    string sqlStatement = "DELETE FROM dbo.Goods WHERE CategoryId =" + Id.ToString() + "";
-                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                CategoryDbWorker cworker = new CategoryDbWorker();
-                cworker.DeleteCategoryById(Id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error-it's impossbile to delete good with foreign keys!!");
-            }
-        }
+
     }
 }

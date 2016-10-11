@@ -45,7 +45,7 @@ namespace Goods.Managers
                          {
                              Id = int.Parse(s.Element("id").Value),
                              Name = s.Element("name").Value,
-                             Price = decimal.Parse(s.Element("price").Value,cultureUS),
+                             Price = decimal.Parse(s.Element("price").Value, cultureUS),
 
                              Category = new Category()
                              {

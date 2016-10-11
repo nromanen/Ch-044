@@ -37,7 +37,7 @@ namespace Goods.Managers
                                 good.Name = name;
                                 decimal Price;
 
-                                if ((decimal.TryParse(items[2], out Price) == true) && (ContainsAtMostTwoNumbersAfterComma(items[2]) == true))
+                                if ((decimal.TryParse(items[2], out Price) == true))
                                 {
                                     good.Price = Price;
 
@@ -102,13 +102,6 @@ namespace Goods.Managers
                     sr.WriteLine(good.Id + ";" + good.Name + ";" + good.Price + ";" + good.Category.Id + ";" + good.Producer.Id);
                 }
             }
-        }
-
-        bool ContainsAtMostTwoNumbersAfterComma(string str)
-        {
-            int dotIndex = str.IndexOf(",");
-            var res = ((str.Length - 1) - dotIndex);
-            return ((str.Length - 1) - dotIndex) <= 2;
         }
     }
 }

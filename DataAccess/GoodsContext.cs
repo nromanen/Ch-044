@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Goods.DbModels;
 
-
-
 namespace DataAccess
 {
-    public class GoodsContext:DbContext
+    public class GoodsContext : DbContext
     {
-            public GoodsContext() : base("name=DB2")
-            {
-                this.Configuration.LazyLoadingEnabled = false;
-            }
-            public DbSet<Good> Goods { get; set; }
-            public DbSet<Producer> Producers { get; set; }
-            public DbSet<Category> Categories { get; set; }
+        public GoodsContext() : base("name=DB2")
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+        }
+        public DbSet<Good> Goods { get; set; }
+        public DbSet<Producer> Producers { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
- }
+}

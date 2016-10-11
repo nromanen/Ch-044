@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using System.Data.Entity;
+using Goods.DbModels;
 
 namespace Goods.BusinessLogic
 {
@@ -34,11 +35,11 @@ namespace Goods.BusinessLogic
             }
         }
 
-        public T Get(int id)
+        public T Get(int Id)
         {
             using (var context = new GoodsContext())
             {
-                var res = context.Set<T>().Find(id);
+                var res = context.Set<T>().Find(Id);
                 return res;
             }
         }

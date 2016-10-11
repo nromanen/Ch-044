@@ -8,7 +8,7 @@ using Goods.DbModels;
 
 namespace Goods.Managers
 {
-    class ProducerManager : IOManager<List<Producer>>
+    public class ProducerManager : IOManager<List<Producer>>
     {
         public List<Producer> ReadFromFile(string path)
         {

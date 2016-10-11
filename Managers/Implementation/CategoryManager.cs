@@ -8,7 +8,7 @@ using Goods.DbModels;
 
 namespace Goods.Managers
 {
-    class CategoryManager : IOManager<List<Category>>
+    public class CategoryManager : IOManager<List<Category>>
     {
         public List<Category> ReadFromFile(string path)
         {

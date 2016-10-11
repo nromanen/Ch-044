@@ -7,7 +7,7 @@ using Goods.DbModels;
 
 namespace Goods.BusinessLogic
 {
-    public class GoodEFManager:BaseGenericManager<Good>
+    public class GoodEFManager : BaseGenericManager<Good>
     {
     }
 }

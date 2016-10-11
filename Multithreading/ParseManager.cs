@@ -1,42 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Multithreading
 {
-    public static class ParseManager
-    {       
-        public static void CountOfXml(params string[] paths)
+    public class ParseManager
+    {
+
+        public void ManageThreadWork(List<string> pathes, int numthreads, string symbol)
         {
-            int i = 0;
-            foreach(var t in paths)
+            object locksum = new object();
+            int sum = 0;
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            Action<string> processFile = (string value) =>
             {
-                i++;
-                ThreadStart s = (()=>CalculateCountofxml(t));
-                Thread thread = new Thread(s);
-                thread.Start();
-                Console.WriteLine("Current thread-" + i);
-                thread.Join();
-            }
+                Console.WriteLine(value);
+                lock (locksum)
+                {
+                    sum = sum + CalculateOne(value, symbol);
+                }
+            };
+
+            pathes.AsParallel()
+           .WithDegreeOfParallelism(numthreads)
+             .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
+              .ForAll(processFile);
+            stopwatch.Stop();
+            Console.WriteLine("Result:" + sum);
+            Console.WriteLine("Time:" + stopwatch.ElapsedMilliseconds);
         }
-        public static int CalculateCountofxml(string Path)
+
+        public List<string> GetPathes(string Path, string format)
         {
-            int count = 0;
+            List<string> PathList = new List<string>();
             if (Directory.Exists(Path))
             {
-                count = Directory.GetFiles(Path, @"*.xml",SearchOption.AllDirectories).Length;
-                Console.WriteLine("Result-" + count);
-                return count;
+                PathList = Directory.GetFiles(Path, format, SearchOption.AllDirectories).ToList();
+                return PathList;
             }
             else
             {
-                Console.WriteLine("There is no .xml files in this folder!");
+                Console.WriteLine("Folder doesn't exist!");
+                return PathList;
             }
-            return count;
+        }
+
+        public int CalculateOne(string Path, string symbol)
+        {
+            lock (this)
+            {
+                int result = 0;
+                int[] arrofcounts = new int[2];
+                var lines = File.ReadAllLines(Path);
+                foreach (var t in lines)
+                {
+                    result = result + Regex.Matches(t, symbol).Count;
+                }
+                return result;
+            }
         }
     }
 }

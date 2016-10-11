@@ -12,8 +12,8 @@ namespace Goods.Managers
 {
     public class GoodDbWorker
     {
-       public static string connectionstring= ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
-        public Good GetById(int id)
+        public static string connectionstring = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
+        public Good Get(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
@@ -36,8 +36,8 @@ namespace Goods.Managers
                         Id = (int)reader.GetValue(0),
                         Name = reader.GetValue(1).ToString(),
                         Price = (decimal)reader.GetValue(2),
-                        Category=new Category {Id= (int)reader.GetValue(3),Name= reader.GetValue(4).ToString() },
-                        Producer=new Producer {Id= (int)reader.GetValue(5),Name= reader.GetValue(6).ToString(),Country= reader.GetValue(7).ToString() }
+                        Category = new Category { Id = (int)reader.GetValue(3), Name = reader.GetValue(4).ToString() },
+                        Producer = new Producer { Id = (int)reader.GetValue(5), Name = reader.GetValue(6).ToString(), Country = reader.GetValue(7).ToString() }
                     }
                     : null;
                 reader.Close();
@@ -45,15 +45,13 @@ namespace Goods.Managers
                 return res;
             }
         }
-        public List<Good> GetAll()
+        public List<Good> All()
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
                 var producerworker = new ProducerDbWorker();
                 var categoriesworker = new CategoryDbWorker();
-                List<Producer> producers = producerworker.GetAll();
-                List<Category> categories = categoriesworker.GetAll();
                 List<Good> goods = new List<Good>();
                 string sql = "SELECT * FROM dbo.Goods";
                 using (SqlCommand cmd = new SqlCommand(sql, connection))
@@ -79,11 +77,10 @@ namespace Goods.Managers
                         }
                     }
                 }
-                goods = Manager_FullGoods.Full_Goods(producers, categories, goods);
                 return goods;
             }
         }
-        public void InsertGood(Good good)
+        public void Add(Good good)
         {
             try
             {
@@ -108,12 +105,12 @@ namespace Goods.Managers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Error-It's impossible to insert good,check the values!");
             }
         }
-        public void InsertGoodsList(List<Good> goods)
+        public void AddList(List<Good> goods)
         {
             try
             {
@@ -141,12 +138,12 @@ namespace Goods.Managers
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Error-It's impossible to insert list of goods,check the values of keys!");
             }
         }
-        public void UpdateGood(Good good)
+        public void Update(Good good)
         {
             try
             {
@@ -165,12 +162,12 @@ namespace Goods.Managers
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Error-It's impossible to update good because of value key");
             }
         }
-        public void DeleteGoodById(int Id)
+        public void Delete(int Id)
         {
             try
             {
@@ -184,9 +181,9 @@ namespace Goods.Managers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Error-it's impossbile to delete good because of values!!");
+                Console.WriteLine("Error-it's impossible to delete good because of values!!");
             }
         }
 

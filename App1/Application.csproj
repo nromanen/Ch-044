@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A3994BB7-8CDB-45F7-9F23-1ADEB75CD1D9}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{CCDAB854-5828-4CFA-9E96-8100FEE246CF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Managers</RootNamespace>
-    <AssemblyName>Managers</AssemblyName>
+    <RootNamespace>App1</RootNamespace>
+    <AssemblyName>App1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,10 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Goods.DbModels">
-      <HintPath>..\Goods.DbModels\bin\Debug\Goods.DbModels.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,23 +53,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="XmlBuilders\LinqBuilder.cs" />
-    <Compile Include="XmlBuilders\XmlBuilder.cs" />
-    <Compile Include="DbWorkers\CategoryDbWorker.cs" />
-    <Compile Include="DbWorkers\GoodDbWorker.cs" />
-    <Compile Include="DbWorkers\ProducerDbWorker.cs" />
-    <Compile Include="Implementation\CategoryManager.cs" />
-    <Compile Include="Implementation\GoodManager.cs" />
-    <Compile Include="Implementation\ProducerManager.cs" />
-    <Compile Include="Interfaces\IOManager.cs" />
-    <Compile Include="ManagerXmlLinq.cs" />
-    <Compile Include="Manager_FullGoods.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App1\App1.csproj">
-      <Project>{CCDAB854-5828-4CFA-9E96-8100FEE246CF}</Project>
-      <Name>App1</Name>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DAL.csproj">
+      <Project>{476e38dc-dbb4-411e-ac71-443fe6998ecb}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Goods.BusinessLogic\BAL.csproj">
+      <Project>{17c50103-f294-4b9a-92ad-3fbb8bd357b2}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Goods.DbModels\Model.csproj">
+      <Project>{22ea7d15-81d2-406f-a3a7-6ed5743ca9d1}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Managers\Manager.csproj">
+      <Project>{a3994bb7-8cdb-45f7-9f23-1adeb75cd1d9}</Project>
+      <Name>Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Multithreading\Multi-threading.csproj">
+      <Project>{bbebddbb-80ae-4409-9a87-127a030f318c}</Project>
+      <Name>Multi-threading</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

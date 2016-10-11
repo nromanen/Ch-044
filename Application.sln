@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{CCDAB854-5828-4CFA-9E96-8100FEE246CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "App1\Application.csproj", "{CCDAB854-5828-4CFA-9E96-8100FEE246CF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1} = {22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}
 		{476E38DC-DBB4-411E-AC71-443FE6998ECB} = {476E38DC-DBB4-411E-AC71-443FE6998ECB}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods.DataAccess", "DataAccess\Goods.DataAccess.csproj", "{476E38DC-DBB4-411E-AC71-443FE6998ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DataAccess\DAL.csproj", "{476E38DC-DBB4-411E-AC71-443FE6998ECB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods.DbModels", "Goods.DbModels\Goods.DbModels.csproj", "{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Goods.DbModels\Model.csproj", "{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods.Managers", "Managers\Goods.Managers.csproj", "{A3994BB7-8CDB-45F7-9F23-1ADEB75CD1D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "Managers\Manager.csproj", "{A3994BB7-8CDB-45F7-9F23-1ADEB75CD1D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods.BusinessLogic", "Goods.BusinessLogic\Goods.BusinessLogic.csproj", "{17C50103-F294-4B9A-92AD-3FBB8BD357B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "Goods.BusinessLogic\BAL.csproj", "{17C50103-F294-4B9A-92AD-3FBB8BD357B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "Multithreading\Multithreading.csproj", "{BBEBDDBB-80AE-4409-9A87-127A030F318C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multi-threading", "Multithreading\Multi-threading.csproj", "{BBEBDDBB-80AE-4409-9A87-127A030F318C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,12 +26,15 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CCDAB854-5828-4CFA-9E96-8100FEE246CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDAB854-5828-4CFA-9E96-8100FEE246CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCDAB854-5828-4CFA-9E96-8100FEE246CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCDAB854-5828-4CFA-9E96-8100FEE246CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{476E38DC-DBB4-411E-AC71-443FE6998ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{476E38DC-DBB4-411E-AC71-443FE6998ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{476E38DC-DBB4-411E-AC71-443FE6998ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{476E38DC-DBB4-411E-AC71-443FE6998ECB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3994BB7-8CDB-45F7-9F23-1ADEB75CD1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -39,6 +42,7 @@ Global
 		{A3994BB7-8CDB-45F7-9F23-1ADEB75CD1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3994BB7-8CDB-45F7-9F23-1ADEB75CD1D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17C50103-F294-4B9A-92AD-3FBB8BD357B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C50103-F294-4B9A-92AD-3FBB8BD357B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C50103-F294-4B9A-92AD-3FBB8BD357B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17C50103-F294-4B9A-92AD-3FBB8BD357B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BBEBDDBB-80AE-4409-9A87-127A030F318C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
