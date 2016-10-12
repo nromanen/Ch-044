@@ -12,3 +12,8 @@ D:\SYProjectts\FirstTask\FirstTask\obj\Debug\FirstTask.pdb
 D:\SYProjectts\FirstTask\FirstTask\bin\Debug\FirstTask.exe
 D:\SYProjectts\FirstTask\FirstTask\bin\Debug\FirstTask.pdb
 D:\SYProjectts\FirstTask\FirstTask\obj\Debug\FirstTask.csprojResolveAssemblyReference.cache
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\RandomNameGenerator.dll
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\EntityFramework.dll
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\EntityFramework.SqlServer.dll
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\EntityFramework.xml
+D:\SYProjectts\FirstTask\FirstTask\bin\Debug\EntityFramework.SqlServer.xml

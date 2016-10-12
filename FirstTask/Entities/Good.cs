@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,16 @@ namespace FirstTask
     public class Good
     {
         [XmlElement("id")]
+        [Key]
         public int Id { get; set; }
         [XmlElement("name")]
     	public string Name { get; set; }
         [XmlElement("price")]
         public decimal Price { get; set; }
-        public Category Category{ get; set; }
-	    public Producer Producer{ get; set; }
+
+
+        public virtual Category Category{ get; set; }
+	    public virtual Producer Producer{ get; set; }
 
         public Good()
         {
@@ -41,5 +45,6 @@ namespace FirstTask
                 "\n\t Category: " + Category.ToString() + 
                 "\n\t Producer: " + Producer.ToString();
         }
+
     }
 }

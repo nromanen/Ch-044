@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,13 @@ namespace FirstTask
     public class Producer
     {
         [XmlAttribute("id")]
+        [Key]
         public int Id { get; set; }
         [XmlAttribute("name")]
         public string Name { get; set; }
         [XmlAttribute("country")]
         public string Country { get; set; }
+        public virtual ICollection<Good> Goods { get; set; }
 
         public Producer()
         {

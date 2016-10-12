@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Diagnostics;
+
 
 namespace FirstTask
 {
@@ -36,7 +39,7 @@ namespace FirstTask
             };
             Producer newProducer = new Producer(){
                 Id = 3,
-                Name = "HyperProducer",
+                Name = "CoolProducer",
                 Country = "Kenia"
             };
             /*DbBuilderForCategories.InsertCategory(newCategory);
@@ -53,18 +56,53 @@ namespace FirstTask
                 });
             }*/
             //Good good = shop.Goods[0];
-            Good newSuperGood = new Good()
+            /*Good newSuperGood = new Good()
             {
                 Id = 112,
                 Name = "UltraGood",
                 Producer = newProducer,
                 Category = newCategory,
                 Price = 45
+            };*/
+
+            //DbBuilderForCategories.DeleteCategoryNotHard(newCategory, true);
+            //DbBuilderForGoods.InsertGood(newSuperGood);
+
+            ShopContext shop = new ShopContext();
+            shop.FillGoodsByXml("Content/RomXML.xml");
+            Good newSuperGood = new Good()
+            {
+                Id = 112,
+                Name = "SuperGood",
+                Producer = newProducer,
+                Category = newCategory,
+                Price = 45
             };
 
-            DbBuilderForCategories.DeleteCategoryNotHard(newCategory, true);
-            //DbBuilderForGoods.InsertGood(newSuperGood);
-            Console.ReadKey();            
+            Good newUltraGood = new Good()
+            {
+                Id = 22,
+                Name = "UltraGood",
+                Producer = newProducer,
+                Category = newCategory,
+                Price = 25
+            };
+
+
+            Producer prod = null;
+            using (ShopContextEf shopef = new ShopContextEf())
+            {
+                //shopef.RemoveAll();
+                shopef.FillByXml(@"Content\RomXML.xml");
+                shopef.FillByXml(@"Content\RomXML2.xml");
+
+                //Console.WriteLine(shopef.GetProducerByNameAndCountry("Sony","Korea"));
+                shopef.SaveChanges();
+            }
+         
+            
+
+            Console.ReadKey();
         }
     }
 }
