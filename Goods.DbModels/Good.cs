@@ -8,7 +8,6 @@ namespace Goods.DbModels
     [Serializable]
     public class Good
     {
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [XmlElement("id")]
         public int Id { get; set; }
@@ -17,15 +16,21 @@ namespace Goods.DbModels
         [XmlElement("price")]
         public decimal Price { get; set; }
 
+        [ForeignKey("Category_Id")]
         [XmlElement("Category")]
         public virtual Category Category { get; set; }
 
         [XmlElement("Producer")]
+        [ForeignKey("Producer_Id")]
         public virtual Producer Producer { get; set; }
+        [XmlIgnore]
+        public int Producer_Id { get; set; }
+        [XmlIgnore]
+        public int Category_Id { get; set; }
 
         public override string ToString()
         {
-            return Id + "/" + Name + "/" + Price + "/" + Category.Name + "/" + Producer.Name + "/" + Producer.Country;
+            return Id + "/" + Name + "/" + Price + "/" + Category + Producer;
         }
     }
 }

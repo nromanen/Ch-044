@@ -38,6 +38,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityGraphOperations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityGraphOperations.1.0.0\lib\net45\EntityGraphOperations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Extensions.General, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityGraphOperations.1.0.0\lib\net45\Extensions.General.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,13 +57,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="GoodsContext.cs" />
     <Compile Include="Migrations\201610111428121_migration_initial.cs" />
     <Compile Include="Migrations\201610111428121_migration_initial.Designer.cs">
       <DependentUpon>201610111428121_migration_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610120843586_mig_2.cs" />
+    <Compile Include="Migrations\201610120843586_mig_2.Designer.cs">
+      <DependentUpon>201610120843586_mig_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610120933535_migration112.cs" />
+    <Compile Include="Migrations\201610120933535_migration112.Designer.cs">
+      <DependentUpon>201610120933535_migration112.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610121230298_UpdateToColumns.cs" />
+    <Compile Include="Migrations\201610121230298_UpdateToColumns.Designer.cs">
+      <DependentUpon>201610121230298_UpdateToColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,6 +92,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610111428121_migration_initial.resx">
       <DependentUpon>201610111428121_migration_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610120843586_mig_2.resx">
+      <DependentUpon>201610120843586_mig_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610120933535_migration112.resx">
+      <DependentUpon>201610120933535_migration112.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610121230298_UpdateToColumns.resx">
+      <DependentUpon>201610121230298_UpdateToColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

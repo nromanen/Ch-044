@@ -2,21 +2,21 @@
 <ArrayOfGood xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Good>
     <id>10</id>
-    <name> Mon1 </name>
+    <name> Mon2 </name>
     <price>2.76</price>
     <Category id="1" name="Technique" />
     <Producer id="1" name="Sony" country="Korea" />
   </Good>
   <Good>
     <id>13</id>
-    <name> Mon2 </name>
+    <name> Mon3 </name>
     <price>452.76</price>
     <Category id="1" name="Technique" />
     <Producer id="3" name="Sony" country="China" />
   </Good>
   <Good>
     <id>14</id>
-    <name> Mon1 </name>
+    <name> Mon4 </name>
     <price>7892.76</price>
     <Category id="1" name="Technique" />
     <Producer id="2" name="SAMSUNG" country="Korea" />

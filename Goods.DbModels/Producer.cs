@@ -12,7 +12,6 @@ namespace Goods.DbModels
     [Serializable]
     public class Producer
     {
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [XmlAttribute("id")]
         public int Id { get; set; }

@@ -52,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericRepository.cs" />
     <Compile Include="CategoryEFManager.cs" />
     <Compile Include="GoodEFManager.cs" />
+    <Compile Include="Interface\IManager.cs" />
     <Compile Include="ProducerEFManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLogic\DAL.csproj">
+      <Project>{55327FFB-8BDE-48D6-96A6-0E6A6699549B}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Goods.DbModels\Model.csproj">
       <Project>{22EA7D15-81D2-406F-A3A7-6ED5743CA9D1}</Project>
       <Name>Model</Name>
