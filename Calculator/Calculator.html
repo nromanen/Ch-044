@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/Calculator.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+  </head>
+  <body onload="DisplayData()">
+    <div id="MainWindowCalculator">
+      <div id="mainSpan">
+        <label id="additionField">17+</label>
+        <br>
+        <label id="inputField">---</label>
+      </div>
+      <button onclick="ClearLastNumber();">CE</button>
+      <button onclick="Clear();">C</button>
+      <button onclick="DeleteCharacter();"><</button>
+      <button onclick="SetOperation('/');"> / </button>
+      <br>
+      <button onclick="PutDigit(7);">7</button>
+      <button onclick="PutDigit(8);">8</button>
+      <button onclick="PutDigit(9);">9</button>
+      <button onclick="SetOperation('*');">*</button>
+      <br>
+      <button onclick="PutDigit(4);">4</button>
+      <button onclick="PutDigit(5);">5</button>
+      <button onclick="PutDigit(6);">6</button>
+      <button onclick="SetOperation('-');">-</button>
+      <br>
+      <button onclick="PutDigit(1);">1</button>
+      <button onclick="PutDigit(2);">2</button>
+      <button onclick="PutDigit(3);">3</button>
+      <button onclick="SetOperation('+');">+</button>
+      <br>
+      <button onclick="ChangeSign();" >+-</button>
+      <button onclick="PutZero();">0</button>
+      <button onclick="PutPoint();">.</button>
+      <button onclick="CalculateResult();">=</button>
+      <br>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/calculator.js">
+
+  </script>
+</html>

@@ -1,0 +1,69 @@
+*{
+font-family: "Droid Sans",sans-serif;
+}
+
+#MainWindowCalculator
+{
+  margin: 200px auto;
+  margin-left: auto;
+  margin-right: auto;
+  width:300px;
+}
+
+
+/* Styling buttons*/
+
+button
+{
+    border:0px solid black;
+    background: #333;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    color:floralwhite;
+    font-size: 20px;
+    margin: -2px;
+    padding: 0px;
+}
+
+button:hover
+{
+    border:0px solid black;
+    background: #555;
+}
+
+button:active
+{
+    border:1px solid #666;
+    background: #AAA;
+    outline: none;
+}
+
+button:focus
+{
+    outline: none;
+}
+/* Styling input field*/
+#mainSpan
+{
+  background: #444;
+  width: 280px !important;
+  height: 80px !important;
+  margin-left: -2px;
+  color: #DDD;
+  font-size: 30px;
+  text-align: right;
+}
+
+#inputField
+{
+  margin-right: 10px;
+  width:100px;
+}
+
+#additionField
+{
+  margin-right: 12px;
+  width:100px;
+  color:#AAA;
+  font-size: 12px;
+}

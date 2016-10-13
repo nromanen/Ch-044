@@ -1,0 +1,267 @@
+/* Space out content a bit */
+body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+      font-family: "Droid Sans",sans-serif;
+}
+
+h1,h2,h3,h4,h5,h5
+{
+  font-weight: bolder;
+  line-height: 0.9em;
+  margin-top: 5px;
+}
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+
+}
+
+.brand-header{
+  padding: 1.64em;
+}
+
+.text-muted{
+  font-size: 48px;
+  color: white;
+}
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  background: #444;
+  height:147px;
+  color:white;
+}
+
+.header-links
+{
+height:40px;
+background: #222222;
+padding-bottom: 0px;
+margin-bottom: 0px;
+}
+
+
+
+.header-links > ul{
+  margin-top:5px;
+  padding-left: 20px;
+
+}
+.header-links > ul > li{
+
+  height: 60%;
+}
+.header-links > ul > li > a
+{
+margin-top: 0px;
+padding: 5px 9px 5px 9px;
+height: 30%;
+font-size: 1em;
+background: #222;
+color:#CCC;
+width: 100%;
+}
+.header-links > ul > li > a:hover
+{
+background: #666;
+}
+.header-links  ul  li.active a
+{
+  background: #666;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.2em;
+  color: #fff;
+}
+.header-links  ul  li.active a:hover
+{
+background: #666;
+}
+
+
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #555;
+  background: #EEE;
+  padding: 1.5em;
+}
+
+.footer p{
+  margin: auto 20px;
+}
+
+
+.container{
+  max-width: 1130px !important;
+}
+.sidebar{
+}
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .row {
+    padding: 0;
+    margin: 0;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  padding: 0 0px;
+  margin: 17px 5px;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.sidephotos > img
+{
+  margin-bottom: 1.5em;
+  margin-right: 0.6em;
+  border: 2px #eee solid;
+  border: 2px white solid;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+}
+
+.maincontent
+{
+border-radius: 0.3em;
+border-width: 1px;
+border-style: solid;
+border-color: #888;
+border-color: rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+color: #444;
+color: rgba(0, 0, 0, 0.8);
+padding: 1.42857em;
+background: #EEE;
+margin: 0 0 1.5em 0;
+line-height: 1.5;
+}
+
+.maincontent h2
+{
+  margin: 10px 0 20px 0;
+}
+
+.subcontent
+{
+  margin-bottom: 15px;
+}
+.searchfield
+{
+  float:right;
+  margin-top:8px;
+  margin-right: 25px;
+}
+.searchfield > input[type="button"]
+{
+  -webkit-appearance: none;
+background: #5f5f5f;
+background: rgba(255, 255, 255, 0.2);
+border-radius: .2em;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-size: 1em;
+line-height: 1.25;
+padding: 0.25em;
+border: solid 1px transparent;
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.searchfield > input[type="text"]
+{
+  color:#AAA;
+  width:180px;
+}
+@media screen and (max-width:768px ) {
+  .searchfield > input[type="text"]
+  {
+    color:#AAA;
+    width:120px;
+  }
+}
+@media screen and (max-width:530px ) {
+  .searchfield > input[type="text"]
+  {
+    color:#AAA;
+    width:20px;
+  }
+}
+
+.readmorebutton
+{
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
+background: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+background: -moz-linear-gradient(top, #eeeeee, #cccccc);
+background: -ms-linear-gradient(top, #eeeeee, #cccccc);
+background: linear-gradient("to bottom", #eeeeee, #cccccc);
+border: 1px solid #777;
+border-radius: .2em;
+box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+color: #333 !important;
+cursor: pointer;
+font: normal 1em/2em Arial, Helvetica;
+margin: 0 0.75em 0 0;
+padding: 0 1.5em;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.readmorebutton:hover
+{
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
+  background: -webkit-linear-gradient(top, #eee, #ddd);
+  background: -moz-linear-gradient(top, #eee, #ddd);
+  background: -ms-linear-gradient(top, #eee, #ddd);
+}
