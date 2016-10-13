@@ -12,10 +12,20 @@ namespace BusinessLogic
     {
         UnitOfWork uof = new UnitOfWork();
 
-        public void Create(Producer item)
+        public void Add(Producer item)
         {
-            uof.ProducerRepository.Insert(item);
-            uof.Save();
+            List<string> prodsNames = uof.ProducerRepository.All.Select(i => i.Name).ToList();
+            List<string> prodsCountries = uof.ProducerRepository.All.Select(i => i.Country).ToList();
+            var maxp = uof.ProducerRepository.All.Select(i => i.Id).DefaultIfEmpty().Max();
+            if (!prodsNames.Contains(item.Name))
+            {
+                if (!prodsCountries.Contains(item.Country))
+                {
+                    item.Id = ++maxp;
+                    uof.ProducerRepository.Insert(item);
+                    uof.Save();
+                }
+            }
         }
 
         public void Delete(Producer item)

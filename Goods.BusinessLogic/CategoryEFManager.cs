@@ -9,10 +9,17 @@ namespace BusinessLogic
     {
         UnitOfWork uof = new UnitOfWork();
 
-        public void Create(Category item)
+        public void Add(Category item)
         {
-            uof.CategoryRepository.Insert(item);
-            uof.Save();
+
+            List<string> catsNames = uof.CategoryRepository.All.Select(i => i.Name).ToList();
+            var maxc = uof.CategoryRepository.All.Select(i => i.Id).DefaultIfEmpty().Max();
+            if (!catsNames.Contains(item.Name))
+            {
+                item.Id = ++maxc;
+                uof.CategoryRepository.Insert(item);
+                uof.Save();
+            }
         }
 
         public void Delete(Category item)

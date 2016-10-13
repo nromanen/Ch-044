@@ -44,12 +44,15 @@ namespace App1
                 GoodEFManager goodman = new GoodEFManager();
                 foreach (var i in items)
                 {
-                    goodman.Create(i);
+                    goodman.Add(i);
                 }
                 foreach (var i in items2)
                 {
-                    goodman.Create(i);
+                    goodman.Add(i);
                 }
+                Producer prod = new Producer { Id = 13, Name = "qweqwe", Country = "sad" };
+                ProducerEFManager prodef = new ProducerEFManager();
+                prodef.Add(prod);
                 Console.WriteLine("Done!");
             }
             catch (Exception exc)
