@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace SS_lab1
 {
-    class GoodsXmlManager : IXmlFileManager
+    public class GoodsXmlManager : IXmlFileManager
     {
         public void GoodsFromXml(string path, out List<Good> goods)
         {

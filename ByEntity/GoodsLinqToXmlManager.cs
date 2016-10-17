@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SS_lab1.Model;
 using System.Xml.Linq;
 using System.IO;
 using System.Xml;
+using ByEntity.Model;
 
-namespace SS_lab1
+namespace ByEntity
 {
-    public class GoodsLinqToXmlManager : IXmlFileManager
+    public class GoodsLinqToXmlManager
     {
         public void GoodsFromXml(string path, out List<Good> goods)
         {

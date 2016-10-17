@@ -12,6 +12,8 @@ using System.Configuration;
 using System.Data.SqlClient;
 using SS_lab1.SqlManager;
 using System.Threading;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace SS_lab1
 {
@@ -82,7 +84,7 @@ namespace SS_lab1
             //Console.Read();
             #endregion
 
-
+            #region ADO.NETTASK
             //CategorySqlManager a = new CategorySqlManager();
             //a.ConnectionOpen();
 
@@ -90,18 +92,40 @@ namespace SS_lab1
 
 
             //a.ConnectionClose();
+            #endregion
+            #region ThreadTask1
+            //List<Folder> list = XmlSize(Directory.GetDirectories(@"E:\New folder"));
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item.folderPath + "\t" + item.commonXmlSize);
+            //}
+            #endregion
 
-            List<Folder> list = XmlSize(Directory.GetDirectories(@"E:\New folder"));
-            foreach (var item in list)
-            {
-                Console.WriteLine(item.folderPath + "\t" + item.commonXmlSize);
-            }
-          
+            string folderPath = @"E:\Taxi-master";
+            var watch = new Stopwatch();
+            watch.Start();
+
+            DirectoryParser parser = new DirectoryParser(folderPath, "=");
+            parser.TskParser();
+            watch.Stop();
+            Console.WriteLine("symbols: " + parser.ToString());
+            Console.WriteLine("time: " + watch.ElapsedMilliseconds);
+
+
+            //DirectoryParser parser = new DirectoryParser(folderPath);
+            //parser.Parser();
+            //Console.WriteLine(parser);
+
+
+
+
+
             Console.Read();
             
 
         }
 
+       
         public static List<Folder> XmlSize(params string[] folderPath)
         {
             List<Folder> folderList = new List<Folder>();
@@ -115,9 +139,11 @@ namespace SS_lab1
             return folderList;
         }
 
-        
+       
 
-        
+     
+
+
 
 
 

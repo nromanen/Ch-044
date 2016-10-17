@@ -33,7 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,10 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectoryParser.cs" />
     <Compile Include="FileManagers\CategoryFileManager.cs" />
     <Compile Include="FileManagers\GoodFileManager.cs" />
+    <Compile Include="Folder.cs" />
     <Compile Include="QueryFromXml.cs" />
     <Compile Include="Sale.cs" />
+    <Compile Include="SqlManager\CategorySqlManager.cs" />
+    <Compile Include="SqlManager\GoodSqlManager.cs" />
+    <Compile Include="SqlManager\ProducerSqlManager.cs" />
+    <Compile Include="SqlManager\SqlManager.cs" />
     <Compile Include="XmlFileManager\GoodsLinqToXmlManager.cs" />
     <Compile Include="XmlFileManager\GoodsXmlManager.cs" />
     <Compile Include="Model\Category.cs" />
@@ -60,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace SS_lab1
 {
-    class XmlFileManager : IXmlFileManager
+    public class XmlFileManager : IXmlFileManager
     {
         private string Config
         {

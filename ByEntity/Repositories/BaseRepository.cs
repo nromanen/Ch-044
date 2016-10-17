@@ -22,6 +22,11 @@ namespace ByEntity.Repositories
 
         public void Add(T item)
         {
+            if(item == null)
+            {
+                Console.WriteLine("OPs");
+                return;
+            }
             DbSet.Add(item);
             Context.SaveChanges();
         }

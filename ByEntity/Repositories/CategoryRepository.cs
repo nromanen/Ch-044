@@ -11,7 +11,23 @@ namespace ByEntity.Repositories
 {
     public class CategoryRepository : BaseRepository<Category>
     {
-        CategoryRepository(DbContext db) : base(db) { }
+        public CategoryRepository(GoodContext db) : base(db) { }
+        private GoodContext Db { get { return (GoodContext)Context; } }
+
+        public Category GetByName(string name)
+        {
+            return Db.Categories.FirstOrDefault(x => x.Name == name);    
+            
+        }
+
+        public Category GetByUnique(string name, string country)
+        {
+            return Db.Categories.FirstOrDefault(x => x.Name == name);
+
+        }
+
+
+
 
 
 
