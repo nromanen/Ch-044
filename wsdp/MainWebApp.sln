@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainWebApp", "MainWebApp\MainWebApp.csproj", "{5B403C33-EEB6-4779-BC55-0F644DA95A46}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{08810AE4-EAFE-4D1C-BAA0-E082817F290F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{03309A7A-8788-4DD2-9726-C36ADB85994F}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5B403C33-EEB6-4779-BC55-0F644DA95A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B403C33-EEB6-4779-BC55-0F644DA95A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B403C33-EEB6-4779-BC55-0F644DA95A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B403C33-EEB6-4779-BC55-0F644DA95A46}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08810AE4-EAFE-4D1C-BAA0-E082817F290F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08810AE4-EAFE-4D1C-BAA0-E082817F290F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08810AE4-EAFE-4D1C-BAA0-E082817F290F}.Release|Any CPU.ActiveCfg = Release|Any CPU
