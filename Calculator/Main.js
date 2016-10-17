@@ -27,7 +27,7 @@ for(var i = 0; i < keys.length; i++) {
 
       //check last char of eq
       if(operators.indexOf(lastChar) > -1 || lastChar == '.')
-        equation = equation.replace(/.$/, '');
+        equation = equation.replace(/.$/, ''); 
 
       if(equation)
         input.innerHTML = eval(equation);
