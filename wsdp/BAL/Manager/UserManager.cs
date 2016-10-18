@@ -1,5 +1,6 @@
 ﻿using BAL.Interface;
 using DAL.Interface;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
