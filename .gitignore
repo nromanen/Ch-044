@@ -2,16 +2,16 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/wsdp/BAL/obj/Debug
-/wsdp/BAL/bin/Debug
-/wsdp/Common/bin/Debug
-/wsdp/Common/obj/Debug
-/wsdp/DAL/bin/Debug
-/wsdp/DAL/obj/Debug
-/wsdp/UnitTests/bin/Debug
-/wsdp/UnitTests/obj/Debug
-/wsdp/Resources/bin/Debug
-/wsdp/Resources/obj/Debug
-/wsdp/Model/obj/Debug
-/wsdp/Model/bin/Debug
-/wsdp/MainWebApp/obj/Debug
+/wsdp/BAL/obj
+/wsdp/BAL/bin
+/wsdp/Common/bin
+/wsdp/Common/obj
+/wsdp/DAL/bin
+/wsdp/DAL/obj
+/wsdp/UnitTests/bin
+/wsdp/UnitTests/obj
+/wsdp/Resources/bin
+/wsdp/Resources/obj
+/wsdp/Model/obj
+/wsdp/Model/bin
+/wsdp/MainWebApp/obj
