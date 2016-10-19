@@ -11,7 +11,7 @@ using Model.DB;
 
 namespace BAL
 {
-    class AutoMapperConfig
+    public class AutoMapperConfig
     {
         public static void Configure()
         {
