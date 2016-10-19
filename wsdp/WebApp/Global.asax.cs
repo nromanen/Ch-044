@@ -8,6 +8,12 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BAL;
+using BAL.Interface;
+using BAL.Manager;
+using DAL;
+using DAL.Interface;
+using SimpleInjector;
+using SimpleInjector.Integration.Web.Mvc;
 
 namespace WebApp
 {
@@ -15,6 +21,17 @@ namespace WebApp
     {
         protected void Application_Start()
         {
+
+
+            #region SimpleInjectorContainer
+            var container = new Container();
+            container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
+            container.Register<IUserManager, UserManager>();
+            container.Verify();
+            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+            #endregion
+
+
             log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

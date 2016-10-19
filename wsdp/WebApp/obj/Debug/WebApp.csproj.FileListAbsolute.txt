@@ -174,3 +174,6 @@ D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.reso
 D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+E:\repositry\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
+E:\repositry\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
+E:\repositry\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
