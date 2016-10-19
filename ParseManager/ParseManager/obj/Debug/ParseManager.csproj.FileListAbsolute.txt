@@ -1,0 +1,9 @@
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\bin\Debug\ParseManager.exe.config
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\obj\Debug\ParseManager.csprojResolveAssemblyReference.cache
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\bin\Debug\ParseManager.exe
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\bin\Debug\ParseManager.pdb
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\bin\Debug\HtmlAgilityPack.dll
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\bin\Debug\HtmlAgilityPack.pdb
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\bin\Debug\HtmlAgilityPack.xml
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\obj\Debug\ParseManager.exe
+c:\users\syakhtc\documents\visual studio 2013\Projects\ParseManager\ParseManager\obj\Debug\ParseManager.pdb
