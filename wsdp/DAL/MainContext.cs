@@ -4,11 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.DB;
 
 namespace DAL {
 	public class MainContext : DbContext {
 		public MainContext()
-			: base("dbTaxi") {
+			: base("MyShop") {
 			this.Configuration.LazyLoadingEnabled = true;
 
 		}
@@ -18,6 +19,7 @@ namespace DAL {
 			this.Configuration.LazyLoadingEnabled = true;
 		}
 
-		// public DbSet<User> Users { get; set; }
+		public DbSet<User> Users { get; set; }
+		public DbSet<Role> Roles { get; set; }
 	}
 }
