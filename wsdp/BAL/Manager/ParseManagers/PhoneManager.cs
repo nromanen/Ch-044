@@ -108,7 +108,7 @@ namespace BAL.Manager.ParseManagers {
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex.Message);
             }
 
             try
@@ -117,7 +117,7 @@ namespace BAL.Manager.ParseManagers {
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex.Message);
             }
 
             try
@@ -133,7 +133,7 @@ namespace BAL.Manager.ParseManagers {
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex.Message);
             }
 
             Characteristics cr = new Characteristics();
@@ -154,7 +154,7 @@ namespace BAL.Manager.ParseManagers {
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex.Message);
             }
 
             ClearGood good = new ClearGood()
@@ -173,9 +173,9 @@ namespace BAL.Manager.ParseManagers {
                 Price = pricePhone,
                 Shop = shop
             };
-            Console.WriteLine(concreteGood);
-            Console.ReadLine();
-            return null;
+
+
+            return concreteGood;
         }
 
 
