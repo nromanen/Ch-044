@@ -22,23 +22,35 @@ namespace WebApp
         protected void Application_Start()
         {
 
-
-            #region SimpleInjectorContainer
-            var container = new Container();
-            container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
-            container.Register<IUserManager, UserManager>();
-            container.Verify();
-            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
-            #endregion
-
-
             log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
+
+            Container container = InjectorContainer();
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Configure();
+        }
+
+        private Container InjectorContainer()
+        {
+
+            try
+            {
+                var container = new Container();
+                container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
+                container.Register<IUserManager, UserManager>();
+                container.Verify();
+                DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+                return container;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
