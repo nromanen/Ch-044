@@ -19,7 +19,9 @@ namespace DAL {
 		public UnitOfWork() {
 			context = new MainContext();
 
-			// userRepo = new GenericRepository<User>(context);
+            // userRepo = new GenericRepository<User>(context);
+
+            goodRepo = new GenericRepository<Good>(context);
 		}
 
         #region Repositories Getters
