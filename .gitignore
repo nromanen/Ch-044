@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -16,3 +16,13 @@
 /wsdp/Model/bin/Debug
 /wsdp/MainWebApp/obj/Debug
 /wsdp/WebApp/bin
+
+# Directories potentially created on remote AFP share
+
+*.suo
+*.cache
+*/bin/*
+*/obj/*
+Backup/*
+.vs/config/applicationhost.config
+

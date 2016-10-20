@@ -278,3 +278,9 @@ E:\repositry\Ch-044\wsdp\WebApp\bin\System.Web.Http.WebHost.xml
 E:\repositry\Ch-044\wsdp\WebApp\bin\AutoMapper.xml
 E:\repositry\Ch-044\wsdp\WebApp\bin\ru-RU\Resources.resources.dll
 E:\repositry\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
+D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\SimpleInjector.dll
+D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.dll
+D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.Mvc.dll
+D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\SimpleInjector.xml
+D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.xml
+D:\Programming\SoftServe\PRepository\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.Mvc.xml

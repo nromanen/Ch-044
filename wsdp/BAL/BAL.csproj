@@ -79,6 +79,11 @@
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Manager\BaseManager.cs" />
+    <Compile Include="Manager\ParseManagers\FridgeManager.cs" />
+    <Compile Include="Manager\ParseManagers\LaptopManager.cs" />
+    <Compile Include="Manager\ParseManagers\MicrowaveManager.cs" />
+    <Compile Include="Manager\ParseManagers\PhoneManager.cs" />
+    <Compile Include="Manager\ParseManagers\TVManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
