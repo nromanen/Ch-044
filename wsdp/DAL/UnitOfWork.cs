@@ -14,6 +14,7 @@ namespace DAL {
         #region Private Repositories
         // private IGenericRepository<User> userRepo;
         private IGenericRepository<Good> goodRepo;
+		private IGenericRepository<Category> categoryRepo;
 		#endregion
 
 		public UnitOfWork() {
@@ -22,6 +23,7 @@ namespace DAL {
             // userRepo = new GenericRepository<User>(context);
 
             goodRepo = new GenericRepository<Good>(context);
+			categoryRepo = new GenericRepository<Category>(context);
 		}
 
         #region Repositories Getters
@@ -44,11 +46,16 @@ namespace DAL {
             }
         }
 
+		public IGenericRepository<Category> CategoryRepo {
+			get {
+				if (categoryRepo == null) categoryRepo = new GenericRepository<Category>(context);
+				return categoryRepo;
+			}
+		}
 
+		#endregion
 
-        #endregion
-
-        public void Save() {
+		public void Save() {
 			context.SaveChanges();
 		}
 

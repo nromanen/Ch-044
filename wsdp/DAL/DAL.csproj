@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201610201743004_AddGood.Designer.cs">
       <DependentUpon>201610201743004_AddGood.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610211938258_added-category-model.cs" />
+    <Compile Include="Migrations\201610211938258_added-category-model.Designer.cs">
+      <DependentUpon>201610211938258_added-category-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610201743004_AddGood.resx">
       <DependentUpon>201610201743004_AddGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610211938258_added-category-model.resx">
+      <DependentUpon>201610211938258_added-category-model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

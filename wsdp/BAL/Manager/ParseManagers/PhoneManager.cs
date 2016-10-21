@@ -46,7 +46,7 @@ namespace BAL.Manager.ParseManagers {
                 foreach (var good in GetConcreteGoodsFromOnePage(urlpath + "?page=" + i.ToString()))
                 {
                     Good goodDb = new Good();
-                    goodDb.Category = Common.Enum.Category.Phone;
+                    goodDb.Category = Common.Enum.GoodCategory.Phone;
                     goodDb.Id = 1;
 
                     ExtendedXmlSerializer ser = new ExtendedXmlSerializer();

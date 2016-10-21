@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Common.Enum {
-	public enum Category {
+	public enum GoodCategory {
 		Phone = 0,
 		Laptop = 1,
 		TV = 2, 

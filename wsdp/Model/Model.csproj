@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\Category.cs" />
     <Compile Include="DB\Good.cs" />
     <Compile Include="DB\Role.cs" />
     <Compile Include="DB\User.cs" />

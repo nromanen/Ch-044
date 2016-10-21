@@ -22,5 +22,6 @@ namespace DAL {
 		public DbSet<User> Users { get; set; }
 		public DbSet<Role> Roles { get; set; }
 		public DbSet<Good> Goods { get; set; }
+		public DbSet<Category> Categories { get; set; }
 	}
 }
