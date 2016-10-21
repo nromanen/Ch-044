@@ -15,6 +15,8 @@ using DAL.Interface;
 using log4net;
 using SimpleInjector;
 using SimpleInjector.Integration.Web.Mvc;
+using System.Globalization;
+using System.Threading;
 
 namespace WebApp
 {
@@ -36,7 +38,7 @@ namespace WebApp
             AutoMapperConfig.Configure();
         }
 
-        private void  InjectorContainer()
+        private void InjectorContainer()
         {
             try
             {
@@ -49,6 +51,20 @@ namespace WebApp
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
+            }
+        }
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
+            if (cookie != null && cookie.Value != null)
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(cookie.Value);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(cookie.Value);
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             }
         }
     }
