@@ -15,12 +15,13 @@ namespace BAL.Manager
         static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public GoodManager(IUnitOfWork uOW) : base(uOW)
         {
-            
+
         }
 
         public void InsertGood(Good good)
         {
             uOW.GoodRepo.Insert(good);
+            uOW.Save();
         }
     }
 }
