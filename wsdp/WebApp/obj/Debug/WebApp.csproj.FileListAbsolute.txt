@@ -496,3 +496,7 @@ D:\softserve\localRepository\WebSite\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.reso
 D:\softserve\localRepository\WebSite\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\softserve\localRepository\WebSite\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\softserve\localRepository\WebSite\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\ExtendedXmlSerializer.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.pdb
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.xml

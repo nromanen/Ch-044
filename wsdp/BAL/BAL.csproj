@@ -51,6 +51,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
@@ -86,6 +87,7 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Interface\IGoodManager.cs" />
+    <Compile Include="Interface\IPhoneManager.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\GoodManager.cs" />
@@ -98,6 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

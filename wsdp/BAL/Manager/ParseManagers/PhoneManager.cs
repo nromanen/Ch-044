@@ -10,10 +10,15 @@ using log4net;
 using Model.DB;
 using System.Xml.Serialization;
 using ExtendedXmlSerialization;
+using BAL.Interface;
+using Model.DTO;
+using AutoMapper;
 
 namespace BAL.Manager.ParseManagers {
     //parser for MOYO.UA
-	public class PhoneManager : BaseManager
+
+    
+	public class PhoneManager : BaseManager , IPhoneManager
     {
         static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public PhoneManager(IUnitOfWork uOW) : base(uOW)
@@ -21,18 +26,42 @@ namespace BAL.Manager.ParseManagers {
 
         }
 
+        public List<PhoneSimpleDTO> GetAllPhones()
+        {
+            List<PhoneSimpleDTO> phones = new List<PhoneSimpleDTO>();
+            ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
+            foreach (var phoneDb in uOW.GoodRepo.All)
+            {
+                var phone = ser.Deserialize(phoneDb.XmlData, typeof(ConcreteGood));
+
+                phones.Add(Mapper.Map<PhoneSimpleDTO>(phone));
+            }
+
+            return phones;
+        }
         private int GetCountOfPages(string urlpath)
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(urlpath);
+            int count = 1;
 
+            try
+            {
+                var finddiv = doc.DocumentNode.Descendants("div")
+                 .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("pagination"))
+                 .FirstOrDefault();
 
-            var finddiv = doc.DocumentNode.Descendants("div").Where(d =>
-            d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("pagination")).FirstOrDefault();
+                var pagelink = finddiv.ChildNodes
+                                      .Where(el => el.Name == "a")
+                                      .Last();
+                count = Convert.ToInt32(pagelink.InnerHtml);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
 
-            var pagelink = finddiv.ChildNodes.Where(el => el.Name == "a").Last();
-
-            return Convert.ToInt32(pagelink.InnerHtml);
+            return count;
         }
         public void ParseGoodsFromCategory(string urlpath)
         {
@@ -40,8 +69,14 @@ namespace BAL.Manager.ParseManagers {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(urlpath);
             int countOfPages = this.GetCountOfPages(urlpath);
+            /*Category category = new Category()
+            {
+                Id = 0,
+                З
+            }*/
 
-            for (int i = 2; i <= countOfPages; i++)
+
+            for (int i = 1; i <= countOfPages; i++)
             {
                 foreach (var good in GetConcreteGoodsFromOnePage(urlpath + "?page=" + i.ToString()))
                 {
@@ -52,8 +87,9 @@ namespace BAL.Manager.ParseManagers {
                     ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
 
                     goodDb.XmlData = ser.Serialize(good);
-                    
-                    gm.InsertGood(goodDb);
+
+                    if (good.Price != 0)
+                        gm.InsertGood(goodDb);
                 } 
             }
 
@@ -68,14 +104,20 @@ namespace BAL.Manager.ParseManagers {
 
 
 
-            var finddivs = doc.DocumentNode.Descendants("div").Where(d =>
-            d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("goods_item"));
+            var finddivs = doc.DocumentNode.Descendants("div")
+                              .Where(d => d.Attributes.Contains("class") && d.Attributes["class"]
+                              .Value
+                              .Contains("goods_item"));
 
             foreach (var itemdiv in finddivs)
             {
-                var innerItemDiv = itemdiv.Descendants("div").Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("goodsitem_inner")).FirstOrDefault();
+                var innerItemDiv = itemdiv.Descendants("div")
+                                          .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("goodsitem_inner"))
+                                          .FirstOrDefault();
 
-                var link = innerItemDiv.ChildNodes.Where(d => d.Name == "a").Last();
+                var link = innerItemDiv.ChildNodes
+                                       .Where(d => d.Name == "a")
+                                       .Last();
 
                 string pathForGood = link.Attributes["href"].Value;
 
@@ -95,6 +137,7 @@ namespace BAL.Manager.ParseManagers {
 
             string namePhone = "";
             decimal pricePhone = 0;
+            string ulrimg = "";
             Producer producer = null;
 
             HtmlWeb web = new HtmlWeb();
@@ -103,8 +146,8 @@ namespace BAL.Manager.ParseManagers {
             try
             {
                 namePhone = doc.DocumentNode.Descendants("meta")
-                              .Where(d => d.Attributes.Contains("name") && d.Attributes["name"].Value.Contains("keywords"))
-                              .FirstOrDefault().Attributes["Content"].Value;
+                               .Where(d => d.Attributes.Contains("name") && d.Attributes["name"].Value.Contains("keywords"))
+                               .FirstOrDefault().Attributes["Content"].Value;
             }
             catch (Exception ex)
             {
@@ -113,7 +156,8 @@ namespace BAL.Manager.ParseManagers {
 
             try
             {
-                pricePhone = Convert.ToDecimal(doc.GetElementbyId("quickOrder_productPrice").Attributes["value"].Value);
+                pricePhone = Convert.ToDecimal(doc.GetElementbyId("quickOrder_productPrice")
+                                                  .Attributes["value"].Value);
             }
             catch (Exception ex)
             {
@@ -122,8 +166,31 @@ namespace BAL.Manager.ParseManagers {
 
             try
             {
-                string nameProducer = doc.DocumentNode.Descendants("div").Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "breadcrumbs clear_after").FirstOrDefault().Descendants("div")
-                                     .Where(d => d.Attributes.Contains("itemtype")).Last().ChildNodes[0].ChildNodes[0].InnerHtml;
+                ulrimg = doc.DocumentNode.Descendants("div")
+                            .Where(a => a.Attributes.Contains("class") && a.Attributes["class"].Value.Contains("tovarnew-mainimagecontainer"))
+                            .FirstOrDefault()
+                            .ChildNodes[1]
+                            .Attributes["href"]
+                            .Value;
+
+                //ulrimg = @"http://img1.moyo.ua/img/products/2796/64_4000x_1475233394.png";
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
+
+            try
+            {
+                string nameProducer = doc.DocumentNode.Descendants("div")
+                                         .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "breadcrumbs clear_after")
+                                         .FirstOrDefault()
+                                         .Descendants("div")
+                                         .Where(d => d.Attributes.Contains("itemtype"))
+                                         .Last()
+                                         .ChildNodes[0]
+                                         .ChildNodes[0]
+                                         .InnerHtml;
                 //string nameProducer = "123";
                 producer = new Producer()
                 {
@@ -140,8 +207,12 @@ namespace BAL.Manager.ParseManagers {
 
             try
             {
-                var crUl = doc.DocumentNode.Descendants("div").Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "full_content").FirstOrDefault()
-                    .Descendants("li").Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "clear_after").ToList();
+                var crUl = doc.DocumentNode.Descendants("div")
+                              .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "full_content")
+                              .FirstOrDefault()
+                              .Descendants("li")
+                              .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "clear_after")
+                              .ToList();
 
                 foreach (var li in crUl)
                 {
@@ -162,7 +233,8 @@ namespace BAL.Manager.ParseManagers {
                 Id = 1,
                 Name = namePhone,
                 Description = "",
-                Characteristics = cr
+                Characteristics = cr,
+                ImgUrl = ulrimg
             };
 
             ConcreteGood concreteGood = new ConcreteGood()
@@ -171,10 +243,12 @@ namespace BAL.Manager.ParseManagers {
                 Producer = producer,
                 Id = 1,
                 Price = pricePhone,
-                Shop = shop
+                Shop = shop,
+                Link = urlpath
             };
 
-
+            //Console.WriteLine(ulrimg);
+            //Console.ReadLine();
             return concreteGood;
         }
 

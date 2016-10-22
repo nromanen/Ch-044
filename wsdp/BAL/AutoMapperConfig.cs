@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Model.DTO;
 using Model.DB;
-
-
+using Model.Product;
 
 namespace BAL
 {
@@ -18,6 +17,9 @@ namespace BAL
             //Simple examples of configuring automapper
             Mapper.Initialize(cfg => cfg.CreateMap<User, UserDTO>());
             Mapper.Initialize(cfg => cfg.CreateMap<UserDTO, User>());
+            Mapper.Initialize(cfg => cfg.CreateMap<ConcreteGood, PhoneSimpleDTO>()
+                .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.Good.ImgUrl))
+                .ForMember(p => p.Name, m => m.MapFrom(t => t.Good.Name)));
         }
     }
 }

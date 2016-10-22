@@ -12,6 +12,7 @@ namespace Model.Product {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string ImgUrl { get; set; }
         public Characteristics Characteristics { get; set; }
 
         public override string ToString()
@@ -32,6 +33,7 @@ namespace Model.Product {
         public decimal Price { get; set; }
         public ClearGood Good { get; set; }
         public Producer Producer { get; set; }
+        public string Link { get; set; }
         public Shop Shop { get; set; }
 
         public override string ToString()

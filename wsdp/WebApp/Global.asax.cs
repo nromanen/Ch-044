@@ -17,6 +17,7 @@ using SimpleInjector;
 using SimpleInjector.Integration.Web.Mvc;
 using System.Globalization;
 using System.Threading;
+using BAL.Manager.ParseManagers;
 
 namespace WebApp
 {
@@ -45,6 +46,7 @@ namespace WebApp
                 var container = new Container();
                 container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
                 container.Register<IUserManager, UserManager>();
+                container.Register<IPhoneManager, PhoneManager>();
                 container.Verify();
                 DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
             }

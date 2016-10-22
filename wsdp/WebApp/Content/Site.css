@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background:#EEE;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,24 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.phone-simple-object
+{
+    border:1px dotted #CCC;
+    margin-bottom:10px;
+    padding:10px;
+    background:#FFF;
+}
+
+.phone-simple-object > .media .pull-left{
+    min-width:120px;
+    align-self:center;
+}
+
+.phone-simple-object > .media .pull-left img
+{
+    height:100px;
+    width:auto;
+    margin:0 auto;
 }
