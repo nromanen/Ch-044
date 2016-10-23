@@ -86,11 +86,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
+    <Compile Include="Interface\ICategoryManager.cs" />
     <Compile Include="Interface\IGoodManager.cs" />
     <Compile Include="Interface\IPhoneManager.cs" />
     <Compile Include="Interface\IPhoneParseManager.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Manager\BaseManager.cs" />
+    <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\GoodManager.cs" />
     <Compile Include="Manager\ParseManagers\FridgeManager.cs" />
     <Compile Include="Manager\ParseManagers\LaptopManager.cs" />

@@ -10,6 +10,7 @@ namespace DAL.Interface {
 		// IGenericRepository<User> UserRepo { get; }
 
         IGenericRepository<Good> GoodRepo { get; }
+		IGenericRepository<Category> CategoryRepo { get; }
 		void Dispose();
 		void Save();
 	}
