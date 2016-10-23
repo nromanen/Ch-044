@@ -13,32 +13,21 @@ using ExtendedXmlSerialization;
 using BAL.Interface;
 using Model.DTO;
 using AutoMapper;
+using System.Text.RegularExpressions;
 
 namespace BAL.Manager.ParseManagers {
     //parser for MOYO.UA
 
     
-	public class PhoneManager : BaseManager , IPhoneManager
+	public class PhoneParseManager : BaseManager, IPhoneParseManager
     {
         static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
-        public PhoneManager(IUnitOfWork uOW) : base(uOW)
+        public PhoneParseManager(IUnitOfWork uOW) : base(uOW)
         {
 
         }
 
-        public List<PhoneSimpleDTO> GetAllPhones()
-        {
-            List<PhoneSimpleDTO> phones = new List<PhoneSimpleDTO>();
-            ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
-            foreach (var phoneDb in uOW.GoodRepo.All)
-            {
-                var phone = ser.Deserialize(phoneDb.XmlData, typeof(ConcreteGood));
 
-                phones.Add(Mapper.Map<PhoneSimpleDTO>(phone));
-            }
-
-            return phones;
-        }
         private int GetCountOfPages(string urlpath)
         {
             HtmlWeb web = new HtmlWeb();
@@ -138,6 +127,7 @@ namespace BAL.Manager.ParseManagers {
             string namePhone = "";
             decimal pricePhone = 0;
             string ulrimg = "";
+            string description = "";
             Producer producer = null;
 
             HtmlWeb web = new HtmlWeb();
@@ -227,12 +217,25 @@ namespace BAL.Manager.ParseManagers {
             {
                 logger.Error(ex.Message);
             }
+            try
+            {
+                description = doc.DocumentNode.Descendants("div")
+                              .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("moredescription"))
+                              .FirstOrDefault()
+                              .InnerHtml;
+
+                description = Regex.Replace(description, "<img.*?>", String.Empty);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
 
             ClearGood good = new ClearGood()
             {
                 Id = 1,
                 Name = namePhone,
-                Description = "",
+                Description = description,
                 Characteristics = cr,
                 ImgUrl = ulrimg
             };
@@ -253,8 +256,7 @@ namespace BAL.Manager.ParseManagers {
         }
 
 
-    
-}
+    }
 
 
 }

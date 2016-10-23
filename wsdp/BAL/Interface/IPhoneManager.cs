@@ -1,4 +1,5 @@
 ﻿using Model.DTO;
+using Model.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace BAL.Interface
 {
     public interface IPhoneManager
     {
-        void ParseGoodsFromCategory(string urlpath);
         List<PhoneSimpleDTO> GetAllPhones();
+
+        ConcreteGood GetPhoneById(int id);
     }
 }

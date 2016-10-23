@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background:#EEE;
+    background: #EEE;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,22 +24,52 @@ textarea {
     max-width: 280px;
 }
 
-.phone-simple-object
-{
-    border:1px dotted #CCC;
-    margin-bottom:10px;
+.phone-simple-object {
+    border: 1px dotted #CCC;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #FFF;
+}
+
+    .material-design-block > .media .pull-left {
+        min-width: 120px;
+        align-self: center;
+    }
+
+        .material-design-block > .media .pull-left img {
+            height: 100px;
+            width: auto;
+            margin: 0 auto;
+        }
+
+.material-design-block {
+    margin: 10px;
+    background-color: white;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    border-width: 1px 1px 3px 1px;
     padding:10px;
-    background:#FFF;
 }
 
-.phone-simple-object > .media .pull-left{
-    min-width:120px;
-    align-self:center;
-}
+    .material-design-block > h2 {
+        text-align: center;
+        margin: 15px auto;
+    }
 
-.phone-simple-object > .media .pull-left img
+.material-design-block p img
 {
-    height:100px;
-    width:auto;
     margin:0 auto;
+    height:450px;
 }
+.add-information-phone {
+    min-height: 100px;
+}
+
+.add-information-phone div div {
+    vertical-align:middle;
+    margin:25px 0;
+    height:100%;
+    border-right:1px solid #CCC;
+}
+
+

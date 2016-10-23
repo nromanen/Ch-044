@@ -10,16 +10,16 @@
 
     @foreach (var phone in Model)
     {
-        <div class="phone-simple-object">
+        <div class="material-design-block">
             <div class="media">
                 <div class="media-left">
-                    <a class="pull-left" href="#">
+                    <a class="pull-left" href="ConcretePhone/@phone.Id">
                         <img class="media-object" src="@phone.ImgUrl" alt="@phone.Name" style="">
                     </a>
                 </div>
 
                 <div class="media-body">
-                    <h4 class="media-heading">@phone.Name</h4>
+                    <h4 class="media-heading">@phone.Name # @phone.Id</h4>
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                 </div>
             </div>
