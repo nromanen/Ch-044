@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "EditCategories";
+}
+<style>
+    body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+ol.example li.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+ol.example li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+}
+</style>
+<h2>EditCategories</h2>
+
+<ol class='serialization vertical'>
+    <li data-id='0' data-name='Smartphones and Mobile phones'>
+        Smartphones and Mobile phones
+        <ul>
+            <li data-id="0-0" data-name="Smartphones">Smartphones</li>
+            <li data-id="0-1" data-name="Mobile Phones">Mobile Phones</li>
+        </ul>
+    </li>
+    <li data-id='1' data-name='For House'>
+        For House
+        <ul>
+            <li data-id="1-0" data-name="Kitchen">Kitchen</li>
+            <li data-id="1-1" data-name="Mobile Phones">TVsets</li>
+        </ul>
+    </li>
+    <li data-id='2' data-name='Item 3'>
+        Computers
+        <ul>
+            <li data-id="0-0" data-name="Laptops">Laptops</li>
+        </ul>
+    </li>
+</ol>
+
+<button id="Ser">Serialize</button>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    var group = null;
+    $( document ).ready(function() {
+        $("ol.serialization ").sortable();
+        group = $("ol.serialization").sortable({
+            group: 'serialization',
+        });
+    });
+
+    $("#Ser").click(function myfunction() {
+        var data = group.sortable("serialize").get();
+
+        var jsonString = JSON.stringify(data, null, ' ');
+
+        console.log(jsonString);
+    })
+
+
+</script>

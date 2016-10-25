@@ -15,7 +15,7 @@ namespace BAL
         public static void Configure()
         {
 			//Simple examples of configuring automapper
-			Mapper.Initialize(cfg => cfg.CreateMap<Category, CategoryDTO>());
+            Mapper.Initialize(cfg => cfg.CreateMap<Category, CategoryDTO>());
 			Mapper.Initialize(cfg => cfg.CreateMap<CategoryDTO, Category>());
 			Mapper.Initialize(cfg => cfg.CreateMap<User, UserDTO>());
             Mapper.Initialize(cfg => cfg.CreateMap<UserDTO, User>());

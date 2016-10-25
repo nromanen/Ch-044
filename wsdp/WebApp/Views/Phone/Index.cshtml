@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Model.DTO.PhoneSimpleDTO>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Model.DTO.PhoneSimpleDTO>
 
 @{
     ViewBag.Title = "Index";
@@ -27,6 +28,11 @@
 
 
     }
+    <div style="width:50%; margin:0 auto;">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
 
 </div>
 

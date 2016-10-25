@@ -7,6 +7,8 @@ using BAL;
 using BAL.Manager.ParseManagers;
 using BAL.Interface;
 using Model.DTO;
+using PagedList.Mvc;
+using PagedList;
 
 namespace WebApp.Controllers
 {
@@ -21,10 +23,12 @@ namespace WebApp.Controllers
             this.phoneParseManager = phoneParseManager;
         }
         // GET: Phone
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            List<PhoneSimpleDTO> phones = phoneManager.GetAllPhones();
-            return View(phones);
+            PhoneSimpleDTO[] phones = phoneManager.GetAllPhones().ToArray();
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            return View(phones.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult ConcretePhone(int id)
