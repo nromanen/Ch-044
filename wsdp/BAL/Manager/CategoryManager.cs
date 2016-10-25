@@ -97,5 +97,17 @@ namespace BAL.Manager {
 
 			return false;
 		}
+
+        public List<CategoryDTO> GetAll()
+        {
+            List<CategoryDTO> categories = new List<CategoryDTO>();
+            foreach (var category in uOW.CategoryRepo.All)
+            {
+                var categoryWithChildren = this.Get(category.Id, true);
+                categories.Add(Mapper.Map<CategoryDTO>(categoryWithChildren));
+            }
+
+            return categories;
+        }
 	}
 }

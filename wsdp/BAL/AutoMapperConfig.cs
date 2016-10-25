@@ -14,9 +14,18 @@ namespace BAL
     {
         public static void Configure()
         {
-            //Simple examples of configuring automapper
-            Mapper.Initialize(cfg => cfg.CreateMap<Category, CategoryDTO>());
-            Mapper.Initialize(cfg => cfg.CreateMap<CategoryDTO, Category>());
+            /*Mapper.Initialize(cfg => cfg.CreateMap<Category, CategoryDTO>()
+            .ForMember(p => p.ChildrenCategory,
+            m => m.MapFrom(
+                          t => Mapper.Map<ICollection<Category>, ICollection<CategoryDTO>>(t.ChildrenCategory)
+                          )
+            ).MaxDepth(2));
+            Mapper.Initialize(cfg => cfg.CreateMap<CategoryDTO, Category>()
+            .ForMember(p => p.ChildrenCategory, 
+            m => m.MapFrom(
+                          t => Mapper.Map<ICollection<CategoryDTO>, ICollection<Category>>(t.ChildrenCategory)
+                          )
+            ).MaxDepth(2));*/
             Mapper.Initialize(cfg => cfg.CreateMap<User, UserDTO>());
             Mapper.Initialize(cfg => cfg.CreateMap<UserDTO, User>());
             Mapper.Initialize(cfg => cfg.CreateMap<ConcreteGood, PhoneSimpleDTO>()
@@ -26,6 +35,22 @@ namespace BAL
                 .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink))
                 .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
                 .ForMember(p => p.Price, m => m.MapFrom(t => t.Price)));
+            //Mapper.Initialize(cfg => cfg.CreateMap<Category, CategoryDTO>()
+            //.ForMember( p => p.ChildrenCategory,
+            //            m => m.MapFrom(t => new List<CategoryDTO>())));
+            Mapper.Initialize(cfg => cfg.CreateMap<Category, CategoryDTO>()
+            .ForMember(p => p.ChildrenCategory,
+            m => m.MapFrom(
+                          t => Mapper.Map<ICollection<Category>, ICollection<CategoryDTO>>(t.ChildrenCategory)
+                          )
+            ));
+
+            /*Mapper.Initialize(cfg => cfg.CreateMap<CategoryDTO, Category>()
+            .ForMember(p => p.ChildrenCategory,
+            m => m.MapFrom(
+                          t => Mapper.Map<ICollection<CategoryDTO>, ICollection<Category>>(t.ChildrenCategory)
+                          )
+            ).MaxDepth(2));*/
         }
     }
 }

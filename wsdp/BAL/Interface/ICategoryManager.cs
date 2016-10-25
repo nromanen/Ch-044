@@ -13,5 +13,8 @@ namespace BAL.Interface {
 		bool Delete(int id);
 		bool Rename(int id, string name);
 		bool ChangeParent(int id, int parent);
-	}
+
+        List<CategoryDTO> GetAll();
+
+    }
 }
