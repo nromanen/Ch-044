@@ -1,3 +1,5 @@
+using Model.DB;
+
 namespace DAL.Migrations
 {
     using System;
@@ -12,20 +14,13 @@ namespace DAL.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DAL.MainContext context)
-        {
-            //  This method will be called after migrating to the latest version.
+		protected override void Seed(DAL.MainContext context) {
+			//  This method will be called after migrating to the latest version.
+			Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator"};
+			User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-        }
-    }
+			context.Roles.AddOrUpdate(role);
+			context.Users.AddOrUpdate(user);
+		}
+	}
 }

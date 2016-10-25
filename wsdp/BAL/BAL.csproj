@@ -88,7 +88,6 @@
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Interface\ICategoryManager.cs" />
     <Compile Include="Interface\IFridgeManager.cs" />
-    <Compile Include="Interface\IFridgeParseManager.cs" />
     <Compile Include="Interface\IGoodManager.cs" />
     <Compile Include="Interface\IPhoneManager.cs" />
     <Compile Include="Interface\IPhoneParseManager.cs" />

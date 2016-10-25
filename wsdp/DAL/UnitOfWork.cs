@@ -11,31 +11,28 @@ namespace DAL {
 	public class UnitOfWork : IUnitOfWork, IDisposable {
 		private MainContext context;
 
-        #region Private Repositories
-        // private IGenericRepository<User> userRepo;
-        private IGenericRepository<Good> goodRepo;
+		#region Private Repositories
+		private IGenericRepository<User> userRepo;
+		private IGenericRepository<Good> goodRepo;
 		private IGenericRepository<Category> categoryRepo;
 		#endregion
 
 		public UnitOfWork() {
 			context = new MainContext();
 
-            // userRepo = new GenericRepository<User>(context);
-
-            goodRepo = new GenericRepository<Good>(context);
+			userRepo = new GenericRepository<User>(context);
+			goodRepo = new GenericRepository<Good>(context);
 			categoryRepo = new GenericRepository<Category>(context);
 		}
 
         #region Repositories Getters
 
-        //public IGenericRepository<User> UserRepo
-        //{
-        //    get
-        //    {
-        //        if (userRepo == null) userRepo = new GenericRepository<User>(context);
-        //        return userRepo;
-        //    }
-        //}
+		public IGenericRepository<User> UserRepo {
+			get {
+				if (userRepo == null) userRepo = new GenericRepository<User>(context);
+				return userRepo;
+			}
+		}
 
         public IGenericRepository<Good> GoodRepo
         {

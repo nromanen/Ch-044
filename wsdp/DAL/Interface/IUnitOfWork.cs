@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interface {
 	public interface IUnitOfWork {
-		// IGenericRepository<User> UserRepo { get; }
-
-        IGenericRepository<Good> GoodRepo { get; }
+		IGenericRepository<User> UserRepo { get; }
+		IGenericRepository<Good> GoodRepo { get; }
 		IGenericRepository<Category> CategoryRepo { get; }
 		void Dispose();
 		void Save();
