@@ -13,6 +13,5 @@ namespace BAL.Interface
         int GetCountOfPages(string url);
         List<Fridge> GetFridgesFromPage(string url);
         Fridge ParseFridge(string url);
-
     }
 }

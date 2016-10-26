@@ -89,3 +89,7 @@ Parameter name: source
 ERROR 2016-10-26 18:41:10,105 [10] 34664ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
 Parameter name: source
 ERROR 2016-10-26 18:41:10,320 [10] 34879ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+ERROR 2016-10-26 20:45:18,049 [6] 37993ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 20:45:20,206 [6] 40150ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 20:45:21,295 [6] 41239ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
