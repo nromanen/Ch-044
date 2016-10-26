@@ -1,0 +1,91 @@
+ERROR 2016-10-26 12:29:17,487 [5] 46460ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:18,713 [5] 47687ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:19,851 [5] 48825ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:20,968 [5] 49942ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:22,170 [5] 51143ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:23,346 [5] 52320ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:27,803 [5] 56777ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:28,811 [5] 57784ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:29,837 [5] 58811ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:31,065 [5] 60038ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:32,753 [10] 61727ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:33,758 [10] 62731ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:34,827 [10] 63801ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:35,783 [10] 64756ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:36,879 [10] 65853ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:37,938 [10] 66911ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:41,869 [10] 70842ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:42,953 [5] 71927ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:43,000 [10] 71974ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:44,027 [5] 73001ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:44,188 [10] 73162ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:45,344 [5] 74318ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:45,370 [10] 74343ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:45,392 [5] 74365ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 12:29:46,403 [5] 75377ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:47,546 [5] 76519ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:48,129 [6] 77102ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:48,180 [10] 77153ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:48,690 [5] 77664ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:49,122 [10] 78096ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:49,315 [6] 78289ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:50,131 [5] 79104ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:50,341 [10] 79315ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:50,413 [10] 79387ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 12:29:50,444 [6] 79418ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:51,392 [5] 80366ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:51,542 [10] 80516ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:51,631 [6] 80605ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:52,369 [5] 81342ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:52,552 [6] 81526ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:52,790 [10] 81764ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 12:29:53,396 [5] 82370ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:34:08,747 [8] 57904ms [GetFridgeById BAL.Manager.FridgeManager] : The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+ERROR 2016-10-26 15:44:50,557 [6] 34158ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:44:52,484 [6] 36084ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:44:54,943 [6] 38543ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:44:56,486 [6] 40086ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:44:58,181 [6] 41781ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:44:59,508 [6] 43109ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:45:00,819 [6] 44420ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:45:02,240 [6] 45840ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:45:03,374 [6] 46974ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:45:03,452 [6] 47052ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 15:45:04,903 [6] 48503ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:26,582 [7] 37905ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:28,812 [7] 40134ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:31,449 [7] 42772ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:33,258 [7] 44580ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:35,216 [7] 46539ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:36,957 [7] 48280ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:40,521 [7] 51844ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:43,434 [7] 54757ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:48,928 [7] 60250ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:51:48,963 [7] 60285ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 15:51:52,275 [7] 63598ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:57:34,323 [7] 239493ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:59:27,475 [7] 352645ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 15:59:35,142 [8] 360312ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 16:05:38,210 [6] 112322ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 16:05:38,281 [6] 112393ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 16:15:56,477 [13] 248546ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 16:15:56,660 [13] 248729ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 18:37:02,881 [6] 65107ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 18:37:03,173 [6] 65399ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 18:37:33,032 [6] 95259ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 18:37:33,083 [6] 95309ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 18:41:08,603 [5] 33163ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 18:41:08,694 [10] 33254ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-26 18:41:09,959 [5] 34518ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 18:41:10,105 [10] 34664ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-10-26 18:41:10,320 [10] 34879ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.

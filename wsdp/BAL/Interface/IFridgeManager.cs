@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.DTO;
+using Model.Product;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace BAL.Interface
 {
     public interface IFridgeManager
     {
-
+        Fridge GetFridgeById(int id);
+        List<FridgeDTO> GetAll();
     }
 }

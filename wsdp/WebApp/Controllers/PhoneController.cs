@@ -37,6 +37,7 @@ namespace WebApp.Controllers
         public ActionResult Load()
         {
             phoneParseManager.ParseGoodsFromCategory(@"http://www.moyo.ua/telecommunication/smart/");
+
             return View();
         }
     }

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Model.DTO.FridgeDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/FridgeIndex.css");
+
+<h2>Index</h2>
+
+
+<div id="products" class="row list-group">
+    @foreach (var fridge in Model)
+    {
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <a class="" href="Fridge/ConcreteFridge/@fridge.Id">
+                    <img class="group list-group-image" src="@fridge.ImagePath" alt="@fridge.Name" />
+                </a>
+
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        @fridge.Name
+                    </h4>
+                    <p class="group inner list-group-item-text">
+                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                @fridge.Price грн
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="material-design-block">
+                <div class="media">
+                    <div class="media-left">
+                        <a class="pull-left" href="Fridge/ConcreteFridge/@fridge.Id">
+                            <img class="media-object" src="@fridge.ImagePath" alt="@fridge.Name" style="">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">@fridge.Name # @fridge.Id</h4>
+                    </div>
+                </div>
+            </div>*@
+    }
+</div>

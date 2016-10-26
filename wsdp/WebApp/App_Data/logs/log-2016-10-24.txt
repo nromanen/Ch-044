@@ -1,0 +1,12 @@
+ERROR 2016-10-24 17:36:30,437 [1] 4436ms [InjectorContainer WebApp.MvcApplication] : The given type IFridgeParseManager is not a concrete type. Please use one of the other overloads to register this type.
+??? ?????????: TImplementation
+ERROR 2016-10-24 17:41:09,774 [1] 742ms [InjectorContainer WebApp.MvcApplication] : The given type IFridgeParseManager is not a concrete type. Please use one of the other overloads to register this type.
+??? ?????????: TImplementation
+ERROR 2016-10-24 17:45:30,143 [1] 1016ms [InjectorContainer WebApp.MvcApplication] : The given type IFridgeParseManager is not a concrete type. Please use one of the other overloads to register this type.
+??? ?????????: TImplementation
+ERROR 2016-10-24 17:48:21,921 [1] 1006ms [InjectorContainer WebApp.MvcApplication] : The given type IFridgeParseManager is not a concrete type. Please use one of the other overloads to register this type.
+??? ?????????: TImplementation
+ERROR 2016-10-24 19:06:04,141 [1] 6298ms [InjectorContainer WebApp.MvcApplication] : The given type IFridgeParseManager is not a concrete type. Please use one of the other overloads to register this type.
+??? ?????????: TImplementation
+ERROR 2016-10-24 19:10:10,663 [5] 78880ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-10-24 19:10:23,674 [6] 91892ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.

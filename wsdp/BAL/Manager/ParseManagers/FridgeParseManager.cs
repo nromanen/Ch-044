@@ -1,4 +1,5 @@
-﻿using Common.Enum;
+﻿using BAL.Interface;
+using Common.Enum;
 using DAL.Interface;
 using ExtendedXmlSerialization;
 using HtmlAgilityPack;
@@ -13,9 +14,9 @@ using System.Threading.Tasks;
 
 namespace BAL.Manager.ParseManagers
 {
-    public class FridgeManager : BaseManager
+    public class FridgeParseManager : BaseManager, IFridgeParseManager
     {
-        public FridgeManager(IUnitOfWork uOW) : base(uOW)
+        public FridgeParseManager(IUnitOfWork uOW) : base(uOW)
         {
 
         }
@@ -33,7 +34,7 @@ namespace BAL.Manager.ParseManagers
                 int countOfPages = this.GetCountOfPages(url);
                 var fridges = new List<Fridge>();
 
-                for (int i = 2; i < 4; i++)
+                for (int i = 6; i < 7; i++)
                 {
                     foreach (var good in GetFridgesFromPage(url + i.ToString()))
                     {
@@ -158,8 +159,8 @@ namespace BAL.Manager.ParseManagers
                     {
                         foreach (var el in elementsTrs)
                         {
-                            string a = el.ChildNodes[1].InnerText;
-                            string b = el.ChildNodes[3].InnerText;
+                            var a = el.ChildNodes[1].InnerText.ToString();
+                            var b = el.ChildNodes[3].InnerText;
                             if (!fridge.CharacteristicsDictionary.ContainsKey(a))
                             {
                                 fridge.CharacteristicsDictionary.Add(a, b);

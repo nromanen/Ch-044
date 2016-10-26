@@ -95,8 +95,9 @@
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\CategoryManager.cs" />
+    <Compile Include="Manager\FridgeManager.cs" />
     <Compile Include="Manager\GoodManager.cs" />
-    <Compile Include="Manager\ParseManagers\FridgeManager.cs" />
+    <Compile Include="Manager\ParseManagers\FridgeParseManager.cs" />
     <Compile Include="Manager\ParseManagers\LaptopManager.cs" />
     <Compile Include="Manager\ParseManagers\MicrowaveManager.cs" />
     <Compile Include="Manager\ParseManagers\PhoneParseManager.cs" />

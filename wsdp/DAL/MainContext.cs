@@ -9,7 +9,7 @@ using Model.DB;
 namespace DAL {
 	public class MainContext : DbContext {
 		public MainContext()
-			: base("MyShop") {
+			: base("YurasShop") {
 			this.Configuration.LazyLoadingEnabled = true;
 
 		}
