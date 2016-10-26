@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BAL.Interface;
+using Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,11 @@ namespace WebApp.Controllers
 {
     public class AdminController : Controller
     {
+        ICategoryManager categoryManager;
+        public AdminController(ICategoryManager categoryManager)
+        {
+            this.categoryManager = categoryManager;
+        }
         // GET: Admin
         public ActionResult Index()
         {
@@ -16,7 +23,8 @@ namespace WebApp.Controllers
 
         public ActionResult EditCategories()
         {
-            return View();
+            List<CategoryDTO> categories = categoryManager.GetAll();
+            return View(categories);
         }
     }
 }
