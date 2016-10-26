@@ -1,0 +1,20 @@
+﻿@model List<Model.DTO.CategoryDTO>
+
+@{
+    TagBuilder ol = new TagBuilder("ol");
+    List<TagBuilder> liMainList = new List<TagBuilder>();
+
+    ol.AddCssClass("serialization");
+    ol.InnerHtml = "";
+
+    foreach (var category in Model)
+    {
+        TagBuilder li = new TagBuilder("li");
+        li.Attributes.Add("data-id", category.Id.ToString());
+        li.Attributes.Add("data-name", category.Name);
+        li.InnerHtml = category.Name;
+    }
+    MvcHtmlString ms = new MvcHtmlString(ol.ToString());
+    
+    @ms
+}

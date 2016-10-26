@@ -1,0 +1,69 @@
+﻿@model List<Model.DTO.CategoryDTO>
+@using WebApp.Helpers
+@{
+    ViewBag.Title = "EditCategories";
+}
+<style>
+    body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+ol.example li.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+ol.example li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+}
+</style>
+<h2>EditCategories</h2>
+
+
+<button id="Ser">Serialize</button>
+
+
+@{
+    //HtmlString str = new HtmlString(Html.Partial("FlexibleListCategories", Model));
+    MvcHtmlString ms = @Html.Partial("FlexibleListCategories", Model
+        );
+    HtmlString str = new HtmlString(ms.ToString());
+    string str2 = HttpUtility.HtmlDecode(str.ToString());
+}
+
+<br />
+<br />
+<div>
+    @Html.Partial("FlexibleListCategories", Model);
+</div>
+
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    var group = null;
+    $( document ).ready(function() {
+        $("ol.serialization ").sortable();
+        group = $("ol.serialization").sortable({
+            group: 'serialization',
+        });
+    });
+
+    $("#Ser").click(function myfunction() {
+        var data = group.sortable("serialize").get();
+
+        var jsonString = JSON.stringify(data, null, ' ');
+
+        console.log(jsonString);
+    })
+
+
+</script>

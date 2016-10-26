@@ -19,7 +19,7 @@ namespace Model.Product
             CharacteristicsDictionary = new Dictionary<string, string>();
         }
 
-        public override string ToString()
+        /*public override string ToString()
         {
             var res = $"Name:{Name}\tPrice:{Price}\n";
             foreach (var item in CharacteristicsDictionary)
@@ -28,6 +28,6 @@ namespace Model.Product
             }
             return res;
 
-        }
+        }*/
     }
 }

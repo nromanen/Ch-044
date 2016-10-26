@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BAL.Interface;
 using DAL;
 using DAL.Interface;
 using ExtendedXmlSerialization;
@@ -13,9 +14,9 @@ using Model.Product;
 
 namespace BAL.Manager.ParseManagers
 {
-    public class TVManager : BaseManager
+    public class TVParseManager : BaseManager, ITVParseManager
     {
-        public TVManager(IUnitOfWork uOW) : base(uOW)
+        public TVParseManager(IUnitOfWork uOW) : base(uOW)
         {
         }
 
@@ -138,7 +139,6 @@ namespace BAL.Manager.ParseManagers
                         d => d.Attributes.Contains("itemprop") && d.Attributes["itemprop"].Value.Contains("price"))
                     .Attributes["content"].Value;
 
-
                 var nameofchar =
                     doc.DocumentNode.Descendants("td")
                         .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value == "first")
@@ -153,9 +153,10 @@ namespace BAL.Manager.ParseManagers
 
                 var TV = new TV
                 {
+                    Id = 1,
                     Name = name,
-                    Price = Convert.ToDecimal(Price),
-                    ImageLink = srcimg,
+                    Price = Price,
+                    ImageLink = "https://repka.ua/" + srcimg,
                     Characteristics = dict
                 };
 

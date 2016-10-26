@@ -32,7 +32,7 @@ namespace Model.Product {
 		public string WeightInPackege { get; set; }
 		public string Color { get; set; }
 
-		public override string ToString() {
+		/*public override string ToString() {
 			StringBuilder builder = new StringBuilder();
 			builder.Append($"Магазин: {ShopName}");
 			builder.AppendLine($"Код товара: {Code}");
@@ -59,6 +59,6 @@ namespace Model.Product {
 			builder.AppendLine($"Вес в упаковке: {WeightInPackege}");
 			builder.AppendLine($"Цвет: {Color}");
 			return builder.ToString();
-		}
+		}*/
 	}
 }

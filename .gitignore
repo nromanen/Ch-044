@@ -27,3 +27,7 @@ Backup/*
 .vs/config/applicationhost.config
 
 wsdp/.vs/config/applicationhost.config
+*.dll
+*.xml
+*.nupkg
+*.config

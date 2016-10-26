@@ -51,6 +51,8 @@ namespace WebApp
                 container.Register<IPhoneParseManager, PhoneParseManager>();
                 container.Register<IFridgeManager, FridgeManager>();
                 container.Register<IFridgeParseManager, FridgeParseManager>();
+                container.Register<ITVManager, TVManager>();
+                container.Register<ITVParseManager, TVParseManager>();
                 container.Verify();
                 DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
             }

@@ -500,6 +500,7 @@ D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.dll
 D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\ExtendedXmlSerializer.dll
 D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.pdb
 D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.xml
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\ApplicationInsights.config
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\roslyn\csc.exe
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -537,11 +538,13 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owi
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Host.HttpListener.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Host.SystemWeb.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Hosting.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Web.Infrastructure.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Model.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Newtonsoft.Json.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Owin.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Resources.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.dll
@@ -562,6 +565,7 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\WebGrease.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\AutoMapper.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\ExtendedXmlSerializer.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\BAL.pdb
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Common.pdb
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\DAL.pdb
@@ -584,6 +588,8 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owi
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Hosting.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.xml
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.xml
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.Mvc.xml
@@ -605,6 +611,5 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\HtmlAgilityPa
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\ru-RU\Resources.resources.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
-D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
