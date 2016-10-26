@@ -101,7 +101,7 @@ namespace BAL.Manager {
         public List<CategoryDTO> GetAll()
         {
             List<CategoryDTO> categories = new List<CategoryDTO>();
-            foreach (var category in uOW.CategoryRepo.All)
+            foreach (var category in uOW.CategoryRepo.All.ToList())
             {
                 var categoryWithChildren = this.Get(category.Id, true);
                 categories.Add(Mapper.Map<CategoryDTO>(categoryWithChildren));

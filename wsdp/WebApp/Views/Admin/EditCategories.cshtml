@@ -50,12 +50,8 @@ ol.example li.placeholder:before {
 
 <button id="Ser">Serialize</button>
 
-@Html.CreateList(Model.ToList())
 
-@foreach (var item in Model.First().ChildrenCategory)
-{
-    @item.Name
-}
+
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script>
     var group = null;

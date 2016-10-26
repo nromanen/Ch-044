@@ -105,6 +105,7 @@
     <Compile Include="Manager\PhoneManager.cs" />
     <Compile Include="Manager\TVManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="MappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
