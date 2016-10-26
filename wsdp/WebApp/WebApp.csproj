@@ -296,6 +296,7 @@
     <Content Include="Views\Admin\EditCategories.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
     <Content Include="Views\TV\GetTV.cshtml" />
+    <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
