@@ -8,7 +8,7 @@ using Model.DTO;
 
 namespace WebApp.Controllers
 {
-    public class TVController : Controller
+    public class TVController : BaseController
     {
         private ITVManager TVManager;
         private ITVParseManager TVParseManager;
@@ -33,7 +33,7 @@ namespace WebApp.Controllers
         public ActionResult Load()
         {
             TVParseManager.ParseCategory(@"https://repka.ua/products/televizori/");
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
