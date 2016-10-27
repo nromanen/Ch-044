@@ -1,0 +1,54 @@
+﻿body.dragging, body.dragging * {
+        cursor: move !important;
+    }
+
+    .dragged {
+        position: absolute;
+        opacity: 0.5;
+        z-index: 2000;
+    }
+
+    ol.example li.placeholder {
+        position: relative;
+        /** More li styles **/
+    }
+
+        ol.example li.placeholder:before {
+            position: absolute;
+            /** Define arrowhead **/
+        }
+
+    .serialization > li
+    {
+        background:#28aa2f;
+        min-height:30px;
+        border:0px solid #808080;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#FFF;
+    }
+
+    .serialization > li > ul > li
+    {
+        background:#229228;
+        min-height:30px;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#EEE;
+    }
+
+    .serialization > li > ul > li > ul > li
+    {
+        background:#1c7a21;
+        min-height:30px;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#EEE;
+    }
+

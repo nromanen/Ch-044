@@ -23,8 +23,15 @@ namespace WebApp.Controllers
 
         public ActionResult EditCategories()
         {
-            List<CategoryDTO> categories = categoryManager.GetAll();
+            List<CategoryDTO> categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
             return View(categories);
+        }
+
+        [HttpPost]
+        public void AddCategory(string namecategory, int? parentcategory)
+        {
+            categoryManager.Add(namecategory, parentcategory ?? -1);
+            Response.Redirect("EditCategories/");
         }
     }
 }

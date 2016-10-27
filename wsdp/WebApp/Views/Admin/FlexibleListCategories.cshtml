@@ -1,10 +1,8 @@
 ﻿@model List<Model.DTO.CategoryDTO>
 
 @{
-    TagBuilder ol = new TagBuilder("ol");
-    List<TagBuilder> liMainList = new List<TagBuilder>();
+    TagBuilder ol = new TagBuilder("ddd");
 
-    ol.AddCssClass("serialization");
     ol.InnerHtml = "";
 
     foreach (var category in Model)
@@ -12,9 +10,17 @@
         TagBuilder li = new TagBuilder("li");
         li.Attributes.Add("data-id", category.Id.ToString());
         li.Attributes.Add("data-name", category.Name);
-        li.InnerHtml = category.Name;
+        li.InnerHtml = category.Name ;
+        TagBuilder ul = new TagBuilder("ul");
+        if (category.ChildrenCategory != null)
+        {
+            ul.InnerHtml = Html.Partial("FlexibleListCategories", category.ChildrenCategory).ToString();
+
+        }
+        li.InnerHtml += ul;
+        ol.InnerHtml += li;
     }
-    MvcHtmlString ms = new MvcHtmlString(ol.ToString());
-    
+    MvcHtmlString ms = new MvcHtmlString(ol.InnerHtml.ToString());
+
     @ms
 }

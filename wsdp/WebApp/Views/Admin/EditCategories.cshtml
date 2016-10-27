@@ -3,45 +3,42 @@
 @{
     ViewBag.Title = "EditCategories";
 }
-<style>
-    body.dragging, body.dragging * {
-  cursor: move !important;
-}
-
-.dragged {
-  position: absolute;
-  opacity: 0.5;
-  z-index: 2000;
-}
-
-ol.example li.placeholder {
-  position: relative;
-  /** More li styles **/
-}
-ol.example li.placeholder:before {
-  position: absolute;
-  /** Define arrowhead **/
-}
-</style>
+@Styles.Render("~/Content/EditCategoriesStylesheet.css")
 <h2>EditCategories</h2>
 
 
 <button id="Ser">Serialize</button>
 
-
-@{
-    //HtmlString str = new HtmlString(Html.Partial("FlexibleListCategories", Model));
-    MvcHtmlString ms = @Html.Partial("FlexibleListCategories", Model
-        );
-    HtmlString str = new HtmlString(ms.ToString());
-    string str2 = HttpUtility.HtmlDecode(str.ToString());
-}
-
 <br />
 <br />
-<div>
-    @Html.Partial("FlexibleListCategories", Model);
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="serialization vertical">
+                @Html.Partial("FlexibleListCategories", Model)
+                <li onclick="AddCategory()" style="cursor:pointer" id="addbutton">
+                <span class="glyphicon glyphicon-plus"></span>
+                 Add new category</li>
+            </ul>
+
+        </div>
+        <div class="col-sm-6">
+            <div class="hidden" id="addcategory">
+                <form action="@Url.Action("AddCategory", "Admin")" method="post">
+                    <div class="form-group">
+                        <h3>Add Category</h3>
+                        <label for="namecategory">Name:</label>
+                        <input type="text" class="form-control" id="namecategory" name="namecategory" placeholder="Enter name">
+                        <small id="help" class="form-text text-muted">Type name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent</small>
+                        <input type="hidden" name="parentcategory" value="" id="parentcategoryhidden" onclick="PutParentCategory();" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 
 
@@ -50,9 +47,9 @@ ol.example li.placeholder:before {
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script>
     var group = null;
-    $( document ).ready(function() {
-        $("ol.serialization ").sortable();
-        group = $("ol.serialization").sortable({
+    $(document).ready(function () {
+        $("ul.serialization ").sortable();
+        group = $("ul.serialization").sortable({
             group: 'serialization',
         });
     });
@@ -66,4 +63,20 @@ ol.example li.placeholder:before {
     })
 
 
+</script>
+
+<script>
+    function AddCategory()
+    {
+        var id = $("#addbutton").parent().parent().attr("data-id");
+        console.log(id);
+        $("#addcategory").toggleClass("hidden");
+        $("#parentcategoryhidden").val(id);
+    }
+    function PutParentCategory()
+    {
+        var id = $("#addbutton").parent().parent().attr("data-id");
+        console.log(id);
+        $("#parentcategoryhidden").val(id);
+    }
 </script>
