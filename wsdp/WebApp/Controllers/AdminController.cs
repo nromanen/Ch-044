@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         ICategoryManager categoryManager;
         public AdminController(ICategoryManager categoryManager)

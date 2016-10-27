@@ -799,7 +799,6 @@ D:\GitRepo\Ch-044\wsdp\WebApp\bin\WebGrease.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\AutoMapper.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\ExtendedXmlSerializer.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.dll
-D:\GitRepo\Ch-044\wsdp\WebApp\bin\PagedList.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\BAL.pdb
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\Common.pdb
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\DAL.pdb
