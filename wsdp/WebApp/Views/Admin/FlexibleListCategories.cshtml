@@ -10,7 +10,7 @@
         TagBuilder li = new TagBuilder("li");
         li.Attributes.Add("data-id", category.Id.ToString());
         li.Attributes.Add("data-name", category.Name);
-        li.InnerHtml = category.Name ;
+        li.InnerHtml = category.Name  + "<button class=\"btn transperent btn-sm\"><span class=\"glyphicon glyphicon-cog\"></span></button>";
         TagBuilder ul = new TagBuilder("ul");
         if (category.ChildrenCategory != null)
         {

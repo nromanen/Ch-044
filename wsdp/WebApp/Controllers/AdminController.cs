@@ -31,7 +31,21 @@ namespace WebApp.Controllers
         public void AddCategory(string namecategory, int? parentcategory)
         {
             categoryManager.Add(namecategory, parentcategory ?? -1);
-            Response.Redirect("EditCategories/");
+            Response.Redirect("EditCategories");
+        }
+
+        [HttpPost]
+        public void UpdateCategory(string namecategory, int id)
+        {
+            categoryManager.Rename(id, namecategory);
+            Response.Redirect("EditCategories");
+        }
+
+        [HttpPost]
+        public void RemoveCategory(int id)
+        {
+            categoryManager.Delete(id);
+            Response.Redirect("EditCategories");
         }
     }
 }

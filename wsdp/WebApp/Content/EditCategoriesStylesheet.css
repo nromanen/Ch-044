@@ -30,6 +30,12 @@
         color:#FFF;
     }
 
+    .serialization > li > ul
+    {
+        margin-top:20px;
+    }
+
+
     .serialization > li > ul > li
     {
         background:#229228;
@@ -52,3 +58,27 @@
         color:#EEE;
     }
 
+    .transperent
+    {
+        position:absolute;
+        left:79%;
+        background:rgba(0, 0, 0, 0.00);
+        color:white;
+    }
+
+    .info
+    {
+        border:3px dashed #979494;
+        border-radius:10px;
+        min-height:100%;
+        width:100%;
+        text-align:center;
+        vertical-align:middle;
+    }
+
+    .info h2
+    {
+       position:absolute;
+       top:50%;
+       left:30%;
+    }
