@@ -20,7 +20,8 @@ namespace BAL.Manager.ParseManagers
 
 
         private readonly HtmlWeb _webClient;
-        public LaptopParseManager(IUnitOfWork uOW) : base(uOW)
+        public LaptopParseManager(IUnitOfWork uOW)
+            : base(uOW)
         {
             _webClient = new HtmlWeb()
             {
@@ -155,12 +156,13 @@ namespace BAL.Manager.ParseManagers
 
         private int GetPageQuantity(HtmlDocument page)
         {
-            int position = page.DocumentNode
-                .SelectNodes("//div[@class='pagination']//ul[contains(@class, 'f-s_0')]/li").Count;
-            string xpath = $"//div[@class='pagination']//ul[contains(@class, 'f-s_0')]/li[{position}]";
+            //int position = page.DocumentNode
+            //    .SelectNodes("//div[@class='pagination']//ul[contains(@class, 'f-s_0')]/li").Count;
+            //string xpath = $"//div[@class='pagination']//ul[contains(@class, 'f-s_0')]/li[{position}]";
 
-            string value = page.DocumentNode.SelectSingleNode(xpath).InnerText;
-            return int.Parse(value);
+            //string value = page.DocumentNode.SelectSingleNode(xpath).InnerText;
+            //return int.Parse(value);
+            return 1;
         }
 
     }

@@ -63,8 +63,8 @@ namespace DAL.Migrations
             };
 
 
-			context.Roles.AddOrUpdate(role);
-			context.Users.AddOrUpdate(user);
+            //context.Roles.AddOrUpdate(role);
+            //context.Users.AddOrUpdate(user);
             context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
             context.Categories.AddOrUpdate(categoryForHouse);
             context.Categories.AddOrUpdate(categoryComputers);
