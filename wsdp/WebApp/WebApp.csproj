@@ -229,6 +229,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaptopController.cs" />
     <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -285,6 +286,8 @@
     <Content Include="Views\Phone\ConcretePhone.cshtml" />
     <Content Include="Views\Fridge\Index.cshtml" />
     <Content Include="Views\Fridge\ConcreteFridge.cshtml" />
+    <Content Include="Views\Laptop\Index.cshtml" />
+    <Content Include="Views\Laptop\OneLaptop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
