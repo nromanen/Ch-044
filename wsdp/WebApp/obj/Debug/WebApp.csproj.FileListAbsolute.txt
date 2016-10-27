@@ -613,3 +613,12 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\ru-RU\Resourc
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+E:\repositry\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.dll
+E:\repositry\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.dll
+E:\repositry\Ch-044\wsdp\WebApp\bin\ExtendedXmlSerializer.dll
+E:\repositry\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.dll
+E:\repositry\Ch-044\wsdp\WebApp\bin\PagedList.dll
+E:\repositry\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.xml
+E:\repositry\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.xml
+E:\repositry\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.pdb
+E:\repositry\Ch-044\wsdp\WebApp\bin\HtmlAgilityPack.xml

@@ -57,6 +57,7 @@
     <Compile Include="DB\Good.cs" />
     <Compile Include="DB\Role.cs" />
     <Compile Include="DB\User.cs" />
+    <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\PhoneDTO.cs" />

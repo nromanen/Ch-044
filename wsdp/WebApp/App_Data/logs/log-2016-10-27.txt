@@ -1,0 +1,1 @@
+ERROR 2016-10-27 12:41:39,116 [8] 61017ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : The model backing the 'MainContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).

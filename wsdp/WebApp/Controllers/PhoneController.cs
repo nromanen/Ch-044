@@ -28,7 +28,7 @@ namespace WebApp.Controllers
             PhoneSimpleDTO[] phones = phoneManager.GetAllPhones().ToArray();
             int pageSize = 25;
             int pageNumber = (page ?? 1);
-            return View(phones.ToPagedList(pageNumber, pageSize));
+            return View(/*phones.ToPagedList(pageNumber, pageSize)*/);
         }
 
         public ActionResult ConcretePhone(int id)
