@@ -11,7 +11,7 @@ namespace DAL
     public class MainContext : DbContext
     {
         public MainContext()
-            : base("OfficeSY")
+            : base("MyShop")
         {
             this.Configuration.LazyLoadingEnabled = true;
 
@@ -28,5 +28,7 @@ namespace DAL
         public DbSet<Good> Goods { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<WebShop> WebShops { get; set; }
+        public DbSet<Property> Properties { get; set; }
+
     }
 }

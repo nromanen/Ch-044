@@ -55,12 +55,14 @@
   <ItemGroup>
     <Compile Include="DB\Category.cs" />
     <Compile Include="DB\Good.cs" />
+    <Compile Include="DB\Property.cs" />
     <Compile Include="DB\Role.cs" />
     <Compile Include="DB\User.cs" />
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\PhoneDTO.cs" />
+    <Compile Include="DTO\PropertyDTO.cs" />
     <Compile Include="DTO\TVDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Product\Fridge.cs" />

@@ -13,14 +13,34 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-6">
-            <div class="material-design-block">
-                <p>
-                    <img src="@Model.ImageLink" alt="" class="img-responsive" />
-                </p>
-            </div>
+    <div class="col-xs-12 col-sm-4">
+        <div class="material-design-block">
+            <p>
+                <img src="@Model.ImageLink" alt="" class="img-responsive" />
+            </p>
+        </div>
 
+    </div>
+    <div class="float-rt">
+        <div class="detail-buy-label available" id="detail_buy_label">
+            <div name="prices_active_element_original" class="detail-price-lable detail-price-cheaper" id="price_container">
+                <div name="price" class="detail-price-uah">
+                    <meta itemprop="priceCurrency" content="UAH">
+                    <span id="price_label">@Model.Price</span><span class="detail-price-uah-sign" id="price_label_sign"> грн</span>
+                </div>
+            </div>
+            <div name="buy_details" class="clearfix detail-buy-btn-wrap">
+                <div class="toOrder">
+                    <input type="hidden" value="7759125" name="goods_id">
+                    <span class="detail-buy-btn-container">
+                        <span class="sprite-side btn-link btn-link-green detail-buy-btn-link">
+                            <button class="btn-link-i" type="submit" name="topurchases">
+                                Купить
+                            </button>
+                        </span>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 
