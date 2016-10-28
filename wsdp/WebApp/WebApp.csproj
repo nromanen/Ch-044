@@ -247,6 +247,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
+    <Content Include="Content\EditPropertiesStylesheet.css" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\TVstylesheet.css" />
@@ -297,14 +298,17 @@
     <Content Include="Views\Fridge\ConcreteFridge.cshtml" />
     <Content Include="Views\Laptop\Index.cshtml" />
     <Content Include="Views\Laptop\OneLaptop.cshtml" />
-    <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\Admin\EditCategories.cshtml" />
     <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
     <Content Include="Views\TV\GetTV.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
+    <Content Include="Views\Admin\EditProperties.cshtml" />
+    <Content Include="Views\WebShop\Create.cshtml" />
+    <Content Include="Views\WebShop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\WebShopsLogo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
