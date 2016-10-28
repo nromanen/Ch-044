@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Enum
 {
-    public enum PropetyType
+    public enum PropertyType
     {
         String,
         Integer,

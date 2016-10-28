@@ -247,6 +247,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
+    <Content Include="Content\EditPropertiesStylesheet.css" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\TVstylesheet.css" />
@@ -302,6 +303,7 @@
     <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
     <Content Include="Views\TV\GetTV.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
+    <Content Include="Views\Admin\EditProperties.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

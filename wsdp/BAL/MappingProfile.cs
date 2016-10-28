@@ -39,7 +39,9 @@ namespace BAL
                 .ForMember(p => p.Type, m => m.MapFrom(t => t.Type))
                 .ForMember(p => p.Prefix, m => m.MapFrom(t => t.Prefix))
                 .ForMember(p => p.Sufix, m => m.MapFrom(t => t.Sufix))
-                .ForMember(p => p.Characteristic_Id, m => m.MapFrom(t => t.Characteristic_Id));
+                .ForMember(p => p.Characteristic_Id, m => m.MapFrom(t => t.Characteristic_Id))
+                .ForMember(p => p.Category_Id, m => m.MapFrom(t => t.Category_Id))
+                .ForMember(p => p.DefaultValue, m => m.MapFrom(t => t.DefaultValue));
         }
     }
 }

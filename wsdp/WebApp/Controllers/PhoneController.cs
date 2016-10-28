@@ -34,7 +34,7 @@ namespace WebApp.Controllers
         public ActionResult ConcretePhone(int id)
         {
             var phone = phoneManager.GetPhoneById(id);
-            return View(phone);
+            return View(phone); 
         }
 
         //just for parsing and filling DB

@@ -11,9 +11,11 @@ namespace WebApp.Controllers
     public class AdminController : BaseController
     {
         ICategoryManager categoryManager;
-        public AdminController(ICategoryManager categoryManager)
+        IPropertyManager propertyManager;
+        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager)
         {
             this.categoryManager = categoryManager;
+            this.propertyManager = propertyManager;
         }
         // GET: Admin
         public ActionResult Index()
@@ -33,5 +35,18 @@ namespace WebApp.Controllers
             categoryManager.Add(namecategory, parentcategory ?? -1);
             Response.Redirect("EditCategories/");
         }
+
+        public ActionResult EditProperties()
+        {
+            List<CategoryDTO> categories = categoryManager.GetAll().Select(p => p).ToList();
+            return View(categories);
+        }
+        [HttpPost]
+        public void AddProperty(string Name, string Description, string Type, string Prefix, string Sufix, int Characteristic_Id, int Category_Id, string DefaultValue)
+        {
+            propertyManager.Add(Name, Description, Type, Prefix, Sufix, Characteristic_Id, Category_Id, DefaultValue);
+            Response.Redirect("EditProperties/");
+        }
+
     }
 }
