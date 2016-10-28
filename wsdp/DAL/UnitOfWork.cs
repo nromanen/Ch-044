@@ -18,7 +18,7 @@ namespace DAL
         private IGenericRepository<Good> goodRepo;
         private IGenericRepository<Category> categoryRepo;
         private IGenericRepository<Property> propertyRepo;
-
+        private IGenericRepository<WebShop> webShopRepo;
         #endregion
 
         public UnitOfWork()
@@ -29,6 +29,7 @@ namespace DAL
             goodRepo = new GenericRepository<Good>(context);
             categoryRepo = new GenericRepository<Category>(context);
             propertyRepo = new GenericRepository<Property>(context);
+            webShopRepo = new GenericRepository<WebShop>(context);
         }
 
         #region Repositories Getters
@@ -65,6 +66,15 @@ namespace DAL
             {
                 if (propertyRepo == null) propertyRepo = new GenericRepository<Property>(context);
                 return propertyRepo;
+            }
+        }
+
+        public IGenericRepository<WebShop> WebShopRepo
+        {
+            get
+            {
+                if (webShopRepo == null) webShopRepo = new GenericRepository<WebShop>(context);
+                return webShopRepo;
             }
         }
 
