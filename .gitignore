@@ -32,3 +32,4 @@ wsdp/.vs/config/applicationhost.config
 *.nupkg
 *.config
 /wsdp/Model/Model.csproj.user
+/wsdp/WebApp/obj/Debug/build.force
