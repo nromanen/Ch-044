@@ -62,5 +62,17 @@ namespace WebApp.Controllers
             Response.Redirect("EditProperties");
         }
 
+        [HttpPost]
+        public void RemoveProperty(int id)
+        {
+            propertyManager.Delete(id);
+            Response.Redirect("EditProperties");
+        }
+        [HttpPost]
+        public void UpdateProperty(int Property_Id, string Name, string Description, string Type, string Prefix, string Sufix, string DefaultValue)
+        {
+            propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue);
+            Response.Redirect("EditProperties");
+        }
     }
 }
