@@ -20,42 +20,52 @@ namespace BAL.Manager
         {
         }
 
-        //public List<PropertyDTO> GetAll()
-        //{
-        //    //return uOW.PropertyRepo.All();
-        //}
-
-
         public void Delete(int id)
         {
-            uOW.PropertyRepo.Delete(id);
-            uOW.Save();
-
+            try
+            {
+                var property = uOW.PropertyRepo.GetByID(id);
+                uOW.PropertyRepo.Delete(property);
+                uOW.Save();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
         }
 
         public void Add(string Name, string Description, string Type, string Prefix, string Sufix, int Characteristic_Id, int Category_Id, string DefaultValue)
         {
-            var newProperty = new Property() { Name = Name, Description = Description, Type = (PropertyType)Enum.Parse(typeof(PropertyType), Type), Prefix = Prefix, Sufix = Sufix, Characteristic_Id = Characteristic_Id, DefaultValue = DefaultValue, Category_Id = Category_Id };
-            uOW.PropertyRepo.Insert(newProperty);
-            uOW.Save();
+            try
+            {
+                var newProperty = new Property() { Name = Name, Description = Description, Type = (PropertyType)Enum.Parse(typeof(PropertyType), Type), Prefix = Prefix, Sufix = Sufix, Characteristic_Id = Characteristic_Id, DefaultValue = DefaultValue, Category_Id = Category_Id };
+                uOW.PropertyRepo.Insert(newProperty);
+                uOW.Save();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
         }
 
-        //public PropertyDTO Get(int id)
-        //{
-        //    var property = uOW.CategoryRepo.GetByID(id);
-        //    if (property == null) return null;
-        //    var result = Mapper.Map<PropertyDTO>(property);
-        //    result = new List<CategoryDTO>();
-
-        //    if (includeChildren && category.ChildrenCategory != null)
-        //    {
-        //        foreach (var child in category.ChildrenCategory)
-        //        {
-        //            result.ChildrenCategory.Add(Get(child.Id, true));
-        //        }
-        //    }
-
-        //    return result;
-        //}
+        public void Update(int id, string Name, string Description, string Type, string Prefix, string Sufix,
+            string DefaultValue)
+        {
+            try
+            {
+                var property = uOW.PropertyRepo.GetByID(id);
+                property.Name = Name;
+                property.Description = Description;
+                property.Type = (PropertyType)Enum.Parse(typeof(PropertyType), Type);
+                property.Prefix = Prefix;
+                property.Sufix = Sufix;
+                property.DefaultValue = DefaultValue;
+                uOW.Save();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
+        }
     }
 }
