@@ -75,6 +75,11 @@
         color:#64b769;
     }
 
+    .transperent:hover
+    {
+        background:rgba(0, 0, 0, 0.00);
+        color:#95d599;
+    }
     .btn-config
     {
         position:absolute;

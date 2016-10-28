@@ -49,7 +49,11 @@ namespace WebApp.Controllers
             categoryManager.Delete(id);
             Response.Redirect("EditCategories");
         }
-
+        [HttpPost]
+        public void ChangeParent(int categoryid, int? parentid)
+        {
+            categoryManager.ChangeParent(categoryid, parentid ?? -1);
+        }
         public ActionResult EditProperties()
         {
             List<CategoryDTO> categories = categoryManager.GetAll().Select(p => p).ToList();
