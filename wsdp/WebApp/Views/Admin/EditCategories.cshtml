@@ -4,9 +4,36 @@
     ViewBag.Title = "EditCategories";
 }
 @Styles.Render("~/Content/EditCategoriesStylesheet.css")
+<br />
+<br />
+<!--
+    Modal Window
+-->
+<div class="modal fade" tabindex="-1" role="dialog" id="ModalDelete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Attention</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you really want to <span class="text-danger">remove</span> category <span class="text-warning" id="deletecategoryname"></span>?</p>
+                <form action="@Url.Action("RemoveCategory", "Admin")" method="post">
+                    <div class="form-group">
+                        <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider changing parent category of all children categories.</small>
+                        <input type="hidden" name="id" value="" id="deletecategoryidmodal" />
+                    </div>
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-<br />
-<br />
+<!---->
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -18,26 +45,27 @@
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <ul class="serialization vertical">
-                @Html.Partial("FlexibleListCategories", Model)
-                <li onclick="AddCategory()" style="cursor:pointer" id="addbutton">
+            <ul class="addnewlist">
+                <li onclick="AddCategory(-1,'Main')" style="cursor:pointer" id="addbutton" class="btn-addnewcategory">
                     <span class="glyphicon glyphicon-plus"></span>
                     Add new category
                 </li>
             </ul>
-
+            <ul class="serialization vertical">
+                @Html.Partial("FlexibleListCategories", Model)
+            </ul>
         </div>
         <div class="col-sm-6">
             <div class="hidden" id="addcategory">
                 <form action="@Url.Action("AddCategory", "Admin")" method="post">
                     <div class="form-group">
-                        <h3>Add Category</h3>
+                        <h3>Add Category <span class="text-muted" id="ParentCategoryNameForm"> </span> </h3>
                         <label for="namecategory">Name:</label>
                         <input type="text" class="form-control" id="namecategory" name="namecategory" placeholder="Enter name">
                         <small class="form-text text-muted">Type name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent</small>
                         <input type="hidden" name="parentcategory" value="" id="parentcategoryhidden" onclick="PutParentCategory();" />
                     </div>
-                    <button onclick="PutParentCategory();" type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>
             <div class="hidden" id="updatecategory">
@@ -54,7 +82,7 @@
                 <h3>Do you want to delete this category?</h3>
                 <form action="@Url.Action("RemoveCategory", "Admin")" method="post">
                     <div class="form-group">
-                        <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider erasing all children categories.</small>
+                        <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider changing parent category of all children categories.</small>
                         <input type="hidden" name="id" value="" id="removedidhidden" />
                     </div>
                     <button onclick="" type="submit" class="btn btn-danger">Remove</button>
@@ -73,11 +101,19 @@
 <script>
     var group = null;
     $(document).ready(function () {
-        $("ul.serialization ").sortable();
-        group = $("ul.serialization").sortable({
+        $("ul.serialization ").sortable({
             group: 'serialization',
+            onDrop: function ($item, container, _super) {
+                $item.removeClass(container.group.options.draggedClass).removeAttr("style");
+                $("body").removeClass(container.group.options.bodyClass);
+                var itemid = $item.attr("data-id");
+                var itemparent = $item.parent().parent().attr("data-id");
+                ChangeParent(itemid, itemparent);
+            }
         });
     });
+
+
 
     $("#Ser").click(function myfunction() {
         var data = group.sortable("serialize").get();
@@ -85,7 +121,7 @@
         var jsonString = JSON.stringify(data, null, ' ');
 
         console.log(jsonString);
-    })
+    });
 
 
 </script>
@@ -95,23 +131,71 @@
         InitializeEvents();
     });
     function InitializeEvents() {
-        var buttonElements = $(".serialization li > button");
-        buttonElements.each(function ()
+
+        var buttonConfigElements = $(".serialization li > button.btn-config");
+        buttonConfigElements.each(function ()
         {
             $(this).click(function () {
                 var idUpdatedCategory = $(this).parent().attr("data-id");
                 var NameUpdatedCategory = $(this).parent().attr("data-name");
+                RemoveSelectionsFromAllElements();
+                $(this).parent().addClass("selected");
                 UpdateCategory(idUpdatedCategory, NameUpdatedCategory);
             }
             );
         });
+
+
+        var buttonAddElements = $(".serialization li > button.btn-add");
+        buttonAddElements.each(function () {
+            $(this).click(function () {
+                var idParentCategory = $(this).parent().attr("data-id");
+                var nameParentCategory = $(this).parent().attr("data-name");
+                RemoveSelectionsFromAllElements();
+                $(this).parent().addClass("selected");
+                AddCategory(idParentCategory, nameParentCategory);
+            }
+            );
+        });
+
+        var buttonDeleteElements = $(".serialization li > button.btn-remove");
+        buttonDeleteElements.each(function () {
+            $(this).click(function () {
+                var idDeleteCategory = $(this).parent().attr("data-id");
+                var nameDeleteCategory = $(this).parent().attr("data-name");
+                RemoveSelectionsFromAllElements();
+                $(this).parent().addClass("selected");
+                RemoveCategory(idDeleteCategory, nameDeleteCategory);
+            });
+        });
+
+        var liElements = $(".serialization li");
+        liElements.each(function () {
+            $(this).mouseup(function () {
+                var idCategory = $(this).attr("data-id");
+                console.log(idCategory + "!");
+            });
+        });
     }
-    function AddCategory() {
+    function AddCategory(id, name) {
         if (!$("#updatecategory").hasClass("hidden")) {
             $("#updatecategory").toggleClass("hidden");
         }
 
-        $("#addcategory").toggleClass("hidden");
+        if (id == $("#parentcategoryhidden").val() &&  !$("#addcategory").hasClass("hidden"))
+        {
+            $("#addcategory").addClass("hidden");
+            console.log('ayou');
+            RemoveSelectionsFromAllElements();
+        }
+
+        else
+            $("#addcategory").removeClass("hidden");
+
+        
+
+        $("#parentcategoryhidden").val(id);
+        $("#ParentCategoryNameForm").html("to " + name);
     }
     function PutParentCategory() {
         var id = $("#addbutton").parent().parent().attr("data-id");
@@ -119,26 +203,51 @@
         $("#parentcategoryhidden").val(id);
     }
     function UpdateCategory(id, name) {
-        if (!$("#addcategory").hasClass("hidden"))
-        {
+        if (!$("#addcategory").hasClass("hidden")) {
             $("#addcategory").toggleClass("hidden");
         }
 
-        if (!$("#updatecategory").hasClass("hidden") && $("#updatedidhidden").val()==id) {
-            $("#updatecategory").toggleClass("hidden");
+        if (id == $("#updatedidhidden").val() && !$("#updatecategory").hasClass("hidden")) {
+            $("#updatecategory").addClass("hidden");
+            console.log('ayou');
+            RemoveSelectionsFromAllElements();
         }
+
         else
-        {
-            if (!$("#updatecategory").hasClass("hidden")) {
-                $("#updatecategory").toggleClass("hidden");
-            }
-        }
+            $("#updatecategory").removeClass("hidden");
+
         
-        $("#CategoryNameForUpdate").html(name);
-        $("#updatecategory").toggleClass("hidden");
+        
         $("#CategoryNameForUpdate").html(name);
         $("#updatedidhidden").val(id);
         $("#removedidhidden").val(id);
-        console.log(name);
+    }
+
+
+    function RemoveCategory(id, name) {
+        $("#deletecategoryname").html(name);
+        $("#deletecategoryidmodal").val(id);
+    }
+
+    function RemoveSelectionsFromAllElements()
+    {
+        var liElements = $(".serialization li");
+        liElements.each(function () {
+            $(this).removeClass("selected");
+        });
+    }
+
+    function ChangeParent(id_item, id_parent)
+    {
+        $.ajax({
+            // edit to add steve's suggestion.
+            //url: "/ControllerName/ActionName",
+            url: '/Admin/ChangeParent',
+            success: function (id_item, id_parent) {
+                // your data could be a View or Json or what ever you returned in your action method 
+                // parse your data here
+                alert(data);
+            }
+        });
     }
 </script>

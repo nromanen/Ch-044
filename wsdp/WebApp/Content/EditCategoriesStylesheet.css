@@ -29,6 +29,17 @@
         font-size:16px;
         color:#FFF;
     }
+    .addnewlist > ul > li
+    {
+        background:#0b3b15;
+        min-height:30px;
+        border:0px solid #808080;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#FFF;
+    }
 
     .serialization > li > ul
     {
@@ -60,12 +71,26 @@
 
     .transperent
     {
-        position:absolute;
-        left:79%;
         background:rgba(0, 0, 0, 0.00);
-        color:white;
+        color:#64b769;
     }
 
+    .btn-config
+    {
+        position:absolute;
+        left:75%;
+    }
+
+    .btn-add
+    {
+        position:absolute;
+        left:80%;
+    }
+    .btn-remove
+    {
+        position:absolute;
+        left:85%;
+    }
     .info
     {
         border:3px dashed #979494;
@@ -81,4 +106,28 @@
        position:absolute;
        top:50%;
        left:30%;
+    }
+
+    .selected
+    {
+        background:#51ad5d !important;
+        outline:1px dotted #79b27c;
+        outline-offset:3px;
+    }
+
+    .btn-addnewcategory
+    {
+        background:#318344;
+        min-height:30px;
+        border:0px solid #808080;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#FFF;
+    }
+
+    .btn-addnewcategory:hover
+    {
+        background:#41a959;
     }
