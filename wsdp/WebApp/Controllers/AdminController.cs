@@ -33,7 +33,21 @@ namespace WebApp.Controllers
         public void AddCategory(string namecategory, int? parentcategory)
         {
             categoryManager.Add(namecategory, parentcategory ?? -1);
-            Response.Redirect("EditCategories/");
+            Response.Redirect("EditCategories");
+        }
+
+        [HttpPost]
+        public void UpdateCategory(string namecategory, int id)
+        {
+            categoryManager.Rename(id, namecategory);
+            Response.Redirect("EditCategories");
+        }
+
+        [HttpPost]
+        public void RemoveCategory(int id)
+        {
+            categoryManager.Delete(id);
+            Response.Redirect("EditCategories");
         }
 
         public ActionResult EditProperties()
@@ -45,7 +59,7 @@ namespace WebApp.Controllers
         public void AddProperty(string Name, string Description, string Type, string Prefix, string Sufix, int Characteristic_Id, int Category_Id, string DefaultValue)
         {
             propertyManager.Add(Name, Description, Type, Prefix, Sufix, Characteristic_Id, Category_Id, DefaultValue);
-            Response.Redirect("EditProperties/");
+            Response.Redirect("EditProperties");
         }
 
     }

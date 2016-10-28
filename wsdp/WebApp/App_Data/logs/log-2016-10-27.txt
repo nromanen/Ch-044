@@ -1,2 +1,12 @@
 ERROR 2016-10-27 12:41:39,116 [8] 61017ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : The model backing the 'MainContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
 ERROR 2016-10-27 14:40:07,820 [5] 102681ms [GetConcreteGoodsFromCategory BAL.Manager.ParseManagers.FridgeParseManager] : При установлении соединения с SQL Server произошла ошибка, связанная с сетью или с определенным экземпляром. Сервер не найден или недоступен. Убедитесь, что имя экземпляра указано правильно и что на SQL Server разрешены удаленные соединения. (provider: SQL Network Interfaces, error: 26 - Ошибка при обнаружении указанного сервера или экземпляра)
+ERROR 2016-10-27 21:46:42,798 [7] 167687ms [Delete BAL.Manager.CategoryManager] : The specified parameter type 'Model.DB.Category' is not valid. Only scalar types, such as System.Int32, System.Decimal, System.DateTime, and System.Guid, are supported.
+Parameter name: item
+ERROR 2016-10-27 21:46:50,379 [7] 175269ms [Delete BAL.Manager.CategoryManager] : The specified parameter type 'Model.DB.Category' is not valid. Only scalar types, such as System.Int32, System.Decimal, System.DateTime, and System.Guid, are supported.
+Parameter name: item
+ERROR 2016-10-27 21:46:54,730 [7] 179620ms [Delete BAL.Manager.CategoryManager] : The specified parameter type 'Model.DB.Category' is not valid. Only scalar types, such as System.Int32, System.Decimal, System.DateTime, and System.Guid, are supported.
+Parameter name: item
+ERROR 2016-10-27 21:47:38,900 [7] 223789ms [Delete BAL.Manager.CategoryManager] : The specified parameter type 'Model.DB.Category' is not valid. Only scalar types, such as System.Int32, System.Decimal, System.DateTime, and System.Guid, are supported.
+Parameter name: item
+ERROR 2016-10-27 21:52:01,846 [7] 211762ms [Delete BAL.Manager.CategoryManager] : The specified parameter type 'Model.DB.Category' is not valid. Only scalar types, such as System.Int32, System.Decimal, System.DateTime, and System.Guid, are supported.
+Parameter name: item
