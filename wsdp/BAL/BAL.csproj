@@ -102,6 +102,7 @@
     <Compile Include="Interface\ITVManager.cs" />
     <Compile Include="Interface\ITVParseManager.cs" />
     <Compile Include="Interface\IUserManager.cs" />
+    <Compile Include="Interface\IWebShopRepository.cs" />
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\FridgeManager.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Manager\ParseManagers\MicrowaveManager.cs" />
     <Compile Include="Manager\ParseManagers\PhoneParseManager.cs" />
     <Compile Include="Manager\ParseManagers\TVParseManager.cs" />
+    <Compile Include="Manager\WebShopManager.cs" />
     <Compile Include="Manager\PhoneManager.cs" />
     <Compile Include="Manager\PropertyManager.cs" />
     <Compile Include="Manager\TVManager.cs" />

@@ -13,6 +13,7 @@ namespace DAL.Interface
         IGenericRepository<Good> GoodRepo { get; }
         IGenericRepository<Category> CategoryRepo { get; }
         IGenericRepository<Property> PropertyRepo { get; }
+        IGenericRepository<WebShop> WebShopRepo { get; } 
         void Dispose();
         void Save();
     }
