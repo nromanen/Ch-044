@@ -96,6 +96,8 @@
     <Compile Include="Interface\IGoodManager.cs" />
     <Compile Include="Interface\ILaptopManager.cs" />
     <Compile Include="Interface\ILaptopParseManager.cs" />
+    <Compile Include="Interface\IMicrowaveManager.cs" />
+    <Compile Include="Interface\IMicrowaveParseManager.cs" />
     <Compile Include="Interface\IPhoneManager.cs" />
     <Compile Include="Interface\IPhoneParseManager.cs" />
     <Compile Include="Interface\IPropertyManager.cs" />
@@ -108,9 +110,10 @@
     <Compile Include="Manager\FridgeManager.cs" />
     <Compile Include="Manager\GoodManager.cs" />
     <Compile Include="Manager\LaptopManager.cs" />
+    <Compile Include="Manager\MicrowaveManager.cs" />
     <Compile Include="Manager\ParseManagers\FridgeParseManager.cs" />
     <Compile Include="Manager\ParseManagers\LaptopParseManager.cs" />
-    <Compile Include="Manager\ParseManagers\MicrowaveManager.cs" />
+    <Compile Include="Manager\ParseManagers\MicrowaveParseManager.cs" />
     <Compile Include="Manager\ParseManagers\PhoneParseManager.cs" />
     <Compile Include="Manager\ParseManagers\TVParseManager.cs" />
     <Compile Include="Manager\WebShopManager.cs" />

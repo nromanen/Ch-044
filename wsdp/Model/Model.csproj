@@ -61,6 +61,7 @@
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
+    <Compile Include="DTO\MicrowaveDTO.cs" />
     <Compile Include="DTO\PhoneDTO.cs" />
     <Compile Include="DTO\PropertyDTO.cs" />
     <Compile Include="DTO\TVDTO.cs" />
