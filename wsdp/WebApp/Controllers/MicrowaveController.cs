@@ -14,7 +14,7 @@ namespace WebApp.Controllers
 		// GET: Microwave
 		private IMicrowaveManager MicrowaveManager;
 		private IMicrowaveParseManager MicrowaveParseManager;
-		// GET: TV
+
 		public MicrowaveController(IMicrowaveManager MicrowaveManager, IMicrowaveParseManager MicrowaveParseManager) {
 			this.MicrowaveParseManager = MicrowaveParseManager;
 			this.MicrowaveManager = MicrowaveManager;
