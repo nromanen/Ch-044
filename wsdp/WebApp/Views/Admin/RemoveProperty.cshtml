@@ -1,0 +1,34 @@
+﻿@model Model.DTO.PropertyViewDTO
+@{
+    ViewBag.Title = "RemoveProperty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/EditProperties")
+@Styles.Render("~/Content/EditPropertiesStylesheet")
+
+<div class="container">
+<div class="row ">
+    <hr />
+    <center>
+        <h1>Remove Property</h1>
+    </center>
+    <div class="col-lg-10">
+        <div id="DeleteProperty">
+            <form action="@Url.Action("RemoveProperty", "Admin")" method="post" id="remove_property">
+                <div class="form-group">
+                    <label>Property Name:</label>
+                    <select class="form-control" id="prop_id_remove" name="id">
+                        @foreach (var prop in Model.properties)
+                        {
+                            <option value="@prop.Id">@prop.Name</option>
+
+                        }
+                    </select>
+                </div>
+                <button onclick="" type="submit" class="btn btn-danger" id="remove_property">Remove</button>
+            </form>
+        </div>
+    </div>
+</div>
+    </div>

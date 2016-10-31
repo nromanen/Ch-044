@@ -229,6 +229,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FrameController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaptopController.cs" />
@@ -244,12 +245,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
     <Content Include="Content\EditPropertiesStylesheet.css" />
+    <Content Include="Content\Frame\highlight.css" />
+    <Content Include="Content\Frame\Main.js" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\TVstylesheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -257,12 +262,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\bootstrap-combobox.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\EditProperties.js" />
     <Content Include="Scripts\editcategories.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -303,11 +310,15 @@
     <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
     <Content Include="Views\TV\GetTV.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
-    <Content Include="Views\Admin\EditProperties.cshtml" />
     <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\WebShop\Index.cshtml" />
     <Content Include="Views\Microwave\GetMicrowave.cshtml" />
     <Content Include="Views\Microwave\Index.cshtml" />
+    <Content Include="Views\Frame\IFrame.cshtml" />
+    <Content Include="Views\Frame\Index.cshtml" />
+    <Content Include="Views\Admin\AddProperty.cshtml" />
+    <Content Include="Views\Admin\RemoveProperty.cshtml" />
+    <Content Include="Views\Admin\UpdateProperty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
