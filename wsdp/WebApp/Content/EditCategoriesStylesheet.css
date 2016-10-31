@@ -17,68 +17,41 @@
             position: absolute;
             /** Define arrowhead **/
         }
-
-    .serialization > li
+    .serialization li
     {
-        background:#28aa2f;
+        line-height:32px;
+        list-style:none;
         min-height:30px;
-        border:0px solid #808080;
-        padding:15px;
-        margin-bottom:10px;
+        padding:5px;
+        padding-left:5px;
         list-style:none;
         font-size:16px;
-        color:#FFF;
+        color:#333;
+        border-left:1px dotted #979494;
     }
-    .addnewlist > ul > li
+
+    .placeholdertrue
     {
-        background:#0b3b15;
-        min-height:30px;
-        border:0px solid #808080;
-        padding:15px;
-        margin-bottom:10px;
-        list-style:none;
-        font-size:16px;
-        color:#FFF;
+        background:#CCC;
+        height:32px;
+        width:100%;
+        border:1px dotted black;
     }
 
     .serialization > li > ul
     {
-        margin-top:20px;
-    }
-
-
-    .serialization > li > ul > li
-    {
-        background:#229228;
-        min-height:30px;
-        padding:15px;
-        margin-bottom:10px;
-        list-style:none;
-        font-size:16px;
-        color:#EEE;
-    }
-
-    .serialization > li > ul > li > ul > li
-    {
-        background:#1c7a21;
-        min-height:30px;
-        padding:15px;
-        margin-bottom:10px;
-        list-style:none;
-        font-size:16px;
-        color:#EEE;
     }
 
     .transperent
     {
         background:rgba(0, 0, 0, 0.00);
-        color:#64b769;
+        color:#666;
     }
 
     .transperent:hover
     {
         background:rgba(0, 0, 0, 0.00);
-        color:#95d599;
+        color:#888;
     }
     .btn-config
     {
@@ -115,9 +88,8 @@
 
     .selected
     {
-        background:#51ad5d !important;
-        outline:1px dotted #79b27c;
-        outline-offset:3px;
+        background:#DDD;
+        border:1px dotted #333;
     }
 
     .btn-addnewcategory
@@ -136,3 +108,30 @@
     {
         background:#41a959;
     }
+
+    .modal.modal-wide .modal-dialog 
+    {
+        width: 50%;
+    }
+    .modal-wide .modal-body 
+    {
+        overflow-y: auto;
+    }
+    .modal-content div
+    {
+        padding:25px;
+    }
+    @media screen and (max-width:820px) 
+    {
+        .modal.modal-wide .modal-dialog 
+        {
+            width: 100%;
+        }
+    }
+
+    .serialization button
+    {
+        
+    }
+
+

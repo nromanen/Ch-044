@@ -11,10 +11,9 @@
         li.Attributes.Add("data-id", category.Id.ToString());
         li.Attributes.Add("data-name", category.Name);
         li.InnerHtml = category.Name
-            + "<button class=\"btn transperent arrow btn-sm\"><span class=\"glyphicon glyphicon-chevron-right\"></span></button>"
-            + "<button class=\"btn transperent btn-config btn-sm\"><span class=\"glyphicon glyphicon-cog\"></span></button>"
-            + "<button class=\"btn transperent btn-add btn-sm\"><span class=\"glyphicon glyphicon-plus\"></span></button>"
-            + "<button class=\"btn transperent btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\"><span class=\"glyphicon glyphicon-minus\" ></span></button>";
+            + "<button class=\"btn transperent hidden btn-config btn-sm\"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
+            + "<button class=\"btn transperent hidden btn-add btn-sm\"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
+            + "<button class=\"btn transperent hidden btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>";
         TagBuilder ul = new TagBuilder("ul");
         if (category.ChildrenCategory != null)
         {

@@ -1,4 +1,7 @@
-﻿
+﻿var addNode = null;
+var updateNode = null;
+var deleteNode = null;
+
 var group = null;
 $(document).ready(function () {
     $("ul.serialization ").sortable({
@@ -9,7 +12,9 @@ $(document).ready(function () {
             var itemid = $item.attr("data-id");
             var itemparent = $item.parent().parent().attr("data-id");
             ChangeParent(itemid, itemparent);
-        }
+        },
+        pullPlaceholder:true,
+        placeholder:'<li class="placeholdertrue"></li>'
     });
 });
 
@@ -18,7 +23,7 @@ $(document).ready(function () {
 
     $(document).ready(function () {
         InitializeEvents();
-        MakeFolders();
+        MakeHovers();
     });
 function InitializeEvents() {
 
@@ -30,6 +35,7 @@ function InitializeEvents() {
             var NameUpdatedCategory = $(this).parent().attr("data-name");
             RemoveSelectionsFromAllElements();
             $(this).parent().addClass("selected");
+            updateNode = $(this).parent();
             UpdateCategory(idUpdatedCategory, NameUpdatedCategory);
         }
         );
@@ -43,6 +49,7 @@ function InitializeEvents() {
             var nameParentCategory = $(this).parent().attr("data-name");
             RemoveSelectionsFromAllElements();
             $(this).parent().addClass("selected");
+            addNode = $(this).parent();
             AddCategory(idParentCategory, nameParentCategory);
         }
         );
@@ -54,6 +61,7 @@ function InitializeEvents() {
             var idDeleteCategory = $(this).parent().attr("data-id");
             var nameDeleteCategory = $(this).parent().attr("data-name");
             RemoveSelectionsFromAllElements();
+            deleteNode = $(this).parent();
             $(this).parent().addClass("selected");
             RemoveCategory(idDeleteCategory, nameDeleteCategory);
         });
@@ -67,7 +75,7 @@ function InitializeEvents() {
     });
 }
 function AddCategory(id, name) {
-    if (!$("#updatecategory").hasClass("hidden")) {
+    /*if (!$("#updatecategory").hasClass("hidden")) {
         $("#updatecategory").toggleClass("hidden");
     }
 
@@ -78,19 +86,43 @@ function AddCategory(id, name) {
     }
 
     else
-        $("#addcategory").removeClass("hidden");
+        $("#addcategory").removeClass("hidden");*/
 
         
 
     $("#parentcategoryhidden").val(id);
     $("#ParentCategoryNameForm").html("to " + name);
 }
+
+function InsertNode(node, name, id)
+{
+    $(node).append("<li data-id=" + id + " data-name=" + name + "  >" + name + "<button class=\"btn transperent hidden btn-config btn-sm\"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
+            + "<button class=\"btn transperent hidden btn-add btn-sm\"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
+            + "<button class=\"btn transperent hidden btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>" + "</li>");
+    InitializeEvents();
+    MakeHovers();
+}
+
+function UpdateNode(node, name)
+{
+    $(node).attr("data-name").val(name);
+    $(node).html(name + "<button class=\"btn transperent hidden btn-config btn-sm\"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
+            + "<button class=\"btn transperent hidden btn-add btn-sm\"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
+            + "<button class=\"btn transperent hidden btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>");
+    InitializeEvents();
+    MakeHovers();
+}
+
+function DeleteNode(node)
+{
+    $(node).remove();
+}
 function PutParentCategory() {
     var id = $("#addbutton").parent().parent().attr("data-id");
     $("#parentcategoryhidden").val(id);
 }
 function UpdateCategory(id, name) {
-    if (!$("#addcategory").hasClass("hidden")) {
+    /*if (!$("#addcategory").hasClass("hidden")) {
         $("#addcategory").toggleClass("hidden");
     }
 
@@ -100,7 +132,7 @@ function UpdateCategory(id, name) {
     }
 
     else
-        $("#updatecategory").removeClass("hidden");
+        $("#updatecategory").removeClass("hidden");*/
 
         
         
@@ -155,3 +187,24 @@ function ShowFolder(node)
     node.children(".arrow").children("span").toggleClass("glyphicon-chevron-right");
     node.children(".arrow").children("span").toggleClass("glyphicon-chevron-down");
 }
+
+function MakeHovers()
+{
+    var liElements = $(".serialization li");
+    liElements.each(function () {
+        var buttons = $(this).children("button.transperent");
+        $(this).mouseenter(function () {
+            buttons.each(function () {
+                $(this).removeClass("hidden");
+            });
+        });
+        
+        $(this).mouseleave(function () {
+            buttons.each(function () {
+                $(this).addClass("hidden");
+            });
+        });
+
+    });
+}
+ 
