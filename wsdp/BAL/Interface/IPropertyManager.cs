@@ -17,5 +17,6 @@ namespace BAL.Interface
         void Update(int id, string Name, string Description, string Type, string Prefix, string Sufix,
             string DefaultValue);
 
+        List<PropertyDTO> GetAll();
     }
 }

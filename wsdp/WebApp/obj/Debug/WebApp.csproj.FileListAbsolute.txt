@@ -960,7 +960,6 @@ D:\GitRepo\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\GitRepo\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
-D:\GitRepo\Ch-044\wsdp\WebApp\bin\PagedList.dll
 E:\repository\Ch-044\wsdp\WebApp\bin\ApplicationInsights.config
 E:\repository\Ch-044\wsdp\WebApp\bin\roslyn\csc.exe
 E:\repository\Ch-044\wsdp\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

@@ -1,29 +1,46 @@
-﻿@model List<Model.DTO.CategoryDTO>
+﻿@model Model.DTO.PropertyViewDTO
 @{
     ViewBag.Title = "EditProperties";
 }
 
-@Styles.Render("~/Content/bootstrap.css")
+@Scripts.Render("~/bundles/EditProperties")
+@Styles.Render("~/Content/EditPropertiesStylesheet")
 
 
 <div class="container">
     <div class="row ">
         <center><h1>Configuring Properties</h1></center>
-        <div class="col-sm-5">
-            <div id="addproperty">
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" id="hideshow_add">Add property</button>
+            <button type="submit" class="btn btn-primary" id="hideshow_remove">Remove property</button>
+            <button type="submit" class="btn btn-primary" id="hideshow_update">Update property</button>
+        </div>
+        <div class="col-sm-6">
+            <div id="add_property">
                 <form action="@Url.Action("AddProperty", "Admin")" method="post">
                     <div class="form-group">
-                        <h3>Add Property</h3>
                         <label for="Characteristic_Id">Characteristic Id:</label>
                         <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id">
-                        <label for="Category_Id">Category Id:</label>
-                        <input type="text" class="form-control" id="Category_Id" name="Category_Id" placeholder="Enter category id">
+                        <label>Category Id:</label>
+                        <select class="form-control" id="Category_Id" name="Category_Id">
+                            @foreach (var prop in Model.properties)
+                            {
+                                <option value="@prop.Id">@prop.Name</option>
+
+                            }
+                        </select>
                         <label for="Name">Name:</label>
                         <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter name">
                         <label for="Description">Description:</label>
                         <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter description">
-                        <label for="Type">Type:</label>
-                        <input type="text" class="form-control" id="Type" name="Type" placeholder="Enter type">
+                        <select class="form-control" id="type_add" name="Type">
+                            @foreach (var en in Model.enums)
+                            {
+                                <option value="@en">@en</option>
+
+                            }
+                        </select>
+
                         <label for="DefaultValue">Default Value:</label>
                         <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter default value of property">
                         <label for="Prefix">Perfix:</label>
@@ -35,31 +52,49 @@
 
                 </form>
             </div>
-        </div>
-        <div class="col-sm-3">
             <div id="DeleteProperty">
-                <form action="@Url.Action("RemoveProperty", "Admin")" method="post">
+                <form action="@Url.Action("RemoveProperty", "Admin")" method="post" id="remove_property">
                     <div class="form-group">
-                        <h3>Remove Property</h3>
-                        <input name="id" value="" id="removedidhidden"/>
+                        <label >Id:</label>
+                        <select class="form-control" id="prop_id_remove" name="id">
+                            @foreach (var prop in Model.properties)
+                            {
+                                <option value="@prop.Id">@prop.Name</option>
+
+                            }
+                        </select>
                     </div>
-                    <button onclick="" type="submit" class="btn btn-danger">Remove</button>
+                    <button onclick="" type="submit" class="btn btn-danger" id="remove_property">Remove</button>
                 </form>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="UpdateProperty">
+
+            <div id="update_property">
                 <form action="@Url.Action("UpdateProperty", "Admin")" method="post">
                     <div class="form-group">
-                        <h3>Update Property</h3>
-                        <label for="Property_Id">Id:</label>
-                        <input type="text" class="form-control" id="Property_Id" name="Property_Id" placeholder="Enter new name">
+                        <label>Id:</label>
+                        <select class="form-control" id="prop_id_update">
+
+                            @foreach (var prop in Model.properties)
+                            {
+                                <option value="@prop.Id">@prop.Name</option>
+
+                            }
+                        </select>
                         <label for="Name">Name:</label>
                         <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter new name">
                         <label for="Description">Description:</label>
                         <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter new description">
-                        <label for="Type">Type:</label>
-                        <input type="text" class="form-control" id="Type" name="Type" placeholder="Enter new type">
+
+                        <label>Type:</label>
+                        <select class="form-control" id="type_update">
+
+                            @foreach (var en in Model.enums)
+                            {
+                                <option value="@en">@en</option>
+
+                            }
+                        </select>
+
                         <label for="DefaultValue">Default Value:</label>
                         <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter new default value of property">
                         <label for="Prefix">Perfix:</label>
@@ -71,6 +106,6 @@
                 </form>
             </div>
         </div>
-
     </div>
 </div>
+

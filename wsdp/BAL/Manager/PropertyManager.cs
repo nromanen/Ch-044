@@ -67,5 +67,16 @@ namespace BAL.Manager
                 logger.Error(ex.Message);
             }
         }
+        public List<PropertyDTO> GetAll()
+        {
+            List<PropertyDTO> properties = new List<PropertyDTO>();
+            foreach (var property in uOW.PropertyRepo.All.ToList())
+            {
+                var prop = uOW.PropertyRepo.GetByID(property.Id);
+                properties.Add(Mapper.Map<PropertyDTO>(prop));
+            }
+
+            return properties;
+        }
     }
 }
