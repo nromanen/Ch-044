@@ -14,7 +14,8 @@ $(document).ready(function () {
             ChangeParent(itemid, itemparent);
         },
         pullPlaceholder:true,
-        placeholder:'<li class="placeholdertrue"></li>'
+        placeholder: '<li class="placeholdertrue"></li>',
+        handle: 'small.handler'
     });
 });
 
@@ -94,23 +95,62 @@ function AddCategory(id, name) {
     $("#ParentCategoryNameForm").html("to " + name);
 }
 
-function InsertNode(node, name, id)
+function InsertNode()
 {
-    $(node).append("<li data-id=" + id + " data-name=" + name + "  >" + name + "<button class=\"btn transperent hidden btn-config btn-sm\"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-add btn-sm\"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>" + "</li>");
-    InitializeEvents();
-    MakeHovers();
+    var node = addNode;
+    var parentid = $("#parentcategoryhidden").val();
+    var name = $("#namecategory").val();
+
+    var id = -1;
+    InsertAjax(parentid, name, id, node);
+            
 }
 
-function UpdateNode(node, name)
+function InsertAjax(parentid, name, id, node)
 {
-    $(node).attr("data-name").val(name);
-    $(node).html(name + "<button class=\"btn transperent hidden btn-config btn-sm\"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
+    $.ajax({
+        type: "POST",
+        url: 'AddCategory',
+        data: ({ namecategory: name, parentcategory: parentid }),
+        success: function (data) {
+            console.log(data);
+            id = data;
+            $(node).children("ul").append("<li data-id=" + id + " data-name=" + name + "  class=\"tree-closed\">"
+            + "<span class=\"toggler\"></span>"
+            +"<b class=\"namecategory\">" + name + "</b><button class=\"btn transperent hidden btn-config btn-sm\"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
             + "<button class=\"btn transperent hidden btn-add btn-sm\"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>");
-    InitializeEvents();
-    MakeHovers();
+            + "<button class=\"btn transperent hidden btn-remove btn-sm\" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>"
+            + "<ul class=\"treemenu\"></ul></li>");
+
+            $("#ModalAdd .close").click();
+            InitializeEvents();
+            MakeHovers();
+            //$(".tree").treemenu({ delay: 300 }).openActive();
+        },
+        async:false,
+        error: function () {
+            alert('Error occured');
+        }
+    });
+
+}
+
+function UpdateNode()
+{
+    var node = updateNode;
+    var name = $("#nameupdatedcategory").val();
+
+    console.log(name);
+    node.attr("data-name", name);
+    node.children(".namecategory").html(name);
+    $("#ModalUpdate .close").click();
+    UpdateAjax(node.attr("data-id"), name);
+}
+
+function UpdateAjax(id, name)
+{
+    $.post('UpdateCategory', { namecategory: name, id: id }, function (data) {
+    });
 }
 
 function DeleteNode(node)

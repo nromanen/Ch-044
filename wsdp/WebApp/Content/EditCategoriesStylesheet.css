@@ -19,23 +19,34 @@
         }
     .serialization li
     {
-        line-height:32px;
+        line-height:42px;
         list-style:none;
         min-height:30px;
         padding:5px;
-        padding-left:5px;
+        padding-left:25px;
         list-style:none;
-        font-size:16px;
+        font-size:22px;
         color:#333;
-        border-left:1px dotted #979494;
+        border-left:3px solid #555;
+    }
+
+
+    .serialization li > ul > li
+    {
+        border-left:3px solid #999;
+    }
+
+        .serialization li :hover
+    {
+        border-color:#318344;
+        color:#318344;
     }
 
     .placeholdertrue
     {
-        background:#CCC;
+        background:#94c8a0;
         height:32px;
         width:100%;
-        border:1px dotted black;
     }
 
     .serialization > li > ul
@@ -56,18 +67,18 @@
     .btn-config
     {
         position:absolute;
-        left:75%;
+        left:85%;
     }
 
     .btn-add
     {
         position:absolute;
-        left:80%;
+        left:88%;
     }
     .btn-remove
     {
         position:absolute;
-        left:85%;
+        left:91%;
     }
     .info
     {
@@ -88,8 +99,7 @@
 
     .selected
     {
-        background:#DDD;
-        border:1px dotted #333;
+
     }
 
     .btn-addnewcategory
