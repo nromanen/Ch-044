@@ -20,5 +20,8 @@ namespace Model.DB
         public string Path { get; set; }
         
         public string LogoPath { get; set; }
+
+        [Required]
+        public bool Status { get; set; }
     }
 }

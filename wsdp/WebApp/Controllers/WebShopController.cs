@@ -9,6 +9,7 @@ using Model.DB;
 
 namespace WebApp.Controllers
 {
+
     public class WebShopController : BaseController
     {
         private IWebShopManager _webShopManager;
@@ -48,14 +49,15 @@ namespace WebApp.Controllers
             {
                 if (upload != null)
                 {
-                    string fileName = System.IO.Path.GetFileName(upload.FileName);
+                    //string fileName = System.IO.Path.GetFileName(upload.FileName);
+                    string fileName = String.Format("IMG_{0}_{1}.jpg",
+                        DateTime.Now.ToString("yyyyMMddHHmmssfff"), 
+                        Guid.NewGuid());
+
                     webShop.LogoPath = "/Content/WebShopsLogo/" + fileName;
                     upload.SaveAs(Server.MapPath(webShop.LogoPath));
                 }
-                //else
-                //{
-                //    webShop.LogoPath = "/Content/WebShopsLogo/webshop.png";
-                //}
+                
                 _webShopManager.Insert(webShop);
                 }
                 return View(webShop);
