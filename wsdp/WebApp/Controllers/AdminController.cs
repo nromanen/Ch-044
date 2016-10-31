@@ -58,7 +58,25 @@ namespace WebApp.Controllers
         {
             categoryManager.ChangeParent(categoryid, parentid ?? -1);
         }
-        public ActionResult EditProperties()
+        public ActionResult RemoveProperty()
+        {
+            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
+            List<string> enums = new List<string>();
+            foreach (var i in Enum.GetNames(typeof(PropertyType)))
+                enums.Add(i);
+            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, properties = properties };
+            return View(custom_model);
+        }
+        public ActionResult AddProperty()
+        {
+            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
+            List<string> enums = new List<string>();
+            foreach (var i in Enum.GetNames(typeof(PropertyType)))
+                enums.Add(i);
+            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, properties = properties };
+            return View(custom_model);
+        }
+        public ActionResult UpdateProperty()
         {
             List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
             List<string> enums = new List<string>();
