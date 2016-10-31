@@ -25,15 +25,20 @@
         padding:5px;
         padding-left:25px;
         list-style:none;
-        font-size:22px;
+        font-size:20px;
         color:#333;
         border-left:3px solid #555;
     }
 
-
+    
     .serialization li > ul > li
     {
         border-left:3px solid #999;
+    }
+
+        .serialization li > ul > li > ul > li
+    {
+        border-left:3px solid #BBB;
     }
 
         .serialization li :hover
@@ -44,8 +49,8 @@
 
     .placeholdertrue
     {
-        background:#94c8a0;
-        height:32px;
+        background:#a5d3b0;
+        height:52px;
         width:100%;
     }
 
@@ -57,6 +62,7 @@
     {
         background:rgba(0, 0, 0, 0.00);
         color:#666;
+        cursor:pointer;
     }
 
     .transperent:hover
@@ -67,13 +73,13 @@
     .btn-config
     {
         position:absolute;
-        left:85%;
+        left:83%;
     }
 
     .btn-add
     {
         position:absolute;
-        left:88%;
+        left:87%;
     }
     .btn-remove
     {
@@ -125,11 +131,16 @@
     }
     .modal-wide .modal-body 
     {
+        padding:5px;
         overflow-y: auto;
     }
     .modal-content div
     {
         padding:25px;
+    }
+    .modal .form-group, .modal-body
+    {
+        padding:5px;
     }
     @media screen and (max-width:820px) 
     {
@@ -137,8 +148,20 @@
         {
             width: 100%;
         }
+        .serialization button
+        {
+            border:none;
+        }
+        .serialization li
+        {
+            font-size:16px;
+        }
     }
 
+    .modal-body
+    {
+                padding:5px;
+    }
     .serialization button
     {
         

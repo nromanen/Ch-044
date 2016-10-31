@@ -49,7 +49,6 @@ namespace WebApp.Controllers
         public void RemoveCategory(int id)
         {
             categoryManager.Delete(id);
-            Response.Redirect("EditCategories");
         }
         [HttpPost]
         public void ChangeParent(int categoryid, int? parentid)
