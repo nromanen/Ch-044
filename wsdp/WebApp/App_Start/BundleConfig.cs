@@ -34,10 +34,15 @@ namespace WebApp {
 			bundles.Add(new StyleBundle("~/Content/styles").Include(
 				"~/Content/bootstrap.min.css",
 				"~/Content/style.css"));
+
+			bundles.Add(new StyleBundle("~/Content/style").Include(
+					  "~/Content/bootstrap.min.css",
+					  "~/Content/Frame/highlight.css"));
+
+			bundles.Add(new ScriptBundle("~/Content/js").Include(
+						"~/Content/Frame/Main.js"));
+
 		}
-
-
-
 	}
 }
 

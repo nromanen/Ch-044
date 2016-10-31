@@ -229,6 +229,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FrameController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaptopController.cs" />
@@ -249,8 +250,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
     <Content Include="Content\EditPropertiesStylesheet.css" />
+    <Content Include="Content\Frame\highlight.css" />
+    <Content Include="Content\Frame\Main.js" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\TVstylesheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -309,6 +313,8 @@
     <Content Include="Views\WebShop\Index.cshtml" />
     <Content Include="Views\Microwave\GetMicrowave.cshtml" />
     <Content Include="Views\Microwave\Index.cshtml" />
+    <Content Include="Views\Frame\IFrame.cshtml" />
+    <Content Include="Views\Frame\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
