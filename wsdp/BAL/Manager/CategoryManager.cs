@@ -15,8 +15,6 @@ namespace BAL.Manager
     public class CategoryManager : BaseManager, ICategoryManager
     {
 
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
-
         public CategoryManager(IUnitOfWork uOW) : base(uOW)
         {
         }
