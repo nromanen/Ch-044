@@ -1,4 +1,4 @@
-﻿/*Global vars for correct removing/updating etc*/
+﻿/*Global vars for correct removing/updating/adding*/
 var addNode = null;
 var updateNode = null;
 var deleteNode = null;
@@ -12,11 +12,11 @@ $(document).ready(function () {
             $("#ModalUpdate").show();
         });
     $("#remove_prop")
-        .click(function() {
+        .click(function () {
             $("#ModalUpdate").hide();
         });
     $("#remove_prop_dial")
-        .click(function() {
+        .click(function () {
             $("#ModalUpdate").show();
         });
 
@@ -41,7 +41,7 @@ $(document).ready(function () {
             var itemparent = $item.parent().parent().attr("data-id");
             ChangeParent(itemid, itemparent);
         },
-        pullPlaceholder:true,
+        pullPlaceholder: true,
         placeholder: '<li class="placeholdertrue"></li>',
         handle: 'small.handler'
     });
@@ -58,17 +58,16 @@ function DeleteProp() {
 }
 
 /*inizializtion of buttons*/
-    $(document).ready(function () {
-        InitializeEvents();
-        MakeHovers();
-    });
+$(document).ready(function () {
+    InitializeEvents();
+    MakeHovers();
+});
 
 /*puting events for right-side buttons*/
 function InitializeEvents() {
     //updating buttons
     var buttonConfigElements = $(".serialization li > button.btn-config");
-    buttonConfigElements.each(function ()
-    {
+    buttonConfigElements.each(function () {
         $(this).click(function () {
             var idUpdatedCategory = $(this).parent().attr("data-id");
             var NameUpdatedCategory = $(this).parent().attr("data-name");
@@ -110,58 +109,67 @@ function InitializeEvents() {
 //correct filling a modal form for adding
 function AddCategory(id, name) {
     $("#parentcategoryhidden").val(id);
-    $("#ParentCategoryNameForm").html("to " + name);
+    $("#ParentCategoryNameForm").html(name);
 }
 
 //little helper to main button Add Category+ .Just sets parent category of making category to main
-function SetMainNode()
-{
+function SetMainNode() {
     addNode = $(".serialization").parent();
 }
 
 //inserting new category: to db, to user interface
-function InsertNode()
-{
+function InsertNode() {
     var node = addNode;
     var parentid = $("#parentcategoryhidden").val();
     var name = $("#namecategory").val();
 
     var id = -1;
+    //puting in UI new list item
+    $(node).children("ul").append("<li data-id=" + id + " data-name=" + name + "  class=\"tree-closed\">"
+    + "<span class=\"toggler\"></span>"
+    + "<b class=\"namecategory\">" + name + "</b>" + "         <small class=\"handler transperent btn-sm glyphicon glyphicon-move text-muted\"></small>" + "<button class=\"btn transperent hidden btn-config \" data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
+    + "<button class=\"btn transperent hidden btn-add \"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
+    + "<button class=\"btn transperent hidden btn-remove \" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>"
+    + "<ul class=\"treemenu\"></ul></li>");
+    addNode = $(node).children("ul").children("li:last");
+
+
     InsertAjax(parentid, name, id, node);
-            
+
+
+
+
+
+    $("#ModalAdd .close").click();
+    //establishing events (open tree, close tree, hovers)
+    InitializeEvents();
+    DeleteTreeEvents();
+    MakeHovers();
+    $(".tree").treemenu({ delay: 300 }).openActive();
+
+    var mainList = $(".serialization li");
+    mainList.each(function () {
+        if ($(this).hasClass("tree-opened")) {
+            $(this).removeClass("tree-closed");
+            $(this).children("ul").attr("style", "");
+        }
+
+    });
+
 }
 
 
 //concrete inserting to db using ajax
-function InsertAjax(parentid, name, id, node)
-{
+function InsertAjax(parentid, name, id, node) {
     $.ajax({
         type: "POST",
         url: 'AddCategory',
         data: ({ namecategory: name, parentcategory: parentid }),
         success: function (data) {
             console.log(data);
-            id = data;
-            //will be fixed
-            $(node).children("ul").append("<li data-id=" + id + " data-name=" + name + "  class=\"tree-closed\">"
-            + "<span class=\"toggler\"></span>"
-            +"<b class=\"namecategory\">" + name + "</b><button class=\"btn transperent hidden btn-config \" data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-add \"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-remove \" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>"
-            + "<ul class=\"treemenu\"></ul></li>");
-
-
-            $(node).children("ul").children("li:last-child span.toggler").click(function () {
-
-            });
-            $("#ModalAdd .close").click();
-
-            InitializeEvents();
-            DeleteTreeEvents();
-            MakeHovers();
-            $(".tree").treemenu({ delay: 300 }).openActive();
+            addNode.attr("data-id", data);
         },
-        async:false,
+        async: false,
         error: function () {
             alert('Error occured');
         }
@@ -170,11 +178,10 @@ function InsertAjax(parentid, name, id, node)
 }
 
 
-function DeleteTreeEvents()
-{
+function DeleteTreeEvents() {
     var mainList = $(".serialization li");
     mainList.each(function () {
-        $(this).removeClass("tree-opened");
+        //$(this).removeClass("tree-opened");
         $(this).removeClass("tree-closed");
 
         $(this).children("span.toggler").each(function () {
@@ -184,8 +191,7 @@ function DeleteTreeEvents()
     });
 }
 //concrete updating category
-function UpdateNode()
-{
+function UpdateNode() {
     var node = updateNode;
     var name = $("#nameupdatedcategory").val();
 
@@ -198,27 +204,47 @@ function UpdateNode()
 
 
 //ajax query update db 
-function UpdateAjax(id, name)
-{
+function UpdateAjax(id, name) {
     $.post('UpdateCategory', { namecategory: name, id: id }, function (data) {
     });
 }
 
 //concrete deleting category
-function DeleteNode()
-{
+function DeleteNode() {
     var id = deleteNode.attr("data-id");
 
     var childNodes = deleteNode.children("ul").children("li");
+    //mobing children category of deleted category to next parent
     childNodes.each(function () {
         console.log(deleteNode.parent());
-        console.log($(this).html());
-        deleteNode.parent().append( $(this) );
+        var node = $(this);
+
+        console.log(node);
+        deleteNode.parent().append(node.clone());
         $(this).remove();
     });
+
+
+
     deleteNode.remove();
     $("#ModalDelete .close").click();
     $("#ModalUpdate .close").click();
+
+    //establishing events (open tree, close tree, hovers)
+    InitializeEvents();
+    DeleteTreeEvents();
+    MakeHovers();
+    $(".tree").treemenu({ delay: 300 }).openActive();
+
+    var mainList = $(".serialization li");
+    mainList.each(function () {
+        if ($(this).hasClass("tree-opened")) {
+            $(this).removeClass("tree-closed");
+            $(this).children("ul").attr("style", "");
+        }
+
+    });
+    //ajax query - removing from db
     $.post('RemoveCategory', { id: id }, function (data) {
     });
 }
@@ -230,7 +256,7 @@ function PutParentCategory() {
 }
 
 //correct filling update modal form 
-function UpdateCategory(id, name) {    
+function UpdateCategory(id, name) {
     $("#CategoryNameForUpdate").html(name);
     $("#updatedidhidden").val(id);
     $("#removedidhidden").val(id);
@@ -243,21 +269,19 @@ function RemoveCategory(id, name) {
 }
 
 //ajax query change parent. invokes, when items drop
-function ChangeParent(id_item, id_parent)
-{
-    $.post('ChangeParent',{categoryid:id_item, parentid:id_parent }, function(data) {
+function ChangeParent(id_item, id_parent) {
+    $.post('ChangeParent', { categoryid: id_item, parentid: id_parent }, function (data) {
     });
 }
 
 
 //making hovers-buttons on categories
-function MakeHovers()
-{
+function MakeHovers() {
     var liElements = $(".serialization li");
     liElements.each(function () {
         var buttons = $(this).children("button.transperent");
 
-        //using mouseenter&mouse lived due to lags hover
+        //using mouseenter&mouse lived due to lags on hover
         $(this).mouseenter(function () {
             buttons.each(function () {
                 $(this).removeClass("hidden");
@@ -269,7 +293,7 @@ function MakeHovers()
             });
 
         });
-        
+
         $(this).mouseleave(function () {
             buttons.each(function () {
                 $(this).addClass("hidden");
@@ -283,4 +307,4 @@ function MakeHovers()
 
     });
 }
- 
+

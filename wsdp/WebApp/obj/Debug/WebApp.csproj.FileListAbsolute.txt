@@ -850,3 +850,9 @@ D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\PagedList.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.xml
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\PagedList.xml
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.xml
