@@ -148,7 +148,12 @@ namespace BAL.Manager.ParseManagers
                     .ToList();
                 for (int i = 0; i < nameofchar.Count; i++)
                 {
-                    dict.Add(nameofchar[i].InnerText, value[i].InnerText);
+                    var key = nameofchar[i].InnerText;
+                    var val = value[i].InnerText;
+                    if (!dict.ContainsKey(key))
+                    {
+                        dict.Add(nameofchar[i].InnerText, value[i].InnerText);
+                    }
                 }
 
                 var TV = new TV

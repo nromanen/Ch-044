@@ -1,1 +1,27 @@
-﻿
+﻿body {
+
+    font-size: 15px;
+    line-height: 20px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 10px 0;
+    font-size: 30px;
+    font-size: 30px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 1em;
+}
+
+label { margin: 0 0 10px; }
+
+input { margin: 0 0 10px }
+
+.btn {
+    margin: 0 0 10px;
+    width: 135px;
+}
+
+.form-control { margin: 0 0 10px; }

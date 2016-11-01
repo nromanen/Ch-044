@@ -1,0 +1,67 @@
+﻿@model Model.DTO.PropertyViewDTO
+@{
+    ViewBag.Title = "UpdateProperty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/EditProperties")
+@Styles.Render("~/Content/EditPropertiesStylesheet")
+
+<div class="container">
+    <div class="row ">
+        <hr />
+        <center>
+            <h1>Update Property</h1>
+        </center>
+        <div class="col-lg-10">
+        <div id="update_property">
+            <form action="@Url.Action("UpdateProperty", "Admin")" method="post">
+                <div class="form-group">
+                    <label>Property Name:</label>
+                    <select class="form-control" id="prop_id_update" name="Property_Id">
+
+                        @foreach (var prop in Model.properties)
+                        {
+                            <option value="@prop.Id">@prop.Name</option>
+
+                        }
+                    </select>
+                    <label>Category Name:</label>
+                    <select class="form-control" id="category_id_update" name="Category_Id">
+
+                        @foreach (var category in Model.categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+
+                        }
+                    </select>
+                    <label for="Characteristic_Id">Characteristic Id:</label>
+                    <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter new id">
+                    <label for="Name">Name:</label>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter new name">
+                    <label for="Description">Description:</label>
+                    <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter new description">
+
+                    <label>Type:</label>
+                    <select class="form-control" id="type_update" name="Type">
+
+                        @foreach (var enum_name in Model.enums)
+                        {
+                            <option value="@enum_name">@enum_name</option>
+
+                        }
+                    </select>
+
+                    <label for="DefaultValue">Default Value:</label>
+                    <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter new default value of property">
+                    <label for="Prefix">Perfix:</label>
+                    <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter new prefix">
+                    <label for="Sufix">Sufix:</label>
+                    <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter new sufix">
+                </div>
+                <button onclick="" type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>

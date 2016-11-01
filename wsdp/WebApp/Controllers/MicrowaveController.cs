@@ -9,7 +9,7 @@ using Model.DTO;
 
 namespace WebApp.Controllers
 {
-    public class MicrowaveController : Controller
+    public class MicrowaveController : BaseController
     {
 		// GET: Microwave
 		private IMicrowaveManager MicrowaveManager;

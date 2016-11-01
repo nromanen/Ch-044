@@ -1,0 +1,55 @@
+﻿@model Model.DTO.PropertyViewDTO
+@{
+    ViewBag.Title = "AddProperty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/EditProperties")
+@Styles.Render("~/Content/EditPropertiesStylesheet")
+
+<div class="container">
+    <div class="row ">
+        <hr/>
+        <center>
+            <h1>Add Property</h1></center>
+        <div class="col-lg-10">
+            <div id="add_property">
+                <form action="@Url.Action("AddProperty", "Admin")" method="post">
+                    <div class="form-group">
+                        <label for="Characteristic_Id">Characteristic Id:</label>
+                        <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id">
+                        <label>Category Name:</label>
+                        <select class="form-control" id="Category_Id" name="Category_Id">
+                            @foreach (var category in Model.categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+
+                            }
+                        </select>
+                        <label for="Name">Name:</label>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter name">
+                        <label for="Description">Description:</label>
+                        <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter description">
+                        <label >Type:</label>
+                        <select class="form-control" id="type_add" name="Type">
+                            @foreach (var enum_name in Model.enums)
+                            {
+                                <option value="@enum_name">@enum_name</option>
+
+                            }
+                        </select>
+
+                        <label for="DefaultValue">Default Value:</label>
+                        <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter default value of property">
+                        <label for="Prefix">Perfix:</label>
+                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix">
+                        <label for="Sufix">Sufix:</label>
+                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix">
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
