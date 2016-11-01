@@ -1191,3 +1191,5 @@ D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\PagedList.dll
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\PagedList.xml
