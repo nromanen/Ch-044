@@ -169,7 +169,6 @@ function InsertAjax(parentid, name, id, node) {
             console.log(data);
             addNode.attr("data-id", data);
         },
-        async: false,
         error: function () {
             alert('Error occured');
         }
@@ -216,10 +215,7 @@ function DeleteNode() {
     var childNodes = deleteNode.children("ul").children("li");
     //mobing children category of deleted category to next parent
     childNodes.each(function () {
-        console.log(deleteNode.parent());
         var node = $(this);
-
-        console.log(node);
         deleteNode.parent().append(node.clone());
         $(this).remove();
     });
