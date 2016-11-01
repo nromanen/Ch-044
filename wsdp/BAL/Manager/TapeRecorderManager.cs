@@ -14,22 +14,22 @@ using Model.DTO;
 using Model.Product;
 
 namespace BAL.Manager {
-	public class MicrowaveManager : BaseManager, IMicrowaveManager {
+	public class TapeRecorderManager : BaseManager, ITapeRecorderManager {
 		
-		public MicrowaveManager(IUnitOfWork uOW) : base(uOW) {}
+		public TapeRecorderManager(IUnitOfWork uOW) : base(uOW) {}
 	
-		public List<MicrowaveDTO> GetAll() {
-			List<MicrowaveDTO> microwaves = new List<MicrowaveDTO>();
+		public List<TapeRecorderDTO> GetAll() {
+			List<TapeRecorderDTO> microwaves = new List<TapeRecorderDTO>();
 			ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
 			foreach (var MicrowaveDb in uOW.GoodRepo.All.Where(g => g.Category == GoodCategory.Microwave)) {
-				Microwave wave = serializer.Deserialize(MicrowaveDb.XmlData, typeof(Microwave)) as Microwave;
+				TapeRecorder wave = serializer.Deserialize(MicrowaveDb.XmlData, typeof(TapeRecorder)) as TapeRecorder;
 				wave.Id = MicrowaveDb.Id;
-				microwaves.Add(Mapper.Map<MicrowaveDTO>(wave));
+				microwaves.Add(Mapper.Map<TapeRecorderDTO>(wave));
 			}
 			return microwaves;
 		}
 
-		public Microwave GetById(int id) {
+		public TapeRecorder GetById(int id) {
 			Good good = null;
 			ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
 			try {
@@ -40,7 +40,7 @@ namespace BAL.Manager {
 				logger.Error(ex.Message);
 			}
 
-			Microwave wave = serializer.Deserialize(good.XmlData, typeof(Microwave)) as Microwave;
+			TapeRecorder wave = serializer.Deserialize(good.XmlData, typeof(TapeRecorder)) as TapeRecorder;
 			wave.Id = id;
 			return wave;
 		}

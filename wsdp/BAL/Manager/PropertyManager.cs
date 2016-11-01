@@ -15,7 +15,6 @@ namespace BAL.Manager
 {
     public class PropertyManager : BaseManager, IPropertyManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public PropertyManager(IUnitOfWork uOW) : base(uOW)
         {
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Model.DB;
 
 namespace BAL.Interface {
-	public interface IMicrowaveParseManager {
+	public interface ITapeRecorderParseManager {
 		void GetAllWaves(string url);
 	}
 }

@@ -61,7 +61,7 @@
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
-    <Compile Include="DTO\MicrowaveDTO.cs" />
+    <Compile Include="DTO\TapeRecorderDTO.cs" />
     <Compile Include="DTO\PhoneDTO.cs" />
     <Compile Include="DTO\PropertyDTO.cs" />
     <Compile Include="DTO\PropertyViewDTO.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Product\Fridge.cs" />
     <Compile Include="Product\Laptop.cs" />
-    <Compile Include="Product\Microwave.cs" />
+    <Compile Include="Product\TapeRecorder.cs" />
     <Compile Include="Product\Phone.cs" />
     <Compile Include="Product\TV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

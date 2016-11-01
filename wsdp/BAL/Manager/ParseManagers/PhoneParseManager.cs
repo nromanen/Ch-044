@@ -21,7 +21,6 @@ namespace BAL.Manager.ParseManagers {
     
 	public class PhoneParseManager : BaseManager, IPhoneParseManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public PhoneParseManager(IUnitOfWork uOW) : base(uOW)
         {
 

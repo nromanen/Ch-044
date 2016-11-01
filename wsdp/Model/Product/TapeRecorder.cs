@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.Product {
-	public class Microwave {
+	public class TapeRecorder {
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string ImgPath { get; set; }

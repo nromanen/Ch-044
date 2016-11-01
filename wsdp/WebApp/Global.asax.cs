@@ -55,8 +55,8 @@ namespace WebApp
                 container.Register<ITVParseManager, TVParseManager>();
                 container.Register<ILaptopParseManager, LaptopParseManager>();
                 container.Register<ILaptopManager, LaptopManager>();
-				container.Register<IMicrowaveParseManager, MicrowaveParseManager>();
-				container.Register<IMicrowaveManager, MicrowaveManager>();
+				container.Register<ITapeRecorderParseManager, TapeRecorderParseManager>();
+				container.Register<ITapeRecorderManager, TapeRecorderManager>();
 				container.Register<IPropertyManager, PropertyManager>();
                 container.Register<IWebShopManager, WebShopManager>();
                 container.Register<IDownloadManager, DownloadManager>();

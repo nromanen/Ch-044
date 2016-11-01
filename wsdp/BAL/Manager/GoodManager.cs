@@ -12,7 +12,6 @@ namespace BAL.Manager
 {
     public class GoodManager : BaseManager, IGoodManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public GoodManager(IUnitOfWork uOW) : base(uOW)
         {
 

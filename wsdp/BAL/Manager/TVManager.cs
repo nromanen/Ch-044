@@ -16,7 +16,6 @@ namespace BAL.Manager.ParseManagers
 {
     public class TVManager : BaseManager, ITVManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public TVManager(IUnitOfWork uOW) : base(uOW)
         {
         }
