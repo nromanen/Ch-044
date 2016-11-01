@@ -59,7 +59,8 @@ namespace BAL.Manager {
 					uOW.Save();
 				}
 
-				uOW.CategoryRepo.Delete(id);
+				//uOW.CategoryRepo.Delete(id);
+                uOW.CategoryRepo.Delete(category);
 				uOW.Save();
 				return true;
 			} catch (Exception ex) {
@@ -86,8 +87,12 @@ namespace BAL.Manager {
 
 		public bool ChangeParent(int id, int parentId) {
 			try {
+                if (parentId == -1)
+                {
+                    uOW.CategoryRepo.GetByID(id).ParentCategory = null;
+                    return true;
+                }
 				var parent = uOW.CategoryRepo.GetByID(parentId);
-				if (parent == null) return false;
 				uOW.CategoryRepo.GetByID(id).ParentCategory = parent;
 				uOW.Save();
 				return true;

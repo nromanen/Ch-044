@@ -1,0 +1,3 @@
+ERROR 2016-10-28 17:44:24,312 [7] 2403ms [Delete BAL.Manager.CategoryManager] : The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+ERROR 2016-10-28 17:57:36,765 [6] 56722ms [Update BAL.Manager.PropertyManager] : Ссылка на объект не указывает на экземпляр объекта.
+ERROR 2016-10-28 17:58:12,045 [6] 92002ms [Update BAL.Manager.PropertyManager] : Запрошенное значение "Doubleee" не найдено.

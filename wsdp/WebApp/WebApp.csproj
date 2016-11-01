@@ -232,6 +232,7 @@
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaptopController.cs" />
+    <Compile Include="Controllers\MicrowaveController.cs" />
     <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Controllers\TVController.cs" />
     <Compile Include="Controllers\WebShopController.cs" />
@@ -246,6 +247,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EditCategoriesStylesheet.css" />
+    <Content Include="Content\EditPropertiesStylesheet.css" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\TVstylesheet.css" />
@@ -261,6 +264,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\editcategories.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -297,14 +301,20 @@
     <Content Include="Views\Fridge\ConcreteFridge.cshtml" />
     <Content Include="Views\Laptop\Index.cshtml" />
     <Content Include="Views\Laptop\OneLaptop.cshtml" />
-    <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\Admin\EditCategories.cshtml" />
     <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
     <Content Include="Views\TV\GetTV.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
+    <Content Include="Views\Admin\EditProperties.cshtml" />
+    <Content Include="Views\WebShop\Create.cshtml" />
+    <Content Include="Views\WebShop\Index.cshtml" />
+    <Content Include="Views\Microwave\GetMicrowave.cshtml" />
+    <Content Include="Views\Microwave\Index.cshtml" />
+    <Content Include="Views\TV\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\WebShopsLogo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

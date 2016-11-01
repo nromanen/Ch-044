@@ -1,0 +1,138 @@
+﻿body.dragging, body.dragging * {
+        cursor: move !important;
+    }
+
+    .dragged {
+        position: absolute;
+        opacity: 0.5;
+        z-index: 2000;
+    }
+
+    ol.example li.placeholder {
+        position: relative;
+        /** More li styles **/
+    }
+
+        ol.example li.placeholder:before {
+            position: absolute;
+            /** Define arrowhead **/
+        }
+
+    .serialization > li
+    {
+        background:#28aa2f;
+        min-height:30px;
+        border:0px solid #808080;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#FFF;
+    }
+    .addnewlist > ul > li
+    {
+        background:#0b3b15;
+        min-height:30px;
+        border:0px solid #808080;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#FFF;
+    }
+
+    .serialization > li > ul
+    {
+        margin-top:20px;
+    }
+
+
+    .serialization > li > ul > li
+    {
+        background:#229228;
+        min-height:30px;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#EEE;
+    }
+
+    .serialization > li > ul > li > ul > li
+    {
+        background:#1c7a21;
+        min-height:30px;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#EEE;
+    }
+
+    .transperent
+    {
+        background:rgba(0, 0, 0, 0.00);
+        color:#64b769;
+    }
+
+    .transperent:hover
+    {
+        background:rgba(0, 0, 0, 0.00);
+        color:#95d599;
+    }
+    .btn-config
+    {
+        position:absolute;
+        left:75%;
+    }
+
+    .btn-add
+    {
+        position:absolute;
+        left:80%;
+    }
+    .btn-remove
+    {
+        position:absolute;
+        left:85%;
+    }
+    .info
+    {
+        border:3px dashed #979494;
+        border-radius:10px;
+        min-height:100%;
+        width:100%;
+        text-align:center;
+        vertical-align:middle;
+    }
+
+    .info h2
+    {
+       position:absolute;
+       top:50%;
+       left:30%;
+    }
+
+    .selected
+    {
+        background:#51ad5d !important;
+        outline:1px dotted #79b27c;
+        outline-offset:3px;
+    }
+
+    .btn-addnewcategory
+    {
+        background:#318344;
+        min-height:30px;
+        border:0px solid #808080;
+        padding:15px;
+        margin-bottom:10px;
+        list-style:none;
+        font-size:16px;
+        color:#FFF;
+    }
+
+    .btn-addnewcategory:hover
+    {
+        background:#41a959;
+    }

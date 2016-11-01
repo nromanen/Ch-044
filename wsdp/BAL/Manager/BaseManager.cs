@@ -14,7 +14,7 @@ namespace BAL.Manager
     public class BaseManager
     {
         protected IUnitOfWork uOW;
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
+        protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public BaseManager(IUnitOfWork uOW)
         {
             this.uOW = uOW;

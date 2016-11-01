@@ -3,67 +3,99 @@
 @{
     ViewBag.Title = "EditCategories";
 }
-<style>
-    body.dragging, body.dragging * {
-  cursor: move !important;
-}
-
-.dragged {
-  position: absolute;
-  opacity: 0.5;
-  z-index: 2000;
-}
-
-ol.example li.placeholder {
-  position: relative;
-  /** More li styles **/
-}
-ol.example li.placeholder:before {
-  position: absolute;
-  /** Define arrowhead **/
-}
-</style>
-<h2>EditCategories</h2>
-
-
-<button id="Ser">Serialize</button>
-
-
-@{
-    //HtmlString str = new HtmlString(Html.Partial("FlexibleListCategories", Model));
-    MvcHtmlString ms = @Html.Partial("FlexibleListCategories", Model
-        );
-    HtmlString str = new HtmlString(ms.ToString());
-    string str2 = HttpUtility.HtmlDecode(str.ToString());
-}
-
+@Styles.Render("~/Content/EditCategoriesStylesheet.css")
 <br />
 <br />
-<div>
-    @Html.Partial("FlexibleListCategories", Model);
+<!--
+    Modal Window
+-->
+<div class="modal fade" tabindex="-1" role="dialog" id="ModalDelete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Attention</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you really want to <span class="text-danger">remove</span> category <span class="text-warning" id="deletecategoryname"></span>?</p>
+                <form action="@Url.Action("RemoveCategory", "Admin")" method="post">
+                    <div class="form-group">
+                        <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider changing parent category of all children categories.</small>
+                        <input type="hidden" name="id" value="" id="deletecategoryidmodal" />
+                    </div>
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!---->
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-center">
+                Configuring categories
+            </h2>
+            <small class="text-muted pull-right">As easy, as possible</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="addnewlist">
+                <li onclick="AddCategory(-1,'Main')" style="cursor:pointer" id="addbutton" class="btn-addnewcategory">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Add new category
+                </li>
+            </ul>
+            <ul class="serialization vertical">
+                @Html.Partial("FlexibleListCategories", Model)
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <div class="hidden" id="addcategory">
+                <form action="@Url.Action("AddCategory", "Admin")" method="post">
+                    <div class="form-group">
+                        <h3>Add Category <span class="text-muted" id="ParentCategoryNameForm"> </span> </h3>
+                        <label for="namecategory">Name:</label>
+                        <input type="text" class="form-control" id="namecategory" name="namecategory" placeholder="Enter name">
+                        <small class="form-text text-muted">Type name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent</small>
+                        <input type="hidden" name="parentcategory" value="" id="parentcategoryhidden" onclick="PutParentCategory();" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <div class="hidden" id="updatecategory">
+                <form action="@Url.Action("UpdateCategory", "Admin")" method="post">
+                    <div class="form-group">
+                        <h3>Update Category <span class="text-muted" id="CategoryNameForUpdate"></span></h3>
+                        <label for="namecategory">Name:</label>
+                        <input type="text" class="form-control" id="nameupdatedcategory" name="namecategory" placeholder="Enter new name">
+                        <small class="form-text text-muted">Type new name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent</small>
+                        <input type="hidden" name="id" value="" id="updatedidhidden" />
+                    </div>
+                    <button onclick="" type="submit" class="btn btn-success">Submit</button>
+                </form>
+                <h3>Do you want to delete this category?</h3>
+                <form action="@Url.Action("RemoveCategory", "Admin")" method="post">
+                    <div class="form-group">
+                        <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider changing parent category of all children categories.</small>
+                        <input type="hidden" name="id" value="" id="removedidhidden" />
+                    </div>
+                    <button onclick="" type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 
 
 
+
 <script src="~/Scripts/jquery-1.10.2.js"></script>
-<script>
-    var group = null;
-    $( document ).ready(function() {
-        $("ol.serialization ").sortable();
-        group = $("ol.serialization").sortable({
-            group: 'serialization',
-        });
-    });
-
-    $("#Ser").click(function myfunction() {
-        var data = group.sortable("serialize").get();
-
-        var jsonString = JSON.stringify(data, null, ' ');
-
-        console.log(jsonString);
-    })
-
-
-</script>
+<script src="~/Scripts/editcategories.js"></script>

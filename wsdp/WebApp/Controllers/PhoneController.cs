@@ -12,7 +12,7 @@ using PagedList;
 
 namespace WebApp.Controllers
 {
-    public class PhoneController : Controller
+    public class PhoneController : BaseController
     {
         private IPhoneManager phoneManager;
         private IPhoneParseManager phoneParseManager;
@@ -34,7 +34,7 @@ namespace WebApp.Controllers
         public ActionResult ConcretePhone(int id)
         {
             var phone = phoneManager.GetPhoneById(id);
-            return View(phone);
+            return View(phone); 
         }
 
         //just for parsing and filling DB
@@ -42,7 +42,7 @@ namespace WebApp.Controllers
         {
             phoneParseManager.ParseGoodsFromCategory(@"http://www.moyo.ua/telecommunication/smart/");
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

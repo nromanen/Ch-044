@@ -1,49 +1,51 @@
 ﻿@model Model.DB.WebShop
 
+<form action="/WebShop/Create"class="form-horizontal" method="post" enctype="multipart/form-data">
+   <fieldset>
+        @Html.AntiForgeryToken()
+        <!-- Form Name -->
+        <legend>Create shop</legend>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>WebShop</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <!-- Text input-->
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            <label class="col-md-4 control-label" for="textinput">Name</label>
+            <div class="col-md-4">
+                <input id="textinput" name="Name" type="text" value="@Model.Name" placeholder="placeholder" class="form-control input-md">
+                @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
             </div>
         </div>
 
+        <!-- Text input-->
         <div class="form-group">
-            @Html.LabelFor(model => model.Path, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Path, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Path, "", new { @class = "text-danger" })
+            <label class="col-md-4 control-label" for="textinput">Url</label>
+            <div class="col-md-4">
+                <input id="textinput" name="Path" type="text" value="@Model.Path" placeholder="placeholder" class="form-control input-md">
+                @Html.ValidationMessageFor(model => model.Path, "", new {@class = "text-danger"})
             </div>
         </div>
 
+        <!-- File Button -->
         <div class="form-group">
-            @Html.LabelFor(model => model.LogoPath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LogoPath, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
+            <label class="col-md-4 control-label" for="filebutton">Logo</label>
+            <div class="col-md-4">
+                <input title="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="input-file" type="file">
+                @Html.ValidationMessageFor(model => model.LogoPath, "", new {@class = "text-danger"})
             </div>
         </div>
 
+        <!-- Button -->
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+            <div class="col-md-4">
+                @*<button id="singlebutton" type="submit" class="btn btn-primary">Button</button>*@
+                <input type="submit" value="ok" class="btn btn-primary"/>
             </div>
         </div>
-    </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    </fieldset>
+</form>
+
+@Html.ActionLink("return to all shops", "Index");
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
