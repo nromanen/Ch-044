@@ -16,7 +16,6 @@ namespace BAL.Manager
 {
     public class FridgeManager : BaseManager, IFridgeManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
         public FridgeManager(IUnitOfWork uOW) : base(uOW)
         {

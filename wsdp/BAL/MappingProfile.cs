@@ -30,7 +30,7 @@ namespace BAL {
 				.ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
 				.ForMember(p => p.Price, m => m.MapFrom(t => t.Price));
 
-			CreateMap<Microwave, MicrowaveDTO>()
+			CreateMap<TapeRecorder, TapeRecorderDTO>()
 				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImgPath))
 				.ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
 				.ForMember(p => p.Price, m => m.MapFrom(t => t.Price))

@@ -20,7 +20,6 @@ namespace BAL.Manager.ParseManagers
         {
         }
 
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
         public int GetCountOfPages(string urlpath)
 

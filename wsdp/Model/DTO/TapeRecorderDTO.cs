@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.DTO {
-	public class MicrowaveDTO {
+	public class TapeRecorderDTO {
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string ImgUrl { get; set; }

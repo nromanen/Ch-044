@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Model.DTO.MicrowaveDTO>
+﻿@model IEnumerable<Model.DTO.TapeRecorderDTO>
 
 @{
-	ViewBag.Title = "Microwaves";
+	ViewBag.Title = "TapeRecorders";
 }
 
 @Styles.Render("~/Content/styles")
@@ -12,25 +12,25 @@
 		<div class="row">
 			<div class="col-md-9 col-md-push-3">
 				<div class="content">
-					<h3 class="text-center">Microwaves</h3>
+					<h3 class="text-center">Tape Recorders</h3>
 					<div class="products-row clearfix">
-					@foreach (var microwave in Model) {
+					@foreach (var taperecorder in Model) {
 						<div class="col-sm-4">
 							<div class="product">
 								<div class="product-favorites">
 									<span class="glyphicon glyphicon-heart"></span>
 								</div>
 								<div class="product-img">
-									<a href="/Microwave/GetMicrowave/@microwave.Id"><img class="prod-img" src="@microwave.ImgUrl"></a>
+									<a href="/TapeRecorder/GetTapeRecorder/@taperecorder.Id"><img class="prod-img" src="@taperecorder.ImgUrl"></a>
 								</div><!-- ./products-img -->
 								<p class="product-title">
-									<a href="/Microwave/GetMicrowave/@microwave.Id">@microwave.Name</a>
+									<a href="/TapeRecorder/GetTapeRecorder/@taperecorder.Id">@taperecorder.Name</a>
 								</p>
 								<div class="product-buy">
 									<p class="product-price">
-										Price: @microwave.Price грн
+										Price: @taperecorder.Price грн
 									</p>
-									<a href="@microwave.urlPath" class="btn btn-default">Go to shop</a>
+									<a href="@taperecorder.urlPath" class="btn btn-default">Go to shop</a>
 								</div><!-- ./products-buy -->
 							</div> <!-- ./product -->
 						</div>
@@ -61,7 +61,7 @@
 										<a href="/fridge/index">Fridges</a>
 									</li>
 									<li>
-										<a href="/microwave/index">Microwaves</a>
+										<a href="/TapeRecorder/All">Tape Recorders</a>
 									</li>
 									<li class="more">
 										<a href="#">Show More</a>

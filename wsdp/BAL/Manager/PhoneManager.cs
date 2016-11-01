@@ -16,7 +16,6 @@ namespace BAL.Manager
 {
     public class PhoneManager : BaseManager, IPhoneManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
         public PhoneManager(IUnitOfWork uOW) : base(uOW)
         {

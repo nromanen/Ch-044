@@ -13,7 +13,6 @@ namespace BAL.Manager
 {
     public class UserManager : BaseManager, IUserManager
     {
-        static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         public UserManager(IUnitOfWork uOW)
             : base(uOW)
         {

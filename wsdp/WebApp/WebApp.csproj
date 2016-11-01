@@ -233,7 +233,7 @@
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaptopController.cs" />
-    <Compile Include="Controllers\MicrowaveController.cs" />
+    <Compile Include="Controllers\TapeRecorderController.cs" />
     <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Controllers\TVController.cs" />
     <Compile Include="Controllers\WebShopController.cs" />
@@ -311,8 +311,8 @@
     <Content Include="Views\Admin\EditProperties.cshtml" />
     <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\WebShop\Index.cshtml" />
-    <Content Include="Views\Microwave\GetMicrowave.cshtml" />
-    <Content Include="Views\Microwave\Index.cshtml" />
+    <Content Include="Views\TapeRecorder\GetTapeRecorder.cshtml" />
+    <Content Include="Views\TapeRecorder\All.cshtml" />
     <Content Include="Views\Frame\IFrame.cshtml" />
     <Content Include="Views\Frame\Index.cshtml" />
   </ItemGroup>

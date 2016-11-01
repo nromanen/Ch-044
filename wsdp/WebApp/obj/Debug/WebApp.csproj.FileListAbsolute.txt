@@ -1191,3 +1191,4 @@ D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\PagedList.dll
