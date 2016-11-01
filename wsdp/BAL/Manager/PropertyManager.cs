@@ -48,7 +48,7 @@ namespace BAL.Manager
         }
 
         public void Update(int id, string Name, string Description, string Type, string Prefix, string Sufix,
-            string DefaultValue)
+            string DefaultValue, int Category_Id, int Characteristic_Id)
         {
             try
             {
@@ -59,12 +59,25 @@ namespace BAL.Manager
                 property.Prefix = Prefix;
                 property.Sufix = Sufix;
                 property.DefaultValue = DefaultValue;
+                property.Category_Id = Category_Id;
+                property.Characteristic_Id = Characteristic_Id;
                 uOW.Save();
             }
             catch (Exception ex)
             {
                 logger.Error(ex.Message);
             }
+        }
+        public List<PropertyDTO> GetAll()
+        {
+            List<PropertyDTO> properties = new List<PropertyDTO>();
+            foreach (var property in uOW.PropertyRepo.All.ToList())
+            {
+                var prop = uOW.PropertyRepo.GetByID(property.Id);
+                properties.Add(Mapper.Map<PropertyDTO>(prop));
+            }
+
+            return properties;
         }
     }
 }
