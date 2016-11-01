@@ -18,7 +18,7 @@
             <form action="@Url.Action("UpdateProperty", "Admin")" method="post">
                 <div class="form-group">
                     <label>Property Name:</label>
-                    <select class="form-control" id="prop_id_update">
+                    <select class="form-control" id="prop_id_update" name="Property_Id">
 
                         @foreach (var prop in Model.properties)
                         {
@@ -26,13 +26,24 @@
 
                         }
                     </select>
+                    <label>Category Name:</label>
+                    <select class="form-control" id="category_id_update" name="Category_Id">
+
+                        @foreach (var category in Model.categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+
+                        }
+                    </select>
+                    <label for="Characteristic_Id">Characteristic Id:</label>
+                    <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter new id">
                     <label for="Name">Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter new name">
                     <label for="Description">Description:</label>
                     <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter new description">
 
                     <label>Type:</label>
-                    <select class="form-control" id="type_update">
+                    <select class="form-control" id="type_update" name="Type">
 
                         @foreach (var enum_name in Model.enums)
                         {

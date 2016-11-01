@@ -1,0 +1,2 @@
+ERROR 2016-11-01 12:20:30,360 [7] 72146ms [Delete BAL.Manager.PropertyManager] : Value cannot be null.
+Parameter name: entity

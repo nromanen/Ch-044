@@ -15,7 +15,7 @@ namespace BAL.Interface
             int Characteristic_Id, int Category_Id, string DefaultValue);
 
         void Update(int id, string Name, string Description, string Type, string Prefix, string Sufix,
-            string DefaultValue);
+            string DefaultValue, int Category_Id, int Characteristic_Id);
 
         List<PropertyDTO> GetAll();
     }

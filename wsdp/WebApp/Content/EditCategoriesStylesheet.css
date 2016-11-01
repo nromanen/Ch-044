@@ -1,170 +1,132 @@
-﻿body.dragging, body.dragging * {
-        cursor: move !important;
-    }
+﻿body.dragging, body.dragging * { cursor: move !important; }
 
-    .dragged {
-        position: absolute;
-        opacity: 0.5;
-        z-index: 2000;
-    }
+.dragged {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
+}
 
-    ol.example li.placeholder {
-        position: relative;
-        /** More li styles **/
-    }
+ol.example li.placeholder {
+    position: relative;
+    /** More li styles **/
+}
 
-        ol.example li.placeholder:before {
-            position: absolute;
-            /** Define arrowhead **/
-        }
-    .serialization li
-    {
-        line-height:42px;
-        list-style:none;
-        min-height:30px;
-        padding:5px;
-        padding-left:25px;
-        list-style:none;
-        font-size:20px;
-        color:#333;
-        border-left:3px solid #555;
-    }
+ol.example li.placeholder:before {
+    position: absolute;
+    /** Define arrowhead **/
+}
+
+.serialization li {
+    line-height: 42px;
+    list-style: none;
+    min-height: 30px;
+    padding: 5px;
+    padding-left: 25px;
+    list-style: none;
+    font-size: 20px;
+    color: #333;
+    border-left: 3px solid #555;
+}
 
     
-    .serialization li > ul > li
-    {
-        border-left:3px solid #999;
-    }
+.serialization li > ul > li { border-left: 3px solid #999; }
 
-        .serialization li > ul > li > ul > li
-    {
-        border-left:3px solid #BBB;
-    }
+.serialization li > ul > li > ul > li { border-left: 3px solid #BBB; }
 
-        .serialization li :hover
-    {
-        border-color:#318344;
-        color:#318344;
-    }
+.serialization li :hover {
+    border-color: #318344;
+    color: #318344;
+}
 
-    .placeholdertrue
-    {
-        background:#a5d3b0;
-        height:52px;
-        width:100%;
-    }
+.placeholdertrue {
+    background: #a5d3b0;
+    height: 52px;
+    width: 100%;
+}
 
-    .serialization > li > ul
-    {
-    }
+.serialization > li > ul { }
 
-    .transperent
-    {
-        background:rgba(0, 0, 0, 0.00);
-        color:#666;
-        cursor:pointer;
-    }
+.transperent {
+    background: rgba(0, 0, 0, 0.00);
+    color: #666;
+    cursor: pointer;
+}
 
-    .transperent:hover
-    {
-        background:rgba(0, 0, 0, 0.00);
-        color:#888;
-    }
-    .btn-config
-    {
-        position:absolute;
-        left:83%;
-    }
+.transperent:hover {
+    background: rgba(0, 0, 0, 0.00);
+    color: #888;
+}
 
-    .btn-add
-    {
-        position:absolute;
-        left:87%;
-    }
-    .btn-remove
-    {
-        position:absolute;
-        left:91%;
-    }
-    .info
-    {
-        border:3px dashed #979494;
-        border-radius:10px;
-        min-height:100%;
-        width:100%;
-        text-align:center;
-        vertical-align:middle;
-    }
+.btn-config {
+    position: absolute;
+    left: 83%;
+}
 
-    .info h2
-    {
-       position:absolute;
-       top:50%;
-       left:30%;
-    }
+.btn-add {
+    position: absolute;
+    left: 87%;
+}
 
-    .selected
-    {
+.btn-remove {
+    position: absolute;
+    left: 91%;
+}
 
-    }
+.info {
+    border: 3px dashed #979494;
+    border-radius: 10px;
+    min-height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
 
-    .btn-addnewcategory
-    {
-        background:#318344;
-        min-height:30px;
-        border:0px solid #808080;
-        padding:15px;
-        margin-bottom:10px;
-        list-style:none;
-        font-size:16px;
-        color:#FFF;
-    }
+.info h2 {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
 
-    .btn-addnewcategory:hover
-    {
-        background:#41a959;
-    }
+.selected { }
 
-    .modal.modal-wide .modal-dialog 
-    {
-        width: 50%;
-    }
-    .modal-wide .modal-body 
-    {
-        padding:5px;
-        overflow-y: auto;
-    }
-    .modal-content div
-    {
-        padding:25px;
-    }
-    .modal .form-group, .modal-body
-    {
-        padding:5px;
-    }
-    @media screen and (max-width:820px) 
-    {
-        .modal.modal-wide .modal-dialog 
-        {
-            width: 100%;
-        }
-        .serialization button
-        {
-            border:none;
-        }
-        .serialization li
-        {
-            font-size:16px;
-        }
-    }
+.btn-addnewcategory {
+    background: #318344;
+    min-height: 30px;
+    border: 0px solid #808080;
+    padding: 15px;
+    margin-bottom: 10px;
+    list-style: none;
+    font-size: 16px;
+    color: #FFF;
+}
 
-    .modal-body
-    {
-                padding:5px;
-    }
-    .serialization button
-    {
-        
-    }
+.btn-addnewcategory:hover { background: #41a959; }
 
+.modal.modal-wide .modal-dialog { width: 50%; }
 
+.modal-wide .modal-body {
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.modal-content div { padding: 25px; }
+
+.modal .form-group, .modal-body { padding: 5px; }
+
+@media screen and (max-width: 820px) {
+    .modal.modal-wide .modal-dialog { width: 100%; }
+
+    .serialization button { border: none; }
+
+    .serialization li { font-size: 16px; }
+}
+
+.modal-body { padding: 5px; }
+
+.serialization button { }
+
+.btn-submit {
+    height: 35px;
+    width: 75px;
+    margin: 3px;
+}

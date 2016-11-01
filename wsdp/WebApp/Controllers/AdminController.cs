@@ -36,7 +36,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public int AddCategory(string namecategory, int? parentcategory)
         {
-            return categoryManager.Add(namecategory, parentcategory ?? -1);         
+            return categoryManager.Add(namecategory, parentcategory ?? -1);
         }
 
         [HttpPost]
@@ -55,31 +55,26 @@ namespace WebApp.Controllers
         {
             categoryManager.ChangeParent(categoryid, parentid ?? -1);
         }
-        public ActionResult RemoveProperty()
-        {
-            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
-            List<string> enums = new List<string>();
-            foreach (var i in Enum.GetNames(typeof(PropertyType)))
-                enums.Add(i);
-            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, properties = properties };
-            return View(custom_model);
-        }
         public ActionResult AddProperty()
         {
-            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
+            List<CategoryDTO> categories =
+                categoryManager.GetAll().Select(c => c).ToList();
             List<string> enums = new List<string>();
             foreach (var i in Enum.GetNames(typeof(PropertyType)))
                 enums.Add(i);
-            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, properties = properties };
+            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories };
             return View(custom_model);
         }
         public ActionResult UpdateProperty()
         {
             List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
+            List<CategoryDTO> categories =
+             categoryManager.GetAll().Select(c => c).ToList();
             List<string> enums = new List<string>();
             foreach (var i in Enum.GetNames(typeof(PropertyType)))
                 enums.Add(i);
-            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, properties = properties };
+
+            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories, properties = properties };
             return View(custom_model);
         }
 
@@ -88,22 +83,21 @@ namespace WebApp.Controllers
             int Characteristic_Id, int Category_Id, string DefaultValue)
         {
             propertyManager.Add(Name, Description, Type, Prefix, Sufix, Characteristic_Id, Category_Id, DefaultValue);
-            Response.Redirect("EditProperties");
+            Response.Redirect("EditCategories");
         }
 
         [HttpPost]
         public void RemoveProperty(int id)
         {
             propertyManager.Delete(id);
-            Response.Redirect("EditProperties");
         }
 
         [HttpPost]
         public void UpdateProperty(int Property_Id, string Name, string Description, string Type, string Prefix,
-            string Sufix, string DefaultValue)
+            string Sufix, string DefaultValue, int Characteristic_Id, int Category_Id)
         {
-            propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue);
-            Response.Redirect("EditProperties");
+            propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue, Category_Id, Characteristic_Id);
+            Response.Redirect("EditCategories");
         }
     }
 }

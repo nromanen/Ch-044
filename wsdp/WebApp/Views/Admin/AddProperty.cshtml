@@ -20,9 +20,9 @@
                         <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id">
                         <label>Category Name:</label>
                         <select class="form-control" id="Category_Id" name="Category_Id">
-                            @foreach (var prop in Model.properties)
+                            @foreach (var category in Model.categories)
                             {
-                                <option value="@prop.Id">@prop.Name</option>
+                                <option value="@category.Id">@category.Name</option>
 
                             }
                         </select>

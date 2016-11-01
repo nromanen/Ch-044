@@ -6,6 +6,32 @@ var deleteNode = null;
 /*Inizializtion sortable list*/
 var group = null;
 $(document).ready(function () {
+    $("#ModalPropertyUpdate .close")
+        .click(function () {
+            $("#ModalPropertyUpdate").hide();
+            $("#ModalUpdate").show();
+        });
+    $("#remove_prop")
+        .click(function() {
+            $("#ModalUpdate").hide();
+        });
+    $("#remove_prop_dial")
+        .click(function() {
+            $("#ModalUpdate").show();
+        });
+
+    $("#add_prop").click(function (event) {
+        event.preventDefault();
+        var url = 'AddProperty';
+        window.location.href = url;
+    });
+    $("#update_prop").click(function (event) {
+        event.preventDefault();
+        var url = 'UpdateProperty';
+        window.location.href = url;
+    });
+
+
     $("ul.serialization ").sortable({
         group: 'serialization',
         onDrop: function ($item, container, _super) {
@@ -21,7 +47,15 @@ $(document).ready(function () {
     });
 });
 
+function DeleteProp() {
 
+    var id = $('#id_prop_rm').val();
+    $("#ModalPropertyUpdate .close").click();
+    $("#ModalUpdate").show();
+
+    $.post('RemoveProperty', { id: id }, function (data) {
+    });
+}
 
 /*inizializtion of buttons*/
     $(document).ready(function () {
