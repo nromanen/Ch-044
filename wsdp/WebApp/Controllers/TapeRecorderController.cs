@@ -11,7 +11,7 @@ namespace WebApp.Controllers
 {
     public class TapeRecorderController : BaseController
     {
-		// GET: Microwave
+		// GET: Tape Recorder
 		private ITapeRecorderManager TapeRecorderManager;
 		private ITapeRecorderParseManager TapeRecorderParseManager;
 
