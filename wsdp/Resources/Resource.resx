@@ -120,10 +120,55 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="AddCategory" xml:space="preserve">
+    <value>Add category to </value>
+  </data>
+  <data name="AddInfo" xml:space="preserve">
+    <value>Type name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent</value>
+  </data>
+  <data name="Adding" xml:space="preserve">
+    <value>Adding</value>
+  </data>
+  <data name="AddNewCategory" xml:space="preserve">
+    <value>Add new Category</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="BeAware" xml:space="preserve">
+    <value>Be aware!This is irreparably!</value>
+  </data>
+  <data name="ChangingParentCategory" xml:space="preserve">
+    <value>Also, consider changing parent category of all children categories.</value>
+  </data>
+  <data name="ConfiguringCategories" xml:space="preserve">
+    <value>Configuring Categories</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="DeleteAsk" xml:space="preserve">
+    <value>Do you want to delete this category</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="UpdateCategory" xml:space="preserve">
+    <value>Update Category</value>
+  </data>
+  <data name="UpdateInfo" xml:space="preserve">
+    <value>Type new name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent</value>
+  </data>
+  <data name="Updating" xml:space="preserve">
+    <value>Updating</value>
   </data>
 </root>

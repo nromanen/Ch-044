@@ -59,6 +59,7 @@ namespace WebApp
 				container.Register<ITapeRecorderManager, TapeRecorderManager>();
 				container.Register<IPropertyManager, PropertyManager>();
                 container.Register<IWebShopManager, WebShopManager>();
+                container.Register<IDownloadManager, DownloadManager>();
 
                 container.Verify();
                 DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));

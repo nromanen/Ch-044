@@ -7,7 +7,6 @@ using BAL;
 using BAL.Manager.ParseManagers;
 using BAL.Interface;
 using Model.DTO;
-using PagedList.Mvc;
 using PagedList;
 
 namespace WebApp.Controllers

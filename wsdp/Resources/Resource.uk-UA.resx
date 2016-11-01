@@ -120,10 +120,55 @@
   <data name="About" xml:space="preserve">
     <value>Про нас</value>
   </data>
+  <data name="AddCategory" xml:space="preserve">
+    <value>Додати категорію до</value>
+  </data>
+  <data name="AddInfo" xml:space="preserve">
+    <value>Введіть ім'я нової категорії. Якщо хочете змінити батьківську категорію, просто після оновлення перемістіть її мишкою у потрібну батьківську категорію</value>
+  </data>
+  <data name="Adding" xml:space="preserve">
+    <value>Додавання</value>
+  </data>
+  <data name="AddNewCategory" xml:space="preserve">
+    <value>Додати нову категорію</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Увага</value>
+  </data>
+  <data name="BeAware" xml:space="preserve">
+    <value>Будьте уважними! Це не відновна дія</value>
+  </data>
+  <data name="ChangingParentCategory" xml:space="preserve">
+    <value>Також візьміть до уваги зміну батьківської категорії всіх дочірніх</value>
+  </data>
+  <data name="ConfiguringCategories" xml:space="preserve">
+    <value>Налаштування категорій</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Контакти</value>
   </data>
+  <data name="DeleteAsk" xml:space="preserve">
+    <value>Хочете ви видалити цю категорію</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Домашня сторінка</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Надіслати</value>
+  </data>
+  <data name="UpdateCategory" xml:space="preserve">
+    <value>Оновлення категорії</value>
+  </data>
+  <data name="UpdateInfo" xml:space="preserve">
+    <value>Введіть нове ім'я категорії. Якщо хочете змінити батьківську категорію, просто після оновлення перемістіть її мишкою у потрібну батьківську категорію</value>
+  </data>
+  <data name="Updating" xml:space="preserve">
+    <value>Оновлення</value>
   </data>
 </root>
