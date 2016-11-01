@@ -30,7 +30,10 @@ namespace WebApp.Controllers
         {
             List<CategoryDTO> categories =
                 categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
-            return View(categories);
+            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
+            PropertyViewDTO CategoriesView = new PropertyViewDTO() { categories = categories, properties = properties };
+
+            return View(CategoriesView);
         }
 
         [HttpPost]
