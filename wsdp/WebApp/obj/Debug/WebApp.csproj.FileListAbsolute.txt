@@ -665,7 +665,6 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Web
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Model.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Newtonsoft.Json.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Owin.dll
-D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Resources.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.dll
@@ -709,7 +708,6 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owi
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Hosting.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.Cookies.xml
-D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\SimpleInjector.Integration.Web.Mvc.xml
@@ -734,3 +732,7 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\uk-UA\Resourc
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.xml
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\PagedList.Mvc.xml

@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Interface\ICategoryManager.cs" />
+    <Compile Include="Interface\IDownloadManager.cs" />
     <Compile Include="Interface\IFridgeManager.cs" />
     <Compile Include="Interface\IFridgeParseManager.cs" />
     <Compile Include="Interface\IGoodManager.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Interface\IWebShopRepository.cs" />
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\CategoryManager.cs" />
+    <Compile Include="Manager\DownloadManager.cs" />
     <Compile Include="Manager\FridgeManager.cs" />
     <Compile Include="Manager\GoodManager.cs" />
     <Compile Include="Manager\LaptopManager.cs" />
