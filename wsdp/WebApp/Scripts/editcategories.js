@@ -74,7 +74,9 @@ function InitializeEvents() {
             var NameUpdatedCategory = $(this).parent().attr("data-name");
             $(this).parent().addClass("selected");
             updateNode = $(this).parent();
+            deleteNode = $(this).parent();
             UpdateCategory(idUpdatedCategory, NameUpdatedCategory);
+            RemoveCategory(idUpdatedCategory, NameUpdatedCategory);
         }
         );
     });
@@ -206,8 +208,17 @@ function UpdateAjax(id, name)
 function DeleteNode()
 {
     var id = deleteNode.attr("data-id");
+
+    var childNodes = deleteNode.children("ul").children("li");
+    childNodes.each(function () {
+        console.log(deleteNode.parent());
+        console.log($(this).html());
+        deleteNode.parent().append( $(this) );
+        $(this).remove();
+    });
     deleteNode.remove();
     $("#ModalDelete .close").click();
+    $("#ModalUpdate .close").click();
     $.post('RemoveCategory', { id: id }, function (data) {
     });
 }
