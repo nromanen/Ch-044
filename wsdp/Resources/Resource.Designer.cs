@@ -70,6 +70,78 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add category to .
+        /// </summary>
+        public static string AddCategory {
+            get {
+                return ResourceManager.GetString("AddCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent.
+        /// </summary>
+        public static string AddInfo {
+            get {
+                return ResourceManager.GetString("AddInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adding.
+        /// </summary>
+        public static string Adding {
+            get {
+                return ResourceManager.GetString("Adding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new Category.
+        /// </summary>
+        public static string AddNewCategory {
+            get {
+                return ResourceManager.GetString("AddNewCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attention.
+        /// </summary>
+        public static string Attention {
+            get {
+                return ResourceManager.GetString("Attention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Be aware!This is irreparably!.
+        /// </summary>
+        public static string BeAware {
+            get {
+                return ResourceManager.GetString("BeAware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Also, consider changing parent category of all children categories..
+        /// </summary>
+        public static string ChangingParentCategory {
+            get {
+                return ResourceManager.GetString("ChangingParentCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuring Categories.
+        /// </summary>
+        public static string ConfiguringCategories {
+            get {
+                return ResourceManager.GetString("ConfiguringCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string Contact {
@@ -79,11 +151,74 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete this category.
+        /// </summary>
+        public static string DeleteAsk {
+            get {
+                return ResourceManager.GetString("DeleteAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Category.
+        /// </summary>
+        public static string UpdateCategory {
+            get {
+                return ResourceManager.GetString("UpdateCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type new name of new category. If you want to choose parent, just after creating category drag and drop this to chosen parent.
+        /// </summary>
+        public static string UpdateInfo {
+            get {
+                return ResourceManager.GetString("UpdateInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating.
+        /// </summary>
+        public static string Updating {
+            get {
+                return ResourceManager.GetString("Updating", resourceCulture);
             }
         }
     }

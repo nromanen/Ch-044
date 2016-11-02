@@ -5,7 +5,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BAL.Interface;
-using Model.DB;
+
+using Model.DTO;
 
 namespace WebApp.Controllers
 {
@@ -13,63 +14,85 @@ namespace WebApp.Controllers
     public class WebShopController : BaseController
     {
         private IWebShopManager _webShopManager;
+
         public WebShopController(IWebShopManager webShopManager)
         {
-                _webShopManager = webShopManager;
+            _webShopManager = webShopManager;
         }
-            
+
         public ActionResult Index()
         {
-            IEnumerable<WebShop> webShopsList = _webShopManager.GetAll();
+            IEnumerable<WebShopDTO> webShopsList = _webShopManager.GetAll();
             return View(webShopsList);
         }
 
-        //public ActionResult Edit(short? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    WebShop webShop = _webShopManager.GetById((int)id);
-        //    if (webShop == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(webShop);
-        //}
         public ActionResult Create()
         {
-            return View(new WebShop());
+            return View(new WebShopDTO());
         }
 
         [HttpPost]
-        public ActionResult Create(WebShop webShop, HttpPostedFileBase upload)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(WebShopDTO webShop, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(webShop);
+
+            if (upload != null)
             {
-                if (upload != null)
-                {
-                    //string fileName = System.IO.Path.GetFileName(upload.FileName);
-                    string fileName = String.Format("IMG_{0}_{1}.jpg",
-                        DateTime.Now.ToString("yyyyMMddHHmmssfff"), 
-                        Guid.NewGuid());
-
-                    webShop.LogoPath = "/Content/WebShopsLogo/" + fileName;
-                    upload.SaveAs(Server.MapPath(webShop.LogoPath));
-                }
-                
-                _webShopManager.Insert(webShop);
-                }
-                return View(webShop);
-        }
-
-        public ActionResult Upload()
-        {
-
+                webShop.LogoPath = CreateImgName();
+                upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
+            }
+            _webShopManager.Insert(webShop);
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int? id)
+        {
+            if (id == null) return HttpNotFound();
+            WebShopDTO webShop = _webShopManager.GetById((int) id);
+            if (webShop != null)
+                return PartialView(webShop);
+            return HttpNotFound();
+        }
 
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            WebShopDTO wShop = _webShopManager.GetById(id);
+            _webShopManager.Delete(wShop);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(short? id)
+        {
+            if (id == null) return HttpNotFound();
+
+            WebShopDTO webShop = _webShopManager.GetById((int) id);
+            if (webShop == null) return HttpNotFound();
+
+            return View(webShop);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(WebShopDTO webShop, HttpPostedFileBase upload)
+        {
+            if (!ModelState.IsValid) return View(webShop);
+            if (upload != null)
+            {
+                webShop.LogoPath = CreateImgName();
+                upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
+            }
+            _webShopManager.Update(webShop);
+            return RedirectToAction("Index");
+        }
+
+        private string CreateImgName()
+        {
+            return String.Format("IMG_{0}_{1}.jpg",
+                DateTime.Now.ToString("yyyyMMddHHmmssfff"),
+                Guid.NewGuid());
+        }
     }
 }
 
