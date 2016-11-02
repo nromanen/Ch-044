@@ -12,16 +12,11 @@ namespace WebApp
                 "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/EditProperties").Include(
-                    "~/Scripts/jquery-1.10.2.js",
                     "~/Scripts/bootstrap-combobox.js",
                     "~/Scripts/bootstrap.min.js")
             );
-            bundles.Add(new ScriptBundle("~/bundles/WebShops").Include(
-                   "~/Scripts/jquery-1.10.2.js",
-                   "~/Scripts/bootstrap.min.js")
-           );
+          
             bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
-                    "~/Scripts/jquery-1.10.2.js",
                     "~/Scripts/editcategories.js",
                     "~/Scripts/jquery-sortable.js",
                     "~/Scripts/jquery.treemenu.js"));
