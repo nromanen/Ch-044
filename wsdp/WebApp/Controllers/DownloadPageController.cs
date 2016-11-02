@@ -18,14 +18,25 @@ namespace WebApp.Controllers
         // GET: DownloadPage
         public ActionResult Index()
         {
+            ViewBag.Path = TempData["path"];
             return View();
         }
-        //POST:Download
+        //POST:Download/url
         [HttpPost]
         public ActionResult Download(string url)
         {
-            downloadManager.DownloadFromPath(url);
-            return View("Index");
+            if (!String.IsNullOrWhiteSpace(url))
+            {
+                Guid res = downloadManager.DownloadFromPath(url);
+                string pathToSite = "/WebSites/" + res + ".html";
+                TempData["path"] = pathToSite;
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
