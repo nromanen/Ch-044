@@ -26,7 +26,10 @@ namespace BAL.Manager
             var result = Mapper.Map<CategoryDTO>(category);
             result.ChildrenCategory = new List<CategoryDTO>();
 
-            if (includeChildren && category.ChildrenCategory != null)
+			var propertiesForResult = uOW.PropertyRepo.All.Where(prop => prop.Category_Id == result.Id).ToList();
+			result.PropertiesList = Mapper.Map<List<PropertyDTO>>(propertiesForResult);
+
+			if (includeChildren && category.ChildrenCategory != null)
             {
                 foreach (var child in category.ChildrenCategory)
                 {
@@ -121,8 +124,7 @@ namespace BAL.Manager
             List<CategoryDTO> categories = new List<CategoryDTO>();
             foreach (var category in uOW.CategoryRepo.All.ToList())
             {
-                var categoryWithChildren = this.Get(category.Id, true);
-                categories.Add(Mapper.Map<CategoryDTO>(categoryWithChildren));
+				categories.Add(Get(category.Id, true));
             }
 
             return categories;

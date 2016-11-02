@@ -17,7 +17,6 @@ ol.example li.placeholder:before {
 }
 
 .serialization li {
-    line-height: 42px;
     list-style: none;
     min-height: 30px;
     padding: 5px;

@@ -15,6 +15,6 @@ namespace Model.DB
         public int? ParentCategoryId { get; set; }
         public ICollection<Category> ChildrenCategory { get; set; }
         public Category ParentCategory { get; set; }
-        public List<Property> Properties { get; set; }
+        public ICollection<Property> Properties { get; set; }
     }
 }

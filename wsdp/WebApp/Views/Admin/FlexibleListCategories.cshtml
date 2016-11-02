@@ -1,30 +1,26 @@
 ﻿@model List<Model.DTO.CategoryDTO>
 
-@{
-    TagBuilder ol = new TagBuilder("ddd");
 
-    ol.InnerHtml = "";
-
-    foreach (var category in Model)
-    {
-        TagBuilder li = new TagBuilder("li");
-        li.Attributes.Add("data-id", category.Id.ToString());
-        li.Attributes.Add("data-name", category.Name);
-        li.InnerHtml = "<b class=\"namecategory\">" + category.Name + "</b>"
-            + "         <small class=\"handler transperent btn-sm glyphicon glyphicon-move text-muted\"></small>"
-            + "<button class=\"btn transperent hidden btn-config \"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-add \"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
-            + "<button class=\"btn transperent hidden btn-remove \" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>";
-        TagBuilder ul = new TagBuilder("ul");
-        if (category.ChildrenCategory != null)
-        {
-            ul.InnerHtml = Html.Partial("FlexibleListCategories", category.ChildrenCategory).ToString();
-
-        }
-        li.InnerHtml += ul;
-        ol.InnerHtml += li;
-    }
-    MvcHtmlString ms = new MvcHtmlString(ol.InnerHtml.ToString());
-
-    @ms
+@foreach (var category in Model) {
+	<li data-id="@category.Id" data-name="@category.Name">
+		<b class="namecategory">@category.Name</b>
+		<small class="handler transperent btn-sm glyphicon glyphicon-move text-muted"></small>
+		<button class="btn transperent hidden btn-config" data-toggle="modal" data-target="#ModalUpdate"><small class="glyphicon glyphicon-cog"></small></button>
+		<button class="btn transperent hidden btn-add" data-toggle="modal" data-target="#ModalAdd"><small class="glyphicon glyphicon-plus"></small></button>
+		<button class="btn transperent hidden btn-remove" data-toggle="modal" data-target="#ModalDelete"><small class="glyphicon glyphicon-minus"></small></button>
+		
+		@if (category.HasProperties) {
+			<br />
+			<div>
+				@foreach (var propertyItem in category.PropertiesList) {
+					@Html.Partial("PropertyPartialView", propertyItem)
+				}
+			</div>
+		}
+		@if (category.HasChildrenCategories) {
+			<ul>
+				@Html.Partial("FlexibleListCategories", category.ChildrenCategory)
+			</ul>
+		}
+	</li>
 }

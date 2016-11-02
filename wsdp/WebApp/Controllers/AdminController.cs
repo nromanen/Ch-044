@@ -28,8 +28,7 @@ namespace WebApp.Controllers
 
         public ActionResult EditCategories()
         {
-            List<CategoryDTO> categories =
-                categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
+            var categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
             return View(categories);
         }
 
