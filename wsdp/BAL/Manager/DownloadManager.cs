@@ -34,8 +34,8 @@ namespace BAL.Manager
             //}
 
             //return "true" html source
-            var path = @"D:\softserve\page1.html";
-            var encoding = Encoding.GetEncoding(1251);
+            var path = @"D:\page1.html";
+            var encoding = Encoding.UTF8;
 
             using (FileStream fs = new FileStream(path, FileMode.Create))
             {
@@ -48,7 +48,7 @@ namespace BAL.Manager
         public string ReplaceHrefs(string source, string url)
         {
             var doc = new HtmlDocument();
-            
+
             doc.LoadHtml(source);
 
             var hrefs = doc.DocumentNode.Descendants("link").Where(d => d.Attributes.Contains("href")).ToList();

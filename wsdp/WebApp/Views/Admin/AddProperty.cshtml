@@ -14,8 +14,9 @@
             <h1>Add Property</h1></center>
         <div class="col-lg-10">
             <div id="add_property">
-                <form action="@Url.Action("AddProperty", "Admin")" method="post">
+                <form action="@Url.Action("AddProperty","Admin")" method="post">
                     <div class="form-group">
+                        <input type="text" class="form-control" id="cat_id" value="@Model.CategoryId"/>
                         <label for="Characteristic_Id">Characteristic Id:</label>
                         <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id">
                         <label>Category Name:</label>
@@ -46,8 +47,7 @@
                         <label for="Sufix">Sufix:</label>
                         <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix">
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
-
+                    <button type="submit" class="btn btn-success" id="add_prop">Submit</button>
                 </form>
             </div>
         </div>

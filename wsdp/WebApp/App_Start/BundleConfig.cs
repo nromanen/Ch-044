@@ -11,9 +11,9 @@ namespace WebApp
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
             bundles.Add(new ScriptBundle("~/bundles/EditProperties").Include(
-                    "~/Scripts/jquery-1.10.2.js",
                     "~/Scripts/bootstrap-combobox.js",
-                    "~/Scripts/bootstrap.min.js")
+                    "~/Scripts/bootstrap.min.js",
+                    "~/Scripts/EdiProperties.js")
             );
             bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
                     "~/Scripts/jquery-1.10.2.js",
@@ -21,11 +21,11 @@ namespace WebApp
                     "~/Scripts/jquery-sortable.js",
                     "~/Scripts/jquery.treemenu.js"));
 
-        
-        bundles.Add(new StyleBundle("~/Content/EditPropertiesStylesheet").Include(
-                "~/Content/bootstrap.css",
-                "~/Content/EditPropertiesStylesheet.css",
-                "~/Content/bootstrap-combobox.css"));
+
+            bundles.Add(new StyleBundle("~/Content/EditPropertiesStylesheet").Include(
+                    "~/Content/bootstrap.css",
+                    "~/Content/EditPropertiesStylesheet.css",
+                    "~/Content/bootstrap-combobox.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));

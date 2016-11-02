@@ -130,3 +130,8 @@ ol.example li.placeholder:before {
     width: 75px;
     margin: 3px;
 }
+
+#prop_id_delete
+{
+    margin: 0 0 10px;
+}

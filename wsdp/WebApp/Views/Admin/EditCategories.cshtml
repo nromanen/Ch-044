@@ -1,4 +1,4 @@
-﻿﻿@model List<Model.DTO.CategoryDTO>
+﻿﻿@model  Model.DTO.PropertyViewDTO
 
 @{
     ViewBag.Title = "EditCategories";
@@ -67,7 +67,7 @@
                 </form>
                 <div class="form-group">
                     <h3>Manage properties</h3>
-                    <button onclick="" type="submit" class="btn btn-submit" id="add_prop">Add</button>
+                    <button onclick="" type="submit" class="btn btn-submit" id="add_properties">Add</button>
                     <button onclick="" type="submit" class="btn btn-submit" id="update_prop">Update</button>
                     <button onclick="" type="submit" class="btn btn-submit" id="remove_prop" data-toggle="modal" data-target="#ModalPropertyUpdate">Remove</button>
                 </div>
@@ -91,8 +91,13 @@
                     <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider changing parent category of all children categories.</small>
                     <br />
                     <br />
-                    <input name="id" value="" id="id_prop_rm" />
+                    <select class="form-control" id="prop_id_delete" name="id">
+                        @foreach (var property in Model.properties.Where(i=>i.Category_Id==)
+                        {
+                            <option value="@property.Id">@property.Name</option>
 
+                        }
+                    </select>
                     <a onclick="DeleteProp();" id="remove_prop_dial" class="btn btn-danger">@Resources.Resource.Remove</a>
                 </div>
             </div>
@@ -116,7 +121,6 @@
                         <label for="namecategory">@Resources.Resource.Name:</label>
                         <input type="text" class="form-control" id="namecategory" name="namecategory" placeholder="Enter name" value="">
                         <small class="form-text text-muted">@Resources.Resource.AddInfo</small>
-
                         <br />
                         <br />
                         <a onclick="InsertNode();" class="btn btn-success">@Resources.Resource.Submit</a>
@@ -155,7 +159,7 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="tree serialization">
-                @Html.Partial("FlexibleListCategories", Model)
+                @Html.Partial("FlexibleListCategories", Model.categories)
             </ul>
         </div>
     </div>

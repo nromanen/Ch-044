@@ -20,9 +20,10 @@ $(document).ready(function () {
             $("#ModalUpdate").show();
         });
 
-    $("#add_prop").click(function (event) {
+    $("#add_properties").click(function (event) {
         event.preventDefault();
-        var url = 'AddProperty';
+        var catid=$("#deletecategoryidmodal").val();
+        var url = 'AddProperty/?catid='+catid;
         window.location.href = url;
     });
     $("#update_prop").click(function (event) {
@@ -30,7 +31,6 @@ $(document).ready(function () {
         var url = 'UpdateProperty';
         window.location.href = url;
     });
-
 
     $("ul.serialization ").sortable({
         group: 'serialization',
