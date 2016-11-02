@@ -319,6 +319,7 @@
     <Content Include="Views\TapeRecorder\GetTapeRecorder.cshtml" />
     <Content Include="Views\Frame\IFrame.cshtml" />
     <Content Include="Views\Frame\Index.cshtml" />
+    <Content Include="Views\WebShop\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

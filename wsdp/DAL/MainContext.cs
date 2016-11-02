@@ -11,7 +11,7 @@ namespace DAL
     public class MainContext : DbContext
     {
         public MainContext()
-            : base("StasConnString")
+            : base("NOSConnection")
         {
             this.Configuration.LazyLoadingEnabled = true;
 
