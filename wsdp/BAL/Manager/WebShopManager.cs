@@ -45,8 +45,13 @@ namespace BAL.Manager.ParseManagers
         public void Update(WebShopDTO webShop)
         {
             if (webShop == null) return;
-            WebShop wShop = Mapper.Map<WebShop>(webShop);
-            uOW.WebShopRepo.Update(wShop);
+            WebShop wShop = uOW.WebShopRepo.GetByID(webShop.Id);
+            if (wShop == null) return;
+            
+            wShop.Name = webShop.Name;
+            wShop.LogoPath = webShop.LogoPath;
+            wShop.Path = webShop.Path;
+            wShop.Status = webShop.Status;
             uOW.Save();
         }
 

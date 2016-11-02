@@ -5,11 +5,37 @@
 <div class="modal-content">
     <div class="modal-header">
         <button class="close" data-dismiss="modal" area-hidden="true">X</button>
-        <h4>Модель компьютера</h4>
+        <h4>Are you shure you want to delete @Model.Name?</h4>
     </div>
     <div class="modal-body">
-        <dl class="dl-horizontal">
-            @Model.Name
-        </dl>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li><img class="Logo" src="~/Content/WebShopsLogo/@Model.LogoPath" /></li>
+                    <li>@Model.Path</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        @*<a href="@Url.Action("Delete")" class="btn btn-danger btn-md">
+                <span></span> OK
+            </a>*@
+        <div class="col-md-12">
+            <div class="col-md-1 col-md-offset-2">
+                @using (Html.BeginForm())
+                {
+                    <input type="submit" value="Delete" class="btn btn-danger btn-md" />
+                }
+            </div>
+            <div class="col-md-1 col-md-offset-6">
+                <a href="@Url.Action("Index")" class="btn btn-default btn-md">
+                    <span></span> CANCEL
+                </a>
+            </div>
+        </div>
     </div>
 </div>

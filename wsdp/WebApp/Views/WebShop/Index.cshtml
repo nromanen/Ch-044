@@ -50,11 +50,11 @@
                         @item.Name
                     </td>
                     <td>
-                        <a href="@item.Path">Go to</a>
+                        @item.Path"
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "Delete", new {id = item.Id}, new {@class = "compItem"})
-                        @*@Html.ActionLink("Details", "Details", new {id = item.Id}, new {@class = "compItem btn btn-primary btn-xs"})*@
+                        @Html.ActionLink("Delete", "Delete", new {id = item.Id}, new {@class = "webShopItem btn btn-danger btn-xs" })
+                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}, new {@class = "webShopItem btn btn-warning btn-xs"})
                     </td>
                 </tr>
             }
@@ -62,8 +62,6 @@
     </div>
 </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/WebShops")
 
 @section scripts
 {
@@ -71,7 +69,7 @@
 
         $(function() {
             $.ajaxSetup({ cache: false });
-            $(".compItem").click(function(e) {
+            $(".webShopItem").click(function(e) {
 
                 e.preventDefault();
                 $.get(this.href, function(data) {
