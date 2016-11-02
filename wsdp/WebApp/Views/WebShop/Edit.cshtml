@@ -1,20 +1,25 @@
 ﻿@model Model.DTO.WebShopDTO
 
-<form action="/WebShop/Create" class="form-horizontal" method="post" enctype="multipart/form-data">
-    <br/>
-    <br/>
-    <hr/>
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/WebShop/Edit" class="form-horizontal" method="post" enctype="multipart/form-data">
+    <br />
+    <br />
+    <hr />
     <fieldset>
         @Html.AntiForgeryToken()
         <!-- Form Name -->
-        <legend>Create shop</legend>
-
+        <legend>Edit shop</legend>
+        @Html.HiddenFor(model => model.Id)d
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Name</label>
             <div class="col-md-4">
                 <input id="textinput" name="Name" type="text" value="@Model.Name" placeholder="placeholder" class="form-control input-md">
-                @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -23,7 +28,7 @@
             <label class="col-md-4 control-label" for="textinput">Url</label>
             <div class="col-md-4">
                 <input id="textinput" name="Path" type="text" value="@Model.Path" placeholder="placeholder" class="form-control input-md">
-                @Html.ValidationMessageFor(model => model.Path, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(model => model.Path, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -32,7 +37,7 @@
             <label class="col-md-4 control-label" for="filebutton">Logo</label>
             <div class="col-md-4">
                 <input type="file" value="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
-                @Html.ValidationMessageFor(model => model.LogoPath, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -41,7 +46,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 @*<button id="singlebutton" type="submit" class="btn btn-primary">Button</button>*@
-                <input type="submit" value="SAVE" class="btn btn-success"/>
+                <input type="submit" value="SAVE" class="btn btn-success" />
             </div>
         </div>
 
@@ -51,5 +56,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-

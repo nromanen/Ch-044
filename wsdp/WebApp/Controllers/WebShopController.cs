@@ -14,14 +14,15 @@ namespace WebApp.Controllers
     public class WebShopController : BaseController
     {
         private IWebShopManager _webShopManager;
+
         public WebShopController(IWebShopManager webShopManager)
         {
-                _webShopManager = webShopManager;
+            _webShopManager = webShopManager;
         }
-            
+
         public ActionResult Index()
         {
-            IEnumerable<WebShopDTO> webShopsList = _webShopManager.GetAll().Where(x=>x.Status);
+            IEnumerable<WebShopDTO> webShopsList = _webShopManager.GetAll();
             return View(webShopsList);
         }
 
@@ -29,30 +30,26 @@ namespace WebApp.Controllers
         {
             return View(new WebShopDTO());
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(WebShopDTO webShop, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
-            {
-                if (upload != null)
-                {
-                    string fileName = String.Format("IMG_{0}_{1}.jpg",
-                        DateTime.Now.ToString("yyyyMMddHHmmssfff"),
-                        Guid.NewGuid());
+            if (!ModelState.IsValid) return View(webShop);
 
-                    webShop.LogoPath = fileName;
-                    upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
-                }
-                _webShopManager.Insert(webShop);
-                return RedirectToAction("Index");
+            if (upload != null)
+            {
+                webShop.LogoPath = CreateImgName();
+                upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
             }
-            return View(webShop);
+            _webShopManager.Insert(webShop);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int? id)
         {
             if (id == null) return HttpNotFound();
-            WebShopDTO webShop = _webShopManager.GetById((int)id);
+            WebShopDTO webShop = _webShopManager.GetById((int) id);
             if (webShop != null)
                 return PartialView(webShop);
             return HttpNotFound();
@@ -66,22 +63,36 @@ namespace WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        //public ActionResult Edit(short? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    webShop = _webShopManager.GetById((int)id);
-        //    if (webShop == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(webShop);
-        //}
+        public ActionResult Edit(short? id)
+        {
+            if (id == null) return HttpNotFound();
 
+            WebShopDTO webShop = _webShopManager.GetById((int) id);
+            if (webShop == null) return HttpNotFound();
 
+            return View(webShop);
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(WebShopDTO webShop, HttpPostedFileBase upload)
+        {
+            if (!ModelState.IsValid) return View(webShop);
+            if (upload != null)
+            {
+                webShop.LogoPath = CreateImgName();
+                upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
+            }
+            _webShopManager.Update(webShop);
+            return RedirectToAction("Index");
+        }
+
+        private string CreateImgName()
+        {
+            return String.Format("IMG_{0}_{1}.jpg",
+                DateTime.Now.ToString("yyyyMMddHHmmssfff"),
+                Guid.NewGuid());
+        }
     }
 }
 
