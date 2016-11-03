@@ -47,9 +47,11 @@ namespace WebApp
             bundles.Add(new StyleBundle("~/Content/PhoneStylesheet").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
+
             bundles.Add(new StyleBundle("~/Content/FridgeStylesheet").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/FridgeIndex.css"));
+
             bundles.Add(new StyleBundle("~/Content/TVStylesheet").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/TVstylesheet.css"));
@@ -58,12 +60,12 @@ namespace WebApp
                 "~/Content/bootstrap.min.css",
                 "~/Content/style.css"));
 
-            bundles.Add(new StyleBundle("~/Content/style").Include(
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/Frame/highlight.css"));
+            bundles.Add(new StyleBundle("~/Content/IFrameStyle").Include(
+				"~/Content/bootstrap.css",
+			"~/Content/Frame/highlight.css"));
 
-            bundles.Add(new ScriptBundle("~/Content/js").Include(
-                        "~/Content/Frame/Main.js"));
+            bundles.Add(new ScriptBundle("~/Content/IFrameJs").Include(
+                        "~/Scripts/Frame/Main.js"));
         }
     }
 }

@@ -7,16 +7,16 @@
 
 @Styles.Render("~/Content/PhoneStylesheet")
 
-<h2>Phones</h2>
+
 
 <div class="container">
-
+    <h2>Phones</h2>
     @foreach (var phone in Model)
     {
         <div class="material-design-block">
             <div class="media">
                 <div class="media-left">
-                    <a class="pull-left" href="ConcretePhone/@phone.Id">
+                    <a class="pull-left" href="Phone/ConcretePhone/@phone.Id">
                         <img class="media-object" src="@phone.ImgUrl" alt="@phone.Name" style="">
                     </a>
                 </div>
