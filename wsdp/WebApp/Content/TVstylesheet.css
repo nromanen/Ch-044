@@ -73,9 +73,9 @@ h4 {
     width: 70%;
 }
 .float-rt {
-    float: right !important;
-    padding-right: 37.5em;
+    padding-right: 3em;
     padding-top: 30px;
+    padding-left: 2em;
 
 }
 .detail-buy-label {

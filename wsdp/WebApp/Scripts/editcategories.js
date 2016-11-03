@@ -56,11 +56,13 @@ $(document).ready(function () {
 //Deleting Property
 function DeleteProp() {
 
-    var id = $('#id_prop_rm').val();
-    $("#ModalPropertyDelete .close").click();
-
+    var id = $('.property_item').attr('property-id');
+    console.log(id);
+    $("#ModalPropertyDelete #delete_prop_close").click();
+    $(".property_item[property-id='" + id + "']").remove();
     $.post('RemoveProperty', { id: id }, function (data) {
     });
+
 }
 
 /*inizializtion of buttons*/
@@ -265,6 +267,11 @@ function PutParentCategory() {
     var id = $("#addbutton").parent().parent().attr("data-id");
     $("#parentcategoryhidden").val(id);
 }
+
+$("#delete_prop_close").click(function () {
+
+    $("#ModalPropertyDelete").hide();
+});
 
 //correct filling update modal form 
 function UpdateCategory(id, name) {

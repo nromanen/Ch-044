@@ -74,11 +74,11 @@
 <!--
     Modal Window
 -->
-<div class="modal fade modal-wide" tabindex="-1" role="dialog" id="ModalPropertyDelete">
+<div class="modal modal-wide" tabindex="-1" role="dialog" id="ModalPropertyDelete">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" id="delete_prop_close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Remove</h4>
             </div>
             <div class="modal-body" id="removeproperty">
@@ -87,13 +87,6 @@
                     <small class="form-text text-muted">Be aware!This is irreparably! <br /> Also, consider changing parent category of all children categories.</small>
                     <br />
                     <br />
-                    <select class="form-control" id="prop_id_delete" name="id">
-                        @foreach (var property in Model.properties)
-                        {
-                            <option value="@property.Id">@property.Name</option>
-
-                        }
-                    </select>
                     <a onclick="DeleteProp();" id="remove_prop_dial" class="btn btn-danger">@Resources.Resource.Remove</a>
                 </div>
             </div>
