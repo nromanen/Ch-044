@@ -49,7 +49,7 @@ namespace BAL.Manager.ParseManagers
             if (wShop == null) return;
 
             wShop.Name = webShop.Name;
-            wShop.LogoPath = webShop.LogoPath;
+            wShop.LogoPath = webShop.LogoPath ?? wShop.LogoPath;
             wShop.Path = webShop.Path;
             uOW.Save();
         }
