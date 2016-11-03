@@ -330,6 +330,8 @@
     <Content Include="Views\Frame\Index.cshtml" />
     <Content Include="Views\Admin\AddProperty.cshtml" />
     <Content Include="Views\Admin\UpdateProperty.cshtml" />
+    <Content Include="Views\WebShop\Delete.cshtml" />
+    <Content Include="Views\WebShop\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
