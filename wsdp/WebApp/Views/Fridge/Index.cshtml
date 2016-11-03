@@ -4,40 +4,61 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Styles.Render("~/Content/FridgeStylesheet");
-
-<h2>Index</h2>
-
 
 <div id="products" class="row list-group">
-    @foreach (var fridge in Model)
-    {
-        <div class="item  col-xs-3 col-lg-3">
-            <div class="thumbnail">
-                <a class="" href="ConcreteFridge/@fridge.Id">
-                    <img class="group list-group-image" src="@fridge.ImagePath" alt="@fridge.Name" />
-                </a>
 
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        @fridge.Name
-                    </h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                    </p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                @fridge.Price грн
-                            </p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+    <section class="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2">
+                    <div class="content">
+                        <h3 class="text-center">@Resources.Resource.Fridges</h3>
+                        
+                        <div class="products-row clearfix">
+
+                            @foreach (var fridge in Model)
+                            {
+                                <div class="item col-sm-4">
+                                    <div class="thumbnail">
+                                        <a class="" href="Fridge/ConcreteFridge/@fridge.Id">
+                                            <img class="group list-group-image col-sm-9"  src="@fridge.ImagePath" alt="@fridge.Name" />
+                                        </a>
+
+                                        <div class="caption">
+                                            <div class="item_name">
+                                                <h4 class="group inner list-group-item-heading">
+                                                    @fridge.Name
+                                                </h4>
+                                            </div>
+                                            <p class="group inner list-group-item-text">
+                                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                            </p>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <p class="lead">
+                                                        @fridge.Price грн
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    }
+    </section>
+
+
+
+
 </div>
+@Styles.Render("~/Content/FridgeStylesheet")
+@Styles.Render("~/Content/css")
