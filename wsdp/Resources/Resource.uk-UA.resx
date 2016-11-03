@@ -204,4 +204,37 @@
   <data name="Fridges" xml:space="preserve">
     <value>Холодильники</value>
   </data>
+  <data name="AddProperty" xml:space="preserve">
+    <value>Додати критерій</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Назва категорії</value>
+  </data>
+  <data name="CharacteristicId" xml:space="preserve">
+    <value>Характеристика</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>Значення по замовчуваню</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>Префікс</value>
+  </data>
+  <data name="PropertyName" xml:space="preserve">
+    <value>Назва критерію</value>
+  </data>
+  <data name="Sufix" xml:space="preserve">
+    <value>Суфікс</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="UpdateProperty" xml:space="preserve">
+    <value>Оновити критерій</value>
+  </data>
+  <data name="TVs" xml:space="preserve">
+    <value>Телевізори</value>
+  </data>
 </root>

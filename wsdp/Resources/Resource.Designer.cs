@@ -115,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Property.
+        /// </summary>
+        public static string AddProperty {
+            get {
+                return ResourceManager.GetString("AddProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attention.
         /// </summary>
         public static string Attention {
@@ -133,11 +142,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category Name.
+        /// </summary>
+        public static string CategoryName {
+            get {
+                return ResourceManager.GetString("CategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Also, consider changing parent category of all children categories..
         /// </summary>
         public static string ChangingParentCategory {
             get {
                 return ResourceManager.GetString("ChangingParentCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Characteristic Id.
+        /// </summary>
+        public static string CharacteristicId {
+            get {
+                return ResourceManager.GetString("CharacteristicId", resourceCulture);
             }
         }
         
@@ -160,6 +187,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default Value.
+        /// </summary>
+        public static string DefaultValue {
+            get {
+                return ResourceManager.GetString("DefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -174,6 +210,15 @@ namespace Resources {
         public static string DeleteAsk {
             get {
                 return ResourceManager.GetString("DeleteAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
@@ -250,6 +295,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prefix.
+        /// </summary>
+        public static string Prefix {
+            get {
+                return ResourceManager.GetString("Prefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property Name.
+        /// </summary>
+        public static string PropertyName {
+            get {
+                return ResourceManager.GetString("PropertyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         public static string Remove {
@@ -277,11 +340,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sufix.
+        /// </summary>
+        public static string Sufix {
+            get {
+                return ResourceManager.GetString("Sufix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you shure you want to delete.
         /// </summary>
         public static string Sure {
             get {
                 return ResourceManager.GetString("Sure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TV&apos;s.
+        /// </summary>
+        public static string TVs {
+            get {
+                return ResourceManager.GetString("TVs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
         
@@ -300,6 +390,15 @@ namespace Resources {
         public static string UpdateInfo {
             get {
                 return ResourceManager.GetString("UpdateInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Property.
+        /// </summary>
+        public static string UpdateProperty {
+            get {
+                return ResourceManager.GetString("UpdateProperty", resourceCulture);
             }
         }
         

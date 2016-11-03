@@ -250,17 +250,25 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
     <Content Include="Content\EditPropertiesStylesheet.css" />
+    <Content Include="Content\Frame\highlight.css" />
+    <Content Include="Content\Frame\Main.js" />
     <Content Include="Content\FridgeIndex.css" />
+    <Content Include="Content\jquery.treemenu.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\sidebar-style.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\TVstylesheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="logs\log-2016-10-17.txt" />
+    <Content Include="logs\log-2016-10-18.txt" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap-combobox.js" />

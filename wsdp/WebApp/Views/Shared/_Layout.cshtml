@@ -53,10 +53,10 @@
                             @Resources.Resource.Parsers
                             <ul>
                                 <li class="public-image-tag-a">
-                                    Phone
+                                    @Html.ActionLink("Phone", "Index", "Phone")
                                 </li>
                                 <li class="public-image-tag-a">
-                                    TV
+                                    @Html.ActionLink(@Resources.Resource.TVs,  "Index", "TV")
                                 </li>
                                 <li class="public-image-tag-a">
                                     @Html.ActionLink(Resources.Resource.Laptops, "Index", "Laptop")

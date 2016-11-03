@@ -1,1 +1,3 @@
 ERROR 2016-11-03 18:45:29,330 [16] 1101636ms [ChangeParent BAL.Manager.CategoryManager] : Object reference not set to an instance of an object.
+ERROR 2016-11-03 19:20:44,837 [16] 328863ms [GetGood BAL.Manager.ParseManagers.TVParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-11-03 19:20:59,993 [16] 344019ms [ParseCategory BAL.Manager.ParseManagers.TVParseManager] : Object reference not set to an instance of an object.
