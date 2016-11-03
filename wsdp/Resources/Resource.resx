@@ -189,4 +189,13 @@
   <data name="Sure" xml:space="preserve">
     <value>Are you shure you want to delete</value>
   </data>
+  <data name="Laptops" xml:space="preserve">
+    <value>Laptops</value>
+  </data>
+  <data name="Parsers" xml:space="preserve">
+    <value>Parsers</value>
+  </data>
+  <data name="WebShops" xml:space="preserve">
+    <value>Web Shops</value>
+  </data>
 </root>

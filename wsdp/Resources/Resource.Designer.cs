@@ -196,6 +196,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Laptops.
+        /// </summary>
+        public static string Laptops {
+            get {
+                return ResourceManager.GetString("Laptops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logo.
         /// </summary>
         public static string Logo {
@@ -210,6 +219,15 @@ namespace Resources {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parsers.
+        /// </summary>
+        public static string Parsers {
+            get {
+                return ResourceManager.GetString("Parsers", resourceCulture);
             }
         }
         
@@ -273,6 +291,15 @@ namespace Resources {
         public static string Updating {
             get {
                 return ResourceManager.GetString("Updating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Shops.
+        /// </summary>
+        public static string WebShops {
+            get {
+                return ResourceManager.GetString("WebShops", resourceCulture);
             }
         }
     }

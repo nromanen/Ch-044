@@ -189,4 +189,13 @@
   <data name="Sure" xml:space="preserve">
     <value>Уверены, что хотите удалить</value>
   </data>
+  <data name="Laptops" xml:space="preserve">
+    <value>Ноутбуки</value>
+  </data>
+  <data name="Parsers" xml:space="preserve">
+    <value>Парсеры</value>
+  </data>
+  <data name="WebShops" xml:space="preserve">
+    <value>Интернет магазины</value>
+  </data>
 </root>

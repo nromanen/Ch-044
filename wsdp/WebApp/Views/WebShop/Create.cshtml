@@ -1,54 +1,53 @@
 ﻿@model Model.DTO.WebShopDTO
+<div class="container">
+    <div class="col-md-12">
+        <form action="/WebShop/Create" class="form-horizontal" method="post" enctype="multipart/form-data">
+            <fieldset>
+                @Html.AntiForgeryToken()
+                <!-- Form Name -->
+                <legend>@Resources.Resource.AddItem</legend>
 
-<form action="/WebShop/Create" class="form-horizontal" method="post" enctype="multipart/form-data">
-    <br />
-    <br />
-    <hr />
-    <fieldset>
-        @Html.AntiForgeryToken()
-        <!-- Form Name -->
-        <legend>@Resources.Resource.AddItem</legend>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">@Resources.Resource.Name</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="Name" type="text" value="@Model.Name" placeholder="placeholder" class="form-control input-md">
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="textinput">@Resources.Resource.Name</label>
-            <div class="col-md-4">
-                <input id="textinput" name="Name" type="text" value="@Model.Name" placeholder="placeholder" class="form-control input-md">
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Url</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="Path" type="text" value="@Model.Path" placeholder="placeholder" class="form-control input-md">
+                        @Html.ValidationMessageFor(model => model.Path, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="textinput">Url</label>
-            <div class="col-md-4">
-                <input id="textinput" name="Path" type="text" value="@Model.Path" placeholder="placeholder" class="form-control input-md">
-                @Html.ValidationMessageFor(model => model.Path, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <!-- File Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="filebutton">@Resources.Resource.Logo</label>
+                    <div class="col-md-4">
+                        <input type="file" value="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
+                        @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <!-- File Button -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="filebutton">@Resources.Resource.Logo</label>
-            <div class="col-md-4">
-                <input type="file" value="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
-                @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        @*<button id="singlebutton" type="submit" class="btn btn-primary">Button</button>*@
+                        <input type="submit" value="@Resources.Resource.SAVE" class="btn btn-success" />
+                        <a href="@Url.Action("Index")" class="btn btn-default btn-md">
+                            <span></span> CANCEL
+                        </a>
 
-        <!-- Button -->
-        <div class="form-group">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                @*<button id="singlebutton" type="submit" class="btn btn-primary">Button</button>*@
-                <input type="submit" value="@Resources.Resource.SAVE" class="btn btn-success"/>
-                <a href="@Url.Action("Index")" class="btn btn-default btn-md">
-                    <span></span> CANCEL
-                </a>
+                    </div>
+                </div>
 
-            </div>
-        </div>
-
-    </fieldset>
-</form>
-
+            </fieldset>
+        </form>
+    </div>
+</div>
