@@ -62,10 +62,10 @@ namespace WebApp
 
             bundles.Add(new StyleBundle("~/Content/IFrameStyle").Include(
 				"~/Content/bootstrap.css",
-			"~/Content/Frame/highlight.css"));
+			    "~/Content/Frame/highlight.css"));
 
             bundles.Add(new ScriptBundle("~/Content/IFrameJs").Include(
-                        "~/Scripts/Frame/Main.js"));
+               "~/Scripts/Frame/Main.js"));
         }
     }
 }

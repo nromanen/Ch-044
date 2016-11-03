@@ -237,4 +237,25 @@
   <data name="TVs" xml:space="preserve">
     <value>Телевизоры</value>
   </data>
+  <data name="GoToShop" xml:space="preserve">
+    <value>ПЕРЕЙТИ В МАГАЗИН</value>
+  </data>
+  <data name="TapeRecorders" xml:space="preserve">
+    <value>Магнитофоны</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="UAH" xml:space="preserve">
+    <value>Гривен</value>
+  </data>
+  <data name="Characteristics" xml:space="preserve">
+    <value>Характеристики</value>
+  </data>
+  <data name="IFrame" xml:space="preserve">
+    <value>Фрейм</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Поля для записи</value>
+  </data>
 </root>
