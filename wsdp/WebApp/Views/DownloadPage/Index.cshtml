@@ -3,8 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<hr />
-<hr />
+
 <form action="@Url.Action("Download", "DownloadPage")" method="post">
 
     <div class="form">
@@ -27,6 +26,7 @@
 </form>
 
 @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Content/style")
 <script>
     $(document).ready(function () {
         $("#iframe").hide();
