@@ -1,62 +1,82 @@
-﻿@model IEnumerable<Model.DB.WebShop>
+﻿@model IEnumerable<Model.DTO.WebShopDTO>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "WebShops";
+   
 }
 
-<h2>Index</h2>
 
-<head>
-    <style>
-        td > img
-        {
-            height: 100px;
-            width: auto;
-    
-        }
-    </style>
-    
-</head>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
 
 <div class="container">
-    <div class="row col-md-6 col-md-offset-2 custyle">
-        <table class="table table-striped custab">
-
-            <thead>
-            <a href="/WebShop/Create" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new shops</a>
+    <div class="col-md-12">
+        <div class="col-md-1 col-md-offset-10">
+            <a href="@Url.Action("Create")" class="btn btn-primary btn-md">
+                <span class="glyphicon-plus"></span> Add Item
+            </a>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="col-md-12">
+        <table class="table">
             <tr>
-                <th>Logo</th>
-                <th>Name</th>
-                <th>Url</th>
-                <th class="text-center">Action</th>
-            </tr>
-            </thead>
+                <th>
+                    LOGO
+                </th>
+                <th>
+                    NAME
+                </th>
+                <th>
+                    URL
+                </th>
+                <th>
 
+                </th>
+            </tr>
             @foreach (var item in Model)
             {
                 <tr>
                     <td>
-                        <img src="@item.LogoPath" />
+                        <img class="Logo" src="~/Content/WebShopsLogo/@item.LogoPath"/>
                     </td>
                     <td>
                         @item.Name
                     </td>
                     <td>
-                        @item.Path
+                        @item.Path"
                     </td>
-                    <td class="text-center">
-                        <a class='btn btn-info btn-xs' href="#">
-                            <span class="glyphicon glyphicon-edit"></span> Edit
-                        </a>
-                        <a href="#" class="btn btn-danger btn-xs">
-                            <span class="glyphicon glyphicon-remove"></span> Del
-                        </a>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new {id = item.Id}, new {@class = "webShopItem btn btn-danger btn-xs" })
+                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}, new {@class = "webShopItem btn btn-warning btn-xs"})
                     </td>
                 </tr>
             }
         </table>
-
     </div>
-
 </div>
-            
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function() {
+            $.ajaxSetup({ cache: false });
+            $(".webShopItem").click(function(e) {
+
+                e.preventDefault();
+                $.get(this.href, function(data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        });
+    </script>
+}           

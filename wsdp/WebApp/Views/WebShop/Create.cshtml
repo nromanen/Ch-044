@@ -1,4 +1,4 @@
-﻿@model Model.DB.WebShop
+﻿@model Model.DTO.WebShopDTO
 
 <form action="/WebShop/Create"class="form-horizontal" method="post" enctype="multipart/form-data">
    <fieldset>
@@ -45,7 +45,6 @@
     </fieldset>
 </form>
 
-@Html.ActionLink("return to all shops", "Index");
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
