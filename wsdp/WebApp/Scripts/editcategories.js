@@ -2,33 +2,39 @@
 var addNode = null;
 var updateNode = null;
 var deleteNode = null;
+var addPropNode = null;
+var updatePropNode = null;
 
 /*Inizializtion sortable list*/
 var group = null;
 $(document).ready(function () {
-    $("#ModalPropertyUpdate .close")
-        .click(function () {
-            $("#ModalPropertyUpdate").hide();
-            $("#ModalUpdate").show();
-        });
-    $("#remove_prop")
-        .click(function () {
-            $("#ModalUpdate").hide();
-        });
-    $("#remove_prop_dial")
-        .click(function () {
-            $("#ModalUpdate").show();
-        });
 
-    $("#add_properties").click(function (event) {
+    $(".properties_list").toggleClass("treemenu");
+    $(".property_item").toggleClass("tree-empty");
+    $(".property_item > .toggler").remove();
+    $(".properties").hide();
+
+
+    $(".adder").click(function (event) {
+        addPropNode = $(this).parent();
         event.preventDefault();
-        var catid=$("#deletecategoryidmodal").val();
+        var catid = addPropNode.attr('data-id');
+        console.log(catid);
         var url = 'AddProperty/?catid='+catid;
         window.location.href = url;
     });
-    $("#update_prop").click(function (event) {
+
+    $(".togglebutt").unbind().click(function (event) {
+        $(this).parent().children(".properties").toggle('slow');
+        console.log("222");
+    });
+
+
+    $(".update_prop").click(function (event) {
         event.preventDefault();
-        var url = 'UpdateProperty';
+        var catid = $(".update_prop").parent().parent().parent().parent().parent().parent().attr('data-id');
+        var propid = $(".update_prop").parent().parent().attr('property-id');
+        var url = 'UpdateProperty?catid=' + catid+'&propid='+propid;
         window.location.href = url;
     });
 
@@ -43,15 +49,15 @@ $(document).ready(function () {
         },
         pullPlaceholder: true,
         placeholder: '<li class="placeholdertrue"></li>',
-        handle: 'small.handler'
+        handle: 'button.handler'
     });
 });
 
+//Deleting Property
 function DeleteProp() {
 
     var id = $('#id_prop_rm').val();
-    $("#ModalPropertyUpdate .close").click();
-    $("#ModalUpdate").show();
+    $("#ModalPropertyDelete .close").click();
 
     $.post('RemoveProperty', { id: id }, function (data) {
     });
@@ -62,6 +68,7 @@ $(document).ready(function () {
     InitializeEvents();
     MakeHovers();
 });
+
 
 /*puting events for right-side buttons*/
 function InitializeEvents() {
@@ -106,6 +113,17 @@ function InitializeEvents() {
     });
 }
 
+//Delete Property button function
+function DeleteProperty() 
+{
+    $("#ModalPropertyDelete").show();
+};
+
+function UpdateProperty(categoryid , propertyid) {
+    var url = 'UpdateProperty/?catid=' + catid;
+    window.location.href = url;
+}
+
 //correct filling a modal form for adding
 function AddCategory(id, name) {
     $("#parentcategoryhidden").val(id);
@@ -135,9 +153,6 @@ function InsertNode() {
 
 
     InsertAjax(parentid, name, id, node);
-
-
-
 
 
     $("#ModalAdd .close").click();

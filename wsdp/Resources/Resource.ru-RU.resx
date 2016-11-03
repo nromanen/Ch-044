@@ -171,4 +171,34 @@
   <data name="Updating" xml:space="preserve">
     <value>Обновление</value>
   </data>
+  <data name="AddProperty" xml:space="preserve">
+    <value>Добавить критерий</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Имя категории</value>
+  </data>
+  <data name="CharacteristicId" xml:space="preserve">
+    <value>Номер характеристики</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>Значение по умолчанию</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>Префикс</value>
+  </data>
+  <data name="PropertyName" xml:space="preserve">
+    <value>Имя критерия</value>
+  </data>
+  <data name="Sufix" xml:space="preserve">
+    <value>Суфикс</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип данных</value>
+  </data>
+  <data name="UpdateProperty" xml:space="preserve">
+    <value>Обновление критерия</value>
+  </data>
 </root>

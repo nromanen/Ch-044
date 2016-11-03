@@ -28,12 +28,27 @@ namespace WebApp.Controllers
 
         public ActionResult EditCategories()
         {
-            List<CategoryDTO> categories =
+            var categories =
                 categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
-            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
-            PropertyViewDTO CategoriesView = new PropertyViewDTO() { categories = categories, properties = properties };
+            var properties = propertyManager.GetAll().Select(c => c).ToList();
+
+            UpdateCategoriesWithProperties(categories, properties);
+
+            var CategoriesView = new PropertyViewDTO() { categories = categories, properties = properties };
             ModelState.Clear();
             return View(CategoriesView);
+        }
+
+        private void UpdateCategoriesWithProperties(ICollection<CategoryDTO> category, ICollection<PropertyDTO> properties)
+        {
+            category.ToList().ForEach(c =>
+            {
+                if (c.ChildrenCategory != null)
+                {
+                    UpdateCategoriesWithProperties(c.ChildrenCategory, properties);
+                }
+                c.PropertyList = properties.Where(prop => prop.Category_Id == c.Id).ToList();
+            });
         }
 
         [HttpPost]
@@ -58,7 +73,6 @@ namespace WebApp.Controllers
         {
             categoryManager.ChangeParent(categoryid, parentid ?? -1);
         }
-        [HttpGet]
         public ActionResult AddProperty(int catid)
         {
             List<CategoryDTO> categories =
@@ -70,16 +84,16 @@ namespace WebApp.Controllers
             ModelState.Clear();
             return View(custom_model);
         }
-        public ActionResult UpdateProperty()
+        public ActionResult UpdateProperty(int catid, int propid)
         {
-            List<PropertyDTO> properties = propertyManager.GetAll().Select(c => c).ToList();
-            List<CategoryDTO> categories =
+            var properties = propertyManager.GetAll().Select(c => c).ToList();
+            var categories =
              categoryManager.GetAll().Select(c => c).ToList();
-            List<string> enums = new List<string>();
+            var enums = new List<string>();
             foreach (var i in Enum.GetNames(typeof(PropertyType)))
                 enums.Add(i);
 
-            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories, properties = properties };
+            PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories, properties = properties, CategoryId = catid, PropertyId = propid };
             return View(custom_model);
         }
 

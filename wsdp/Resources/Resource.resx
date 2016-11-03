@@ -171,4 +171,34 @@
   <data name="Updating" xml:space="preserve">
     <value>Updating</value>
   </data>
+  <data name="AddProperty" xml:space="preserve">
+    <value>Add Property</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Category Name</value>
+  </data>
+  <data name="CharacteristicId" xml:space="preserve">
+    <value>Characteristic Id</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>Prefix</value>
+  </data>
+  <data name="PropertyName" xml:space="preserve">
+    <value>Property Name</value>
+  </data>
+  <data name="Sufix" xml:space="preserve">
+    <value>Sufix</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UpdateProperty" xml:space="preserve">
+    <value>Update Property</value>
+  </data>
 </root>

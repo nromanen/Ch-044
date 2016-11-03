@@ -65,20 +65,16 @@
                         <input type="hidden" name="id" value="" id="removedidhidden" />
                     </div>
                 </form>
-                <div class="form-group">
-                    <h3>Manage properties</h3>
-                    <button onclick="" type="submit" class="btn btn-submit" id="add_properties">Add</button>
-                    <button onclick="" type="submit" class="btn btn-submit" id="update_prop">Update</button>
-                    <button onclick="" type="submit" class="btn btn-submit" id="remove_prop" data-toggle="modal" data-target="#ModalPropertyUpdate">Remove</button>
-                </div>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
 <!--
     Modal Window
 -->
-<div class="modal fade modal-wide" tabindex="-1" role="dialog" id="ModalPropertyUpdate">
+<div class="modal fade modal-wide" tabindex="-1" role="dialog" id="ModalPropertyDelete">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -92,7 +88,7 @@
                     <br />
                     <br />
                     <select class="form-control" id="prop_id_delete" name="id">
-                        @foreach (var property in Model.properties.Where(i=>i.Category_Id==)
+                        @foreach (var property in Model.properties)
                         {
                             <option value="@property.Id">@property.Name</option>
 
@@ -148,7 +144,7 @@
     <div class="row">
         <div class="col-sm-6">
             <ul class="addnewlist">
-                <li onclick="AddCategory(-1, 'Main'); SetMainNode();" data-toggle="modal" data-target="#ModalAdd" style="cursor:pointer" id="addbutton" class="btn-addnewcategory">
+                <li onclick="AddCategory(-1,'Main'); SetMainNode();" data-toggle="modal" data-target="#ModalAdd" style="cursor:pointer" id="addbutton" class="btn-addnewcategory">
                     <span class="glyphicon glyphicon-plus"></span>
                     @Resources.Resource.AddNewCategory
                 </li>

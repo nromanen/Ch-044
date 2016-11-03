@@ -4,34 +4,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/EditProperties")
 @Styles.Render("~/Content/EditPropertiesStylesheet")
+
 
 <div class="container">
     <div class="row ">
         <hr/>
         <center>
-            <h1>Add Property</h1></center>
+            <h1>@Resources.Resource.AddProperty</h1></center>
         <div class="col-lg-10">
             <div id="add_property">
                 <form action="@Url.Action("AddProperty","Admin")" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="cat_id" value="@Model.CategoryId"/>
-                        <label for="Characteristic_Id">Characteristic Id:</label>
-                        <input type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id">
-                        <label>Category Name:</label>
-                        <select class="form-control" id="Category_Id" name="Category_Id">
+                        <input type="text" class="form-control" id="cat_id" value="@Model.CategoryId" name="Category_Id" />
+                        <label  class="hidden" for="Characteristic_Id">@Resources.Resource.CharacteristicId</label>
+                        <input type="text" value="1" class="form-control hidden" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id" required>
+                        <label>@Resources.Resource.CategoryName:</label>
+                        <select class="form-control" id="category_id_select">
                             @foreach (var category in Model.categories)
                             {
                                 <option value="@category.Id">@category.Name</option>
 
                             }
                         </select>
-                        <label for="Name">Name:</label>
-                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter name">
-                        <label for="Description">Description:</label>
-                        <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter description">
-                        <label >Type:</label>
+                        <label for="Name">@Resources.Resource.Name:</label>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter name" required>
+                        <label for="Description">@Resources.Resource.Description:</label>
+                        <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter description" required>
+                        <label >@Resources.Resource.Type:</label>
                         <select class="form-control" id="type_add" name="Type">
                             @foreach (var enum_name in Model.enums)
                             {
@@ -40,14 +42,14 @@
                             }
                         </select>
 
-                        <label for="DefaultValue">Default Value:</label>
-                        <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter default value of property">
-                        <label for="Prefix">Perfix:</label>
-                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix">
-                        <label for="Sufix">Sufix:</label>
-                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix">
+                        <label for="DefaultValue">@Resources.Resource.DefaultValue:</label>
+                        <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter default value of property" required>
+                        <label for="Prefix">@Resources.Resource.Prefix:</label>
+                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix" required>
+                        <label for="Sufix">@Resources.Resource.Sufix:</label>
+                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix" required>
                     </div>
-                    <button type="submit" class="btn btn-success" id="add_prop">Submit</button>
+                    <button type="submit" class="btn btn-success" id="add_prop">@Resources.Resource.Submit</button>
                 </form>
             </div>
         </div>
