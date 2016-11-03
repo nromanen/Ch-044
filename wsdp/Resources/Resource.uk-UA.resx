@@ -201,4 +201,7 @@
   <data name="Download" xml:space="preserve">
     <value>Завантажити</value>
   </data>
+  <data name="Fridges" xml:space="preserve">
+    <value>Холодильники</value>
+  </data>
 </root>

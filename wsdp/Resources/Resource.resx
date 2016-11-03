@@ -201,4 +201,7 @@
   <data name="Download" xml:space="preserve">
     <value>Download</value>
   </data>
+  <data name="Fridges" xml:space="preserve">
+    <value>Fridges</value>
+  </data>
 </root>
