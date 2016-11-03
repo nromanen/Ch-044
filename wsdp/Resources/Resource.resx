@@ -198,4 +198,7 @@
   <data name="WebShops" xml:space="preserve">
     <value>Web Shops</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
 </root>

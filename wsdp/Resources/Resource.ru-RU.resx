@@ -198,4 +198,7 @@
   <data name="WebShops" xml:space="preserve">
     <value>Интернет магазины</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
 </root>
