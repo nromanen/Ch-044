@@ -10,18 +10,17 @@
     <section class="main-content">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-2">
+                <div class="col-sm-12 col-md-offset-1">
                     <div class="content">
                         <h3 class="text-center">@Resources.Resource.Fridges</h3>
                         
                         <div class="products-row clearfix">
-
                             @foreach (var fridge in Model)
                             {
                                 <div class="item col-sm-4">
                                     <div class="thumbnail">
                                         <a class="" href="Fridge/ConcreteFridge/@fridge.Id">
-                                            <img class="group list-group-image col-sm-9"  src="@fridge.ImagePath" alt="@fridge.Name" />
+                                            <img class="group list-group-image col-sm-9" id="product_img"  src="@fridge.ImagePath" alt="@fridge.Name" />
                                         </a>
 
                                         <div class="caption">
