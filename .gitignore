@@ -33,3 +33,5 @@ wsdp/.vs/config/applicationhost.config
 *.config
 /wsdp/Model/Model.csproj.user
 /wsdp/WebApp/obj/Debug/build.force
+/wsdp/WebApp/WebSites
+/wsdp/WebApp/4efdb1d2-4e17-4857-b63b-50fc9829e304.html

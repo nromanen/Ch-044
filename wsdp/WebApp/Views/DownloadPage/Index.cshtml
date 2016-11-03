@@ -4,23 +4,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <hr />
-<form action="@Url.Action("Download","DownloadPage")" method="post">
+<hr />
+<form action="@Url.Action("Download", "DownloadPage")" method="post">
 
     <div class="form">
         <div class="row">
             <div class="col-lg-11">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter link..." name="url">
+
+                    <input type="text" class="form-control" placeholder="Enter link..." id="url" name="url">
                     <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="submit">Download</button>
+                        <button class="btn btn-secondary" id="submit" type="submit">@Resources.Resource.Download</button>
                     </span>
                 </div>
             </div>
         </div>
     </div>
-    <iframe style="width:100%; height:1000px;" src="/page1.html">
-       
-    </iframe>
+    <br />
+    <div id="iframe">
+        <iframe src="@(ViewBag.Path)" style="width:100%; height:700px"></iframe>
+    </div>
 </form>
-<hr />
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    $(document).ready(function () {
+        $("#iframe").hide();
+        var pathIsExist = '@ViewBag.Path';
+        if (pathIsExist != "") {
+            $("#iframe").show();
+        }
+    });
+</script>
+
 

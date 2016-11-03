@@ -171,34 +171,37 @@
   <data name="Updating" xml:space="preserve">
     <value>Обновление</value>
   </data>
-  <data name="AddProperty" xml:space="preserve">
-    <value>Добавить критерий</value>
+  <data name="AddItem" xml:space="preserve">
+    <value>Добавить</value>
   </data>
-  <data name="CategoryName" xml:space="preserve">
-    <value>Имя категории</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
   </data>
-  <data name="CharacteristicId" xml:space="preserve">
-    <value>Номер характеристики</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Изменить</value>
   </data>
-  <data name="DefaultValue" xml:space="preserve">
-    <value>Значение по умолчанию</value>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Описание</value>
+  <data name="SAVE" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
-  <data name="Prefix" xml:space="preserve">
-    <value>Префикс</value>
+  <data name="Sure" xml:space="preserve">
+    <value>Уверены, что хотите удалить</value>
   </data>
-  <data name="PropertyName" xml:space="preserve">
-    <value>Имя критерия</value>
+  <data name="Laptops" xml:space="preserve">
+    <value>Ноутбуки</value>
   </data>
-  <data name="Sufix" xml:space="preserve">
-    <value>Суфикс</value>
+  <data name="Parsers" xml:space="preserve">
+    <value>Парсеры</value>
   </data>
-  <data name="Type" xml:space="preserve">
-    <value>Тип данных</value>
+  <data name="WebShops" xml:space="preserve">
+    <value>Интернет магазины</value>
   </data>
-  <data name="UpdateProperty" xml:space="preserve">
-    <value>Обновление критерия</value>
+  <data name="Download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
+  <data name="Fridges" xml:space="preserve">
+    <value>Холодильники</value>
   </data>
 </root>

@@ -1,0 +1,72 @@
+﻿.public-image-tag-m {
+  position: absolute;
+  top: 15px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.public-image-tag-m li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+.public-image-tag-m li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+.public-image-tag-m li a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #337cb7;
+  background: rgba(211, 211, 211, 0.2);
+}
+.public-image-tag-m li a:active, .public-image-tag-m li a:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+.public-image-category-a {
+  list-style: none;
+  text-decoration: none;
+  color: #999999;
+}
+.public-image-category-a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #337cb7;
+  background: rgba(211, 211, 211, 0.2);
+}
+.public-image-category-a:active, .public-image-category-a:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+.public-image-category-a:first-letter {
+  text-transform: uppercase;
+}
+
+.public-image-tag-a {
+  margin-left: -25px;
+  list-style: none;
+  text-decoration: none;
+  color: #999999;
+}
+.public-image-tag-a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #337cb7;
+  background: rgba(211, 211, 211, 0.2);
+}
+.public-image-tag-a:active, .public-image-tag-a:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+.public-image-tag-a:first-letter {
+  text-transform: uppercase;
+}
+
+.selected {
+  background: rgba(174,171,172,0.2);
+  li {
+    display: block;
+  }
+}

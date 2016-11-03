@@ -171,34 +171,37 @@
   <data name="Updating" xml:space="preserve">
     <value>Оновлення</value>
   </data>
-  <data name="AddProperty" xml:space="preserve">
-    <value>Добавити критерій</value>
+  <data name="AddItem" xml:space="preserve">
+    <value>Створити</value>
   </data>
-  <data name="CategoryName" xml:space="preserve">
-    <value>Ім'я критерію</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
   </data>
-  <data name="CharacteristicId" xml:space="preserve">
-    <value>Номер характеристики</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Змінити</value>
   </data>
-  <data name="DefaultValue" xml:space="preserve">
-    <value>Значення по замовчюванню</value>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Опис</value>
+  <data name="SAVE" xml:space="preserve">
+    <value>Зберегти</value>
   </data>
-  <data name="Prefix" xml:space="preserve">
-    <value>Префікс</value>
+  <data name="Sure" xml:space="preserve">
+    <value>Впевнені, що хочете видалити</value>
   </data>
-  <data name="PropertyName" xml:space="preserve">
-    <value>Ім'я критерію</value>
+  <data name="Laptops" xml:space="preserve">
+    <value>Ноутбуки</value>
   </data>
-  <data name="Sufix" xml:space="preserve">
-    <value>Суфікс</value>
+  <data name="Parsers" xml:space="preserve">
+    <value>Парсери</value>
   </data>
-  <data name="Type" xml:space="preserve">
-    <value>Тип даних</value>
+  <data name="WebShops" xml:space="preserve">
+    <value>Інтернет магазини</value>
   </data>
-  <data name="UpdateProperty" xml:space="preserve">
-    <value>Оновлення критерію</value>
+  <data name="Download" xml:space="preserve">
+    <value>Завантажити</value>
+  </data>
+  <data name="Fridges" xml:space="preserve">
+    <value>Холодильники</value>
   </data>
 </root>

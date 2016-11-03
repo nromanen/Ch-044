@@ -64,7 +64,6 @@ namespace WebApp
 
             bundles.Add(new ScriptBundle("~/Content/js").Include(
                         "~/Content/Frame/Main.js"));
-
         }
     }
 }

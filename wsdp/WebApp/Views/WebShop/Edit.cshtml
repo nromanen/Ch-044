@@ -1,12 +1,17 @@
 ﻿@model Model.DTO.WebShopDTO
+
+@{
+    ViewBag.Title = "Edit";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <div class="container">
     <div class="col-md-12">
-        <form action="/WebShop/Create" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="/WebShop/Edit" class="form-horizontal" method="post" enctype="multipart/form-data">
             <fieldset>
                 @Html.AntiForgeryToken()
                 <!-- Form Name -->
-                <legend>@Resources.Resource.AddItem</legend>
-
+                <legend>@Resources.Resource.Edit</legend>
+                @Html.HiddenFor(model => model.Id)
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">@Resources.Resource.Name</label>
@@ -29,7 +34,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="filebutton">@Resources.Resource.Logo</label>
                     <div class="col-md-4">
-                        <input type="file" value="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
+                        <input type="file" value="@Model.LogoPath" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
                         @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -43,7 +48,6 @@
                         <a href="@Url.Action("Index")" class="btn btn-default btn-md">
                             <span></span> CANCEL
                         </a>
-
                     </div>
                 </div>
 

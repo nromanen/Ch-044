@@ -171,34 +171,37 @@
   <data name="Updating" xml:space="preserve">
     <value>Updating</value>
   </data>
-  <data name="AddProperty" xml:space="preserve">
-    <value>Add Property</value>
+  <data name="AddItem" xml:space="preserve">
+    <value>AddItem</value>
   </data>
-  <data name="CategoryName" xml:space="preserve">
-    <value>Category Name</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="CharacteristicId" xml:space="preserve">
-    <value>Characteristic Id</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="DefaultValue" xml:space="preserve">
-    <value>Default Value</value>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
+  <data name="SAVE" xml:space="preserve">
+    <value>SAVE</value>
   </data>
-  <data name="Prefix" xml:space="preserve">
-    <value>Prefix</value>
+  <data name="Sure" xml:space="preserve">
+    <value>Are you shure you want to delete</value>
   </data>
-  <data name="PropertyName" xml:space="preserve">
-    <value>Property Name</value>
+  <data name="Laptops" xml:space="preserve">
+    <value>Laptops</value>
   </data>
-  <data name="Sufix" xml:space="preserve">
-    <value>Sufix</value>
+  <data name="Parsers" xml:space="preserve">
+    <value>Parsers</value>
   </data>
-  <data name="Type" xml:space="preserve">
-    <value>Type</value>
+  <data name="WebShops" xml:space="preserve">
+    <value>Web Shops</value>
   </data>
-  <data name="UpdateProperty" xml:space="preserve">
-    <value>Update Property</value>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Fridges" xml:space="preserve">
+    <value>Fridges</value>
   </data>
 </root>

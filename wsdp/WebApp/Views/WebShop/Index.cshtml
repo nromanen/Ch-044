@@ -1,37 +1,41 @@
 ﻿@model IEnumerable<Model.DTO.WebShopDTO>
 @{
     ViewBag.Title = "WebShops";
-   
+
 }
 
+<style>
+    img {
+        width: 80%;
+        margin: 0 auto;
+    }
+</style>
 
-
-<br/>
-<br/>
-<br/>
-<br/>
 <div id="modDialog" class="modal fade">
     <div id="dialogContent" class="modal-dialog"></div>
 </div>
+
 
 <div class="container">
     <div class="col-md-12">
         <div class="col-md-1 col-md-offset-10">
             <a href="@Url.Action("Create")" class="btn btn-primary btn-md">
-                <span class="glyphicon-plus"></span> Add Item
+                <span class="glyphicon-plus"></span> @Resources.Resource.AddItem
             </a>
         </div>
     </div>
+    
     <br/>
     <br/>
+ 
     <div class="col-md-12">
         <table class="table">
             <tr>
                 <th>
-                    LOGO
+                    @Resources.Resource.Logo
                 </th>
                 <th>
-                    NAME
+                    @Resources.Resource.Name
                 </th>
                 <th>
                     URL
@@ -43,18 +47,18 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        <img class="Logo" src="~/Content/WebShopsLogo/@item.LogoPath"/>
+                    <td class="col-lg-5">
+                        <img class="Logo img-responsive" src="~/Content/WebShopsLogo/@item.LogoPath" />
                     </td>
-                    <td>
-                        @item.Name
+                    <td class="col-lg-2">
+                        <big>@item.Name</big>
                     </td>
-                    <td>
-                        @item.Path"
+                    <td class="col-lg-2">
+                        <big><a href="@item.Path">@item.Path</a></big>
                     </td>
-                    <td>
-                        @Html.ActionLink("Delete", "Delete", new {id = item.Id}, new {@class = "webShopItem btn btn-danger btn-xs" })
-                        @Html.ActionLink("Edit", "Edit", new {id = item.Id}, new {@class = "webShopItem btn btn-warning btn-xs"})
+                    <td class="col-lg-3">
+                        @Html.ActionLink(Resources.Resource.Delete, "Delete", new { id = item.Id }, new { @class = "webShopItem btn btn-danger btn-md" })
+                        @Html.ActionLink(Resources.Resource.Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-md" })
                     </td>
                 </tr>
             }
@@ -78,5 +82,6 @@
                 });
             });
         });
+       
     </script>
-}           
+}

@@ -7,15 +7,18 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BAL.Manager
 {
     public class DownloadManager : IDownloadManager
     {
-        public void DownloadFromPath(string url)
+        public Guid guid = Guid.NewGuid();
+
+        public Guid DownloadFromPath(string url)
         {
             string htmlSource;
-            var encoding = Encoding.GetEncoding(1252);
+            var encoding = Encoding.UTF8;
             using (var client = new WebClient())
             {
                 client.Encoding = encoding;
@@ -23,23 +26,17 @@ namespace BAL.Manager
             }
             this.ReplaceHrefs(htmlSource, url);
 
-            //return replaced html source
+            return guid;
         }
-        public void WriteToFile(string source, string url)
+        public void WriteToFile(string source)
         {
-            //string path = @"D:\" + linkName;
-            //if (!Directory.Exists(path))
-            //{
-            //    Directory.CreateDirectory(path);
-            //}
-
-            //return "true" html source
-            var path = @"D:\page1.html";
-            var encoding = Encoding.UTF8;
+           
+            string file = guid + ".html";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "WebSites\\" + file;
 
             using (FileStream fs = new FileStream(path, FileMode.Create))
             {
-                using (StreamWriter w = new StreamWriter(fs, Encoding.Default))
+                using (StreamWriter w = new StreamWriter(fs))
                 {
                     w.WriteLine(source);
                 }
@@ -59,14 +56,13 @@ namespace BAL.Manager
                 if (!link.Contains("http"))
                 {
                     string[] vals = url.Split('/');
-                    var siteName = vals[2];
+                    var siteName = "http://" + vals[2];
                     var fullLink = siteName + link;
 
                     source = source.Replace(link, fullLink);
                 }
             }
-            this.WriteToFile(source, url);
-
+            this.WriteToFile(source);
             return source;
         }
     }

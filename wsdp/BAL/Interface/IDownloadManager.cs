@@ -8,8 +8,8 @@ namespace BAL.Interface
 {
     public interface IDownloadManager
     {
-        void DownloadFromPath(string url);
-        void WriteToFile(string source, string url);
+        Guid DownloadFromPath(string url);
+        void WriteToFile(string source);
         string ReplaceHrefs(string htmlSource,string url);
     }
 }
