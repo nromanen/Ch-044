@@ -171,4 +171,31 @@
   <data name="Updating" xml:space="preserve">
     <value>Оновлення</value>
   </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Змінити</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Впевнені, що хочете видалити</value>
+  </data>
+  <data name="Laptops" xml:space="preserve">
+    <value>Ноутбуки</value>
+  </data>
+  <data name="Parsers" xml:space="preserve">
+    <value>Парсери</value>
+  </data>
+  <data name="WebShops" xml:space="preserve">
+    <value>Інтернет магазини</value>
+  </data>
 </root>

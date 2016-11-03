@@ -49,7 +49,7 @@ namespace WebApp.Controllers
         public ActionResult Delete(int? id)
         {
             if (id == null) return HttpNotFound();
-            WebShopDTO webShop = _webShopManager.GetById((int) id);
+            WebShopDTO webShop = _webShopManager.GetById((int)id);
             if (webShop != null)
                 return PartialView(webShop);
             return HttpNotFound();
@@ -67,7 +67,7 @@ namespace WebApp.Controllers
         {
             if (id == null) return HttpNotFound();
 
-            WebShopDTO webShop = _webShopManager.GetById((int) id);
+            WebShopDTO webShop = _webShopManager.GetById((int)id);
             if (webShop == null) return HttpNotFound();
 
             return View(webShop);

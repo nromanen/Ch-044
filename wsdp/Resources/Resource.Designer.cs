@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AddItem.
+        /// </summary>
+        public static string AddItem {
+            get {
+                return ResourceManager.GetString("AddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new Category.
         /// </summary>
         public static string AddNewCategory {
@@ -151,11 +160,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to delete this category.
         /// </summary>
         public static string DeleteAsk {
             get {
                 return ResourceManager.GetString("DeleteAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -169,11 +196,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Laptops.
+        /// </summary>
+        public static string Laptops {
+            get {
+                return ResourceManager.GetString("Laptops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logo.
+        /// </summary>
+        public static string Logo {
+            get {
+                return ResourceManager.GetString("Logo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parsers.
+        /// </summary>
+        public static string Parsers {
+            get {
+                return ResourceManager.GetString("Parsers", resourceCulture);
             }
         }
         
@@ -187,11 +241,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SAVE.
+        /// </summary>
+        public static string SAVE {
+            get {
+                return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you shure you want to delete.
+        /// </summary>
+        public static string Sure {
+            get {
+                return ResourceManager.GetString("Sure", resourceCulture);
             }
         }
         
@@ -219,6 +291,15 @@ namespace Resources {
         public static string Updating {
             get {
                 return ResourceManager.GetString("Updating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Shops.
+        /// </summary>
+        public static string WebShops {
+            get {
+                return ResourceManager.GetString("WebShops", resourceCulture);
             }
         }
     }

@@ -260,6 +260,7 @@
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\jquery.treemenu.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\sidebar-style.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\TVstylesheet.css" />
     <Content Include="favicon.ico" />

@@ -171,4 +171,31 @@
   <data name="Updating" xml:space="preserve">
     <value>Updating</value>
   </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>AddItem</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Are you shure you want to delete</value>
+  </data>
+  <data name="Laptops" xml:space="preserve">
+    <value>Laptops</value>
+  </data>
+  <data name="Parsers" xml:space="preserve">
+    <value>Parsers</value>
+  </data>
+  <data name="WebShops" xml:space="preserve">
+    <value>Web Shops</value>
+  </data>
 </root>
