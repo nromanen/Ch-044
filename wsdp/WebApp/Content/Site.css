@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
-    background: #EEE;
+    padding-bottom: 10px;
+    background: #EEE !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -59,7 +59,7 @@ textarea {
 .material-design-block p img
 {
     margin:0 auto;
-    height:450px;
+    max-height:450px;
 }
 .add-information-phone {
     min-height: 100px;
@@ -70,6 +70,13 @@ textarea {
     margin:25px 0;
     height:100%;
     border-right:1px solid #CCC;
+}
+
+.vcenter
+{
+    min-height: 482px;
+    display: flex;
+    align-items: center;
 }
 
 
