@@ -111,6 +111,29 @@ function InitializeEvents() {
             RemoveCategory(idDeleteCategory, nameDeleteCategory);
         });
     });
+
+    $(".adder").click(function (event) {
+        addPropNode = $(this).parent();
+        event.preventDefault();
+        var catid = addPropNode.attr('data-id');
+        console.log(catid);
+        var url = 'AddProperty/?catid=' + catid;
+        window.location.href = url;
+    });
+
+    $(".togglebutt").unbind().click(function (event) {
+        $(this).parent().children(".properties").toggle('slow');
+        console.log("222");
+    });
+
+
+    $(".update_prop").click(function (event) {
+        event.preventDefault();
+        var catid = $(".update_prop").parent().parent().parent().parent().parent().parent().attr('data-id');
+        var propid = $(".update_prop").parent().parent().attr('property-id');
+        var url = 'UpdateProperty?catid=' + catid + '&propid=' + propid;
+        window.location.href = url;
+    });
 }
 
 //Delete Property button function
@@ -145,7 +168,10 @@ function InsertNode() {
     //puting in UI new list item
     $(node).children("ul").append("<li data-id=" + id + " data-name=" + name + "  class=\"tree-closed\">"
     + "<span class=\"toggler\"></span>"
-    + "<b class=\"namecategory\">" + name + "</b>" + "         <small class=\"handler transperent btn-sm glyphicon glyphicon-move text-muted\"></small>" + "<button class=\"btn transperent hidden btn-config \" data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
+    + "<b class=\"namecategory\">" + name + "</b>"
+    + "<button class=\"btn handler transperent btn-sm glyphicon glyphicon-move text-muted\"></button>"
+    + "<button class='btn adder transperent btn-sm glyphicon hidden glyphicon-plus-sign text-muted'></button>"
+    + "<button class=\"btn transperent hidden btn-config \" data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
     + "<button class=\"btn transperent hidden btn-add \"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
     + "<button class=\"btn transperent hidden btn-remove \" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>"
     + "<ul class=\"treemenu\"></ul></li>");
