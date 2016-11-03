@@ -35,61 +35,58 @@
 
     <div class="container body-content">
         <div class="row">
-            <div class="col-md-2 col-sm-2 col-lg-2">
-                <div id="public-image-menu-m">
-                    <ul class="public-image-tag-m">
-                        <li class="public-image-category-a selected">
+            <div class="col-md-3 col-sm-12">
+                <div id="">
+                    <ul class="list-group">
+                        <li class="list-group-item">
                             @Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")
-                            <ul>
-                                <li class="public-image-tag-a">
+                            <ul class="list-group">
+                                <li class="list-group-item">
                                     @Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")
                                 </li>
                             </ul>
                         </li>
-                        <li class="public-image-category-a">No Category</li>
-                        <li class="public-image-category-a">Show All Images</li>
-                        <li class="public-image-category-a">Show Untagged Images</li>
-                        <li class="public-image-category-a selected">
+                        <li class="list-group-item">No Category</li>
+                        <li class="list-group-item">Show All Images</li>
+                        <li class="list-group-item">Show Untagged Images</li>
+                        <li class="list-group-item">
                             @Resources.Resource.Parsers
-                            <ul>
-                                <li class="public-image-tag-a">
+                            <ul class="list-group">
+                                <li class="list-group-item">
                                     @Html.ActionLink("Phone", "Index", "Phone")
                                 </li>
-                                <li class="public-image-tag-a">
-                                    @Html.ActionLink(@Resources.Resource.TVs,  "Index", "TV")
+                                <li class="list-group-item">
+                                    @Html.ActionLink(@Resources.Resource.TVs, "Index", "TV")
                                 </li>
-                                <li class="public-image-tag-a">
+                                <li class="list-group-item">
                                     @Html.ActionLink(Resources.Resource.Laptops, "Index", "Laptop")
                                 </li>
-                                <li class="public-image-tag-a">
+                                <li class="list-group-item">
                                     Microvaves
                                 </li>
-                                <li class="public-image-tag-a">
+                                <li class="list-group-item">
                                     @Html.ActionLink(Resources.Resource.Fridges, "Index", "Fridge")
                                 </li>
                             </ul>
-
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-10 col-sm-10 col-md-10">
-                <div class="container">
-          
-                    @RenderBody()
-                    <hr/>
-                    <footer>
-                        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                        <ul class="list-inline text-center">
-                            <li>@Html.ActionLink("UA", "Change", "Base", new {language = "uk-UA", url = Request.Url.AbsoluteUri}, null)</li>
-                            <li>@Html.ActionLink("RU", "Change", "Base", new {language = "ru-RU", url = Request.Url.AbsoluteUri}, null)</li>
-                            <li>@Html.ActionLink("EN", "Change", "Base", new {language = "en", url = Request.Url.AbsoluteUri}, null)</li>
-                        </ul>
+            <div class="col-sm-12 col-md-9">
 
-                    </footer>
-                </div>
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                    <ul class="list-inline text-center">
+                        <li>@Html.ActionLink("UA", "Change", "Base", new { language = "uk-UA", url = Request.Url.AbsoluteUri }, null)</li>
+                        <li>@Html.ActionLink("RU", "Change", "Base", new { language = "ru-RU", url = Request.Url.AbsoluteUri }, null)</li>
+                        <li>@Html.ActionLink("EN", "Change", "Base", new { language = "en", url = Request.Url.AbsoluteUri }, null)</li>
+                    </ul>
+                </footer>
             </div>
+        </div>
 
         </div>
     </div>
