@@ -169,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Characteristics.
+        /// </summary>
+        public static string Characteristics {
+            get {
+                return ResourceManager.GetString("Characteristics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuring Categories.
         /// </summary>
         public static string ConfiguringCategories {
@@ -250,11 +259,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GO TO SHOP.
+        /// </summary>
+        public static string GoToShop {
+            get {
+                return ResourceManager.GetString("GoToShop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IFrame.
+        /// </summary>
+        public static string IFrame {
+            get {
+                return ResourceManager.GetString("IFrame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
             }
         }
         
@@ -300,6 +336,15 @@ namespace Resources {
         public static string Prefix {
             get {
                 return ResourceManager.GetString("Prefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
             }
         }
         
@@ -358,6 +403,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tape Recorders.
+        /// </summary>
+        public static string TapeRecorders {
+            get {
+                return ResourceManager.GetString("TapeRecorders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TV&apos;s.
         /// </summary>
         public static string TVs {
@@ -372,6 +426,15 @@ namespace Resources {
         public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UAH.
+        /// </summary>
+        public static string UAH {
+            get {
+                return ResourceManager.GetString("UAH", resourceCulture);
             }
         }
         

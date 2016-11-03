@@ -47,7 +47,9 @@
                         </li>
                         <li class="list-group-item">No Category</li>
                         <li class="list-group-item">Show All Images</li>
-                        <li class="list-group-item">Show Untagged Images</li>
+                        <li class="list-group-item">
+							@Html.ActionLink(Resources.Resource.IFrame, "Index", "Frame")
+						</li>
                         <li class="list-group-item">
                             @Resources.Resource.Parsers
                             <ul class="list-group">
@@ -61,7 +63,7 @@
                                     @Html.ActionLink(Resources.Resource.Laptops, "Index", "Laptop")
                                 </li>
                                 <li class="list-group-item">
-                                    Microvaves
+                                    @Html.ActionLink(Resources.Resource.TapeRecorders, "All", "TapeRecorder")
                                 </li>
                                 <li class="list-group-item">
                                     @Html.ActionLink(Resources.Resource.Fridges, "Index", "Fridge")

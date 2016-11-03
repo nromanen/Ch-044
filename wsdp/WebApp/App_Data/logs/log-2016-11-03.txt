@@ -6,3 +6,6 @@ ERROR 2016-11-03 22:16:42,898 [35] 1597266ms [ParseCategory BAL.Manager.ParseMan
 ERROR 2016-11-03 22:18:11,960 [31] 1686328ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
 ERROR 2016-11-03 22:18:12,922 [31] 1687290ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
 Parameter name: source
+ERROR 2016-11-04 00:42:46,623 [7] 159478ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-11-04 00:42:47,736 [7] 160591ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source

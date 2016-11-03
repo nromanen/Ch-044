@@ -237,4 +237,25 @@
   <data name="TVs" xml:space="preserve">
     <value>TV's</value>
   </data>
+  <data name="GoToShop" xml:space="preserve">
+    <value>GO TO SHOP</value>
+  </data>
+  <data name="TapeRecorders" xml:space="preserve">
+    <value>Tape Recorders</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="UAH" xml:space="preserve">
+    <value>UAH</value>
+  </data>
+  <data name="Characteristics" xml:space="preserve">
+    <value>Characteristics</value>
+  </data>
+  <data name="IFrame" xml:space="preserve">
+    <value>IFrame</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+  </data>
 </root>

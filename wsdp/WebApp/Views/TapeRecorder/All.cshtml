@@ -10,9 +10,9 @@
 <section class="main-content">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9 col-md-push-3">
+			<div class="col-md-12 col-md-push-1">
 				<div class="content">
-					<h3 class="text-center">Tape Recorders</h3>
+					<h3 class="text-center">@Resources.Resource.TapeRecorders</h3>
 					<div class="products-row clearfix">
 					@foreach (var taperecorder in Model) {
 						<div class="col-sm-4">
@@ -28,9 +28,9 @@
 								</p>
 								<div class="product-buy">
 									<p class="product-price">
-										Price: @taperecorder.Price грн
+										 @Resources.Resource.Price: @taperecorder.Price @Resources.Resource.UAH
 									</p>
-									<a href="@taperecorder.urlPath" class="btn btn-default">Go to shop</a>
+									<a href="@taperecorder.urlPath" class="btn btn-default">@Resources.Resource.GoToShop</a>
 								</div><!-- ./products-buy -->
 							</div> <!-- ./product -->
 						</div>
@@ -40,74 +40,6 @@
 
 				</div>
 				<!-- ./content -->
-			</div>
-			<div class="col-md-3 col-md-pull-9">
-				<div class="sidebar">
-					<div class="row">
-						<div class="col-xs-6 col-md-12">
-							<div class="widget">
-								<h3>Popular Categories</h3>
-								<ul>
-									<li>
-										<a href="/Tv/Index">TVs</a>
-									</li>
-									<li>
-										<a href="/phone/index">Phones</a>
-									</li>
-									<li>
-										<a href="/laptop/index">Laptops</a>
-									</li>
-									<li>
-										<a href="/fridge/index">Fridges</a>
-									</li>
-									<li>
-										<a href="/TapeRecorder/All">Tape Recorders</a>
-									</li>
-									<li class="more">
-										<a href="#">Show More</a>
-									</li>
-								</ul>
-							</div>
-							<!-- ./widget -->
-						</div>
-						<div class="col-xs-6 col-md-12">
-							<div class="widget">
-								<h3>Popular Brands</h3>
-								<ul>
-									<li>
-										<a href="#">Candy</a>
-									</li>
-									<li>
-										<a href="#">LG</a>
-									</li>
-									<li>
-										<a href="#">Panasonic</a>
-									</li>
-									<li>
-										<a href="#">Samsung</a>
-									</li>
-									<li>
-										<a href="#">Gorenje	</a>
-									</li>
-									<li class="more">
-										<a href="#">Show More</a>
-									</li>
-								</ul>
-							</div>
-							<!-- ./widget -->
-						</div>
-					</div>
-					<div class="about">
-						<h3>About Us</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, dignissimos debitis error excepturi quia architecto ab mollitia cupiditate!</p>
-						<p>
-							<span>
-								Ut enim ad minim veniam, quis nostrud exercitation. Aiusmod tempor incididunt ut labore et dolore magna aliqua
-							</span>
-						</p>
-					</div>
-				</div>
-				<!-- ./sidebar -->
 			</div>
 		</div>
 	</div>
