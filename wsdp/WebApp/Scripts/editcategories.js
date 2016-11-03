@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     $(".update_prop").click(function (event) {
         event.preventDefault();
-        var catid = $(".update_prop").parent().parent().parent().parent().parent().parent().attr('data-id');
+        var catid = $(".update_prop").parent().parent().parent().parent().parent().attr('data-id');
         var propid = $(".update_prop").parent().parent().attr('property-id');
         var url = 'UpdateProperty?catid=' + catid+'&propid='+propid;
         window.location.href = url;
@@ -129,13 +129,6 @@ function InitializeEvents() {
     });
 
 
-    $(".update_prop").click(function (event) {
-        event.preventDefault();
-        var catid = $(".update_prop").parent().parent().parent().parent().parent().parent().attr('data-id');
-        var propid = $(".update_prop").parent().parent().attr('property-id');
-        var url = 'UpdateProperty?catid=' + catid + '&propid=' + propid;
-        window.location.href = url;
-    });
 }
 
 //Delete Property button function
