@@ -20,7 +20,7 @@ namespace BAL.Manager.ParseManagers
         public IEnumerable<WebShopDTO> GetAll()
         {
             List<WebShopDTO> webShopDto = new List<WebShopDTO>();
-            foreach (var webShop in uOW.WebShopRepo.All.Where(x=>x.Status))
+            foreach (var webShop in uOW.WebShopRepo.All.Where(x => x.Status))
             {
                 webShopDto.Add(Mapper.Map<WebShopDTO>(webShop));
             }
@@ -47,10 +47,10 @@ namespace BAL.Manager.ParseManagers
             if (webShop == null) return;
             WebShop wShop = uOW.WebShopRepo.GetByID(webShop.Id);
             if (wShop == null) return;
-            
+
             wShop.Name = webShop.Name;
             wShop.LogoPath = webShop.LogoPath;
-            wShop.Path = webShop.Path;            
+            wShop.Path = webShop.Path;
             uOW.Save();
         }
 
@@ -64,3 +64,4 @@ namespace BAL.Manager.ParseManagers
         }
     }
 }
+

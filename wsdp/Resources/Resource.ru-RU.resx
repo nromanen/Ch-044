@@ -171,4 +171,22 @@
   <data name="Updating" xml:space="preserve">
     <value>Обновление</value>
   </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Уверены, что хотите удалить</value>
+  </data>
 </root>

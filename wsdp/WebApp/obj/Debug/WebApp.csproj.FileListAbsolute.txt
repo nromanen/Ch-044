@@ -736,3 +736,4 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\ru-RU\Resourc
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+E:\repositry\Ch-044\wsdp\WebApp\bin\PagedList.xml
