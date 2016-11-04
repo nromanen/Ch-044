@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Url</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="Path" type="text" value="@Model.Path" placeholder="placeholder" class="form-control input-md">
+                        <input id="textinput" name="Path" type="text" value="@Model.Path" placeholder="placeholder" class="form-control">
                         @Html.ValidationMessageFor(model => model.Path, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="filebutton">@Resources.Resource.Logo</label>
                     <div class="col-md-4">
-                        <input type="file" value="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
+                        <input type="file" value="Add image" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput">
                         @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
                     </div>
                 </div>

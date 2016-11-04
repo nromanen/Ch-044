@@ -4,12 +4,13 @@
 
 }
 
-<style>
-    img {
-        width: 80%;
+@*<style>
+    img{
+        width: 90%;
         margin: 0 auto;
     }
-</style>
+
+</style>*@
 
 <div id="modDialog" class="modal fade">
     <div id="dialogContent" class="modal-dialog"></div>
@@ -31,7 +32,7 @@
     <div class="col-md-12">
         <table class="table">
             <tr>
-                <th>
+                @*<th>
                     @Resources.Resource.Logo
                 </th>
                 <th>
@@ -42,7 +43,7 @@
                 </th>
                 <th>
 
-                </th>
+                </th>*@
             </tr>
             @foreach (var item in Model)
             {
@@ -53,12 +54,16 @@
                     <td class="col-lg-2">
                         <big>@item.Name</big>
                     </td>
-                    <td class="col-lg-2">
+                    <td class="col-lg-4">
                         <big><a href="@item.Path">@item.Path</a></big>
                     </td>
-                    <td class="col-lg-3">
-                        @Html.ActionLink(Resources.Resource.Delete, "Delete", new { id = item.Id }, new { @class = "webShopItem btn btn-danger btn-sm" })
-                        @Html.ActionLink(Resources.Resource.Edit, "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
+                    <td class="col-lg-1 text-center">
+                        <a href="@Url.Action("Edit", new {id = item.Id})">
+                            <big><span class="glyphicon glyphicon-edit" style="color: black"></span></big>
+                        </a>
+                        <a href="@Url.Action("Delete", new {id = item.Id})" class="webShopItem" style="color: black">
+                            <big><span class="glyphicon glyphicon-remove"></span></big>
+                        </a>
                     </td>
                 </tr>
             }

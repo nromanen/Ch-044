@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="filebutton">@Resources.Resource.Logo</label>
                     <div class="col-md-4">
-                        <input type="file" value="@Model.LogoPath" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput btn btn-default">
+                        <input type="file" value="@Model.LogoPath" id="filebutton" name="upload" multiple accept="image/*,image/jpeg" class="imgInput">
                         @Html.ValidationMessageFor(model => model.LogoPath, "", new { @class = "text-danger" })
                     </div>
                 </div>
