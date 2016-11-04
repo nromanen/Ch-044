@@ -17,13 +17,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Application name", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+            @Html.ActionLink("WSDP", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink(Resources.Resource.Home, "Index", "Home")</li>
-                <li>@Html.ActionLink(Resources.Resource.About, "About", "Home")</li>
-                <li>@Html.ActionLink(Resources.Resource.Contact, "Contact", "Home")</li>
+                @*<li>@Html.ActionLink(Resources.Resource.About, "About", "Home")</li>
+                <li>@Html.ActionLink(Resources.Resource.Contact, "Contact", "Home")</li>*@
             </ul>
         </div>
     </div>
@@ -50,6 +50,12 @@
                         <li class="list-group-item">
 							@Html.ActionLink(Resources.Resource.IFrame, "Index", "Frame")
 						</li>
+                        <li class="list-group-item">
+                            @Html.ActionLink("Download Page", "Index", "DownloadPage")
+                        </li>
+                        <li class="list-group-item">
+                            @Html.ActionLink("Edit Categories", "EditCategories", "Admin")
+                        </li>
                         <li class="list-group-item">
                             @Resources.Resource.Parsers
                             <ul class="list-group">
