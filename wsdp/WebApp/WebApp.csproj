@@ -335,6 +335,8 @@
     <Content Include="Views\Admin\UpdateProperty.cshtml" />
     <Content Include="Views\WebShop\Delete.cshtml" />
     <Content Include="Views\WebShop\Edit.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\DownloadPage\IteratorPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
