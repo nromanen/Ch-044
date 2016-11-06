@@ -13,10 +13,14 @@ namespace BAL.Manager.ParseManagers
 {
     public class WebShopManager : BaseManager, IWebShopManager
     {
+
         public WebShopManager(IUnitOfWork uOW) : base(uOW)
         {
         }
 
+        /// <summary>
+        ///To get all WebShops from DB
+        /// </summary>
         public IEnumerable<WebShopDTO> GetAll()
         {
             List<WebShopDTO> webShopDto = new List<WebShopDTO>();
@@ -26,13 +30,17 @@ namespace BAL.Manager.ParseManagers
             }
             return webShopDto;
         }
-
+        /// <summary>
+        ///To get one WebShop from DB
+        /// </summary>
         public WebShopDTO GetById(int id)
         {
             WebShop webShop = uOW.WebShopRepo.GetByID(id);
             return webShop != null ? Mapper.Map<WebShopDTO>(webShop) : null;
         }
-
+        /// <summary>
+        ///To insert WebShop into the DB
+        /// </summary>
         public void Insert(WebShopDTO webShop)
         {
             if (webShop == null) return;
@@ -41,7 +49,9 @@ namespace BAL.Manager.ParseManagers
             uOW.WebShopRepo.Insert(wShop);
             uOW.Save();
         }
-
+        /// <summary>
+        /// To update one WebShop in the DB
+        /// </summary>
         public void Update(WebShopDTO webShop)
         {
             if (webShop == null) return;
@@ -49,11 +59,14 @@ namespace BAL.Manager.ParseManagers
             if (wShop == null) return;
 
             wShop.Name = webShop.Name;
+            //if LogoPath null it may be lead to data loss 
             wShop.LogoPath = webShop.LogoPath ?? wShop.LogoPath;
             wShop.Path = webShop.Path;
             uOW.Save();
         }
-
+        /// <summary>
+        /// To delete one WebShop in the DB
+        /// </summary>
         public void Delete(WebShopDTO webShop)
         {
             if (webShop == null) return;
