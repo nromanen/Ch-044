@@ -38,7 +38,9 @@ namespace WebApp
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Configure();
         }
-
+        /// <summary>
+        /// To create injector container and register dependencies
+        /// </summary>
         private void InjectorContainer()
         {
             try
