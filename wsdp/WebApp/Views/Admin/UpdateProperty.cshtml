@@ -42,9 +42,9 @@
                     <label for="Characteristic_Id" class="hidden">@Resources.Resource.CharacteristicId:</label>
                     <input class="hidden" value="1" type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter new id" required>
                     <label for="Name">@Resources.Resource.Name:</label>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter new name" required>
+                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Name"  placeholder="Enter new name" required>
                     <label for="Description">@Resources.Resource.Description:</label>
-                    <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter new description" required>
+                    <input type="text" class="form-control" id="Description" name="Description" placeholder="Enter new description" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Description" required>
 
                     <label>@Resources.Resource.Type:</label>
                     <select class="form-control" id="type_update" name="Type">
@@ -57,11 +57,11 @@
                     </select>
 
                     <label for="DefaultValue">@Resources.Resource.DefaultValue:</label>
-                    <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter new default value of property" required>
+                    <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter new default value of property" value="@Model.properties.First(i=>i.Id==Model.PropertyId).DefaultValue" required>
                     <label for="Prefix">@Resources.Resource.Prefix:</label>
-                    <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter new prefix" required>
+                    <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter new prefix" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Prefix" >
                     <label for="Sufix">@Resources.Resource.Sufix:</label>
-                    <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter new sufix" required>
+                    <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter new sufix" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Sufix" >
                 </div>
                 <button onclick="" type="submit" class="btn btn-success">Submit</button>
             </form>
