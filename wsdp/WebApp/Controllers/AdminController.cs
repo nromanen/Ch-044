@@ -13,11 +13,13 @@ namespace WebApp.Controllers
     {
         ICategoryManager categoryManager;
         IPropertyManager propertyManager;
+        IUserManager userManager;
 
-        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager)
+        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager)
         {
             this.categoryManager = categoryManager;
             this.propertyManager = propertyManager;
+            this.userManager = userManager;
         }
 
         // GET: Admin
@@ -117,6 +119,12 @@ namespace WebApp.Controllers
         {
             propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue, Category_Id, Characteristic_Id);
             Response.Redirect("EditCategories");
+        }
+
+        public ActionResult EditUsers()
+        {
+            var Users = userManager.GetAll().Select(c => c).ToList();
+            return View(Users);
         }
     }
 }

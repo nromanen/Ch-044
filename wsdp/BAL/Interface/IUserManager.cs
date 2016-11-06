@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace BAL.Interface
 {
-	public interface IUserManager
-	{
-		UserDTO GetUser(string email, string password);
-	}
+    public interface IUserManager
+    {
+        UserDTO GetUser(string email, string password);
+
+        List<UserDTO> GetAll();
+    }
 }

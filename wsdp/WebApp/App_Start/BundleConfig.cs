@@ -16,6 +16,11 @@ namespace WebApp
                     "~/Scripts/bootstrap.min.js",
                     "~/Scripts/EditProperties.js")
             );
+            bundles.Add(new ScriptBundle("~/bundles/EditUsers").Include(
+                "~/Scripts/jquery.dataTables.min.js",
+                "~/Scripts/dataTables.bootstrap.min.js",
+                "~/Scripts/userConfig.js")
+                );
 
             bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
                     "~/Scripts/webshop.js")
@@ -25,6 +30,10 @@ namespace WebApp
                     "~/Scripts/editcategories.js",
                     "~/Scripts/jquery-sortable.js",
                     "~/Scripts/jquery.treemenu.js"));
+
+            bundles.Add(new StyleBundle("~/Content/EditUsers_css").Include(
+        "~/Content/dataTables.bootstrap.min.css"
+        ));
 
 
             bundles.Add(new StyleBundle("~/Content/EditPropertiesStylesheet").Include(
@@ -65,8 +74,8 @@ namespace WebApp
                 "~/Content/style.css"));
 
             bundles.Add(new StyleBundle("~/Content/IFrameStyle").Include(
-				"~/Content/bootstrap.css",
-			    "~/Content/Frame/highlight.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/Frame/highlight.css"));
 
             bundles.Add(new ScriptBundle("~/Content/IFrameJs").Include(
                "~/Scripts/Frame/Main.js"));

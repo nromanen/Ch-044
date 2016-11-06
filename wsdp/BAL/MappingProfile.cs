@@ -17,7 +17,11 @@ namespace BAL
             base.Configure();
 
             CreateMap<UserDTO, User>();
-            CreateMap<User, UserDTO>();
+            CreateMap<User, UserDTO>()
+                .ForMember(p => p.UserName, m => m.MapFrom(t => t.UserName))
+                .ForMember(p => p.Email, m => m.MapFrom(t => t.Email))
+                .ForMember(p => p.Password, m => m.MapFrom(t => t.Password))
+                .ForMember(p => p.RoleId, m => m.MapFrom(t => t.RoleId));
             CreateMap<TV, TVDTO>()
                 .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink))
                 .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
@@ -51,8 +55,8 @@ namespace BAL
                 .ForMember(p => p.Category_Id, m => m.MapFrom(t => t.Category_Id))
                 .ForMember(p => p.DefaultValue, m => m.MapFrom(t => t.DefaultValue));
 
-		    CreateMap<WebShop, WebShopDTO>();
-            CreateMap<WebShopDTO, WebShop> ();
+            CreateMap<WebShop, WebShopDTO>();
+            CreateMap<WebShopDTO, WebShop>();
         }
     }
 }

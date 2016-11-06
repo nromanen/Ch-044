@@ -253,6 +253,7 @@
     <Content Include="Content\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
     <Content Include="Content\EditPropertiesStylesheet.css" />
     <Content Include="Content\Frame\highlight.css" />
@@ -278,6 +279,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\editcategories.js" />
     <Content Include="Scripts\EditProperties.js" />
     <Content Include="Scripts\Frame\Main.js" />
@@ -286,6 +288,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-sort.js" />
     <Content Include="Scripts\jquery-sortable.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="Scripts\jquery.treemenu.js" />
@@ -296,6 +299,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\userConfig.js" />
     <Content Include="Scripts\webshop.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -336,6 +340,8 @@
     <Content Include="Views\Admin\UpdateProperty.cshtml" />
     <Content Include="Views\WebShop\Delete.cshtml" />
     <Content Include="Views\WebShop\Edit.cshtml" />
+    <Content Include="Views\Admin\EditUsers.cshtml" />
+    <Content Include="Views\Admin\UserPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

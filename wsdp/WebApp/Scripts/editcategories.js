@@ -15,6 +15,7 @@ $(document).ready(function () {
     $(".properties").hide();
 
 
+    //Redirection on page for adding property
     $(".adder").click(function (event) {
         addPropNode = $(this).parent();
         event.preventDefault();
@@ -24,12 +25,14 @@ $(document).ready(function () {
         window.location.href = url;
     });
 
+
+    //Toggling properties
     $(".togglebutt").unbind().click(function (event) {
         $(this).parent().children(".properties").toggle('slow');
-        console.log("222");
     });
 
 
+    //Redirect on page for updating property
     $(".update_prop").click(function (event) {
         event.preventDefault();
         var catid = $(".update_prop").parent().parent().parent().parent().parent().attr('data-id');
@@ -57,7 +60,6 @@ $(document).ready(function () {
 function DeleteProp() {
 
     var id = $('.property_item').attr('property-id');
-    console.log(id);
     $("#ModalPropertyDelete #delete_prop_close").click();
     $(".property_item[property-id='" + id + "']").remove();
     $.post('RemoveProperty', { id: id }, function (data) {
@@ -113,30 +115,15 @@ function InitializeEvents() {
             RemoveCategory(idDeleteCategory, nameDeleteCategory);
         });
     });
-
-    $(".adder").click(function (event) {
-        addPropNode = $(this).parent();
-        event.preventDefault();
-        var catid = addPropNode.attr('data-id');
-        console.log(catid);
-        var url = 'AddProperty/?catid=' + catid;
-        window.location.href = url;
-    });
-
-    $(".togglebutt").unbind().click(function (event) {
-        $(this).parent().children(".properties").toggle('slow');
-        console.log("222");
-    });
-
-
 }
 
-//Delete Property button function
+//Showing delete modal window
 function DeleteProperty() 
 {
     $("#ModalPropertyDelete").show();
 };
 
+//Update Property button function
 function UpdateProperty(categoryid , propertyid) {
     var url = 'UpdateProperty/?catid=' + catid;
     window.location.href = url;
