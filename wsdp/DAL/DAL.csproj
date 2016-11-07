@@ -108,6 +108,10 @@
     <Compile Include="Migrations\201610311346491_AddWebShopStatus.Designer.cs">
       <DependentUpon>201610311346491_AddWebShopStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611070814236_Deleted_Charac_Id.cs" />
+    <Compile Include="Migrations\201611070814236_Deleted_Charac_Id.Designer.cs">
+      <DependentUpon>201611070814236_Deleted_Charac_Id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -151,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610311346491_AddWebShopStatus.resx">
       <DependentUpon>201610311346491_AddWebShopStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611070814236_Deleted_Charac_Id.resx">
+      <DependentUpon>201611070814236_Deleted_Charac_Id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

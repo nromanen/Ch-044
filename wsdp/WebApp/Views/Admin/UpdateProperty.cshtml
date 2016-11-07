@@ -39,8 +39,6 @@
 
                         }
                     </select>
-                    <label for="Characteristic_Id" class="hidden">@Resources.Resource.CharacteristicId:</label>
-                    <input class="hidden" value="1" type="text" class="form-control" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter new id" required>
                     <label for="Name">@Resources.Resource.Name:</label>
                     <input type="text" class="form-control" id="Name" name="Name" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Name"  placeholder="Enter new name" required>
                     <label for="Description">@Resources.Resource.Description:</label>

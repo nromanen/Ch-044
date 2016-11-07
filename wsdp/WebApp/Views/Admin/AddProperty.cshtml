@@ -19,8 +19,6 @@
                 <form action="@Url.Action("AddProperty","Admin")" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" id="cat_id" value="@Model.CategoryId" name="Category_Id" />
-                        <label  class="hidden" for="Characteristic_Id">@Resources.Resource.CharacteristicId</label>
-                        <input type="text" value="1" class="form-control hidden" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id" required>
                         <label>@Resources.Resource.CategoryName:</label>
                         <select class="form-control" id="category_id_select">
                             @foreach (var category in Model.categories)

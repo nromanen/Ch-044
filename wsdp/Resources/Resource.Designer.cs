@@ -160,15 +160,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Characteristic Id.
-        /// </summary>
-        public static string CharacteristicId {
-            get {
-                return ResourceManager.GetString("CharacteristicId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Characteristics.
         /// </summary>
         public static string Characteristics {
