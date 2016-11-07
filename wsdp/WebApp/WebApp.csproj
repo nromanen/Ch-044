@@ -233,7 +233,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\DownloadPageController.cs" />
+    <Compile Include="Controllers\UniverslaParserController.cs" />
     <Compile Include="Controllers\FrameController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -256,7 +256,6 @@
     <Content Include="Content\EditCategoriesStylesheet.css" />
     <Content Include="Content\EditPropertiesStylesheet.css" />
     <Content Include="Content\Frame\highlight.css" />
-    <Content Include="Content\Frame\Main.js" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\jquery.treemenu.css" />
     <Content Include="Content\PagedList.css" />
@@ -326,7 +325,7 @@
     <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\WebShop\Index.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
-    <Content Include="Views\DownloadPage\Index.cshtml" />
+    <Content Include="Views\UniversalParser\Settings.cshtml" />
     <Content Include="Views\TapeRecorder\All.cshtml" />
     <Content Include="Views\TapeRecorder\GetTapeRecorder.cshtml" />
     <Content Include="Views\Frame\IFrame.cshtml" />
@@ -336,7 +335,9 @@
     <Content Include="Views\WebShop\Delete.cshtml" />
     <Content Include="Views\WebShop\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\DownloadPage\IteratorPartialView.cshtml" />
+    <Content Include="Views\UniversalParser\HeaderPartialView.cshtml" />
+    <Content Include="Views\UniversalParser\Iterator.cshtml" />
+    <Content Include="Views\UniversalParser\Grabber.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

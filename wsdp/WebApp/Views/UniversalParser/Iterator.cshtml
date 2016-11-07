@@ -1,4 +1,11 @@
 ﻿
+@{
+    ViewBag.Title = "Iterator";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.Partial("HeaderPartialView")
+
 <form action="@Url.Action("Download", "DownloadPage")" method="post">
 
     <div class="container-fluid">
@@ -7,7 +14,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter link..." id="url" name="url">
                     <span class="input-group-btn">
-                        <button class="btn btn-secondary" id="submit" type="submit">@Resources.Resource.Download</button>
+                        <button class="btn btn-default" id="submit" type="submit">@Resources.Resource.Download</button>
                     </span>
                 </div>
                 <br />
@@ -27,7 +34,7 @@
                     </div>
 
                     <div class="col-sm-7">
-                        <textarea class="form-control"  rows="4" placeholder="xpath1, xpath2..."></textarea>
+                        <textarea class="form-control" rows="4" placeholder="xpath1, xpath2..."></textarea>
                     </div>
 
                 </div>

@@ -7,23 +7,37 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
-    public class DownloadPageController : BaseController
+    public class UniversalParserController : BaseController
     {
         private IDownloadManager downloadManager;
-        public DownloadPageController(IDownloadManager downloadManager)
+        public UniversalParserController(IDownloadManager downloadManager)
         {
             this.downloadManager = downloadManager;
         }
 
-        // GET: DownloadPage
-        public ActionResult Index()
+        // GET: Settings
+        [HttpGet]
+        public ActionResult Settings()
         {
-            ViewBag.Path = TempData["Path"];
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Settings(string str)
+        {
+            return View();
+        }
+
+        //GET:Iterator
+        [HttpGet]
+        public ActionResult Iterator()
+        {
+            return View();
+        }
+
         //POST:Download/url
         [HttpPost]
-        public ActionResult Download(string url)
+        public ActionResult Iterator(string url)
         {
             string pathToSite;
             if (!String.IsNullOrWhiteSpace(url))
@@ -39,6 +53,16 @@ namespace WebApp.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Grabber()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Grabber(string str)
+        {
+            return View();
         }
     }
 }
