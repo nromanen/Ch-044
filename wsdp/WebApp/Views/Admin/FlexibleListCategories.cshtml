@@ -1,85 +1,47 @@
 ﻿@model  List<Model.DTO.CategoryDTO>
 
-@{
-    TagBuilder ol = new TagBuilder("ddd");
-
-    ol.InnerHtml = "";
-
-    <style>
-
-    </style>
-    foreach (var category in Model)
+    @foreach (var category in Model)
     {
+        <li data-id="@category.Id" data-name="@category.Name">
+            <b class="namecategory">
+                @category.Name
+            </b>
+            <button class="btn handler transperent btn-sm glyphicon hidden glyphicon-move text-muted"></button>
+            <button class='btn adder transperent btn-sm glyphicon hidden glyphicon-plus-sign text-muted'></button>
+            <button class='btn togglebutt transperent btn-sm glyphicon hidden glyphicon-arrow-down'></button>
+            <button class="btn transperent hidden btn-config " data-toggle="modal" data-target="#ModalUpdate"><small class="glyphicon glyphicon-cog"></small></button>
+            <button class="btn transperent hidden btn-add " data-toggle="modal" data-target="#ModalAdd"><small class="glyphicon glyphicon-plus"></small></button>
+            <button class="btn transperent hidden btn-remove " data-toggle="modal" data-target="#ModalDelete"><small class="glyphicon glyphicon-minus"></small></button>
 
-        var propertiesList = new TagBuilder("ul");
-        propertiesList.AddCssClass("list-group properties_list");
-        if (category.PropertyList != null && category.PropertyList.Count > 0)
-        {
-            foreach (var prop in category.PropertyList)
-            {
-                var propertyItem = new TagBuilder("li");
-                propertyItem.AddCssClass("btn btn-active property_item list-group-item");
-                propertyItem.Attributes.Add("property-id", prop.Id.ToString());
-                propertyItem.SetInnerText(prop.Name);
-                propertyItem.InnerHtml = prop.Name + @"<div class='propert-actions'>
-                                                        <div class='glyphicon glyphicon-trash delete_prop' onclick='DeleteProperty()'>
-	                                                    </div>
-	                                                    <div class='glyphicon glyphicon-edit update_prop'  >
-	                                                    </div>
-                                                    </div>
-                                                    ";
-                propertiesList.InnerHtml += propertyItem;
-            }
-            TagBuilder li = new TagBuilder("li");
-            li.Attributes.Add("data-id", category.Id.ToString());
-            li.Attributes.Add("data-name", category.Name);
-            li.InnerHtml = "<b class=\"namecategory\">" + category.Name + "</b>"
-                + "<button class=\"btn handler transperent btn-sm glyphicon hidden glyphicon-move text-muted\"></button>"
-                + "<button class='btn adder transperent btn-sm glyphicon hidden glyphicon-plus-sign text-muted'></button>"
-                + "<button class='btn togglebutt transperent btn-sm glyphicon hidden glyphicon-arrow-down'></button>"
-                + "<button class=\"btn transperent hidden btn-config \"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
-                + "<button class=\"btn transperent hidden btn-add \"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
-                + "<button class=\"btn transperent hidden btn-remove \" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>"
-                +"<div class='properties'> "
-                + propertiesList
-                + "</div>";
-            TagBuilder ul = new TagBuilder("ul");
-            if (category.ChildrenCategory != null)
-            {
-                ul.InnerHtml = Html.Partial("FlexibleListCategories", category.ChildrenCategory).ToString();
-            }
-            li.InnerHtml += ul;
-            ol.InnerHtml += li;
+            <div class="properties">
 
-        }
-        else
-        {
-            TagBuilder li = new TagBuilder("li");
-            li.Attributes.Add("data-id", category.Id.ToString());
-            li.Attributes.Add("data-name", category.Name);
-            li.InnerHtml = "<b class=\"namecategory\">" + category.Name + "</b>"
-                + "<button class=\"btn handler transperent btn-sm glyphicon glyphicon-move hidden text-muted\"></button>"
-                + "<button class='btn adder transperent btn-sm glyphicon hidden glyphicon-plus-sign text-muted'></button>"
-                + "<button class=\"btn transperent hidden btn-config \"   data-toggle=\"modal\" data-target=\"#ModalUpdate\" ><small class=\"glyphicon glyphicon-cog\"></small></button>"
-                + "<button class=\"btn transperent hidden btn-add \"      data-toggle=\"modal\" data-target=\"#ModalAdd\"    ><small class=\"glyphicon glyphicon-plus\"></small></button>"
-                + "<button class=\"btn transperent hidden btn-remove \" data-toggle=\"modal\" data-target=\"#ModalDelete\" ><small class=\"glyphicon glyphicon-minus\" ></small></button>";
-            TagBuilder ul = new TagBuilder("ul");
-            if (category.ChildrenCategory != null)
-            {
-                ul.InnerHtml = Html.Partial("FlexibleListCategories", category.ChildrenCategory).ToString();
-            }
+                <ul class="list-group properties_list">
+                    @if (category.PropertyList != null && category.PropertyList.Count > 0)
+                    {
+                        foreach (var prop in category.PropertyList)
+                        {
+                            <li class="btn btn-active property_item list-group-item" property-id="@prop.Id">
+                                @prop.Name
+                                <div class="propert-actions">
+                                    <div class='glyphicon glyphicon-trash delete_prop' onclick='DeleteProperty();'></div>
+                                    <div class='glyphicon glyphicon-edit update_prop'></div>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
 
+            </div>
 
-            li.InnerHtml += ul;
-            ol.InnerHtml += li;
-        }
-
+            <ul>
+                @if (category.ChildrenCategory != null)
+                {
+                @Html.Partial("FlexibleListCategories", category.ChildrenCategory)
+                }
+            </ul>
+        </li>
     }
-    MvcHtmlString ms = new MvcHtmlString(ol.InnerHtml);
-
-
-    @ms
-}
+    
 
 
 

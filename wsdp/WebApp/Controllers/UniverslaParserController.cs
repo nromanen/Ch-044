@@ -1,4 +1,5 @@
 ﻿using BAL.Interface;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,25 @@ namespace WebApp.Controllers
     public class UniversalParserController : BaseController
     {
         private IDownloadManager downloadManager;
-        public UniversalParserController(IDownloadManager downloadManager)
+        private ICategoryManager categoryManager;
+        private IWebShopManager shopManager;
+        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager)
         {
             this.downloadManager = downloadManager;
+            this.categoryManager = categoryManager;
+            this.shopManager = shopManager;
         }
 
         // GET: Settings
         [HttpGet]
         public ActionResult Settings()
         {
-            return View();
+            SettingsViewDTO settingsView = new SettingsViewDTO()
+            {
+                Categories = categoryManager.GetAll(),
+                Shops = shopManager.GetAll().ToList()
+            };
+            return View(settingsView);
         }
 
         [HttpPost]

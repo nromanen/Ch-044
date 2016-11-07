@@ -11,7 +11,7 @@ namespace DAL
     public class MainContext : DbContext
     {
         public MainContext()
-            : base("YurasShop")
+            : base("StasConnString")
         {
             this.Configuration.LazyLoadingEnabled = true;
 

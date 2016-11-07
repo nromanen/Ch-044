@@ -91,7 +91,7 @@ function InitializeEvents() {
         );
     });
 
-    //adding buttons
+    //event-'adding' buttons
     var buttonAddElements = $(".serialization li > button.btn-add");
     buttonAddElements.each(function () {
         $(this).click(function () {
@@ -104,7 +104,7 @@ function InitializeEvents() {
         );
     });
 
-    //deleting buttons
+    //event-'deleting' buttons
     var buttonDeleteElements = $(".serialization li > button.btn-remove");
     buttonDeleteElements.each(function () {
         $(this).click(function () {
