@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.DTO {
-	public class TaskDTO {
+	public class ParserDTO {
 		public int Id { get; set; }
 		public string Description { get; set; }
 

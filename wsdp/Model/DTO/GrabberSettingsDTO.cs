@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Model.DTO {
 	public class GrabberSettingsDTO {
-		public Dictionary<int, string> PropertiesMapping { get; set; }
+		public Dictionary<int, string> Properties { get; set; }
 	}
 }

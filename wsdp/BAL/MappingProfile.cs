@@ -20,23 +20,19 @@ namespace BAL
             base.Configure();
 
             CreateMap<UserDTO, User>();
-            CreateMap<User, UserDTO>()
-                .ForMember(p => p.UserName, m => m.MapFrom(t => t.UserName))
-                .ForMember(p => p.Email, m => m.MapFrom(t => t.Email))
-                .ForMember(p => p.Password, m => m.MapFrom(t => t.Password))
-                .ForMember(p => p.RoleId, m => m.MapFrom(t => t.RoleId));
-            CreateMap<TV, TVDTO>()
-                .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink))
-                .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
-                .ForMember(p => p.Price, m => m.MapFrom(t => t.Price));
+			CreateMap<User, UserDTO>();
+			CreateMap<TV, TVDTO>()
+				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink));
+
             CreateMap<ConcreteGood, PhoneSimpleDTO>()
                 .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.Good.ImgUrl))
                 .ForMember(p => p.Name, m => m.MapFrom(t => t.Good.Name));
-            CreateMap<Category, CategoryDTO>()
+
+			CreateMap<Category, CategoryDTO>()
                 .ForMember(p => p.ChildrenCategory,
                     m => m.MapFrom(t => new List<CategoryDTO>()));
 
-			CreateMap<Fridge, FridgeDTO>(); ;
+			CreateMap<Fridge, FridgeDTO>(); 
 
 			CreateMap<TapeRecorder, TapeRecorderDTO>()
 				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImgPath));
@@ -50,7 +46,18 @@ namespace BAL
 			CreateMap<Parser, ParserDTO>()
 				.ForMember(
 				p => p.IteratorSettings, 
-				m => m.MapFrom(x => (IteratorSettingsDTO)serializer.Deserialize(x.IteratorSettings, typeof(IteratorSettingsDTO))));
-        }
+				m => m.MapFrom(x => (IteratorSettingsDTO)serializer.Deserialize(x.IteratorSettings, typeof(IteratorSettingsDTO))))
+				.ForMember(
+				p => p.GrabberSettings,
+				m => m.MapFrom(x => (GrabberSettingsDTO)serializer.Deserialize(x.GrabberSettings, typeof(GrabberSettingsDTO))));
+
+			CreateMap<ParserDTO, Parser>()
+				.ForMember(
+				p => p.IteratorSettings,
+				m => m.MapFrom(x => serializer.Serialize(x.IteratorSettings)))
+				.ForMember(
+				p => p.GrabberSettings,
+				m => m.MapFrom(x => serializer.Serialize(x.GrabberSettings)));
+		}
     }
 }
