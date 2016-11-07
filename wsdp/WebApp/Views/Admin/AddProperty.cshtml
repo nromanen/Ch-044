@@ -19,8 +19,6 @@
                 <form action="@Url.Action("AddProperty","Admin")" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" id="cat_id" value="@Model.CategoryId" name="Category_Id" />
-                        <label  class="hidden" for="Characteristic_Id">@Resources.Resource.CharacteristicId</label>
-                        <input type="text" value="1" class="form-control hidden" id="Characteristic_Id" name="Characteristic_Id" placeholder="Enter characteristic id" required>
                         <label>@Resources.Resource.CategoryName:</label>
                         <select class="form-control" id="category_id_select">
                             @foreach (var category in Model.categories)
@@ -45,9 +43,9 @@
                         <label for="DefaultValue">@Resources.Resource.DefaultValue:</label>
                         <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter default value of property" required>
                         <label for="Prefix">@Resources.Resource.Prefix:</label>
-                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix" required>
+                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix" >
                         <label for="Sufix">@Resources.Resource.Sufix:</label>
-                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix" required>
+                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix" >
                     </div>
                     <button type="submit" class="btn btn-success" id="add_prop">@Resources.Resource.Submit</button>
                 </form>

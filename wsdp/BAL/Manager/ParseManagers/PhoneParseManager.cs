@@ -15,11 +15,12 @@ using Model.DTO;
 using AutoMapper;
 using System.Text.RegularExpressions;
 
-namespace BAL.Manager.ParseManagers {
+namespace BAL.Manager.ParseManagers
+{
     //parser for MOYO.UA
 
-    
-	public class PhoneParseManager : BaseManager, IPhoneParseManager
+
+    public class PhoneParseManager : BaseManager, IPhoneParseManager
     {
         public PhoneParseManager(IUnitOfWork uOW) : base(uOW)
         {
@@ -78,7 +79,7 @@ namespace BAL.Manager.ParseManagers {
 
                     if (good.Price != 0)
                         gm.InsertGood(goodDb);
-                } 
+                }
             }
 
         }

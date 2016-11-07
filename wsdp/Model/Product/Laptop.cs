@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Product {
+namespace Model.Product
+{
     public class Laptop
     {
         public int Id { get; set; }

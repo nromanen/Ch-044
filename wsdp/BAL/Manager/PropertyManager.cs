@@ -33,11 +33,11 @@ namespace BAL.Manager
             }
         }
 
-        public void Add(string Name, string Description, string Type, string Prefix, string Sufix, int Characteristic_Id, int Category_Id, string DefaultValue)
+        public void Add(string Name, string Description, string Type, string Prefix, string Sufix, int Category_Id, string DefaultValue)
         {
             try
             {
-                var newProperty = new Property() { Name = Name, Description = Description, Type = (PropertyType)Enum.Parse(typeof(PropertyType), Type), Prefix = Prefix, Sufix = Sufix, Characteristic_Id = Characteristic_Id, DefaultValue = DefaultValue, Category_Id = Category_Id };
+                var newProperty = new Property() { Name = Name, Description = Description, Type = (PropertyType)Enum.Parse(typeof(PropertyType), Type), Prefix = Prefix, Sufix = Sufix, DefaultValue = DefaultValue, Category_Id = Category_Id };
                 uOW.PropertyRepo.Insert(newProperty);
                 uOW.Save();
             }
@@ -48,7 +48,7 @@ namespace BAL.Manager
         }
 
         public void Update(int id, string Name, string Description, string Type, string Prefix, string Sufix,
-            string DefaultValue, int Category_Id, int Characteristic_Id)
+            string DefaultValue, int Category_Id)
         {
             try
             {
@@ -60,7 +60,6 @@ namespace BAL.Manager
                 property.Sufix = Sufix;
                 property.DefaultValue = DefaultValue;
                 property.Category_Id = Category_Id;
-                property.Characteristic_Id = Characteristic_Id;
                 uOW.Save();
             }
             catch (Exception ex)
