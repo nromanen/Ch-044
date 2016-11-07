@@ -57,11 +57,14 @@
     <Compile Include="DB\Good.cs" />
     <Compile Include="DB\Property.cs" />
     <Compile Include="DB\Role.cs" />
+    <Compile Include="DB\Parser.cs" />
     <Compile Include="DB\User.cs" />
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
-    <Compile Include="DTO\SettingsViewDTO.cs" />
+    <Compile Include="DTO\GrabberSettingsDTO.cs" />
+    <Compile Include="DTO\IteratorSettingsDTO.cs" />
+    <Compile Include="DTO\ParserDTO.cs" />
     <Compile Include="DTO\TapeRecorderDTO.cs" />
     <Compile Include="DTO\PhoneDTO.cs" />
     <Compile Include="DTO\PropertyDTO.cs" />
