@@ -16,11 +16,24 @@ namespace WebApp
                     "~/Scripts/bootstrap.min.js",
                     "~/Scripts/EditProperties.js")
             );
+            bundles.Add(new ScriptBundle("~/bundles/EditUsers").Include(
+                "~/Scripts/jquery.dataTables.min.js",
+                "~/Scripts/dataTables.bootstrap.min.js",
+                "~/Scripts/userConfig.js")
+                );
+
+            bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
+                    "~/Scripts/webshop.js")
+            );
 
             bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
                     "~/Scripts/editcategories.js",
                     "~/Scripts/jquery-sortable.js",
                     "~/Scripts/jquery.treemenu.js"));
+
+            bundles.Add(new StyleBundle("~/Content/EditUsers_css").Include(
+        "~/Content/dataTables.bootstrap.min.css"
+        ));
 
 
             bundles.Add(new StyleBundle("~/Content/EditPropertiesStylesheet").Include(
@@ -31,8 +44,10 @@ namespace WebApp
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js"
-              /*  "~/Scripts/respond.js"*/));
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/respond.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -61,8 +76,8 @@ namespace WebApp
                 "~/Content/style.css"));
 
             bundles.Add(new StyleBundle("~/Content/IFrameStyle").Include(
-				"~/Content/bootstrap.css",
-			    "~/Content/Frame/highlight.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/Frame/highlight.css"));
 
             bundles.Add(new ScriptBundle("~/Content/IFrameJs").Include(
                "~/Scripts/Frame/Main.js"));

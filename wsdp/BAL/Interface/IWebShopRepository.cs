@@ -13,7 +13,6 @@ namespace BAL.Interface
         void Insert(WebShopDTO webShop);
         void Update(WebShopDTO webShop);
         IEnumerable<WebShopDTO> GetAll();
-
         WebShopDTO GetById(int id);
         void Delete(WebShopDTO webShop);
 

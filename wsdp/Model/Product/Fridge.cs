@@ -13,7 +13,7 @@ namespace Model.Product
         public string ImagePath { get; set; }
         public string Price { get; set; }
         public Dictionary<string, string> CharacteristicsDictionary { get; set; }
-        
+
         public Fridge()
         {
             CharacteristicsDictionary = new Dictionary<string, string>();

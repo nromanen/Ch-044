@@ -70,12 +70,12 @@ h4 {
         text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: 70%;
+    width: 60%;
 }
 .float-rt {
-    float: right !important;
-    padding-right: 37.5em;
+    padding-right: 3em;
     padding-top: 30px;
+    padding-left: 2em;
 
 }
 .detail-buy-label {
@@ -96,4 +96,7 @@ h4 {
 .detail-price-uah {
     font-size: 2.46154em;
     margin-bottom: 0.28125em;
+}
+.col-md-6 {
+    width: 100%;
 }

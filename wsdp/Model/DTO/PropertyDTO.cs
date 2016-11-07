@@ -16,7 +16,6 @@ namespace Model.DTO
         public string DefaultValue { get; set; }
         public string Prefix { get; set; }
         public string Sufix { get; set; }
-        public int Characteristic_Id { get; set; }
         public int Category_Id { get; set; }
 
     }

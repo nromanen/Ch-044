@@ -210,7 +210,8 @@
   <data name="CategoryName" xml:space="preserve">
     <value>Category Name</value>
   </data>
-  <data name="CharacteristicId" xml:space="preserve">
+  <data name="
+        teristicId" xml:space="preserve">
     <value>Characteristic Id</value>
   </data>
   <data name="DefaultValue" xml:space="preserve">

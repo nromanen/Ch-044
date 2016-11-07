@@ -13,11 +13,13 @@ namespace WebApp.Controllers
     {
         ICategoryManager categoryManager;
         IPropertyManager propertyManager;
+        IUserManager userManager;
 
-        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager)
+        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager)
         {
             this.categoryManager = categoryManager;
             this.propertyManager = propertyManager;
+            this.userManager = userManager;
         }
 
         // GET: Admin
@@ -98,10 +100,9 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public void AddProperty(string Name, string Description, string Type, string Prefix, string Sufix,
-            int Characteristic_Id, int Category_Id, string DefaultValue)
+        public void AddProperty(string Name, string Description, string Type, string Prefix, string Sufix, int Category_Id, string DefaultValue)
         {
-            propertyManager.Add(Name, Description, Type, Prefix, Sufix, Characteristic_Id, Category_Id, DefaultValue);
+            propertyManager.Add(Name, Description, Type, Prefix, Sufix, Category_Id, DefaultValue);
             Response.Redirect("EditCategories");
         }
 
@@ -113,10 +114,16 @@ namespace WebApp.Controllers
 
         [HttpPost]
         public void UpdateProperty(int Property_Id, string Name, string Description, string Type, string Prefix,
-            string Sufix, string DefaultValue, int Characteristic_Id, int Category_Id)
+            string Sufix, string DefaultValue, int Category_Id)
         {
-            propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue, Category_Id, Characteristic_Id);
+            propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue, Category_Id);
             Response.Redirect("EditCategories");
+        }
+
+        public ActionResult EditUsers()
+        {
+            var Users = userManager.GetAll().Select(c => c).ToList();
+            return View(Users);
         }
     }
 }

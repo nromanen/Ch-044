@@ -18,14 +18,26 @@ namespace BAL.Manager
         {
 
         }
-		
-		public UserDTO GetUser(string email, string password) {
-			var user = uOW.UserRepo
-						  .Get()
-						  .FirstOrDefault(s => (s.Email == email && s.Password == password));
 
-			// TODO: fix mapping - return user != null ? Mapper.Map<UserDTO>(user) : null;
-			return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName} : null;
-		}
-	}
+        public List<UserDTO> GetAll()
+        {
+            var users = new List<UserDTO>();
+            foreach (var user in uOW.UserRepo.All.ToList())
+            {
+                var User = uOW.UserRepo.GetByID(user.Id);
+                users.Add(Mapper.Map<UserDTO>(User));
+            }
+            return users;
+        }
+
+        public UserDTO GetUser(string email, string password)
+        {
+            var user = uOW.UserRepo
+                          .Get()
+                          .FirstOrDefault(s => (s.Email == email && s.Password == password));
+
+            // TODO: fix mapping - return user != null ? Mapper.Map<UserDTO>(user) : null;
+            return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName } : null;
+        }
+    }
 }
