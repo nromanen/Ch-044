@@ -1,8 +1,8 @@
 ﻿@model Model.DTO.UserDTO
-<tr>
-    <td>@Model.Id</td>
-    <td>@Model.UserName</td>
-    <td>@Model.Password</td>
-    <td>@Model.Email</td>
-    <td>@Model.RoleId</td>
-</tr>
+
+<tr data-user-id="@Model.Id">
+    <td id="user_id">@Model.Id</td>
+    <td id="username">@Model.UserName</td>
+    <td id="password">@Model.Password</td>
+    <td id="email">@Model.Email</td>
+

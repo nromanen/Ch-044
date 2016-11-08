@@ -14,12 +14,14 @@ namespace WebApp.Controllers
         ICategoryManager categoryManager;
         IPropertyManager propertyManager;
         IUserManager userManager;
+        IRoleManager roleManager;
 
-        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager)
+        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager)
         {
             this.categoryManager = categoryManager;
             this.propertyManager = propertyManager;
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         // GET: Admin
@@ -123,7 +125,15 @@ namespace WebApp.Controllers
         public ActionResult EditUsers()
         {
             var Users = userManager.GetAll().Select(c => c).ToList();
-            return View(Users);
+            var Roles = roleManager.GetAll().Select(c => c).ToList();
+            var CustomView = new UserViewDTO() { Users = Users, Roles = Roles };
+            ModelState.Clear();
+            return View(CustomView);
+        }
+        [HttpPost]
+        public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
+        {
+            userManager.UpdateUser(Id, UserName, Password, Email, RoleId);
         }
     }
 }

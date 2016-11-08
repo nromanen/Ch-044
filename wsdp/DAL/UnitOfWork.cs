@@ -19,12 +19,14 @@ namespace DAL
         private IGenericRepository<Category> categoryRepo;
         private IGenericRepository<Property> propertyRepo;
         private IGenericRepository<WebShop> webShopRepo;
+        private IGenericRepository<Role> roleRepo;
         #endregion
 
         public UnitOfWork()
         {
             context = new MainContext();
 
+            roleRepo = new GenericRepository<Role>(context);
             userRepo = new GenericRepository<User>(context);
             goodRepo = new GenericRepository<Good>(context);
             categoryRepo = new GenericRepository<Category>(context);
@@ -33,6 +35,15 @@ namespace DAL
         }
 
         #region Repositories Getters
+
+        public IGenericRepository<Role> RoleRepo
+        {
+            get
+            {
+                if (roleRepo == null) roleRepo = new GenericRepository<Role>(context);
+                return roleRepo;
+            }
+        }
 
         public IGenericRepository<User> UserRepo
         {

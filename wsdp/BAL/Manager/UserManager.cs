@@ -39,5 +39,15 @@ namespace BAL.Manager
             // TODO: fix mapping - return user != null ? Mapper.Map<UserDTO>(user) : null;
             return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName } : null;
         }
+
+        public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
+        {
+            var User = uOW.UserRepo.GetByID(Id);
+            User.UserName = UserName;
+            User.Password = Password;
+            User.Email = Email;
+            User.RoleId = RoleId;
+            uOW.Save();
+        }
     }
 }

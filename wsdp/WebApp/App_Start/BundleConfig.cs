@@ -32,7 +32,8 @@ namespace WebApp
                     "~/Scripts/jquery.treemenu.js"));
 
             bundles.Add(new StyleBundle("~/Content/EditUsers_css").Include(
-        "~/Content/dataTables.bootstrap.min.css"
+        "~/Content/dataTables.bootstrap.min.css",
+        "~/Content/EditUsersStylesheet.css"
         ));
 
 
