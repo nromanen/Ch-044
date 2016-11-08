@@ -13,5 +13,6 @@ namespace BAL.Interface
         UserDTO GetUser(string email, string password);
 
         List<UserDTO> GetAll();
+        void Insert(UserDTO user);
     }
 }

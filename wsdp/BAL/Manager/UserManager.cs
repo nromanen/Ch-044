@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.DB;
 
 namespace BAL.Manager
 {
@@ -47,6 +48,15 @@ namespace BAL.Manager
             User.Password = Password;
             User.Email = Email;
             User.RoleId = RoleId;
+            uOW.Save();
+        }
+
+        public void Insert(UserDTO user)
+        {
+            if (user == null) return;
+            User dbUser = Mapper.Map<User>(user);
+            dbUser.RoleId = user.RoleId == 0 ? 2 : dbUser.RoleId;
+            uOW.UserRepo.Insert(dbUser);
             uOW.Save();
         }
     }
