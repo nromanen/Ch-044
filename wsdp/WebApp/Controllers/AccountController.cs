@@ -28,7 +28,7 @@ namespace WebApp.Controllers
 		}
 
 		public ActionResult Login() {
-			return View();
+			return View(new LoginModel());
 		}
 
 		[HttpPost]
@@ -60,5 +60,18 @@ namespace WebApp.Controllers
 			AuthenticationManager.SignOut();
 			return RedirectToAction("Index", "Home");
 		}
-	}
+
+	    public ActionResult SignUp()
+	    {
+	        return View(new UserDTO());
+	    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUp(UserDTO user)
+        {
+            if (!ModelState.IsValid) return View(user);
+            UserManager.Insert(user);
+            return RedirectToAction("Index", "Home");
+        }
+    }
 }
