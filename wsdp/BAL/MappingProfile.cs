@@ -7,62 +7,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExtendedXmlSerialization;
 
 namespace BAL
 {
     public class MappingProfile : Profile
     {
-        protected override void Configure()
+		private ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
+
+		protected override void Configure()
         {
             base.Configure();
 
             CreateMap<UserDTO, User>();
-
+			CreateMap<User, UserDTO>();
 
             CreateMap<Role, RoleDTO>()
                 .ForMember(p => p.Id, m => m.MapFrom(t => t.Id))
                 .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
                 .ForMember(p => p.Description, m => m.MapFrom(t => t.Description));
 
-            CreateMap<User, UserDTO>()
-                .ForMember(p => p.UserName, m => m.MapFrom(t => t.UserName))
-                .ForMember(p => p.Email, m => m.MapFrom(t => t.Email))
-                .ForMember(p => p.Password, m => m.MapFrom(t => t.Password))
-                .ForMember(p => p.RoleId, m => m.MapFrom(t => t.RoleId));
-            CreateMap<TV, TVDTO>()
-                .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink))
-                .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
-                .ForMember(p => p.Price, m => m.MapFrom(t => t.Price));
+			CreateMap<TV, TVDTO>()
+				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink));
+
             CreateMap<ConcreteGood, PhoneSimpleDTO>()
                 .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.Good.ImgUrl))
                 .ForMember(p => p.Name, m => m.MapFrom(t => t.Good.Name));
-            CreateMap<Category, CategoryDTO>()
+
+			CreateMap<Category, CategoryDTO>()
                 .ForMember(p => p.ChildrenCategory,
                     m => m.MapFrom(t => new List<CategoryDTO>()));
 
-            CreateMap<Fridge, FridgeDTO>().ForMember(p => p.ImagePath, m => m.MapFrom(t => t.ImagePath))
-                .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
-                .ForMember(p => p.Price, m => m.MapFrom(t => t.Price));
+			CreateMap<Fridge, FridgeDTO>(); 
 
-            CreateMap<TapeRecorder, TapeRecorderDTO>()
-                .ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImgPath))
-                .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
-                .ForMember(p => p.Price, m => m.MapFrom(t => t.Price))
-                .ForMember(p => p.urlPath, m => m.MapFrom(t => t.urlPath));
+			CreateMap<TapeRecorder, TapeRecorderDTO>()
+				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImgPath));
 
 
-            CreateMap<Property, PropertyDTO>()
-                .ForMember(p => p.Id, m => m.MapFrom(t => t.Id))
-                .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
-                .ForMember(p => p.Description, m => m.MapFrom(t => t.Description))
-                .ForMember(p => p.Type, m => m.MapFrom(t => t.Type))
-                .ForMember(p => p.Prefix, m => m.MapFrom(t => t.Prefix))
-                .ForMember(p => p.Sufix, m => m.MapFrom(t => t.Sufix))
-                .ForMember(p => p.Category_Id, m => m.MapFrom(t => t.Category_Id))
-                .ForMember(p => p.DefaultValue, m => m.MapFrom(t => t.DefaultValue));
+			CreateMap<Property, PropertyDTO>();
 
             CreateMap<WebShop, WebShopDTO>();
             CreateMap<WebShopDTO, WebShop>();
-        }
+
+			CreateMap<Parser, ParserDTO>()
+				.ForMember(
+				p => p.IteratorSettings, 
+				m => m.MapFrom(x => (IteratorSettingsDTO)serializer.Deserialize(x.IteratorSettings, typeof(IteratorSettingsDTO))))
+				.ForMember(
+				p => p.GrabberSettings,
+				m => m.MapFrom(x => (GrabberSettingsDTO)serializer.Deserialize(x.GrabberSettings, typeof(GrabberSettingsDTO))));
+
+			CreateMap<ParserDTO, Parser>()
+				.ForMember(
+				p => p.IteratorSettings,
+				m => m.MapFrom(x => serializer.Serialize(x.IteratorSettings)))
+				.ForMember(
+				p => p.GrabberSettings,
+				m => m.MapFrom(x => serializer.Serialize(x.GrabberSettings)));
+		}
     }
 }

@@ -14,10 +14,12 @@ namespace DAL.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-		protected override void Seed(DAL.MainContext context) {
-			//  This method will be called after migrating to the latest version.
-			Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator"};
-			User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
+        protected override void Seed(DAL.MainContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+            Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator" };
+            Role role_user = new Role() { Id = 2, Name = "User", Description = "Application user" };
+            User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
 
             Category categorySmartPhonesAndMobilePhones = new Category()
             {
@@ -74,6 +76,6 @@ namespace DAL.Migrations
             context.Categories.AddOrUpdate(categoryFridges);
             context.Categories.AddOrUpdate(categoryMicrowaves);
             context.Categories.AddOrUpdate(categoryLaptops);
-		}
-	}
+        }
+    }
 }
