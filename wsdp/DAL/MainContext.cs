@@ -11,7 +11,7 @@ namespace DAL
     public class MainContext : DbContext
     {
         public MainContext()
-            : base("NOSConnection")
+            : base("SlavaCon")
         {
             this.Configuration.LazyLoadingEnabled = true;
 
@@ -29,5 +29,7 @@ namespace DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<WebShop> WebShops { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<Parser> Parsers { get; set; }
+
     }
 }
