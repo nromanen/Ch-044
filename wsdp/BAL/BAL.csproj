@@ -98,6 +98,7 @@
     <Compile Include="Interface\IGoodManager.cs" />
     <Compile Include="Interface\ILaptopManager.cs" />
     <Compile Include="Interface\ILaptopParseManager.cs" />
+    <Compile Include="Interface\IParserManager.cs" />
     <Compile Include="Interface\IRoleManager.cs" />
     <Compile Include="Interface\ITapeRecorderManager.cs" />
     <Compile Include="Interface\ITapeRecorderParseManager.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Manager\FridgeManager.cs" />
     <Compile Include="Manager\GoodManager.cs" />
     <Compile Include="Manager\LaptopManager.cs" />
+    <Compile Include="Manager\ParserManager.cs" />
     <Compile Include="Manager\RoleManager.cs" />
     <Compile Include="Manager\TapeRecorderManager.cs" />
     <Compile Include="Manager\ParseManagers\FridgeParseManager.cs" />
