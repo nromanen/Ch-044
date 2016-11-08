@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SignUp</h2>
+<h2>[SignUp]</h2>
 <div class="container">
     <div class="row">
         <form action="/Account/SignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -13,11 +13,10 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>[SignUp]</h4>
                 <hr />
                 <div class="form-group">
                     <label class="control-label col-md-2">[User name]</label>
-                    <div class="col-md-10">
+                    <div class="col-md-4">
                         <input id="textinput" name="UserName" type="text" value="@Model.UserName" placeholder="placeholder" class="form-control input-md">
                         @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                     </div>
@@ -25,7 +24,7 @@
 
                 <div class="form-group">
                     <label class="control-label col-md-2">[Email]</label>
-                    <div class="col-md-10">
+                    <div class="col-md-4">
                         <input id="textinput" name="Email" type="text" value="@Model.Email" placeholder="placeholder" class="form-control input-md">
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
@@ -33,19 +32,19 @@
 
                 <div class="form-group">
                     <label class="control-label col-md-2">[Password]</label>
-                    <div class="col-md-10">
+                    <div class="col-md-4">
                         <input id="textinput" name="Password" type="password" value="@Model.Password" placeholder="placeholder" class="form-control input-md">
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                @*<div class="form-group">
+                <div class="form-group">
                     <label class="control-label col-md-2">[Password confirm]</label>
-                    <div class="col-md-10">
-                        <input id="textinput" name="Name" type="text" placeholder="placeholder" class="form-control input-md password-confirm"/>
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    <div class="col-md-4">
+                        <input id="textinput" name="ConfirmPassword" type="password" value="@Model.ConfirmPassword" placeholder="placeholder" class="form-control input-md password-confirm"/>
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                     </div>
-                </div>*@
+                </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
