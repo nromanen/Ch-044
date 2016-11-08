@@ -32,27 +32,9 @@ namespace WebApp.Controllers
 
         public ActionResult EditCategories()
         {
-            var categories =
-                categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
-            var properties = propertyManager.GetAll().Select(c => c).ToList();
-
-            UpdateCategoriesWithProperties(categories, properties);
-
-            var CategoriesView = new PropertyViewDTO() { categories = categories, properties = properties };
+            var categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
             ModelState.Clear();
-            return View(CategoriesView);
-        }
-
-        private void UpdateCategoriesWithProperties(ICollection<CategoryDTO> category, ICollection<PropertyDTO> properties)
-        {
-            category.ToList().ForEach(c =>
-            {
-                if (c.ChildrenCategory != null)
-                {
-                    UpdateCategoriesWithProperties(c.ChildrenCategory, properties);
-                }
-                c.PropertyList = properties.Where(prop => prop.Category_Id == c.Id).ToList();
-            });
+            return View(categories);
         }
 
         [HttpPost]

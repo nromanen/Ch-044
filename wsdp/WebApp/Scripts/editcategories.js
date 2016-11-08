@@ -35,8 +35,8 @@ $(document).ready(function () {
     //Redirect on page for updating property
     $(".update_prop").click(function (event) {
         event.preventDefault();
-        var catid = $(".update_prop").parent().parent().parent().parent().parent().attr('data-id');
-        var propid = $(".update_prop").parent().parent().attr('property-id');
+        var catid = $(".update_prop").parent().parent().parent().parent().parent().attr("data-id");
+        var propid = $(".update_prop").closest('li').data("property-id");
         var url = 'UpdateProperty?catid=' + catid+'&propid='+propid;
         window.location.href = url;
     });
@@ -242,8 +242,6 @@ function DeleteNode() {
         deleteNode.parent().append(node.clone());
         $(this).remove();
     });
-
-
 
     deleteNode.remove();
     $("#ModalDelete .close").click();

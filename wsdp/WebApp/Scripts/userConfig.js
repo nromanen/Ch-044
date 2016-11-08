@@ -45,7 +45,7 @@ function UpdateUserAjax(id,userName,password,email,RoleId) {
         $("#example tr[data-user-id=" + user_id + "]").find("#username").html(userName);
         $("#example tr[data-user-id=" + user_id + "]").find("#password").html(password);
         $("#example tr[data-user-id=" + user_id + "]").find("#email").html(email);
-        $("#example tr[data-user-id=" + user_id + "]").find("#role").html(role_name+" "+"<div class='glyphicon glyphicon-edit edit-user' data-role-id="+role_id+"></div>");
+        $("#example tr[data-user-id=" + user_id + "]").find("#role").html(role_name);
         
     });
     
