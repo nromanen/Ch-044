@@ -3,6 +3,7 @@ using DAL.Repositories;
 using Model.DB;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,7 +94,16 @@ namespace DAL
 
         public void Save()
         {
-            context.SaveChanges();
+            try
+            {
+
+                context.SaveChanges();
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+            }
+
         }
 
         #region Dispose

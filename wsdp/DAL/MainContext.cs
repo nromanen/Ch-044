@@ -29,6 +29,7 @@ namespace DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<WebShop> WebShops { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<Parser> Parsers { get; set; }
 
     }
 }

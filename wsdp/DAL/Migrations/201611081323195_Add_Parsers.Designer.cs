@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddTableParser : IMigrationMetadata
+    public sealed partial class Add_Parsers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTableParser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Parsers));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611072045198_AddTableParser"; }
+            get { return "201611081323195_Add_Parsers"; }
         }
         
         string IMigrationMetadata.Source
