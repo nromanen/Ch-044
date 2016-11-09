@@ -21,6 +21,7 @@ namespace Model.DTO
         public string Email { get; set; }
 
         public int RoleId { get; set; }
+        public string Role { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

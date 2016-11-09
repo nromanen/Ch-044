@@ -1315,3 +1315,9 @@ E:\repository\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 E:\repository\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 E:\repository\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 E:\repository\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.xml
+E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
