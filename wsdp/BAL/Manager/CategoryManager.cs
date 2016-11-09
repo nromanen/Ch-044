@@ -1,20 +1,16 @@
-﻿using BAL.Interface;
+﻿using AutoMapper;
+using BAL.Interface;
+using DAL.Interface;
+using Model.DB;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.Interface;
-using Model.DB;
-using log4net;
-using Model.DTO;
-using AutoMapper;
 
 namespace BAL.Manager
 {
     public class CategoryManager : BaseManager, ICategoryManager
     {
-
         public CategoryManager(IUnitOfWork uOW) : base(uOW)
         {
         }
@@ -96,7 +92,6 @@ namespace BAL.Manager
             return false;
         }
 
-
         /// <summary>
         /// Rename Category.
         /// </summary>
@@ -120,7 +115,6 @@ namespace BAL.Manager
 
             return false;
         }
-
 
         /// <summary>
         /// Change Parent of Category

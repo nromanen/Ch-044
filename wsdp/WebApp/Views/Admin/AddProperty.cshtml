@@ -8,10 +8,9 @@
 @Scripts.Render("~/bundles/EditProperties")
 @Styles.Render("~/Content/EditPropertiesStylesheet")
 
-
 <div class="container">
     <div class="row ">
-        <hr/>
+        <hr />
         <center>
             <h1>@Resources.Resource.AddProperty</h1></center>
         <div class="col-lg-10">
@@ -43,9 +42,9 @@
                         <label for="DefaultValue">@Resources.Resource.DefaultValue:</label>
                         <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter default value of property" required>
                         <label for="Prefix">@Resources.Resource.Prefix:</label>
-                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix" >
+                        <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter prefix">
                         <label for="Sufix">@Resources.Resource.Sufix:</label>
-                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix" >
+                        <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter sufix">
                     </div>
                     <button type="submit" class="btn btn-success" id="add_prop">@Resources.Resource.Submit</button>
                 </form>

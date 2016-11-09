@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using BAL.Interface;
 using DAL.Interface;
 using Model.DB;
 using Model.DTO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BAL.Manager.ParseManagers
 {
     public class WebShopManager : BaseManager, IWebShopManager
     {
-
         public WebShopManager(IUnitOfWork uOW) : base(uOW)
         {
         }
@@ -30,6 +26,7 @@ namespace BAL.Manager.ParseManagers
             }
             return webShopDto;
         }
+
         /// <summary>
         ///To get one WebShop from DB
         /// </summary>
@@ -38,6 +35,7 @@ namespace BAL.Manager.ParseManagers
             WebShop webShop = uOW.WebShopRepo.GetByID(id);
             return webShop != null ? Mapper.Map<WebShopDTO>(webShop) : null;
         }
+
         /// <summary>
         ///To insert WebShop into the DB
         /// </summary>
@@ -49,6 +47,7 @@ namespace BAL.Manager.ParseManagers
             uOW.WebShopRepo.Insert(wShop);
             uOW.Save();
         }
+
         /// <summary>
         /// To update one WebShop in the DB
         /// </summary>
@@ -59,11 +58,12 @@ namespace BAL.Manager.ParseManagers
             if (wShop == null) return;
 
             wShop.Name = webShop.Name;
-            //if LogoPath null it may be lead to data loss 
+            //if LogoPath null it may be lead to data loss
             wShop.LogoPath = webShop.LogoPath ?? wShop.LogoPath;
             wShop.Path = webShop.Path;
             uOW.Save();
         }
+
         /// <summary>
         /// To delete one WebShop in the DB
         /// </summary>
@@ -77,4 +77,3 @@ namespace BAL.Manager.ParseManagers
         }
     }
 }
-

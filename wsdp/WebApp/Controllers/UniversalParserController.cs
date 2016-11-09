@@ -1,9 +1,7 @@
 ﻿using BAL.Interface;
 using Model.DTO;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebApp.Controllers
@@ -14,6 +12,7 @@ namespace WebApp.Controllers
         private ICategoryManager categoryManager;
         private IWebShopManager shopManager;
         private IParserTaskManager parserManager;
+
         public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parserManager)
         {
             this.downloadManager = downloadManager;
@@ -81,11 +80,13 @@ namespace WebApp.Controllers
 
             return RedirectToAction("Iterator");
         }
+
         [HttpGet]
         public ActionResult Grabber()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Grabber(string str)
         {

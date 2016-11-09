@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BAL.Interface;
 using DAL.Interface;
-using log4net;
 using Model.DB;
-using BAL.Interface;
 
 namespace BAL.Manager
 {
@@ -14,7 +8,6 @@ namespace BAL.Manager
     {
         public GoodManager(IUnitOfWork uOW) : base(uOW)
         {
-
         }
 
         public void InsertGood(Good good)

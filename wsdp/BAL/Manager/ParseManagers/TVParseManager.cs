@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BAL.Interface;
-using DAL;
+﻿using BAL.Interface;
 using DAL.Interface;
 using ExtendedXmlSerialization;
 using HtmlAgilityPack;
-using log4net;
 using Model.DB;
 using Model.Product;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace BAL.Manager.ParseManagers
 {
@@ -20,7 +17,6 @@ namespace BAL.Manager.ParseManagers
         {
         }
 
-
         public int GetCountOfPages(string urlpath)
 
         {
@@ -28,7 +24,6 @@ namespace BAL.Manager.ParseManagers
             Encoding enc = Encoding.GetEncoding(1251);
             web.OverrideEncoding = enc;
             HtmlDocument doc = web.Load(urlpath);
-
 
             var num =
                 doc.DocumentNode.Descendants("div")
@@ -50,7 +45,6 @@ namespace BAL.Manager.ParseManagers
                 web.OverrideEncoding = enc;
                 HtmlDocument doc = web.Load(urlpath);
                 int countOfPages = GetCountOfPages(urlpath);
-
 
                 for (int i = 1; i <= countOfPages; i++)
                 {
@@ -118,12 +112,10 @@ namespace BAL.Manager.ParseManagers
                 string srcimg = "";
                 string Price = "";
 
-
                 HtmlWeb web = new HtmlWeb();
                 Encoding enc = Encoding.GetEncoding(1251);
                 web.OverrideEncoding = enc;
                 HtmlDocument doc = web.Load("https://repka.ua" + urlpath);
-
 
                 name = doc.DocumentNode
                     .Descendants("span")

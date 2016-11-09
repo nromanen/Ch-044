@@ -28,7 +28,6 @@ ol.example li.placeholder:before {
     border-left: 3px solid #555;
 }
 
-    
 .serialization li > ul > li { border-left: 3px solid #999; }
 
 .serialization li > ul > li > ul > li { border-left: 3px solid #BBB; }
@@ -43,7 +42,6 @@ ol.example li.placeholder:before {
     height: 52px;
     width: 100%;
 }
-
 
 .transperent {
     background: rgba(0, 0, 0, 0.00);
@@ -85,7 +83,6 @@ ol.example li.placeholder:before {
     top: 50%;
     left: 30%;
 }
-
 
 .btn-addnewcategory {
     background: #318344;

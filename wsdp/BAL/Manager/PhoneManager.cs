@@ -1,22 +1,18 @@
-﻿using BAL.Interface;
+﻿using AutoMapper;
+using BAL.Interface;
+using DAL.Interface;
+using ExtendedXmlSerialization;
+using Model.DB;
+using Model.DTO;
+using Model.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.DTO;
-using Model.Product;
-using DAL.Interface;
-using log4net;
-using Model.DB;
-using ExtendedXmlSerialization;
-using AutoMapper;
 
 namespace BAL.Manager
 {
     public class PhoneManager : BaseManager, IPhoneManager
     {
-
         public PhoneManager(IUnitOfWork uOW) : base(uOW)
         {
         }

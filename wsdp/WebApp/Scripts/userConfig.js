@@ -9,7 +9,6 @@ $(document).ready(function () {
     $(".close").click(function () {
         $("#ModalUser").hide();
     });
-  
 });
 
 //Showing ModalRole modal window and setting values of inputs
@@ -27,9 +26,8 @@ $(document).on('click', '.edit-user', function () {
     $("#email").val(userEmail);
 });
 
-//Updating User 
+//Updating User
 function UpdateUser() {
-
     var username = $("#username").val();
     var password = $("#password").val();
     var email = $("#email").val();
@@ -40,14 +38,12 @@ function UpdateUser() {
     $(".close").click();
 }
 
-//ajax query update user 
+//ajax query update user
 function UpdateUserAjax(id,userName,password,email,RoleId) {
     $.post('UpdateUser', { Id: id, UserName: userName, Password: password, Email: email, RoleId: RoleId }, function (data) {
         $("#example tr[data-user-id=" + user_id + "]").find("#username").html(userName);
         $("#example tr[data-user-id=" + user_id + "]").find("#password").html(password);
         $("#example tr[data-user-id=" + user_id + "]").find("#email").html(email);
         $("#example tr[data-user-id=" + user_id + "]").find("#role").html(role_name);
-        
     });
-    
 }

@@ -1,20 +1,19 @@
 ﻿using BAL.Interface;
+using Common.Enum;
 using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Common.Enum;
 
 namespace WebApp.Controllers
 {
     public class AdminController : BaseController
     {
-        ICategoryManager categoryManager;
-        IPropertyManager propertyManager;
-        IUserManager userManager;
-        IRoleManager roleManager;
+        private ICategoryManager categoryManager;
+        private IPropertyManager propertyManager;
+        private IUserManager userManager;
+        private IRoleManager roleManager;
 
         public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager)
         {
@@ -54,11 +53,13 @@ namespace WebApp.Controllers
         {
             categoryManager.Delete(id);
         }
+
         [HttpPost]
         public void ChangeParent(int categoryid, int? parentid)
         {
             categoryManager.ChangeParent(categoryid, parentid ?? -1);
         }
+
         public ActionResult AddProperty(int catid)
         {
             List<CategoryDTO> categories =
@@ -70,6 +71,7 @@ namespace WebApp.Controllers
             ModelState.Clear();
             return View(custom_model);
         }
+
         public ActionResult UpdateProperty(int catid, int propid)
         {
             var properties = propertyManager.GetAll().Select(c => c).ToList();
@@ -112,6 +114,7 @@ namespace WebApp.Controllers
             ModelState.Clear();
             return View(CustomView);
         }
+
         [HttpPost]
         public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
         {

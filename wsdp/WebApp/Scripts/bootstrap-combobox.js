@@ -17,7 +17,6 @@
  * ============================================================ */
 
 !function( $ ) {
-
  "use strict";
 
  /* COMBOBOX PUBLIC CLASS DEFINITION
@@ -43,7 +42,6 @@
   };
 
   Combobox.prototype = {
-
     constructor: Combobox
 
   , setup: function () {
@@ -458,5 +456,4 @@
   };
 
   $.fn.combobox.Constructor = Combobox;
-
 }( window.jQuery );

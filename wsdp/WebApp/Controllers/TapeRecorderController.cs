@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using BAL.Interface;
+﻿using BAL.Interface;
 using Model.DTO;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
@@ -13,6 +9,7 @@ namespace WebApp.Controllers
     {
         // GET: Tape Recorder
         private ITapeRecorderManager TapeRecorderManager;
+
         private ITapeRecorderParseManager TapeRecorderParseManager;
 
         public TapeRecorderController(ITapeRecorderManager TapeRecorderManager, ITapeRecorderParseManager TapeRecorderParseManager)
@@ -26,7 +23,6 @@ namespace WebApp.Controllers
             List<TapeRecorderDTO> tapeRecorders = TapeRecorderManager.GetAll();
             return View(tapeRecorders);
         }
-
 
         public ActionResult GetTapeRecorder(int id)
         {

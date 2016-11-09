@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using BAL.Interface;
 using Common.Enum;
 using DAL.Interface;
-using log4net;
 using Model.DB;
 using Model.DTO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BAL.Manager
 {
@@ -67,6 +64,7 @@ namespace BAL.Manager
                 logger.Error(ex.Message);
             }
         }
+
         public List<PropertyDTO> GetAll()
         {
             List<PropertyDTO> properties = new List<PropertyDTO>();

@@ -1,13 +1,10 @@
 ﻿using BAL.Interface;
 using HtmlAgilityPack;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace BAL.Manager
 {
@@ -28,9 +25,9 @@ namespace BAL.Manager
 
             return guid;
         }
+
         public void WriteToFile(string source)
         {
-           
             string file = guid + ".html";
             string path = AppDomain.CurrentDomain.BaseDirectory + "WebSites\\" + file;
 
@@ -42,6 +39,7 @@ namespace BAL.Manager
                 }
             }
         }
+
         public string ReplaceHrefs(string source, string url)
         {
             var doc = new HtmlDocument();

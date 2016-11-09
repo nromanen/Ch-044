@@ -1,16 +1,12 @@
-﻿using System;
+﻿using BAL.Interface;
+using Model.DTO;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BAL.Interface;
-
-using Model.DTO;
 
 namespace WebApp.Controllers
 {
-
     public class WebShopController : BaseController
     {
         /// <summary>
@@ -22,14 +18,16 @@ namespace WebApp.Controllers
         {
             _webShopManager = webShopManager;
         }
+
         /// <summary>
-        /// To show a View with all WebShops in the DB 
+        /// To show a View with all WebShops in the DB
         /// </summary>
         public ActionResult Index()
         {
             IEnumerable<WebShopDTO> webShopsList = _webShopManager.GetAll();
             return View(webShopsList);
         }
+
         /// <summary>
         /// To show create view for WebShopDTO
         /// </summary>
@@ -37,6 +35,7 @@ namespace WebApp.Controllers
         {
             return View(new WebShopDTO());
         }
+
         /// <summary>
         /// To create new WebShop and insert into DB and redirest to all WebShopDTOs
         /// </summary>
@@ -54,6 +53,7 @@ namespace WebApp.Controllers
             _webShopManager.Insert(webShop);
             return RedirectToAction("Index");
         }
+
         /// <summary>
         /// To show delete view
         /// </summary>
@@ -65,6 +65,7 @@ namespace WebApp.Controllers
                 return PartialView(webShop);
             return HttpNotFound();
         }
+
         /// <summary>
         /// To delete WebShop in the DB and redirect to all WebShopDTOs
         /// </summary>
@@ -75,6 +76,7 @@ namespace WebApp.Controllers
             _webShopManager.Delete(wShop);
             return RedirectToAction("Index");
         }
+
         /// <summary>
         /// To show edit view for WebShopDTO
         /// </summary>
@@ -87,6 +89,7 @@ namespace WebApp.Controllers
 
             return View(webShop);
         }
+
         /// <summary>
         /// To edit WebShop in the DB and redirect to all WebShopDTOs
         /// </summary>
@@ -103,6 +106,7 @@ namespace WebApp.Controllers
             _webShopManager.Update(webShop);
             return RedirectToAction("Index");
         }
+
         /// <summary>
         /// To create an unique image's name
         /// </summary>
@@ -114,4 +118,3 @@ namespace WebApp.Controllers
         }
     }
 }
-

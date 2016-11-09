@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Enum;
+﻿using Common.Enum;
 
 namespace Model.DTO
 {
@@ -17,6 +12,5 @@ namespace Model.DTO
         public string Prefix { get; set; }
         public string Sufix { get; set; }
         public int Category_Id { get; set; }
-
     }
 }

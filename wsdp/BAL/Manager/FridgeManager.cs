@@ -1,26 +1,22 @@
-﻿using BAL.Interface;
+﻿using AutoMapper;
+using BAL.Interface;
+using DAL.Interface;
+using ExtendedXmlSerialization;
+using Model.DB;
+using Model.DTO;
+using Model.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.DTO;
-using Model.Product;
-using DAL.Interface;
-using log4net;
-using ExtendedXmlSerialization;
-using AutoMapper;
-using Model.DB;
 
 namespace BAL.Manager
 {
     public class FridgeManager : BaseManager, IFridgeManager
     {
-
         public FridgeManager(IUnitOfWork uOW) : base(uOW)
         {
-
         }
+
         public List<FridgeDTO> GetAll()
         {
             List<FridgeDTO> fridges = new List<FridgeDTO>();
@@ -52,7 +48,7 @@ namespace BAL.Manager
 
             var fridge = ser.Deserialize(good.XmlData, typeof(Fridge)) as Fridge;
             fridge.Id = id;
-            
+
             return fridge;
         }
     }

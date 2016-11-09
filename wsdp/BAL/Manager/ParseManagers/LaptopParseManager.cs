@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BAL.Interface;
+﻿using BAL.Interface;
 using Common.Enum;
 using DAL.Interface;
 using ExtendedXmlSerialization;
@@ -11,15 +6,19 @@ using HtmlAgilityPack;
 using log4net;
 using Model.DB;
 using Model.Product;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace BAL.Manager.ParseManagers
 {
     public class LaptopParseManager : BaseManager, ILaptopParseManager
     {
-        static readonly ILog Logger = LogManager.GetLogger("RollingLogFileAppender");
-
+        private static readonly ILog Logger = LogManager.GetLogger("RollingLogFileAppender");
 
         private readonly HtmlWeb _webClient;
+
         public LaptopParseManager(IUnitOfWork uOW)
             : base(uOW)
         {
@@ -42,7 +41,6 @@ namespace BAL.Manager.ParseManagers
                 Logger.Error(ex);
                 return null;
             }
-
 
             for (int i = 0, pager = 0; i <= GetPageQuantity(page); i++, pager += GetGoodsQuantity(page))
             {
@@ -123,12 +121,10 @@ namespace BAL.Manager.ParseManagers
                 resultGood.Characteristic.Add(cell.Key, cell.Value);
             }
 
-
             var producer =
                 page.DocumentNode.SelectNodes("//li[contains(@class, 'btn-crumb')]/a/span[contains(@class, 'text-el')]")
                     .Last().InnerText ?? "undefined";
             resultGood.Characteristic.Add("Producer", producer);
-
 
             var price =
                 page.DocumentNode.SelectSingleNode(
@@ -164,6 +160,5 @@ namespace BAL.Manager.ParseManagers
             //return int.Parse(value);
             return 1;
         }
-
     }
 }

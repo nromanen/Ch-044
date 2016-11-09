@@ -8,7 +8,6 @@
 @Scripts.Render("~/bundles/EditProperties")
 @Styles.Render("~/Content/EditPropertiesStylesheet")
 
-
 <div class="container">
     <div class="row ">
         <hr />
@@ -57,9 +56,9 @@
                     <label for="DefaultValue">@Resources.Resource.DefaultValue:</label>
                     <input type="text" class="form-control" id="DefaultValue" name="DefaultValue" placeholder="Enter new default value of property" value="@Model.properties.First(i=>i.Id==Model.PropertyId).DefaultValue" required>
                     <label for="Prefix">@Resources.Resource.Prefix:</label>
-                    <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter new prefix" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Prefix" >
+                    <input type="text" class="form-control" id="Prefix" name="Prefix" placeholder="Enter new prefix" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Prefix">
                     <label for="Sufix">@Resources.Resource.Sufix:</label>
-                    <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter new sufix" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Sufix" >
+                    <input type="text" class="form-control" id="Sufix" name="Sufix" placeholder="Enter new sufix" value="@Model.properties.First(i=>i.Id==Model.PropertyId).Sufix">
                 </div>
                 <button onclick="" type="submit" class="btn btn-success">Submit</button>
             </form>

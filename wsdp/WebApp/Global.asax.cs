@@ -1,32 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-using BAL;
+﻿using BAL;
 using BAL.Interface;
 using BAL.Manager;
+using BAL.Manager.ParseManagers;
 using DAL;
 using DAL.Interface;
 using log4net;
 using SimpleInjector;
 using SimpleInjector.Integration.Web.Mvc;
+using System;
 using System.Globalization;
+using System.IO;
 using System.Threading;
-using BAL.Manager.ParseManagers;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace WebApp
 {
     public class MvcApplication : HttpApplication
     {
-        static readonly ILog Logger = LogManager.GetLogger("RollingLogFileAppender");
+        private static readonly ILog Logger = LogManager.GetLogger("RollingLogFileAppender");
+
         protected void Application_Start()
         {
-
             log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
 
             InjectorContainer();
@@ -38,6 +36,7 @@ namespace WebApp
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Configure();
         }
+
         /// <summary>
         /// To create injector container and register dependencies
         /// </summary>
@@ -73,6 +72,7 @@ namespace WebApp
                 Logger.Error(ex.Message);
             }
         }
+
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];

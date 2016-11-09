@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
@@ -27,7 +27,7 @@
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")</li>
                         <li>@Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")</li>
-                    </ul>  
+                    </ul>
                 </li>
                 <li>@Html.ActionLink(Resources.Resource.IFrame, "Index", "Frame")</li>
                 <li>@Html.ActionLink("Download Page", "Index", "DownloadPage")</li>
@@ -61,10 +61,8 @@
     </div>
 </div>
 
-
-
-    <hr/>
-<br/>
+    <hr />
+<br />
 
     <div class="container body-content">
         <div class="row">
@@ -82,11 +80,10 @@
                 </footer>
             </div>
         </div>
-
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/EditProperties") 
+    @Scripts.Render("~/bundles/EditProperties")
     @Scripts.Render("~/bundles/WebShop")
     @Scripts.Render("~/bundles/EditUsers")
     @Scripts.Render("~/Content/editcategories")

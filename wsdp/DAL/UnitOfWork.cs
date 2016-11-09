@@ -2,11 +2,7 @@
 using DAL.Repositories;
 using Model.DB;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -15,6 +11,7 @@ namespace DAL
         private MainContext context;
 
         #region Private Repositories
+
         private IGenericRepository<User> userRepo;
         private IGenericRepository<Good> goodRepo;
         private IGenericRepository<Category> categoryRepo;
@@ -22,7 +19,8 @@ namespace DAL
         private IGenericRepository<WebShop> webShopRepo;
         private IGenericRepository<Role> roleRepo;
         private IGenericRepository<ParserTask> parserRepo;
-        #endregion
+
+        #endregion Private Repositories
 
         public UnitOfWork()
         {
@@ -74,6 +72,7 @@ namespace DAL
                 return categoryRepo;
             }
         }
+
         public IGenericRepository<Property> PropertyRepo
         {
             get
@@ -101,23 +100,21 @@ namespace DAL
             }
         }
 
-        #endregion
+        #endregion Repositories Getters
 
         public void Save()
         {
             try
             {
-
                 context.SaveChanges();
-
             }
             catch (DbEntityValidationException ex)
             {
             }
-
         }
 
         #region Dispose
+
         // https://msdn.microsoft.com/ru-ru/library/system.idisposable(v=vs.110).aspx
 
         private bool disposed = false;
@@ -140,6 +137,6 @@ namespace DAL
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+        #endregion Dispose
     }
 }

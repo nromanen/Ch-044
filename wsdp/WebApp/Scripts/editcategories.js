@@ -8,12 +8,10 @@ var updatePropNode = null;
 /*Inizializtion sortable list*/
 var group = null;
 $(document).ready(function () {
-
     $(".properties_list").toggleClass("treemenu");
     $(".property_item").toggleClass("tree-empty");
     $(".property_item > .toggler").remove();
     $(".properties").hide();
-
 
     //Redirection on page for adding property
     $(".adder").click(function (event) {
@@ -25,12 +23,10 @@ $(document).ready(function () {
         window.location.href = url;
     });
 
-
     //Toggling properties
     $(".togglebutt").unbind().click(function (event) {
         $(this).parent().children(".properties").toggle('slow');
     });
-
 
     //Redirect on page for updating property
     $(".update_prop").click(function (event) {
@@ -58,13 +54,11 @@ $(document).ready(function () {
 
 //Deleting Property
 function DeleteProp() {
-
     var id = $('.property_item').attr('property-id');
     $("#ModalPropertyDelete #delete_prop_close").click();
     $(".property_item[property-id='" + id + "']").remove();
     $.post('RemoveProperty', { id: id }, function (data) {
     });
-
 }
 
 /*inizializtion of buttons*/
@@ -72,7 +66,6 @@ $(document).ready(function () {
     InitializeEvents();
     MakeHovers();
 });
-
 
 /*puting events for right-side buttons*/
 function InitializeEvents() {
@@ -118,7 +111,7 @@ function InitializeEvents() {
 }
 
 //Showing delete modal window
-function DeleteProperty() 
+function DeleteProperty()
 {
     $("#ModalPropertyDelete").show();
 };
@@ -159,9 +152,7 @@ function InsertNode() {
     + "<ul class=\"treemenu\"></ul></li>");
     addNode = $(node).children("ul").children("li:last");
 
-
     InsertAjax(parentid, name, id, node);
-
 
     $("#ModalAdd .close").click();
     //establishing events (open tree, close tree, hovers)
@@ -176,11 +167,8 @@ function InsertNode() {
             $(this).removeClass("tree-closed");
             $(this).children("ul").attr("style", "");
         }
-
     });
-
 }
-
 
 //concrete inserting to db using ajax
 function InsertAjax(parentid, name, id, node) {
@@ -196,9 +184,7 @@ function InsertAjax(parentid, name, id, node) {
             alert('Error occured');
         }
     });
-
 }
-
 
 function DeleteTreeEvents() {
     var mainList = $(".serialization li");
@@ -224,8 +210,7 @@ function UpdateNode() {
     UpdateAjax(node.attr("data-id"), name);
 }
 
-
-//ajax query update db 
+//ajax query update db
 function UpdateAjax(id, name) {
     $.post('UpdateCategory', { namecategory: name, id: id }, function (data) {
     });
@@ -259,7 +244,6 @@ function DeleteNode() {
             $(this).removeClass("tree-closed");
             $(this).children("ul").attr("style", "");
         }
-
     });
     //ajax query - removing from db
     $.post('RemoveCategory', { id: id }, function (data) {
@@ -273,18 +257,17 @@ function PutParentCategory() {
 }
 
 $("#delete_prop_close").click(function () {
-
     $("#ModalPropertyDelete").hide();
 });
 
-//correct filling update modal form 
+//correct filling update modal form
 function UpdateCategory(id, name) {
     $("#CategoryNameForUpdate").html(name);
     $("#updatedidhidden").val(id);
     $("#removedidhidden").val(id);
 }
 
-//correct filling delete modal form 
+//correct filling delete modal form
 function RemoveCategory(id, name) {
     $("#deletecategoryname").html(name);
     $("#deletecategoryidmodal").val(id);
@@ -295,7 +278,6 @@ function ChangeParent(id_item, id_parent) {
     $.post('ChangeParent', { categoryid: id_item, parentid: id_parent }, function (data) {
     });
 }
-
 
 //making hovers-buttons on categories
 function MakeHovers() {
@@ -313,7 +295,6 @@ function MakeHovers() {
             parentButtons.each(function () {
                 $(this).addClass("hidden");
             });
-
         });
 
         $(this).mouseleave(function () {
@@ -326,7 +307,5 @@ function MakeHovers() {
                 $(this).removeClass("hidden");
             });
         });
-
     });
 }
-

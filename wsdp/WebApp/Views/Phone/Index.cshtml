@@ -7,8 +7,6 @@
 
 @Styles.Render("~/Content/PhoneStylesheet")
 
-
-
 <div class="container">
     <h2>Phones</h2>
     @foreach (var phone in Model)
@@ -28,14 +26,10 @@
             </div>
         </div>
 
-
     }
     <div style="width:50%; margin:0 auto;">
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
 
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>
-
 </div>
-
-

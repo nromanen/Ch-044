@@ -2,10 +2,7 @@ using Model.DB;
 
 namespace DAL.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DAL.MainContext>
     {
@@ -21,9 +18,6 @@ namespace DAL.Migrations
             Role role_user = new Role() { Id = 2, Name = "User", Description = "Application user" };
             User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
             User user2 = new User() { Id = 2, Email = "user@admin.admin", UserName = "user", Password = "qwerty", Role = role };
-
-
-
 
             Category categorySmartPhonesAndMobilePhones = new Category()
             {
@@ -68,7 +62,6 @@ namespace DAL.Migrations
                 ParentCategory = categoryComputers
             };
 
-
             context.Roles.AddOrUpdate(role);
             context.Roles.AddOrUpdate(role_user);
             context.Users.AddOrUpdate(user);
@@ -82,7 +75,6 @@ namespace DAL.Migrations
             context.Categories.AddOrUpdate(categoryFridges);
             context.Categories.AddOrUpdate(categoryMicrowaves);
             context.Categories.AddOrUpdate(categoryLaptops);
-
         }
     }
 }

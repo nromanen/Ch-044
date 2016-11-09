@@ -1,6 +1,5 @@
 namespace DAL.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
 
     public partial class properties_init : DbMigration
@@ -23,7 +22,6 @@ namespace DAL.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Categories", t => t.Category_Id)
                 .Index(t => t.Category_Id);
-
         }
 
         public override void Down()

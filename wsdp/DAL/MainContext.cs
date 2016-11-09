@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Model.DB;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.DB;
 
 namespace DAL
 {
@@ -14,7 +9,6 @@ namespace DAL
             : base("SlavaCon")
         {
             this.Configuration.LazyLoadingEnabled = true;
-
         }
 
         public MainContext(string connString)
@@ -30,6 +24,5 @@ namespace DAL
         public DbSet<WebShop> WebShops { get; set; }
         public DbSet<Property> Properties { get; set; }
         public DbSet<ParserTask> ParserTasks { get; set; }
-
     }
 }

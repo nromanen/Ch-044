@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.DB;
-using Model.DTO;
+﻿using Model.DTO;
 using Model.Product;
+using System.Collections.Generic;
 
-namespace BAL.Interface {
-	public interface ITapeRecorderManager {
-		List<TapeRecorderDTO> GetAll();
-		TapeRecorder GetById(int id);
-	}
+namespace BAL.Interface
+{
+    public interface ITapeRecorderManager
+    {
+        List<TapeRecorderDTO> GetAll();
+
+        TapeRecorder GetById(int id);
+    }
 }

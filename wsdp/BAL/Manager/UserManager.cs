@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using BAL.Interface;
 using DAL.Interface;
-using log4net;
+using Model.DB;
 using Model.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.DB;
 
 namespace BAL.Manager
 {
@@ -17,9 +13,7 @@ namespace BAL.Manager
         public UserManager(IUnitOfWork uOW)
             : base(uOW)
         {
-
         }
-
 
         /// <summary>
         /// Get all users from db.
@@ -63,7 +57,6 @@ namespace BAL.Manager
             User.RoleId = RoleId;
             uOW.Save();
         }
-
 
         /// <summary>
         /// Insert User to database

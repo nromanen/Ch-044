@@ -14,6 +14,4 @@
     var prop_update_id = $("#prop_update_id").attr('type', 'hidden').val();
     $("#prop_id_update_select").val(prop_update_id).change();
     $("#prop_id_update_select ").val(prop_update_id).prop('disabled', true);
-
-
 })
