@@ -20,6 +20,10 @@ namespace DAL.Migrations
             Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator" };
             Role role_user = new Role() { Id = 2, Name = "User", Description = "Application user" };
             User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
+            User user2 = new User() { Id = 2, Email = "user@admin.admin", UserName = "user", Password = "qwerty", Role = role };
+
+
+
 
             Category categorySmartPhonesAndMobilePhones = new Category()
             {
@@ -65,8 +69,10 @@ namespace DAL.Migrations
             };
 
 
-            //context.Roles.AddOrUpdate(role);
-            //context.Users.AddOrUpdate(user);
+            context.Roles.AddOrUpdate(role);
+            context.Roles.AddOrUpdate(role_user);
+            context.Users.AddOrUpdate(user);
+            context.Users.AddOrUpdate(user2);
             context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
             context.Categories.AddOrUpdate(categoryForHouse);
             context.Categories.AddOrUpdate(categoryComputers);
