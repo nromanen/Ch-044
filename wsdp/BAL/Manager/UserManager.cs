@@ -30,14 +30,12 @@ namespace BAL.Manager
             return users;
         }
 
+        /// <summary>
+        /// Get user by email and password
+        /// </summary>
         public UserDTO GetUser(string email, string password)
         {
-            var user = uOW.UserRepo
-                          .Get()
-                          .FirstOrDefault(s => (s.Email == email && s.Password == password));
-
-            // TODO: fix mapping - return user != null ? Mapper.Map<UserDTO>(user) : null;
-            return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName } : null;
+            return GetAll().FirstOrDefault(x => x.Email == email && x.Password == password);
         }
 
         /// <summary>
@@ -59,9 +57,8 @@ namespace BAL.Manager
         }
 
         /// <summary>
-        /// Insert User to database
+        /// Insert User into database
         /// </summary>
-        /// <param name="user"></param>
         public void Insert(UserDTO user)
         {
             if (user == null) return;

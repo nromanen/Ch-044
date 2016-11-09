@@ -1,5 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Model.DB
 {
@@ -9,12 +14,12 @@ namespace Model.DB
         public int Id { get; set; }
 
         [Required]
-        [MinLength(4, ErrorMessage = "Минимальная длинна - 4 символа")]
+        [MinLength(4, ErrorMessage = "Минимальная длина - 4 символа")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Минимальная длинна - 6 символа")]
+        [MinLength(6, ErrorMessage = "Минимальная длина - 6 символа")]
         public string Password { get; set; }
 
         [Required]
