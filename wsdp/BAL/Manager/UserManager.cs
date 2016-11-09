@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.DB;
 
 namespace BAL.Manager
 {
@@ -38,6 +39,25 @@ namespace BAL.Manager
 
             // TODO: fix mapping - return user != null ? Mapper.Map<UserDTO>(user) : null;
             return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName } : null;
+        }
+
+        public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
+        {
+            var User = uOW.UserRepo.GetByID(Id);
+            User.UserName = UserName;
+            User.Password = Password;
+            User.Email = Email;
+            User.RoleId = RoleId;
+            uOW.Save();
+        }
+
+        public void Insert(UserDTO user)
+        {
+            if (user == null) return;
+            User dbUser = Mapper.Map<User>(user);
+            dbUser.RoleId = user.RoleId == 0 ? 2 : dbUser.RoleId;
+            uOW.UserRepo.Insert(dbUser);
+            uOW.Save();
         }
     }
 }

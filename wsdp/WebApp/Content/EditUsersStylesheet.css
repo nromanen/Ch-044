@@ -1,0 +1,13 @@
+﻿select {
+    border: 0;
+    width: 100%;
+    background-color:#fff;
+}
+.edit-user
+{
+    cursor:pointer;
+}
+#actions
+{
+    width:2%;
+}

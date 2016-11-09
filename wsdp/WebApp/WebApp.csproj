@@ -233,7 +233,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\UniverslaParserController.cs" />
+    <Compile Include="Controllers\UniversalParserController.cs" />
     <Compile Include="Controllers\FrameController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -258,6 +258,7 @@
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\EditCategoriesStylesheet.css" />
     <Content Include="Content\EditPropertiesStylesheet.css" />
+    <Content Include="Content\EditUsersStylesheet.css" />
     <Content Include="Content\Frame\highlight.css" />
     <Content Include="Content\FridgeIndex.css" />
     <Content Include="Content\jquery.treemenu.css" />
@@ -333,7 +334,6 @@
     <Content Include="Views\Admin\EditCategories.cshtml" />
     <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
     <Content Include="Views\TV\GetTV.cshtml" />
-    <Content Include="Views\Admin\EditProperties.cshtml" />
     <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\WebShop\Index.cshtml" />
     <Content Include="Views\TV\Index.cshtml" />
@@ -352,6 +352,9 @@
     <Content Include="Views\UniversalParser\Grabber.cshtml" />
     <Content Include="Views\Admin\EditUsers.cshtml" />
     <Content Include="Views\Admin\UserPartialView.cshtml" />
+    <Content Include="Views\Admin\RolePartialView.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

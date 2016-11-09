@@ -3,7 +3,7 @@ namespace DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddTableParser : DbMigration
+    public partial class Add_Parsers : DbMigration
     {
         public override void Up()
         {
@@ -27,12 +27,10 @@ namespace DAL.Migrations
                 .Index(t => t.CategoryId)
                 .Index(t => t.WebShopId);
             
-            DropColumn("dbo.Properties", "Characteristic_Id");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Properties", "Characteristic_Id", c => c.Int(nullable: false));
             DropForeignKey("dbo.Parsers", "WebShopId", "dbo.WebShops");
             DropForeignKey("dbo.Parsers", "CategoryId", "dbo.Categories");
             DropIndex("dbo.Parsers", new[] { "WebShopId" });

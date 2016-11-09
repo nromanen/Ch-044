@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.DB {
-	public class Parser {
+	public class ParserTask {
 		[Key]
 		public int Id { get; set; }
 
@@ -24,13 +24,13 @@ namespace Model.DB {
 		[Required]
 		public string Status { get; set; }
 
-		[Required]
+
 		public DateTime EndDate { get; set; }
 
-		[Required]
+
 		public string IteratorSettings { get; set; }
 
-		[Required]
+
 		public string GrabberSettings { get; set; }
 	}
 }

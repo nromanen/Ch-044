@@ -3,6 +3,7 @@ using DAL.Repositories;
 using Model.DB;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,20 +20,33 @@ namespace DAL
         private IGenericRepository<Category> categoryRepo;
         private IGenericRepository<Property> propertyRepo;
         private IGenericRepository<WebShop> webShopRepo;
+        private IGenericRepository<Role> roleRepo;
+        private IGenericRepository<ParserTask> parserRepo;
         #endregion
 
         public UnitOfWork()
         {
             context = new MainContext();
 
+            roleRepo = new GenericRepository<Role>(context);
             userRepo = new GenericRepository<User>(context);
             goodRepo = new GenericRepository<Good>(context);
             categoryRepo = new GenericRepository<Category>(context);
             propertyRepo = new GenericRepository<Property>(context);
             webShopRepo = new GenericRepository<WebShop>(context);
+            parserRepo = new GenericRepository<ParserTask>(context);
         }
 
         #region Repositories Getters
+
+        public IGenericRepository<Role> RoleRepo
+        {
+            get
+            {
+                if (roleRepo == null) roleRepo = new GenericRepository<Role>(context);
+                return roleRepo;
+            }
+        }
 
         public IGenericRepository<User> UserRepo
         {
@@ -78,11 +92,29 @@ namespace DAL
             }
         }
 
+        public IGenericRepository<ParserTask> ParserRepo
+        {
+            get
+            {
+                if (parserRepo == null) parserRepo = new GenericRepository<ParserTask>(context);
+                return parserRepo;
+            }
+        }
+
         #endregion
 
         public void Save()
         {
-            context.SaveChanges();
+            try
+            {
+
+                context.SaveChanges();
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+            }
+
         }
 
         #region Dispose

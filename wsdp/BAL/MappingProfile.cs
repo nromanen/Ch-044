@@ -21,6 +21,12 @@ namespace BAL
 
             CreateMap<UserDTO, User>();
 			CreateMap<User, UserDTO>();
+
+            CreateMap<Role, RoleDTO>()
+                .ForMember(p => p.Id, m => m.MapFrom(t => t.Id))
+                .ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
+                .ForMember(p => p.Description, m => m.MapFrom(t => t.Description));
+
 			CreateMap<TV, TVDTO>()
 				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink));
 
@@ -43,7 +49,7 @@ namespace BAL
             CreateMap<WebShop, WebShopDTO>();
             CreateMap<WebShopDTO, WebShop>();
 
-			CreateMap<Parser, ParserDTO>()
+			CreateMap<ParserTask, ParserTaskDTO>()
 				.ForMember(
 				p => p.IteratorSettings, 
 				m => m.MapFrom(x => (IteratorSettingsDTO)serializer.Deserialize(x.IteratorSettings, typeof(IteratorSettingsDTO))))
@@ -51,13 +57,23 @@ namespace BAL
 				p => p.GrabberSettings,
 				m => m.MapFrom(x => (GrabberSettingsDTO)serializer.Deserialize(x.GrabberSettings, typeof(GrabberSettingsDTO))));
 
-			CreateMap<ParserDTO, Parser>()
-				.ForMember(
-				p => p.IteratorSettings,
-				m => m.MapFrom(x => serializer.Serialize(x.IteratorSettings)))
-				.ForMember(
-				p => p.GrabberSettings,
-				m => m.MapFrom(x => serializer.Serialize(x.GrabberSettings)));
+            CreateMap<ParserTaskDTO, ParserTask>()
+                .ForMember(
+                p => p.IteratorSettings,
+                m => m.MapFrom(x => (x.IteratorSettings != null ? serializer.Serialize(x.IteratorSettings) : null)))
+                .ForMember(
+                p => p.Category,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.WebShop,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.GrabberSettings,
+                m => m.MapFrom(x => (x.GrabberSettings != null ? serializer.Serialize(x.GrabberSettings) : null)));
+
+
 		}
     }
 }

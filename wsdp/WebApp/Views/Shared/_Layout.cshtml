@@ -54,8 +54,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href=@Url.Action("SignUp", "Account")><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href=@Url.Action("Login", "Account")><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </div>
@@ -86,9 +86,9 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @*@Scripts.Render("~/bundles/EditProperties") 
+    @Scripts.Render("~/bundles/EditProperties") 
     @Scripts.Render("~/bundles/WebShop")
-    @Scripts.Render("~/bundles/EditUsers")*@
+    @Scripts.Render("~/bundles/EditUsers")
     @Scripts.Render("~/Content/editcategories")
 
     @RenderSection("scripts", required: false)

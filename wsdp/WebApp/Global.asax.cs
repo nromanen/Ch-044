@@ -57,11 +57,13 @@ namespace WebApp
                 container.Register<ITVParseManager, TVParseManager>();
                 container.Register<ILaptopParseManager, LaptopParseManager>();
                 container.Register<ILaptopManager, LaptopManager>();
-				container.Register<ITapeRecorderParseManager, TapeRecorderParseManager>();
-				container.Register<ITapeRecorderManager, TapeRecorderManager>();
-				container.Register<IPropertyManager, PropertyManager>();
+                container.Register<ITapeRecorderParseManager, TapeRecorderParseManager>();
+                container.Register<ITapeRecorderManager, TapeRecorderManager>();
+                container.Register<IPropertyManager, PropertyManager>();
                 container.Register<IWebShopManager, WebShopManager>();
                 container.Register<IDownloadManager, DownloadManager>();
+                container.Register<IRoleManager, RoleManager>();
+                container.Register<IParserTaskManager, ParserTaskManager>();
 
                 container.Verify();
                 DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));

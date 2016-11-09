@@ -14,12 +14,14 @@ namespace WebApp.Controllers
         ICategoryManager categoryManager;
         IPropertyManager propertyManager;
         IUserManager userManager;
+        IRoleManager roleManager;
 
-        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager)
+        public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager)
         {
             this.categoryManager = categoryManager;
             this.propertyManager = propertyManager;
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         // GET: Admin
@@ -30,27 +32,9 @@ namespace WebApp.Controllers
 
         public ActionResult EditCategories()
         {
-            var categories =
-                categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
-            var properties = propertyManager.GetAll().Select(c => c).ToList();
-
-            UpdateCategoriesWithProperties(categories, properties);
-
-            var CategoriesView = new PropertyViewDTO() { categories = categories, properties = properties };
+            var categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
             ModelState.Clear();
-            return View(CategoriesView);
-        }
-
-        private void UpdateCategoriesWithProperties(ICollection<CategoryDTO> category, ICollection<PropertyDTO> properties)
-        {
-            category.ToList().ForEach(c =>
-            {
-                if (c.ChildrenCategory != null)
-                {
-                    UpdateCategoriesWithProperties(c.ChildrenCategory, properties);
-                }
-                c.PropertyList = properties.Where(prop => prop.Category_Id == c.Id).ToList();
-            });
+            return View(categories);
         }
 
         [HttpPost]
@@ -123,7 +107,15 @@ namespace WebApp.Controllers
         public ActionResult EditUsers()
         {
             var Users = userManager.GetAll().Select(c => c).ToList();
-            return View(Users);
+            var Roles = roleManager.GetAll().Select(c => c).ToList();
+            var CustomView = new UserViewDTO() { Users = Users, Roles = Roles };
+            ModelState.Clear();
+            return View(CustomView);
+        }
+        [HttpPost]
+        public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
+        {
+            userManager.UpdateUser(Id, UserName, Password, Email, RoleId);
         }
     }
 }

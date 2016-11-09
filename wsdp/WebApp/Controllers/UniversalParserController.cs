@@ -13,11 +13,13 @@ namespace WebApp.Controllers
         private IDownloadManager downloadManager;
         private ICategoryManager categoryManager;
         private IWebShopManager shopManager;
-        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager)
+        private IParserTaskManager parserManager;
+        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parserManager)
         {
             this.downloadManager = downloadManager;
             this.categoryManager = categoryManager;
             this.shopManager = shopManager;
+            this.parserManager = parserManager;
         }
 
         // GET: Settings
@@ -33,8 +35,22 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Settings(string str)
+        public ActionResult Settings(string description, int categoryid, int shopid, string priority, DateTime datetime)
         {
+            ParserTaskDTO parser = new ParserTaskDTO()
+            {
+                Description = description,
+                CategoryId = categoryid,
+                WebShopId = shopid,
+                Priority = priority,
+                Status = "Not Finished",
+                EndDate = datetime
+            };
+            int newid = parserManager.Add(parser);
+            int newid2 = parserManager.Add(parser);
+            int newid3 = parserManager.Add(parser);
+            int newid4 = parserManager.Add(parser);
+            //return RedirectToAction("Iterator", newid);
             return View();
         }
 

@@ -1,4 +1,4 @@
-﻿﻿@model  Model.DTO.PropertyViewDTO
+﻿﻿@model  List<Model.DTO.CategoryDTO>
 
 @{
     ViewBag.Title = "EditCategories";
@@ -148,7 +148,7 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="tree serialization">
-                @Html.Partial("FlexibleListCategories", Model.categories)
+                @Html.Partial("FlexibleListCategories", Model)
             </ul>
         </div>
     </div>
