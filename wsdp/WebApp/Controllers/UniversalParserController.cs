@@ -14,8 +14,10 @@ namespace WebApp.Controllers
         private ICategoryManager categoryManager;
         private IWebShopManager shopManager;
         private IParserTaskManager parserManager;
-        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parserManager)
+		private IWebShopManager webshopManager;
+        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parserManager, IWebShopManager webshopManager)
         {
+			this.webshopManager = webshopManager;
             this.downloadManager = downloadManager;
             this.categoryManager = categoryManager;
             this.shopManager = shopManager;
@@ -56,8 +58,9 @@ namespace WebApp.Controllers
 
         //GET:Iterator
         [HttpGet]
-        public ActionResult Iterator(int id)
+        public ActionResult Iterator(int? id)
         {
+			ViewBag.Path = TempData["Path"];
             return View();
         }
 
@@ -75,15 +78,19 @@ namespace WebApp.Controllers
             else
             {
                 ViewBag.PathIsExist = false;
-                return RedirectToAction("Index");
+                return RedirectToAction("Iterator");
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Iterator");
         }
         [HttpGet]
-        public ActionResult Grabber()
+        public ActionResult Grabber(int id)
         {
-            return View();
+			var parserTask = parserManager.Get(id);
+			parserTask.Category = categoryManager.Get(parserTask.CategoryId);
+			parserTask.WebShop = webshopManager.GetById(parserTask.WebShopId);
+			
+            return View(parserTask);
         }
         [HttpPost]
         public ActionResult Grabber(string str)
