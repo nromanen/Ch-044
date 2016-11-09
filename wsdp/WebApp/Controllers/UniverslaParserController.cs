@@ -40,8 +40,9 @@ namespace WebApp.Controllers
 
         //GET:Iterator
         [HttpGet]
-        public ActionResult Iterator()
+        public ActionResult Iterator(int id)
         {
+            ViewBag.Path = TempData["Path"];
             return View();
         }
 
@@ -59,10 +60,10 @@ namespace WebApp.Controllers
             else
             {
                 ViewBag.PathIsExist = false;
-                return RedirectToAction("Index");
+                return RedirectToAction("Iterator");
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Iterator");
         }
         [HttpGet]
         public ActionResult Grabber()
