@@ -8,22 +8,24 @@ namespace WebApp.Models
 {
     public class LoginModel
     {
+        private string _email;
+        private string _password;
 
-        private string email;
         [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email
         {
-            get { return email; }
-            set { email = value.Trim(); }
+            get { return _email; }
+            set { _email = value?.Trim(); }
         }
 
-        private string password;
         [Required]
         [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "Минимальная длина - 6 символа")]
         public string Password
         {
-            get { return password; }
-            set { password = value.Trim(); }
+            get { return _password; }
+            set { _password = value?.Trim(); }
         }
     }
 }

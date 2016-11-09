@@ -80,6 +80,7 @@ namespace WebApp.Controllers
         public ActionResult SignUp(UserDTO user)
         {
             if (!ModelState.IsValid) return View(user);
+
             UserManager.Insert(user);
             return RedirectToAction("Index", "Home");
         }

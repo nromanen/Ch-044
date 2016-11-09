@@ -14,5 +14,7 @@ namespace BAL.Interface
 
         List<UserDTO> GetAll();
         void Insert(UserDTO user);
+        bool UserNameIsExist(string userName);
+        bool EmailIsExist(string userName);
     }
 }
