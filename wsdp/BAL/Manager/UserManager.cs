@@ -68,13 +68,5 @@ namespace BAL.Manager
             uOW.Save();
         }
 
-        //public bool UserNameIsExist(string userName)
-        //{
-        //    uOW.UserRepo.All. 
-        //}
-        //public bool EmailIsExist(string userName)
-        //{
-
-        //}
     }
 }
