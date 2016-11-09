@@ -27,9 +27,9 @@ namespace BAL.Manager.ParseManagers {
 			int countOfPages = GetCountOfPages(url);
 			List<string> urlItems = new List<string>();
 			for (int i = 1; i <= countOfPages - 27; i++) {
-				HtmlDocument doc = web.Load($"http://pulsepad.com.ua/catalog/g4619581-avtomagnitoly?page={i}");
-				var hrefs = doc.DocumentNode.SelectNodes("//ul[@class='browsed_products tiny_products']/li[@class='productli']/div[@class='alldivhover']/h3/a/@href").Select(t => t.Attributes.SingleOrDefault(d => d.Name == "href").Value);
-				urlItems.AddRange(hrefs);
+                //HtmlDocument doc = web.Load($"http://pulsepad.com.ua/catalog/g4619581-avtomagnitoly?page={i}");
+                //var hrefs = doc.DocumentNode.SelectNodes("//ul[@class='browsed_products tiny_products']/li[@class='productli']/div[@class='alldivhover']/h3/a/@href").Select(t => t.Attributes.SingleOrDefault(d => d.Name == "href").Value);
+                //urlItems.AddRange(hrefs);
 			}
 			for(int i = 0; i < urlItems.Count; i++) {
 				urlItems[i] = "http://pulsepad.com.ua/" + urlItems[i];

@@ -82,6 +82,7 @@ namespace DAL.Migrations
             context.Categories.AddOrUpdate(categoryFridges);
             context.Categories.AddOrUpdate(categoryMicrowaves);
             context.Categories.AddOrUpdate(categoryLaptops);
+
         }
     }
 }

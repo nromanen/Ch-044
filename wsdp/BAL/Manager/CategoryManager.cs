@@ -160,7 +160,7 @@ namespace BAL.Manager
             foreach (var category in uOW.CategoryRepo.All.ToList())
             {
                 var categoryWithChildren = this.Get(category.Id, true);
-                categories.Add(Mapper.Map<CategoryDTO>(categoryWithChildren));
+                categories.Add(categoryWithChildren);
             }
 
             return categories;

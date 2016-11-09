@@ -49,7 +49,7 @@ namespace BAL
             CreateMap<WebShop, WebShopDTO>();
             CreateMap<WebShopDTO, WebShop>();
 
-			CreateMap<Parser, ParserDTO>()
+			CreateMap<ParserTask, ParserTaskDTO>()
 				.ForMember(
 				p => p.IteratorSettings, 
 				m => m.MapFrom(x => (IteratorSettingsDTO)serializer.Deserialize(x.IteratorSettings, typeof(IteratorSettingsDTO))))
@@ -57,13 +57,23 @@ namespace BAL
 				p => p.GrabberSettings,
 				m => m.MapFrom(x => (GrabberSettingsDTO)serializer.Deserialize(x.GrabberSettings, typeof(GrabberSettingsDTO))));
 
-			CreateMap<ParserDTO, Parser>()
-				.ForMember(
-				p => p.IteratorSettings,
-				m => m.MapFrom(x => serializer.Serialize(x.IteratorSettings)))
-				.ForMember(
-				p => p.GrabberSettings,
-				m => m.MapFrom(x => serializer.Serialize(x.GrabberSettings)));
+            CreateMap<ParserTaskDTO, ParserTask>()
+                .ForMember(
+                p => p.IteratorSettings,
+                m => m.MapFrom(x => (x.IteratorSettings != null ? serializer.Serialize(x.IteratorSettings) : null)))
+                .ForMember(
+                p => p.Category,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.WebShop,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.GrabberSettings,
+                m => m.MapFrom(x => (x.GrabberSettings != null ? serializer.Serialize(x.GrabberSettings) : null)));
+
+
 		}
     }
 }

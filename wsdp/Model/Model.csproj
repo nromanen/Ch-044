@@ -55,9 +55,9 @@
   <ItemGroup>
     <Compile Include="DB\Category.cs" />
     <Compile Include="DB\Good.cs" />
-    <Compile Include="DB\Parser.cs" />
     <Compile Include="DB\Property.cs" />
     <Compile Include="DB\Role.cs" />
+    <Compile Include="DB\Parser.cs" />
     <Compile Include="DB\User.cs" />
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
