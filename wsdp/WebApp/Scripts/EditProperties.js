@@ -2,7 +2,7 @@
     //Init combobox
     $('.combobox').combobox();
 
-    //Setting values of combobox
+    //Setting values of combobox and hide input with id
     var catid = $("#cat_id").attr('type', 'hidden').val();
     $("#category_id_select").val(catid).change();
     $("#category_id_select ").val(catid).prop('disabled', true);

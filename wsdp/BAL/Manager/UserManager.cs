@@ -20,6 +20,11 @@ namespace BAL.Manager
 
         }
 
+
+        /// <summary>
+        /// Get all users from db.
+        /// </summary>
+        /// <returns></returns>
         public List<UserDTO> GetAll()
         {
             var users = new List<UserDTO>();
@@ -41,6 +46,14 @@ namespace BAL.Manager
             return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName } : null;
         }
 
+        /// <summary>
+        /// Update User in database.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="UserName"></param>
+        /// <param name="Password"></param>
+        /// <param name="Email"></param>
+        /// <param name="RoleId"></param>
         public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
         {
             var User = uOW.UserRepo.GetByID(Id);
@@ -51,6 +64,11 @@ namespace BAL.Manager
             uOW.Save();
         }
 
+
+        /// <summary>
+        /// Insert User to database
+        /// </summary>
+        /// <param name="user"></param>
         public void Insert(UserDTO user)
         {
             if (user == null) return;

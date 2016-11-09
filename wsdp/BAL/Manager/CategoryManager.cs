@@ -19,6 +19,12 @@ namespace BAL.Manager
         {
         }
 
+        /// <summary>
+        /// Get Category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="includeChildren"></param>
+        /// <returns></returns>
         public CategoryDTO Get(int id, bool includeChildren = false)
         {
             var category = uOW.CategoryRepo.GetByID(id);
@@ -40,6 +46,12 @@ namespace BAL.Manager
             return result;
         }
 
+        /// <summary>
+        /// Add Category to database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
         public int Add(string name, int parentId = -1)
         {
             var parent = parentId != -1 ? uOW.CategoryRepo.GetByID(parentId) : null;
@@ -49,6 +61,11 @@ namespace BAL.Manager
             return newCategory.Id;
         }
 
+        /// <summary>
+        /// Delete Category from database.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool Delete(int id)
         {
             try
@@ -79,6 +96,13 @@ namespace BAL.Manager
             return false;
         }
 
+
+        /// <summary>
+        /// Rename Category.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public bool Rename(int id, string name)
         {
             try
@@ -97,6 +121,13 @@ namespace BAL.Manager
             return false;
         }
 
+
+        /// <summary>
+        /// Change Parent of Category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
         public bool ChangeParent(int id, int parentId)
         {
             try
@@ -119,6 +150,10 @@ namespace BAL.Manager
             return false;
         }
 
+        /// <summary>
+        /// Get all categories.
+        /// </summary>
+        /// <returns></returns>
         public List<CategoryDTO> GetAll()
         {
             List<CategoryDTO> categories = new List<CategoryDTO>();

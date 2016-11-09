@@ -20,6 +20,11 @@ namespace BAL.Manager.ParseManagers
         {
         }
 
+
+        /// <summary>
+        /// Get all TV's from database.
+        /// </summary>
+        /// <returns></returns>
         public List<TVDTO> GetAllTVs()
         {
             List<TVDTO> TVs = new List<TVDTO>();
@@ -34,6 +39,11 @@ namespace BAL.Manager.ParseManagers
             return TVs;
         }
 
+        /// <summary>
+        /// Get TV by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public TV GetTVById(int id)
         {
             Good good = null;

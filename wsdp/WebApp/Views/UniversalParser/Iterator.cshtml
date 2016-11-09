@@ -4,11 +4,15 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@Html.Partial("HeaderPartialView")
 
-<form action="@Url.Action("Iterator", "UniversalParser")" method="post">
+<form action="@Url.Action("UniversalParser", "Iterator")" method="post">
 
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.Partial("HeaderPartialView")
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-5">
                 <div class="input-group">
@@ -28,17 +32,54 @@
             <div class="col-sm-5">
 
                 <div class="row col-sm-12">
-
                     <div class="col-sm-3">
                         <label>Item iterator</label>
                     </div>
-
                     <div class="col-sm-7">
                         <textarea class="form-control" rows="4" placeholder="xpath1, xpath2..."></textarea>
                     </div>
-
                 </div>
 
+
+                <div class="row col-sm-12" style="padding-top:100px;">
+                    <input type="radio" />XPath Pagination<br />
+                </div>
+                <div class="row col-sm-12" style="">
+                    <div class="col-sm-3">
+                        <label>Page iterator</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" rows="4" placeholder="xpath1, xpath2..."></textarea>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12" style="padding-top:50px;">
+                    <input type="radio" />Page URL Iterator<br />
+                </div>
+                <div class="row col-sm-12">
+                    <div class="col-sm-3">
+                        <label>URL Mask</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" placeholder="www.some.url/page{}.html" />
+                    </div>
+                </div>
+                <div class="row col-sm-12" style="padding-top:20px;">
+                    <div class="col-sm-3">
+                        <label>From</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" placeholder="1" />
+                    </div>
+                </div>
+                <div class="row col-sm-12" style="padding-top:20px;">
+                    <div class="col-sm-3">
+                        <label>To</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" placeholder="20" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
