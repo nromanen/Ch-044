@@ -64,7 +64,12 @@ namespace DAL.Migrations
                 ParentCategory = categoryComputers
             };
 
-
+            Model.DB.WebShop webShop1 = new Model.DB.WebShop()
+            {
+                Name = "Rozetka",
+                Path = "http://rozetka.com.ua",
+                Status = true
+            };
             //context.Roles.AddOrUpdate(role);
             //context.Users.AddOrUpdate(user);
             context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
@@ -76,7 +81,7 @@ namespace DAL.Migrations
             context.Categories.AddOrUpdate(categoryFridges);
             context.Categories.AddOrUpdate(categoryMicrowaves);
             context.Categories.AddOrUpdate(categoryLaptops);
-
+            context.WebShops.AddOrUpdate(webShop1);
         }
     }
 }

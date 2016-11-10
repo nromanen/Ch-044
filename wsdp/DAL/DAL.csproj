@@ -112,9 +112,13 @@
     <Compile Include="Migrations\201611070814236_Deleted_Charac_Id.Designer.cs">
       <DependentUpon>201611070814236_Deleted_Charac_Id.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611072045198_AddTableParser.cs" />
-    <Compile Include="Migrations\201611072045198_AddTableParser.Designer.cs">
-      <DependentUpon>201611072045198_AddTableParser.cs</DependentUpon>
+    <Compile Include="Migrations\201611081323195_Add_Parsers.cs" />
+    <Compile Include="Migrations\201611081323195_Add_Parsers.Designer.cs">
+      <DependentUpon>201611081323195_Add_Parsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611081646392_fix_name_and_columns_for_parser_task.cs" />
+    <Compile Include="Migrations\201611081646392_fix_name_and_columns_for_parser_task.Designer.cs">
+      <DependentUpon>201611081646392_fix_name_and_columns_for_parser_task.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,8 +167,11 @@
     <EmbeddedResource Include="Migrations\201611070814236_Deleted_Charac_Id.resx">
       <DependentUpon>201611070814236_Deleted_Charac_Id.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611072045198_AddTableParser.resx">
-      <DependentUpon>201611072045198_AddTableParser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611081323195_Add_Parsers.resx">
+      <DependentUpon>201611081323195_Add_Parsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611081646392_fix_name_and_columns_for_parser_task.resx">
+      <DependentUpon>201611081646392_fix_name_and_columns_for_parser_task.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

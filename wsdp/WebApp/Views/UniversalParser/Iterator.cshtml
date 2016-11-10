@@ -1,24 +1,27 @@
-﻿
+﻿@model Model.DTO.IteratorSettingsDTO
 @{
     ViewBag.Title = "Iterator";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<form action="@Url.Action("UniversalParser", "Iterator")" method="post">
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
-                @Html.Partial("HeaderPartialView")
-            </div>
+<div class="container-fluid">
+   
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.Partial("HeaderPartialView")
         </div>
-        <div class="row">
-            <div class="col-sm-5">
+    </div>
+    <br />
+    <div class="row">
+
+        @using (Html.BeginForm("Download", "UniversalParser", FormMethod.Post, new { }))
+        {
+            <input type="hidden" name="id" value="@ViewBag.Id" />
+            <div class="col-sm-12 col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter link..." id="url" name="url">
+                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control", @placeholder = "Enter link..." })
                     <span class="input-group-btn">
-                        <button class="btn btn-default" id="submit" type="submit">@Resources.Resource.Download</button>
+                        <button class="btn btn-default" type="submit"> @Resources.Resource.Download</button>
                     </span>
                 </div>
                 <br />
@@ -28,64 +31,110 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-5">
-
-                <div class="row col-sm-12">
-                    <div class="col-sm-3">
-                        <label>Item iterator</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <textarea class="form-control" rows="4" placeholder="xpath1, xpath2..."></textarea>
-                    </div>
-                </div>
+        }
 
 
-                <div class="row col-sm-12" style="padding-top:100px;">
-                    <input type="radio" />XPath Pagination<br />
-                </div>
-                <div class="row col-sm-12" style="">
-                    <div class="col-sm-3">
-                        <label>Page iterator</label>
+        <div class="col-sm-12 col-md-6">
+            @using (Html.BeginForm("IteratorConfigurations", "UniversalParser", FormMethod.Post, new { }))
+            {
+                <input type="hidden" name="id" value="@ViewBag.Id" />
+                <input type="hidden" name="url" value="@ViewBag.Path" />
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            @Html.Label("Item Iterator")
+                        </div>
+
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(m => m.GoodsIteratorXpath, new { @class = "form-control", @rows = "4", @placeholder = "xpath1, xpath2..." })
+                        </div>
                     </div>
-                    <div class="col-sm-7">
-                        <textarea class="form-control" rows="4" placeholder="xpath1, xpath2..."></textarea>
+
+
+                    <div class="row col-sm-12" style="padding-top:100px;">
+                        @Html.RadioButton("VariantOfPath", "XPath Pagination")XPath Pagination
                     </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            @Html.Label("Page Iterator")
+                        </div>
+
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(m => m.XPathPageIterator, new { @class = "form-control", @rows = "4", @placeholder = "xpath1, xpath2..." })
+
+                        </div>
+
+                    </div>
+
+                    <div class="row col-sm-12" style="padding-top:100px;">
+                        @Html.RadioButton("VariantOfPath", "Page URL Iterator")Page URL Iterator
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+
+                            <div class="col-sm-3">
+                                @Html.Label("URL Mask")
+                            </div>
+
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control", @placeholder = "www.some.url/page{}.html" })
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="padding-top:20px;">
+
+                        <div class="col-sm-12">
+
+                            <div class="col-sm-3">
+                                @Html.Label("From")
+                            </div>
+
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.From, new { @class = "form-control", @placeholder = "1" })
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="padding-top:20px;">
+
+                        <div class="col-sm-12">
+
+                            <div class="col-sm-3">
+                                @Html.Label("To")
+                            </div>
+
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.To, new { @class = "form-control", @placeholder = "10" })
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-default">Next</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="row col-sm-12" style="padding-top:50px;">
-                    <input type="radio" />Page URL Iterator<br />
-                </div>
-                <div class="row col-sm-12">
-                    <div class="col-sm-3">
-                        <label>URL Mask</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" placeholder="www.some.url/page{}.html" />
-                    </div>
-                </div>
-                <div class="row col-sm-12" style="padding-top:20px;">
-                    <div class="col-sm-3">
-                        <label>From</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" placeholder="1" />
-                    </div>
-                </div>
-                <div class="row col-sm-12" style="padding-top:20px;">
-                    <div class="col-sm-3">
-                        <label>To</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" placeholder="20" />
-                    </div>
-                </div>
-            </div>
+            }
         </div>
-    </div>
-    <br />
 
-</form>
+    </div>
+</div>
 
 @Scripts.Render("~/bundles/jquery")
 <script>
@@ -95,5 +144,6 @@
         if (pathIsExist != "") {
             $("#iframe").show();
         }
+        $(".list-inline-item:nth-child(2)").addClass("active");
     });
 </script>

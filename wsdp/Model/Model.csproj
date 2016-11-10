@@ -65,6 +65,7 @@
     <Compile Include="DTO\GrabberSettingsDTO.cs" />
     <Compile Include="DTO\IteratorSettingsDTO.cs" />
     <Compile Include="DTO\ParserDTO.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="DTO\SettingsViewDTO.cs" />
     <Compile Include="DTO\TapeRecorderDTO.cs" />
     <Compile Include="DTO\PhoneDTO.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="DTO\PropertyViewDTO.cs" />
     <Compile Include="DTO\TVDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\UserViewDTO.cs" />
     <Compile Include="DTO\WebShopDTO.cs" />
     <Compile Include="Product\Fridge.cs" />
     <Compile Include="Product\Laptop.cs" />

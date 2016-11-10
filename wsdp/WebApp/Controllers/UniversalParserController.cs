@@ -3,6 +3,7 @@ using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -54,17 +55,26 @@ namespace WebApp.Controllers
             return View();
         }
 
-        //GET:Iterator
+        //GET:UniverslaParser/Iterator/id?
         [HttpGet]
-        public ActionResult Iterator(int id)
+        public ActionResult Iterator(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else
+            {
+                ViewBag.Id = id;
+            }
+
             ViewBag.Path = TempData["Path"];
             return View();
         }
 
-        //POST:Download/url
+        //POST:UniversalParser/url,id
         [HttpPost]
-        public ActionResult Iterator(string url)
+        public ActionResult Download(string url, int? id)
         {
             string pathToSite;
             if (!String.IsNullOrWhiteSpace(url))
@@ -76,13 +86,21 @@ namespace WebApp.Controllers
             else
             {
                 ViewBag.PathIsExist = false;
-                return RedirectToAction("Iterator");
+                return RedirectToAction("Iterator", new { id = id.Value });
             }
 
-            return RedirectToAction("Iterator");
+            return RedirectToAction("Iterator", new { id = id.Value });
         }
+        //POST:UniversalParser/IteratorConfigurations
+        [HttpPost]
+        public ActionResult IteratorConfigurations(int? id, string url, IteratorSettingsDTO view)
+        {
+
+            return RedirectToAction("Grabber", new { id = id.Value });
+        }
+
         [HttpGet]
-        public ActionResult Grabber()
+        public ActionResult Grabber(int? id)
         {
             return View();
         }
