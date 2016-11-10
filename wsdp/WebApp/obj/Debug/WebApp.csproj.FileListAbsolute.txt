@@ -1327,3 +1327,9 @@ D:\GitRepo\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.xml
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.xml
 D:\GitRepo\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
