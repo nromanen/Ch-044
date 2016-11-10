@@ -41,7 +41,9 @@ namespace WebApp.Controllers
 
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "[Неверный логин или пароль.]");
+                    //ModelState.AddModelError("", "[Неверный логин или пароль.]");
+                    ModelState.AddModelError("Email", "Uncorrect email or password");
+                    ModelState.AddModelError("Password", "Uncorrect email or password");
                 }
                 else
                 {
@@ -51,7 +53,7 @@ namespace WebApp.Controllers
                     claim.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider",
                         "OWIN Provider", ClaimValueTypes.String));
                     // TODO: Permissions will be separate story. if (user.Role != null) claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Name, ClaimValueTypes.String));
-                    claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role, ClaimValueTypes.String));
+                    claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.RoleName, ClaimValueTypes.String));
 
                     AuthenticationManager.SignOut();
                     AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
@@ -77,6 +79,16 @@ namespace WebApp.Controllers
         public ActionResult SignUp(UserDTO user)
         {
             if (!ModelState.IsValid) return View(user);
+            if (UserManager.UserNameIsExist(user.UserName))
+            {
+                ModelState.AddModelError("UserName", "UserName is already exist");
+                return View(user);
+            }
+            if (UserManager.EmailIsExist(user.Email))
+            {
+                ModelState.AddModelError("Email", "Email is already exist");
+                return View(user);
+            }
 
             UserManager.Insert(user);
             return RedirectToAction("Index", "Home");
