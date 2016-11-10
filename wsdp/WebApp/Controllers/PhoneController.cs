@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class PhoneController : BaseController
     {
         private IPhoneManager phoneManager;
@@ -31,6 +32,7 @@ namespace WebApp.Controllers
             return View(phone);
         }
 
+        [Authorize(Roles = "Administrator")]
         //just for parsing and filling DB
         public ActionResult Load()
         {

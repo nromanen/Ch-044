@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class UniversalParserController : BaseController
     {
         private IDownloadManager downloadManager;
@@ -22,6 +23,7 @@ namespace WebApp.Controllers
         }
 
         // GET: Settings
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult Settings()
         {
@@ -32,7 +34,7 @@ namespace WebApp.Controllers
             };
             return View(settingsView);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Settings(string description, int categoryid, int shopid, string priority, DateTime datetime)
         {
@@ -54,6 +56,7 @@ namespace WebApp.Controllers
         }
 
         //GET:Iterator
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult Iterator(int id)
         {
@@ -62,6 +65,7 @@ namespace WebApp.Controllers
         }
 
         //POST:Download/url
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Iterator(string url)
         {
@@ -80,13 +84,13 @@ namespace WebApp.Controllers
 
             return RedirectToAction("Iterator");
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult Grabber()
         {
             return View();
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Grabber(string str)
         {
