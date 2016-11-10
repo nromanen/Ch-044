@@ -84,6 +84,7 @@ namespace WebApp.Controllers
             return RedirectToAction("Iterator", new { id = id.Value });
         }
         //POST:UniversalParser/IteratorConfigurations
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult IteratorConfigurations(int? id, string url, IteratorSettingsDTO view)
         {
