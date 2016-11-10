@@ -5,6 +5,7 @@ using Model.DB;
 using Model.DTO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace BAL.Manager
 {
@@ -66,6 +67,15 @@ namespace BAL.Manager
             dbUser.RoleId = user.RoleId == 0 ? 2 : dbUser.RoleId;
             uOW.UserRepo.Insert(dbUser);
             uOW.Save();
+        }
+
+        public bool EmailIsExist(string email)
+        {
+            return uOW.UserRepo.All.Any(x => x.Email == email);
+        }
+        public bool UserNameIsExist(string userName)
+        {
+            return uOW.UserRepo.All.Any(x => x.UserName == userName);
         }
 
     }

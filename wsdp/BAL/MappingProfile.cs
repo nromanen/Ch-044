@@ -17,7 +17,7 @@ namespace BAL
 
             CreateMap<UserDTO, User>();
             CreateMap<User, UserDTO>()
-                .ForMember(x => x.Role, y => y.MapFrom(t => t.Role.Name));
+                .ForMember(x => x.RoleName, y => y.MapFrom(t => t.Role.Name));
 
             CreateMap<Role, RoleDTO>()
                 .ForMember(p => p.Id, m => m.MapFrom(t => t.Id))
