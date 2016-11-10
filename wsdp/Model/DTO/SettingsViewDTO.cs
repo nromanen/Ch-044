@@ -6,5 +6,6 @@ namespace Model.DTO
     {
         public List<CategoryDTO> Categories { get; set; }
         public List<WebShopDTO> Shops { get; set; }
+        public ParserTaskDTO ParserTask { get; set; }
     }
 }
