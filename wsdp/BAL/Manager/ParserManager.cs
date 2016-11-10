@@ -37,8 +37,8 @@ namespace BAL.Manager
 
             ParserTask parsertaskDb = Mapper.Map<ParserTask>(parsertask);
 
-            parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
-            parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
+            //parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
+            //parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
 
             uOW.ParserRepo.Insert(parsertaskDb);
             uOW.Save();

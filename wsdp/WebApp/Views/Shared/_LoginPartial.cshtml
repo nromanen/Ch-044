@@ -10,15 +10,15 @@
                 
             </li>
             <li>@Html.ActionLink(@User.Identity.GetUserName(), "Index", "Home")</li>
-            <li>@Html.ActionLink("[Logout]", "Logout", "Account")</li>
+            <li><a href="Account/Logout"><span class="glyphicon glyphicon glyphicon-log-out"></span></a></li>
         </ul>
     //}
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("[Register]", "SignUp", "Account")</li>
-        <li>@Html.ActionLink("[Log in]", "Login", "Account")</li>
+        <li>@Html.ActionLink("[Sign Up]", "SignUp", "Account")</li>
+        <li><a href="Account/Login"><span class="glyphicon glyphicon glyphicon-log-in"></span></a></li>
     </ul>
 }
 

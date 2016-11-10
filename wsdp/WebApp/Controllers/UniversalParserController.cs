@@ -29,28 +29,17 @@ namespace WebApp.Controllers
         {
             SettingsViewDTO settingsView = new SettingsViewDTO()
             {
-                Categories = categoryManager.GetAll(),
+                Categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList(),
                 Shops = shopManager.GetAll().ToList()
             };
             return View(settingsView);
         }
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult Settings(string description, int categoryid, int shopid, string priority, DateTime datetime)
+        public ActionResult Settings(ParserTaskDTO parser)
         {
-            ParserTaskDTO parser = new ParserTaskDTO()
-            {
-                Description = description,
-                CategoryId = categoryid,
-                WebShopId = shopid,
-                Priority = priority,
-                Status = "Not Finished",
-                EndDate = datetime
-            };
+            parser.Status = "Not Finished";
             int newid = parserManager.Add(parser);
-            int newid2 = parserManager.Add(parser);
-            int newid3 = parserManager.Add(parser);
-            int newid4 = parserManager.Add(parser);
             //return RedirectToAction("Iterator", newid);
             return View();
         }
