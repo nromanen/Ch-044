@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using BAL.Interface;
 using DAL.Interface;
 using ExtendedXmlSerialization;
-using log4net;
 using Model.DB;
 using Model.DTO;
 using Model.Product;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BAL.Manager.ParseManagers
 {
@@ -20,6 +17,10 @@ namespace BAL.Manager.ParseManagers
         {
         }
 
+        /// <summary>
+        /// Get all TV's from database.
+        /// </summary>
+        /// <returns></returns>
         public List<TVDTO> GetAllTVs()
         {
             List<TVDTO> TVs = new List<TVDTO>();
@@ -34,6 +35,11 @@ namespace BAL.Manager.ParseManagers
             return TVs;
         }
 
+        /// <summary>
+        /// Get TV by Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public TV GetTVById(int id)
         {
             Good good = null;

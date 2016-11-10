@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Model.Product {
-
+namespace Model.Product
+{
     [Serializable]
     public class ClearGood
     {
@@ -55,6 +52,7 @@ namespace Model.Product {
             Name = "";
             Description = "";
         }
+
         public override string ToString()
         {
             return Name + " " + Description;
@@ -65,6 +63,7 @@ namespace Model.Product {
     public class Characteristics
     {
         public Dictionary<string, string> Dict { get; set; }
+
         public Characteristics()
         {
             Dict = new Dictionary<string, string>();

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BAL.Interface;
+﻿using BAL.Interface;
 using Common.Enum;
 using DAL.Interface;
 using ExtendedXmlSerialization;
 using Model.DB;
 using Model.Product;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BAL.Manager
 {
@@ -16,7 +13,6 @@ namespace BAL.Manager
     {
         public LaptopManager(IUnitOfWork uOw) : base(uOw)
         {
-
         }
 
         public IEnumerable<Laptop> GetAll()

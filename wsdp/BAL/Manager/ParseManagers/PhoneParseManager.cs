@@ -1,32 +1,23 @@
-﻿using HtmlAgilityPack;
+﻿using BAL.Interface;
+using DAL.Interface;
+using ExtendedXmlSerialization;
+using HtmlAgilityPack;
+using Model.DB;
 using Model.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.Interface;
-using log4net;
-using Model.DB;
-using System.Xml.Serialization;
-using ExtendedXmlSerialization;
-using BAL.Interface;
-using Model.DTO;
-using AutoMapper;
 using System.Text.RegularExpressions;
 
 namespace BAL.Manager.ParseManagers
 {
     //parser for MOYO.UA
 
-
     public class PhoneParseManager : BaseManager, IPhoneParseManager
     {
         public PhoneParseManager(IUnitOfWork uOW) : base(uOW)
         {
-
         }
-
 
         private int GetCountOfPages(string urlpath)
         {
@@ -52,6 +43,7 @@ namespace BAL.Manager.ParseManagers
 
             return count;
         }
+
         public void ParseGoodsFromCategory(string urlpath)
         {
             GoodManager gm = new GoodManager(uOW);
@@ -63,7 +55,6 @@ namespace BAL.Manager.ParseManagers
                 Id = 0,
                 З
             }*/
-
 
             for (int i = 1; i <= countOfPages; i++)
             {
@@ -81,7 +72,6 @@ namespace BAL.Manager.ParseManagers
                         gm.InsertGood(goodDb);
                 }
             }
-
         }
 
         private List<ConcreteGood> GetConcreteGoodsFromOnePage(string urlpath)
@@ -90,8 +80,6 @@ namespace BAL.Manager.ParseManagers
 
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(urlpath);
-
-
 
             var finddivs = doc.DocumentNode.Descendants("div")
                               .Where(d => d.Attributes.Contains("class") && d.Attributes["class"]
@@ -111,7 +99,6 @@ namespace BAL.Manager.ParseManagers
                 string pathForGood = link.Attributes["href"].Value;
 
                 resultListOfConcreteGoods.Add(this.GetConcreteGood(@"http://moyo.ua" + pathForGood));
-
             }
             return resultListOfConcreteGoods;
         }
@@ -254,9 +241,5 @@ namespace BAL.Manager.ParseManagers
             //Console.ReadLine();
             return concreteGood;
         }
-
-
     }
-
-
 }

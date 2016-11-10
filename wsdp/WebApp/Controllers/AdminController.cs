@@ -1,20 +1,20 @@
 ﻿using BAL.Interface;
+using Common.Enum;
 using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Common.Enum;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class AdminController : BaseController
     {
-        ICategoryManager categoryManager;
-        IPropertyManager propertyManager;
-        IUserManager userManager;
-        IRoleManager roleManager;
+        private ICategoryManager categoryManager;
+        private IPropertyManager propertyManager;
+        private IUserManager userManager;
+        private IRoleManager roleManager;
 
         public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager)
         {
@@ -30,35 +30,38 @@ namespace WebApp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult EditCategories()
         {
             var categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList();
             ModelState.Clear();
             return View(categories);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public int AddCategory(string namecategory, int? parentcategory)
         {
             return categoryManager.Add(namecategory, parentcategory ?? -1);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void UpdateCategory(string namecategory, int id)
         {
             categoryManager.Rename(id, namecategory);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void RemoveCategory(int id)
         {
             categoryManager.Delete(id);
         }
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void ChangeParent(int categoryid, int? parentid)
         {
             categoryManager.ChangeParent(categoryid, parentid ?? -1);
         }
+        [Authorize(Roles = "Administrator")]
         public ActionResult AddProperty(int catid)
         {
             List<CategoryDTO> categories =
@@ -70,6 +73,7 @@ namespace WebApp.Controllers
             ModelState.Clear();
             return View(custom_model);
         }
+        [Authorize(Roles = "Administrator")]
         public ActionResult UpdateProperty(int catid, int propid)
         {
             var properties = propertyManager.GetAll().Select(c => c).ToList();
@@ -82,20 +86,20 @@ namespace WebApp.Controllers
             PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories, properties = properties, CategoryId = catid, PropertyId = propid };
             return View(custom_model);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void AddProperty(string Name, string Description, string Type, string Prefix, string Sufix, int Category_Id, string DefaultValue)
         {
             propertyManager.Add(Name, Description, Type, Prefix, Sufix, Category_Id, DefaultValue);
             Response.Redirect("EditCategories");
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void RemoveProperty(int id)
         {
             propertyManager.Delete(id);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void UpdateProperty(int Property_Id, string Name, string Description, string Type, string Prefix,
             string Sufix, string DefaultValue, int Category_Id)
@@ -103,7 +107,7 @@ namespace WebApp.Controllers
             propertyManager.Update(Property_Id, Name, Description, Type, Prefix, Sufix, DefaultValue, Category_Id);
             Response.Redirect("EditCategories");
         }
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult EditUsers()
         {
             var Users = userManager.GetAll().Select(c => c).ToList();
@@ -112,6 +116,7 @@ namespace WebApp.Controllers
             ModelState.Clear();
             return View(CustomView);
         }
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
         {

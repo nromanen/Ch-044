@@ -2,8 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-
-<div class="jumbotron">
+@*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
@@ -29,4 +28,33 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
+</div>*@
+
+<div class="top-nav-bg abs">
+    <div class="razdel-box rel">
+        <a href="javascript:void(0);" class="razdel adapt-1024 js-mmenu-initiator"><b>Каталог товаров</b></a>
+        <span class="razdel-opener razdel open no-adapt-1024"><b>Каталог товаров</b></span>
+        <!--a href="#" class="edit-razdel abs no-adapt-full" id="global-menu-sort-opener"></a-->
+        <!--span class="popup-box abs right" id="js-new-menu-sort-popup" style="display: none;"><div class="arr"></div><span class="close-x">&times;</span><span class="new-style-ico">new</span> &nbsp; Вы можете изменить порядок разделов меню прямо здесь</span-->
+
+
+    </div>
+    <div class="search-box">
+        <label for="toggle-1"><b>Поиск</b></label>
+        <input type="checkbox" class="abs ad-ch-but" id="toggle-1">
+        <div class="s-form-box">
+            <form action="/sr/" method="get" class="open-pup">
+                <input type="submit" value="Поиск" class="but abs" id="doSearch">
+                <div class="s-inp">
+                    <input id="searchbox" name="q" type="text" class="search-txt ui-autocomplete-input" data-default="Что вы хотите купить?" value="Что вы хотите купить?" onfocus="javascript:if(this.value=='Что вы хотите купить?')this.value=''" onblur="javascript:if(this.value=='')this.value='Что вы хотите купить?'" autocomplete="off">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="srv-box g_statistic" data-statistic-key="stat127" id="show-services-list">
+        <span>Наши<br>сервисы</span>
+        <span><b>Сервисы</b></span>
+    </div>
+
+
 </div>

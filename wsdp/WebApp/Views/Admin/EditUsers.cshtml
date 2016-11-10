@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @Styles.Render("~/content/EditUsers_css")
 @Styles.Render("~/Content/css")
 
@@ -45,7 +44,6 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
         <tr>
@@ -58,12 +56,11 @@
         </tr>
     </thead>
     <tbody>
-            @foreach (var user in Model.Users)
-            {
-                
-                    @Html.Partial("UserPartialView", user)
-                    @Html.Partial("RolePartialView", @Model.Roles.FirstOrDefault(i=>i.Id==user.RoleId));
-            }
+        @foreach (var user in Model.Users)
+        {
 
+            @Html.Partial("UserPartialView", user)
+            @Html.Partial("RolePartialView", @Model.Roles.FirstOrDefault(i => i.Id == user.RoleId));
+            }
     </tbody>
 </table>

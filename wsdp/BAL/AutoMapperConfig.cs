@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using Model.DTO;
-using Model.DB;
-using Model.Product;
+﻿using AutoMapper;
 
 namespace BAL
 {
@@ -17,7 +9,6 @@ namespace BAL
             Mapper.Initialize(
                 cfg => cfg.AddProfile(new MappingProfile())
                 );
-
         }
     }
 }

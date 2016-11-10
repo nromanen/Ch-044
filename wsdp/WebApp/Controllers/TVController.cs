@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using BAL.Interface;
+﻿using BAL.Interface;
 using Model.DTO;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class TVController : BaseController
     {
         private ITVManager TVManager;
         private ITVParseManager TVParseManager;
+
         // GET: TV
         public TVController(ITVManager TVManager, ITVParseManager TVParseManager)
         {
             this.TVParseManager = TVParseManager;
             this.TVManager = TVManager;
         }
+
         public ActionResult Index()
         {
             List<TVDTO> TVs = TVManager.GetAllTVs();
@@ -29,7 +29,7 @@ namespace WebApp.Controllers
             var tv = TVManager.GetTVById(id);
             return View(tv);
         }
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Load()
         {
             TVParseManager.ParseCategory(@"https://repka.ua/products/televizori/");

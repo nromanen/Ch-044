@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Model.DTO {
-	public class GrabberSettingsDTO {
-		public Dictionary<int, string> Properties { get; set; }
-	}
+namespace Model.DTO
+{
+    public class GrabberSettingsDTO
+    {
+        public Dictionary<int, string> Properties { get; set; }
+    }
 }

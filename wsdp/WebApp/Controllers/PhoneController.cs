@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using BAL;
-using BAL.Manager.ParseManagers;
-using BAL.Interface;
+﻿using BAL.Interface;
 using Model.DTO;
 using PagedList;
+using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class PhoneController : BaseController
     {
         private IPhoneManager phoneManager;
@@ -21,6 +16,7 @@ namespace WebApp.Controllers
             this.phoneManager = phoneManager;
             this.phoneParseManager = phoneParseManager;
         }
+
         // GET: Phone
         public ActionResult Index(int? page)
         {
@@ -33,9 +29,10 @@ namespace WebApp.Controllers
         public ActionResult ConcretePhone(int id)
         {
             var phone = phoneManager.GetPhoneById(id);
-            return View(phone); 
+            return View(phone);
         }
 
+        [Authorize(Roles = "Administrator")]
         //just for parsing and filling DB
         public ActionResult Load()
         {

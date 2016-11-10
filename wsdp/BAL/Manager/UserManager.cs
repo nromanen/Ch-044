@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
 using BAL.Interface;
 using DAL.Interface;
-using log4net;
+using Model.DB;
 using Model.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.DB;
+using System.Web.UI.WebControls;
 
 namespace BAL.Manager
 {
@@ -17,9 +14,12 @@ namespace BAL.Manager
         public UserManager(IUnitOfWork uOW)
             : base(uOW)
         {
-
         }
 
+        /// <summary>
+        /// Get all users from db.
+        /// </summary>
+        /// <returns></returns>
         public List<UserDTO> GetAll()
         {
             var users = new List<UserDTO>();
@@ -31,16 +31,22 @@ namespace BAL.Manager
             return users;
         }
 
+        /// <summary>
+        /// Get user by email and password
+        /// </summary>
         public UserDTO GetUser(string email, string password)
         {
-            var user = uOW.UserRepo
-                          .Get()
-                          .FirstOrDefault(s => (s.Email == email && s.Password == password));
-
-            // TODO: fix mapping - return user != null ? Mapper.Map<UserDTO>(user) : null;
-            return user != null ? new UserDTO() { Id = user.Id, Email = user.Email, UserName = user.UserName } : null;
+            return GetAll().FirstOrDefault(x => x.Email == email && x.Password == password);
         }
 
+        /// <summary>
+        /// Update User in database.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="UserName"></param>
+        /// <param name="Password"></param>
+        /// <param name="Email"></param>
+        /// <param name="RoleId"></param>
         public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
         {
             var User = uOW.UserRepo.GetByID(Id);
@@ -51,6 +57,9 @@ namespace BAL.Manager
             uOW.Save();
         }
 
+        /// <summary>
+        /// Insert User into database
+        /// </summary>
         public void Insert(UserDTO user)
         {
             if (user == null) return;
@@ -59,5 +68,15 @@ namespace BAL.Manager
             uOW.UserRepo.Insert(dbUser);
             uOW.Save();
         }
+
+        public bool EmailIsExist(string email)
+        {
+            return uOW.UserRepo.All.Any(x => x.Email == email);
+        }
+        public bool UserNameIsExist(string userName)
+        {
+            return uOW.UserRepo.All.Any(x => x.UserName == userName);
+        }
+
     }
 }

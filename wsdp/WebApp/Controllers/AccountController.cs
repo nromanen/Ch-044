@@ -1,9 +1,6 @@
 ﻿using BAL.Interface;
 using Microsoft.Owin.Security;
 using Model.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -12,64 +9,87 @@ using WebApp.Models;
 
 namespace WebApp.Controllers
 {
-	public class AccountController : BaseController {
+    public class AccountController : BaseController
+    {
+        private IUserManager UserManager;
 
-		private IUserManager UserManager;
+        public AccountController(IUserManager userManager)
+        {
+            UserManager = userManager;
+        }
 
-		public AccountController(IUserManager userManager)
-		{
-			UserManager = userManager;
-		}
-		
-		private IAuthenticationManager AuthenticationManager {
-			get {
-				return HttpContext.GetOwinContext().Authentication;
-			}
-		}
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
 
-		public ActionResult Login() {
-			return View(new LoginModel());
-		}
+        public ActionResult Login()
+        {
+            return View(new LoginModel());
+        }
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Login(LoginModel model) {
-			if (ModelState.IsValid)
-			{
-				UserDTO user = UserManager.GetUser(model.Email, model.Password);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UserDTO user = UserManager.GetUser(model.Email, model.Password);
 
-				if (user == null) {
-					ModelState.AddModelError("", "[Неверный логин или пароль.]");
-				} else {
-					ClaimsIdentity claim = new ClaimsIdentity("ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-					claim.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString(), ClaimValueTypes.String));
-					claim.AddClaim(new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email, ClaimValueTypes.String));
-					claim.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider",
-						"OWIN Provider", ClaimValueTypes.String));
-					// TODO: Permissions will be separate story. if (user.Role != null) claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Name, ClaimValueTypes.String));
+                if (user == null)
+                {
+                    //ModelState.AddModelError("", "[Неверный логин или пароль.]");
+                    ModelState.AddModelError("Email", "Uncorrect email or password");
+                    ModelState.AddModelError("Password", "Uncorrect email or password");
+                }
+                else
+                {
+                    ClaimsIdentity claim = new ClaimsIdentity("ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+                    claim.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString(), ClaimValueTypes.String));
+                    claim.AddClaim(new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email, ClaimValueTypes.String));
+                    claim.AddClaim(new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider",
+                        "OWIN Provider", ClaimValueTypes.String));
+                    // TODO: Permissions will be separate story. if (user.Role != null) claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Name, ClaimValueTypes.String));
+                    claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.RoleName, ClaimValueTypes.String));
 
-					AuthenticationManager.SignOut();
-					AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
-					return RedirectToAction("Index", "Home");
-				}
-			}
-			return View(model);
-		}
+                    AuthenticationManager.SignOut();
+                    AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(model);
+        }
 
-		public ActionResult Logout() {
-			AuthenticationManager.SignOut();
-			return RedirectToAction("Index", "Home");
-		}
+        public ActionResult Logout()
+        {
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
 
-	    public ActionResult SignUp()
-	    {
-	        return View(new UserDTO());
-	    }
+        public ActionResult SignUp()
+        {
+            return View(new UserDTO());
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(UserDTO user)
         {
             if (!ModelState.IsValid) return View(user);
+            if (UserManager.UserNameIsExist(user.UserName))
+            {
+                ModelState.AddModelError("UserName", "UserName is already exist");
+                return View(user);
+            }
+            if (UserManager.EmailIsExist(user.Email))
+            {
+                ModelState.AddModelError("Email", "Email is already exist");
+                return View(user);
+            }
+
             UserManager.Insert(user);
             return RedirectToAction("Index", "Home");
         }

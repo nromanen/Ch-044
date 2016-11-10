@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
@@ -9,67 +9,63 @@
     <link rel="stylesheet" type="text/css" href="~/Content/sidebar-style.css">
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("WSDP", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink(Resources.Resource.Home, "Index", "Home")</li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> WebShops <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")</li>
-                        <li>@Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")</li>
-                    </ul>  
-                </li>
-                <li>@Html.ActionLink(Resources.Resource.IFrame, "Index", "Frame")</li>
-                <li>@Html.ActionLink("Download Page", "Index", "DownloadPage")</li>
-                <li>@Html.ActionLink("Edit Categories", "EditCategories", "Admin")</li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> @Resources.Resource.Parsers <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            @Html.ActionLink("Phone", "Index", "Phone")
-                        </li>
-                        <li>
-                            @Html.ActionLink(@Resources.Resource.TVs, "Index", "TV")
-                        </li>
-                        <li>
-                            @Html.ActionLink(Resources.Resource.Laptops, "Index", "Laptop")
-                        </li>
-                        <li>
-                            @Html.ActionLink(Resources.Resource.TapeRecorders, "All", "TapeRecorder")
-                        </li>
-                        <li>
-                            @Html.ActionLink(Resources.Resource.Fridges, "Index", "Fridge")
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href=@Url.Action("SignUp", "Account")><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href=@Url.Action("Login", "Account")><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("WSDP", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(Resources.Resource.Home, "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> [Admin Settings] <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink(Resources.Resource.IFrame, "Index", "Frame")</li>
+                            <li>@Html.ActionLink("Edit Categories", "EditCategories", "Admin")</li>
+                            <li>@Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")</li>
+                            <li>@Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> @Resources.Resource.Parsers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("Phone", "Index", "Phone")
+                            </li>
+                            <li>
+                                @Html.ActionLink(@Resources.Resource.TVs, "Index", "TV")
+                            </li>
+                            <li>
+                                @Html.ActionLink(Resources.Resource.Laptops, "Index", "Laptop")
+                            </li>
+                            <li>
+                                @Html.ActionLink(Resources.Resource.TapeRecorders, "All", "TapeRecorder")
+                            </li>
+                            <li>
+                                @Html.ActionLink(Resources.Resource.Fridges, "Index", "Fridge")
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li><a href=@Url.Action("SignUp", "Account")><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href=@Url.Action("Login", "Account")><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-
-
-    <hr/>
-<br/>
-
+    <hr />
+    <br />
     <div class="container body-content">
         <div class="row">
             <div class="col-sm-12">
-
                 @RenderBody()
                 <hr />
                 <footer>
@@ -82,15 +78,13 @@
                 </footer>
             </div>
         </div>
-
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/EditProperties") 
+    @Scripts.Render("~/bundles/EditProperties")
     @Scripts.Render("~/bundles/WebShop")
     @Scripts.Render("~/bundles/EditUsers")
     @Scripts.Render("~/Content/editcategories")
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

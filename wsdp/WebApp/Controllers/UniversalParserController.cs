@@ -1,20 +1,20 @@
 ﻿using BAL.Interface;
 using Model.DTO;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class UniversalParserController : BaseController
     {
         private IDownloadManager downloadManager;
         private ICategoryManager categoryManager;
         private IWebShopManager shopManager;
         private IParserTaskManager parserManager;
+
         public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parserManager)
         {
             this.downloadManager = downloadManager;
@@ -24,38 +24,29 @@ namespace WebApp.Controllers
         }
 
         // GET: Settings
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult Settings()
         {
             SettingsViewDTO settingsView = new SettingsViewDTO()
             {
-                Categories = categoryManager.GetAll(),
+                Categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList(),
                 Shops = shopManager.GetAll().ToList()
             };
             return View(settingsView);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult Settings(string description, int categoryid, int shopid, string priority, DateTime datetime)
+        public ActionResult Settings(ParserTaskDTO parser)
         {
-            ParserTaskDTO parser = new ParserTaskDTO()
-            {
-                Description = description,
-                CategoryId = categoryid,
-                WebShopId = shopid,
-                Priority = priority,
-                Status = "Not Finished",
-                EndDate = datetime
-            };
+            parser.Status = "Not Finished";
             int newid = parserManager.Add(parser);
-            int newid2 = parserManager.Add(parser);
-            int newid3 = parserManager.Add(parser);
-            int newid4 = parserManager.Add(parser);
             //return RedirectToAction("Iterator", newid);
             return View();
         }
 
         //GET:UniverslaParser/Iterator/id?
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult Iterator(int? id)
         {
@@ -73,6 +64,7 @@ namespace WebApp.Controllers
         }
 
         //POST:UniversalParser/url,id
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Download(string url, int? id)
         {
@@ -98,12 +90,13 @@ namespace WebApp.Controllers
 
             return RedirectToAction("Grabber", new { id = id.Value });
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public ActionResult Grabber(int? id)
         {
             return View();
         }
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Grabber(string str)
         {

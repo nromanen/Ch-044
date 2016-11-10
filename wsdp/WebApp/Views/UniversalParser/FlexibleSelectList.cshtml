@@ -1,0 +1,17 @@
+﻿@model List<Model.DTO.CategoryDTO>
+
+@foreach (var category in Model)
+{
+    if (category.HasChildrenCategories)
+    {
+        <optgroup label="@category.Name" data-tokens="@category.Name">
+            @Html.Partial("FlexibleSelectList",category.ChildrenCategory)
+        </optgroup>
+    }
+    else
+    {
+        <option data-tokens="@category.Name" value="@category.Id">
+            @category.Name
+        </option>
+    }
+}

@@ -3,14 +3,11 @@ using Common.Enum;
 using DAL.Interface;
 using ExtendedXmlSerialization;
 using HtmlAgilityPack;
-using log4net;
 using Model.DB;
 using Model.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BAL.Manager.ParseManagers
 {
@@ -18,7 +15,6 @@ namespace BAL.Manager.ParseManagers
     {
         public FridgeParseManager(IUnitOfWork uOW) : base(uOW)
         {
-
         }
 
         public void GetConcreteGoodsFromCategory(string url)
@@ -84,7 +80,6 @@ namespace BAL.Manager.ParseManagers
 
                 foreach (var div in findDivs)
                 {
-
                     var link = div.ChildNodes.Where(d => d.Name == "p").FirstOrDefault().ChildNodes.Where(h => h.Name == "a").FirstOrDefault();
 
                     string pathForGood = @"http://tehnotrade.com.ua/" + link.Attributes["href"].Value;
@@ -102,8 +97,8 @@ namespace BAL.Manager.ParseManagers
                 logger.Error(ex.Message);
                 return null;
             }
-
         }
+
         public Fridge ParseFridge(string url)
         {
             HtmlWeb web = new HtmlWeb();
@@ -178,8 +173,6 @@ namespace BAL.Manager.ParseManagers
                 logger.Error(ex.Message);
                 return null;
             }
-
         }
     }
 }
-

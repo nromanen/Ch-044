@@ -2,11 +2,8 @@
 using BAL.Interface;
 using DAL.Interface;
 using Model.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BAL.Manager
 {
@@ -15,7 +12,6 @@ namespace BAL.Manager
         public RoleManager(IUnitOfWork uOW)
             : base(uOW)
         {
-
         }
 
         public List<RoleDTO> GetAll()

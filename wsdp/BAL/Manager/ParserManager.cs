@@ -7,8 +7,6 @@ using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BAL.Manager
 {
@@ -16,8 +14,8 @@ namespace BAL.Manager
     {
         public ParserTaskManager(IUnitOfWork uOw) : base(uOw)
         {
-
         }
+
         public ParserTaskDTO Get(int id)
         {
             var parser = uOW.ParserRepo.GetByID(id);
@@ -39,8 +37,8 @@ namespace BAL.Manager
 
             ParserTask parsertaskDb = Mapper.Map<ParserTask>(parsertask);
 
-            parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
-            parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
+            //parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
+            //parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
 
             uOW.ParserRepo.Insert(parsertaskDb);
             uOW.Save();
@@ -61,7 +59,7 @@ namespace BAL.Manager
         public ParserTaskDTO Update(ParserTaskDTO parsertask)
         {
             var serializer = new ExtendedXmlSerializer();
-            
+
             var temp = uOW.ParserRepo.Get(p => p.Id == parsertask.Id).FirstOrDefault();
             if (temp == null)
             {
