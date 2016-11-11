@@ -1,27 +1,28 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Resources;
 
 namespace WebApp.Models
 {
     public class LoginModel
     {
-        private string _email;
-        private string _password;
+        private string email;
+        private string password;
 
-        [Required]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationEmail")]
         public string Email
         {
-            get { return _email; }
-            set { _email = value?.Trim(); }
+            get { return email; }
+            set { email = value?.Trim(); }
         }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Минимальная длина - 6 символа")]
+        [MinLength(4, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationPassword")]
         public string Password
         {
-            get { return _password; }
-            set { _password = value?.Trim(); }
+            get { return password; }
+            set { password = value?.Trim(); }
         }
     }
 }

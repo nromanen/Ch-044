@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Resources;
 
 
 namespace Model.DB
@@ -15,15 +16,15 @@ namespace Model.DB
         public int Id { get; set; }
 
         [Required]
-        [MinLength(4, ErrorMessage = "Minimum length - 4 characters")]
+        [MinLength(4)]
         public string UserName { get; set; }
 
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Minimum length - 6 characters")]
+        [MinLength(4)]
         public string Password { get; set; }
 
         [Required]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [ForeignKey("RoleId")]

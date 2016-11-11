@@ -378,4 +378,10 @@
   <data name="UserNameExist" xml:space="preserve">
     <value>Ім'я користувача вже існує</value>
   </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Паролі не співпадають</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Поле обов'язкове для вводу</value>
+  </data>
 </root>

@@ -375,4 +375,10 @@
   <data name="UserNameExist" xml:space="preserve">
     <value>User name is already exist</value>
   </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Confirm password doesn't match, Type again!</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Field is requiered</value>
+  </data>
 </root>
