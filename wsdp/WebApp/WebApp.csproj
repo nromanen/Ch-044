@@ -257,6 +257,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EditUserModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -273,6 +274,7 @@
     <Content Include="Content\EditUsersStylesheet.css" />
     <Content Include="Content\Frame\highlight.css" />
     <Content Include="Content\FridgeIndex.css" />
+    <Content Include="Content\IndexStyleSheet.css" />
     <Content Include="Content\jquery.treemenu.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\sidebar-style.css" />
@@ -368,6 +370,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Users\_UserEditModalView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -45,7 +45,9 @@ namespace WebApp
             try
             {
                 var container = new Container();
+                // Так делать вобще нельзя
                 container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
+
                 container.Register<IUserManager, UserManager>();
                 container.Register<ICategoryManager, CategoryManager>();
                 container.Register<IPhoneManager, PhoneManager>();
@@ -63,6 +65,8 @@ namespace WebApp
                 container.Register<IDownloadManager, DownloadManager>();
                 container.Register<IRoleManager, RoleManager>();
                 container.Register<IParserTaskManager, ParserTaskManager>();
+                container.Register<IGoodManager, GoodManager>();
+
 
                 container.Verify();
                 DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
