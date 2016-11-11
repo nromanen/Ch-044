@@ -258,4 +258,34 @@
   <data name="Inputs" xml:space="preserve">
     <value>Поля для записи</value>
   </data>
+  <data name="From" xml:space="preserve">
+    <value>От</value>
+  </data>
+  <data name="Grabber" xml:space="preserve">
+    <value>Граббер</value>
+  </data>
+  <data name="ItemIterator" xml:space="preserve">
+    <value>Нумератор объектов</value>
+  </data>
+  <data name="Iterator" xml:space="preserve">
+    <value>Итератор</value>
+  </data>
+  <data name="PageIterator" xml:space="preserve">
+    <value>Нумератор страниц</value>
+  </data>
+  <data name="PageURLIterator" xml:space="preserve">
+    <value>URL нумератор страниц</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>До</value>
+  </data>
+  <data name="URLMask" xml:space="preserve">
+    <value>URL Маска</value>
+  </data>
+  <data name="XPathPagination" xml:space="preserve">
+    <value>XPath Нумератор страниц</value>
+  </data>
 </root>

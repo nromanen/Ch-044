@@ -24,6 +24,10 @@ namespace WebApp
                     "~/Scripts/webshop.js")
             );
 
+            bundles.Add(new ScriptBundle("~/bundles/IteratorPage").Include(
+                "~/Scripts/IteratorPage/IteratorPage.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
                     "~/Scripts/editcategories.js",
                     "~/Scripts/jquery-sortable.js",

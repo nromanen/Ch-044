@@ -250,29 +250,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to From.
-        /// </summary>
-        public static string From {
-            get {
-                return ResourceManager.GetString("From", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to GO TO SHOP.
         /// </summary>
         public static string GoToShop {
             get {
                 return ResourceManager.GetString("GoToShop", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Grabber.
-        /// </summary>
-        public static string Grabber {
-            get {
-                return ResourceManager.GetString("Grabber", resourceCulture);
             }
         }
         
@@ -304,24 +286,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Item Iterator.
-        /// </summary>
-        public static string ItemIterator {
-            get {
-                return ResourceManager.GetString("ItemIterator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Iterator.
-        /// </summary>
-        public static string Iterator {
-            get {
-                return ResourceManager.GetString("Iterator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Laptops.
         /// </summary>
         public static string Laptops {
@@ -345,24 +309,6 @@ namespace Resources {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Page Iterator.
-        /// </summary>
-        public static string PageIterator {
-            get {
-                return ResourceManager.GetString("PageIterator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Page URL Iterator.
-        /// </summary>
-        public static string PageURLIterator {
-            get {
-                return ResourceManager.GetString("PageURLIterator", resourceCulture);
             }
         }
         
@@ -421,15 +367,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        public static string Settings {
-            get {
-                return ResourceManager.GetString("Settings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string Submit {
@@ -462,15 +399,6 @@ namespace Resources {
         public static string TapeRecorders {
             get {
                 return ResourceManager.GetString("TapeRecorders", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To.
-        /// </summary>
-        public static string To {
-            get {
-                return ResourceManager.GetString("To", resourceCulture);
             }
         }
         
@@ -538,29 +466,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL Mask.
-        /// </summary>
-        public static string URLMask {
-            get {
-                return ResourceManager.GetString("URLMask", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Web Shops.
         /// </summary>
         public static string WebShops {
             get {
                 return ResourceManager.GetString("WebShops", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to XPath Pagination.
-        /// </summary>
-        public static string XPathPagination {
-            get {
-                return ResourceManager.GetString("XPathPagination", resourceCulture);
             }
         }
     }

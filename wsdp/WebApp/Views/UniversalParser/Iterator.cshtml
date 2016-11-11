@@ -5,7 +5,7 @@
 }
 
 <div class="container-fluid">
-   
+
     <div class="row">
         <div class="col-sm-12">
             @Html.Partial("HeaderPartialView")
@@ -19,7 +19,7 @@
             <input type="hidden" name="id" value="@ViewBag.Id" />
             <div class="col-sm-12 col-md-6">
                 <div class="input-group">
-                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control", @placeholder = "Enter link..." })
+                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control", @placeholder = "Enter link..." , @Value = ViewBag.Path})
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit"> @Resources.Resource.Download</button>
                     </span>
@@ -27,7 +27,7 @@
                 <br />
                 <div class="row">
                     <div class="col-sm-12" id="iframe">
-                        <iframe src="@(ViewBag.Path)" style="width:100%; height:700px"></iframe>
+                        <iframe src="@(ViewBag.Path)" style="width:100%; height:600px;"></iframe>
                     </div>
                 </div>
             </div>
@@ -41,102 +41,93 @@
                 <input type="hidden" name="url" value="@ViewBag.Path" />
                 <div class="col-sm-12">
                     <div class="row">
+
                         <div class="col-sm-3">
-                            @Html.Label("Item Iterator")
+                            @Html.Label(Resources.Resource.ItemIterator)
                         </div>
 
                         <div class="col-sm-9">
-                            @Html.TextAreaFor(m => m.GoodsIteratorXpath, new { @class = "form-control", @rows = "4", @placeholder = "xpath1, xpath2..." })
+                            @Html.TextAreaFor(m => m.GoodsIteratorXpath, new { @class = "form-control", @rows = "4", @placeholder = "xpath1, xpath2...", style = "resize:none;" })
                         </div>
                     </div>
 
 
-                    <div class="row col-sm-12" style="padding-top:100px;">
-                        @Html.RadioButton("VariantOfPath", "XPath Pagination")XPath Pagination
+                    <div class="row col-sm-12" style="padding-top:70px;">
+                        @Html.RadioButton("VariantOfPath", "XPath Pagination", new { @id="var1", @checked = "checked" })@Resources.Resource.XPathPagination
                     </div>
 
                     <div class="row">
 
                         <div class="col-sm-3">
-                            @Html.Label("Page Iterator")
+                            @Html.Label(Resources.Resource.PageIterator)
                         </div>
 
                         <div class="col-sm-9">
-                            @Html.TextAreaFor(m => m.XPathPageIterator, new { @class = "form-control", @rows = "4", @placeholder = "xpath1, xpath2..." })
+                            @Html.TextAreaFor(m => m.XPathPageIterator, new { @class = "form-control", @rows = "4", @placeholder = "xpath1, xpath2...", style = "resize:none;" })
 
                         </div>
 
                     </div>
 
-                    <div class="row col-sm-12" style="padding-top:100px;">
-                        @Html.RadioButton("VariantOfPath", "Page URL Iterator")Page URL Iterator
+                    <div class="row col-sm-12" style="padding-top:70px;">
+                        @Html.RadioButton("VariantOfPath", "Page URL Iterator", new { @id = "var2"})@Resources.Resource.PageURLIterator
                     </div>
 
                     <div class="row">
 
-                        <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            @Html.Label(Resources.Resource.URLMask)
+                        </div>
 
-                            <div class="col-sm-3">
-                                @Html.Label("URL Mask")
-                            </div>
-
-                            <div class="col-sm-9">
-                                @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control", @placeholder = "www.some.url/page{}.html" })
-                            </div>
-
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control", @placeholder = "www.some.url/page{}.html" })
                         </div>
 
                     </div>
 
                     <div class="row" style="padding-top:20px;">
 
-                        <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            @Html.Label(Resources.Resource.From)
+                        </div>
 
-                            <div class="col-sm-3">
-                                @Html.Label("From")
-                            </div>
-
-                            <div class="col-sm-9">
-                                @Html.TextBoxFor(m => m.From, new { @class = "form-control", @placeholder = "1" })
-                            </div>
-
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(m => m.From, new { @class = "form-control", @placeholder = "1" })
                         </div>
 
                     </div>
 
                     <div class="row" style="padding-top:20px;">
 
-                        <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            @Html.Label(Resources.Resource.To)
+                        </div>
 
-                            <div class="col-sm-3">
-                                @Html.Label("To")
-                            </div>
-
-                            <div class="col-sm-9">
-                                @Html.TextBoxFor(m => m.To, new { @class = "form-control", @placeholder = "10" })
-                            </div>
-
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(m => m.To, new { @class = "form-control", @placeholder = "10" })
                         </div>
 
                     </div>
-
+                    <br />
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-2">
-                                <button type="submit" class="btn btn-default">Next</button>
-                            </div>
+
+                        <div class="col-sm-offset-10">
+                            <button type="submit" class="btn btn-default">Next</button>
                         </div>
+
                     </div>
 
                 </div>
-
             }
         </div>
 
     </div>
 </div>
 
-@Scripts.Render("~/bundles/jquery")
+@section Scripts{
+
+@Scripts.Render("~/bundles/IteratorPage")
+
 <script>
     $(document).ready(function () {
         $("#iframe").hide();
@@ -144,6 +135,9 @@
         if (pathIsExist != "") {
             $("#iframe").show();
         }
-        $(".list-inline-item:nth-child(2)").addClass("active");
+
     });
 </script>
+
+}
+

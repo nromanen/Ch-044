@@ -7,6 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Content/sidebar-style.css">
+    <script src="~/Scripts/IteratorPage/IteratorPage.js"></script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -29,6 +30,7 @@
                             <li>@Html.ActionLink("Edit Categories", "EditCategories", "Admin")</li>
                             <li>@Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")</li>
                             <li>@Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")</li>
+                            <li>@Html.ActionLink("Settings/Iterator/Grabber","Settings", "UniversalParser")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
