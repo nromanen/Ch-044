@@ -9,6 +9,7 @@ namespace Model.DTO
         public int? ParentCategoryId { get; set; }
         public ICollection<CategoryDTO> ChildrenCategory { get; set; }
         public ICollection<PropertyDTO> PropertiesList { get; set; }
+        public int OrderNo { get; set; }
 
         /// <summary>
         /// Answers if there are children categories for current one

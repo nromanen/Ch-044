@@ -120,6 +120,14 @@
     <Compile Include="Migrations\201611081646392_fix_name_and_columns_for_parser_task.Designer.cs">
       <DependentUpon>201611081646392_fix_name_and_columns_for_parser_task.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611111335323_Add new column - OrderNo for catetegories.cs" />
+    <Compile Include="Migrations\201611111335323_Add new column - OrderNo for catetegories.Designer.cs">
+      <DependentUpon>201611111335323_Add new column - OrderNo for catetegories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611111359432_addSocialNetworkToUser.cs" />
+    <Compile Include="Migrations\201611111359432_addSocialNetworkToUser.Designer.cs">
+      <DependentUpon>201611111359432_addSocialNetworkToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -176,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611081646392_fix_name_and_columns_for_parser_task.resx">
       <DependentUpon>201611081646392_fix_name_and_columns_for_parser_task.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111335323_Add new column - OrderNo for catetegories.resx">
+      <DependentUpon>201611111335323_Add new column - OrderNo for catetegories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111359432_addSocialNetworkToUser.resx">
+      <DependentUpon>201611111359432_addSocialNetworkToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
