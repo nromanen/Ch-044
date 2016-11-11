@@ -128,6 +128,10 @@
     <Compile Include="Migrations\201611111359432_addSocialNetworkToUser.Designer.cs">
       <DependentUpon>201611111359432_addSocialNetworkToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611111546534_SetPasswordAsNotRequiredInUser.cs" />
+    <Compile Include="Migrations\201611111546534_SetPasswordAsNotRequiredInUser.Designer.cs">
+      <DependentUpon>201611111546534_SetPasswordAsNotRequiredInUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -190,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611111359432_addSocialNetworkToUser.resx">
       <DependentUpon>201611111359432_addSocialNetworkToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111546534_SetPasswordAsNotRequiredInUser.resx">
+      <DependentUpon>201611111546534_SetPasswordAsNotRequiredInUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

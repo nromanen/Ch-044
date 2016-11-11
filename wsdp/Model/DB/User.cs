@@ -18,7 +18,6 @@ namespace Model.DB
         [MinLength(4, ErrorMessage = "Minimum length - 4 characters")]
         public string UserName { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Minimum length - 6 characters")]
         public string Password { get; set; }
