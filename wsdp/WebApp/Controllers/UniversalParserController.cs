@@ -104,8 +104,13 @@ namespace WebApp.Controllers
         //POST:UniversalParser/IteratorConfigurations
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult IteratorConfigurations(int? id, string url, IteratorSettingsDTO view)
+        public ActionResult IteratorConfigurations(int? id, string url, IteratorSettingsDTO model)
         {
+            var _task = parsertaskManager.Get(id.Value);
+            model.Url = url;
+            _task.IteratorSettings = model;
+
+            parsertaskManager.Update(_task);
 
             return RedirectToAction("Grabber", new { id = id.Value });
         }
