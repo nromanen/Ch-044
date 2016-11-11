@@ -5,20 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>[SignUp]</h2>
+
 <div class="container">
+    <div class="row">
+        <h2>[SignUp]</h2>
+        <div class="col-md-4 col-md-offset-8">
+            <span>[Also You may to sign up via social networks: ]</span>
+        </div>
+        <div class="col-md-3 col-md-offset-9">
+            <div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name;providers=vkontakte,facebook,googleplus;hidden=;redirect_uri=http%3A%2F%2F;mobilebuttons=0;"></div>
+        </div>
+    </div>
     <div class="row">
         <form action="/Account/SignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
 
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <hr />
+                <hr/>
                 <div class="form-group">
                     <label class="control-label col-md-2">[User name]</label>
                     <div class="col-md-4">
                         <input id="textinput" name="UserName" type="text" value="@Model.UserName" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
@@ -26,7 +35,7 @@
                     <label class="control-label col-md-2">[Email]</label>
                     <div class="col-md-4">
                         <input id="textinput" name="Email" type="text" value="@Model.Email" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
@@ -34,21 +43,21 @@
                     <label class="control-label col-md-2">[Password]</label>
                     <div class="col-md-4">
                         <input id="textinput" name="Password" type="password" value="@Model.Password" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2">[Password confirm]</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="ConfirmPassword" type="password" value="@Model.ConfirmPassword" placeholder="placeholder" class="form-control input-md password-confirm" />
-                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        <input id="textinput" name="ConfirmPassword" type="password" value="@Model.ConfirmPassword" placeholder="placeholder" class="form-control input-md password-confirm"/>
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "text-danger"})
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-default"/>
                     </div>
                 </div>
             </div>
@@ -57,6 +66,4 @@
     </div>
 </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<script src="//ulogin.ru/js/ulogin.js"></script>
