@@ -306,4 +306,25 @@
   <data name="UpdatingParserTask" xml:space="preserve">
     <value>Updating parser task</value>
   </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="ItemIterator" xml:space="preserve">
+    <value>Item Iterator</value>
+  </data>
+  <data name="PageIterator" xml:space="preserve">
+    <value>Page Iterator</value>
+  </data>
+  <data name="PageURLIterator" xml:space="preserve">
+    <value>Page URL Iterator</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="URLMask" xml:space="preserve">
+    <value>URL Mask</value>
+  </data>
+  <data name="XPathPagination" xml:space="preserve">
+    <value>XPath Pagination</value>
+  </data>
 </root>

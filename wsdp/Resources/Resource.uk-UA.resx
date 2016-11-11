@@ -306,4 +306,25 @@
   <data name="UpdatingParserTask" xml:space="preserve">
     <value>Оновлення завдання-парсеру</value>
   </data>
+  <data name="From" xml:space="preserve">
+    <value>Від</value>
+  </data>
+  <data name="ItemIterator" xml:space="preserve">
+    <value>Нумератор об'єкта</value>
+  </data>
+  <data name="PageIterator" xml:space="preserve">
+    <value>Нумератор сторінок</value>
+  </data>
+  <data name="PageURLIterator" xml:space="preserve">
+    <value>URL нумератор сторінок</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>До</value>
+  </data>
+  <data name="URLMask" xml:space="preserve">
+    <value>URL Маска</value>
+  </data>
+  <data name="XPathPagination" xml:space="preserve">
+    <value>XPath Нумератор сторінок</value>
+  </data>
 </root>
