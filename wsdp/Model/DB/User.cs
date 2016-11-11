@@ -30,5 +30,7 @@ namespace Model.DB
         public virtual Role Role { get; set; }
 
         public int RoleId { get; set; }
+
+        public string SocialNetwork { get; set; }
     }
 }
