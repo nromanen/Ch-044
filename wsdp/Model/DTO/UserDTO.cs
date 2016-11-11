@@ -17,7 +17,6 @@ namespace Model.DTO
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Минимальная длина - 6 символа")]
         public string Password { get; set; }

@@ -366,4 +366,16 @@
   <data name="Cancel" xml:space="preserve">
     <value>Відмінити</value>
   </data>
+  <data name="EmailExist" xml:space="preserve">
+    <value>Email вже існує</value>
+  </data>
+  <data name="InputPassword" xml:space="preserve">
+    <value>Введіть пароль</value>
+  </data>
+  <data name="UncorrectEmailPassword" xml:space="preserve">
+    <value>Неправильний email або пароль</value>
+  </data>
+  <data name="UserNameExist" xml:space="preserve">
+    <value>Ім'я користувача вже існує</value>
+  </data>
 </root>

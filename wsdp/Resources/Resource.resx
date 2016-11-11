@@ -363,4 +363,16 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="EmailExist" xml:space="preserve">
+    <value>Email is already exist</value>
+  </data>
+  <data name="InputPassword" xml:space="preserve">
+    <value>Input password</value>
+  </data>
+  <data name="UncorrectEmailPassword" xml:space="preserve">
+    <value>Uncorrect email or password</value>
+  </data>
+  <data name="UserNameExist" xml:space="preserve">
+    <value>User name is already exist</value>
+  </data>
 </root>

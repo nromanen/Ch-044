@@ -41,9 +41,8 @@ namespace WebApp.Controllers
 
                 if (user == null)
                 {
-                    //ModelState.AddModelError("", "[Неверный логин или пароль.]");
-                    ModelState.AddModelError("Email", "Uncorrect email or password");
-                    ModelState.AddModelError("Password", "Uncorrect email or password");
+                    ModelState.AddModelError("Email", Resources.Resource.UncorrectEmailPassword);
+                    ModelState.AddModelError("Password", Resources.Resource.UncorrectEmailPassword);
                 }
                 else
                 {
@@ -78,17 +77,19 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(UserDTO user)
         {
-            if (!ModelState.IsValid) return View(user);
+            if (user.Password == null)
+            {
+                ModelState.AddModelError("Password", Resources.Resource.InputPassword);
+            }
             if (UserManager.UserNameIsExist(user.UserName))
             {
-                ModelState.AddModelError("UserName", "UserName is already exist");
-                return View(user);
+                ModelState.AddModelError("UserName", Resources.Resource.UserNameExist);
             }
             if (UserManager.EmailIsExist(user.Email))
             {
-                ModelState.AddModelError("Email", "Email is already exist");
-                return View(user);
+                ModelState.AddModelError("Email", Resources.Resource.EmailExist);
             }
+            if (!ModelState.IsValid) return View(user);
 
             UserManager.Insert(user);
             return RedirectToAction("Index", "Home");

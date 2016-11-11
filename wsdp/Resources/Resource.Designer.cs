@@ -331,6 +331,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email is already exist.
+        /// </summary>
+        public static string EmailExist {
+            get {
+                return ResourceManager.GetString("EmailExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter description of task.
         /// </summary>
         public static string EnterDisc {
@@ -426,6 +435,15 @@ namespace Resources {
         public static string IFrame {
             get {
                 return ResourceManager.GetString("IFrame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input password.
+        /// </summary>
+        public static string InputPassword {
+            get {
+                return ResourceManager.GetString("InputPassword", resourceCulture);
             }
         }
         
@@ -691,6 +709,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uncorrect email or password.
+        /// </summary>
+        public static string UncorrectEmailPassword {
+            get {
+                return ResourceManager.GetString("UncorrectEmailPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Category.
         /// </summary>
         public static string UpdateCategory {
@@ -750,6 +777,15 @@ namespace Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User name is already exist.
+        /// </summary>
+        public static string UserNameExist {
+            get {
+                return ResourceManager.GetString("UserNameExist", resourceCulture);
             }
         }
         
