@@ -19,7 +19,7 @@
             <input type="hidden" name="id" value="@ViewBag.Id" />
             <div class="col-sm-12 col-md-6">
                 <div class="input-group">
-                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control", @placeholder = "Enter link..." , @Value = ViewBag.Path})
+                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control", @placeholder = "Enter link..." })
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit"> @Resources.Resource.Download</button>
                     </span>
@@ -38,7 +38,7 @@
             @using (Html.BeginForm("IteratorConfigurations", "UniversalParser", FormMethod.Post, new { }))
             {
                 <input type="hidden" name="id" value="@ViewBag.Id" />
-                <input type="hidden" name="url" value="@ViewBag.Path" />
+                @Html.HiddenFor(m=>m.Url, new { @Url = Model.Url})
                 <div class="col-sm-12">
                     <div class="row">
 
