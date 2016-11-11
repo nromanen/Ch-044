@@ -166,7 +166,7 @@
     <value>Обновление категории</value>
   </data>
   <data name="UpdateInfo" xml:space="preserve">
-    <value>Введите новое имя категории. Если хотите Изменить родительскую категорию, просто после обновления переместите её мышкой в нужную родительскую категорию</value>
+    <value>Введите новое имя категории. Если хотите изменить родительскую категорию, просто после обновления переместите её мышкой в нужную родительскую категорию</value>
   </data>
   <data name="Updating" xml:space="preserve">
     <value>Обновление</value>
@@ -257,5 +257,74 @@
   </data>
   <data name="Inputs" xml:space="preserve">
     <value>Поля для записи</value>
+  </data>
+  <data name="AddNewParserTask" xml:space="preserve">
+    <value>Добавление нового задания парсера</value>
+  </data>
+  <data name="AdminSettings" xml:space="preserve">
+    <value>Настройки админа</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="ConfigSettings" xml:space="preserve">
+    <value>Смена настроек</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="EditCategories" xml:space="preserve">
+    <value>Изменитить категории</value>
+  </data>
+  <data name="EnterDisc" xml:space="preserve">
+    <value>Введите описание задания</value>
+  </data>
+  <data name="EnterPriority" xml:space="preserve">
+    <value>Введите приоритет задания</value>
+  </data>
+  <data name="Grabber" xml:space="preserve">
+    <value>Граббер</value>
+  </data>
+  <data name="Iterator" xml:space="preserve">
+    <value>Итератор</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефоны</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Приоритет</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>Магазин</value>
+  </data>
+  <data name="UpdatingParserTask" xml:space="preserve">
+    <value>Обновления задания парсера</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>От</value>
+  </data>
+  <data name="ItemIterator" xml:space="preserve">
+    <value>Нумератор объектов</value>
+  </data>
+  <data name="PageIterator" xml:space="preserve">
+    <value>Нумератор страниц</value>
+  </data>
+  <data name="PageURLIterator" xml:space="preserve">
+    <value>URL нумератор страниц</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>До</value>
+  </data>
+  <data name="URLMask" xml:space="preserve">
+    <value>URL Маска</value>
+  </data>
+  <data name="XPathPagination" xml:space="preserve">
+    <value>XPath Нумератор страниц</value>
   </data>
 </root>

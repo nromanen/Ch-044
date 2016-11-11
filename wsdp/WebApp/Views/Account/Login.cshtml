@@ -10,7 +10,7 @@
         <form action="/Account/Login" class="form-horizontal" method="post" enctype="multipart/form-data">
 
             @Html.AntiForgeryToken()
-
+         
             <div class="form-horizontal">
                 <hr />
                 <div class="form-group">
@@ -37,8 +37,4 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

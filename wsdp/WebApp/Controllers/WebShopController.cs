@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class WebShopController : BaseController
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To show create view for WebShopDTO
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View(new WebShopDTO());
@@ -39,6 +41,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To create new WebShop and insert into DB and redirest to all WebShopDTOs
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(WebShopDTO webShop, HttpPostedFileBase upload)
@@ -57,6 +60,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To show delete view
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null) return HttpNotFound();
@@ -69,6 +73,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To delete WebShop in the DB and redirect to all WebShopDTOs
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -80,6 +85,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To show edit view for WebShopDTO
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(short? id)
         {
             if (id == null) return HttpNotFound();
@@ -93,6 +99,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To edit WebShop in the DB and redirect to all WebShopDTOs
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(WebShopDTO webShop, HttpPostedFileBase upload)
@@ -110,6 +117,7 @@ namespace WebApp.Controllers
         /// <summary>
         /// To create an unique image's name
         /// </summary>
+        [Authorize(Roles = "Administrator")]
         private string CreateImgName()
         {
             return String.Format("IMG_{0}_{1}.jpg",

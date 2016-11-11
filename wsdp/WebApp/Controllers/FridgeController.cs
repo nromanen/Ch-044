@@ -3,6 +3,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class FridgeController : BaseController
     {
         private IFridgeManager fridgeManager;
@@ -29,7 +30,7 @@ namespace WebApp.Controllers
             var fridge = fridgeManager.GetFridgeById(id);
             return View(fridge);
         }
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Load()
         {
             fridgeParseManager.GetConcreteGoodsFromCategory(@"http://tehnotrade.com.ua/holod/");

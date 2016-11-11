@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class LaptopController : BaseController
     {
         private ILaptopManager _laptopManager;
@@ -30,7 +31,7 @@ namespace WebApp.Controllers
             Laptop laptop = _laptopManager.GetById(id1) ?? new Laptop();
             return View(laptop);
         }
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult ParseOnBase()
         {
             _laptopParseManager.ParseAll("http://www.ttt.ua/shop/category/noutbuki-pk-i-orgtehnika/noutbuki");

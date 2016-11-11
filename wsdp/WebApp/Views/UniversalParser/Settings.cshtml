@@ -1,45 +1,58 @@
-﻿@model Model.DTO.SettingsViewDTO
+﻿﻿@model Model.DTO.SettingsViewDTO
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Settings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Styles.Render("~/Content/bootstrap-select")
+<br />
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
             @Html.Partial("HeaderPartialView")
         </div>
     </div>
+
     <div class="row">
         <div class="col-xs-12">
-            <br />
-            <br />
+
             <form class="form-horizontal" action="/UniversalParser/Settings" method="post">
+                <input type="hidden" name="parsertaskid" value="@{if (Model.ParserTask != null) {@Model.ParserTask.Id} }" />
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    @{
+                        if (Model.ParserTask != null)
+                        {
+                            <h2>@Resources.Resource.UpdatingParserTask</h2>
+                        }
+
+                        else
+                        {
+                            <h2>@Resources.Resource.AddNewParserTask</h2>
+                        }
+                    }
+                    <h4><small class="text-muted">@Resources.Resource.ConfigSettings</small></h4>
+                </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Description:</label>
+                    <label class="control-label col-sm-2" for="email">@Resources.Resource.Description:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" name="description" placeholder="Enter description of task">
+                        <input type="text" value="@{if (Model.ParserTask != null) {@Model.ParserTask.Description} }" class="form-control" id="name" name="Description" placeholder="@Resources.Resource.EnterDisc" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="category">Category:</label>
+                    <label class="control-label col-sm-2" for="category">@Resources.Resource.Category:</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="category" name="categoryid">
-                            @foreach (var category in Model.Categories)
-                            {
-                                <option value="@category.Id">
-                                    @category.Name
-                                </option>
-                            }
+                        <select class="form-control selectpickercategory" id="category" name="CategoryId" data-live-search="true">
+                            @Html.Partial("FlexibleSelectList", Model.Categories)
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="shop">Shop:</label>
+                    <label class="control-label col-sm-2" for="shop">@Resources.Resource.Shop:</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="shop" name="shopid">
+                        <select class="form-control selectpickershop" id="shop" name="WebShopId" data-live-search="true">
                             @foreach (var shop in Model.Shops)
                             {
-                                <option value="@shop.Id">
+                                <option data-tokes="@shop.Name" value="@shop.Id">
                                     @shop.Name
                                 </option>
                             }
@@ -47,28 +60,59 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Priority:</label>
+                    <label class="control-label col-sm-2" for="email">@Resources.Resource.Priority:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="priority" name="priority" placeholder="Enter priority of task">
+                        <input type="text" value="@{if (Model.ParserTask != null) {@Model.ParserTask.Priority} }" class="form-control" id="priority" name="Priority" placeholder="@Resources.Resource.EnterPriority" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Date:</label>
+                    <label class="control-label col-sm-2" for="email">@Resources.Resource.Date:</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="priority" name="datetime">
+                        <input type="date" value="@{if (Model.ParserTask != null) {@Model.ParserTask.EndDate.ToString("yyyy-MM-dd")} }" class="form-control" id="priority" name="EndDate" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-success">@Resources.Resource.Next</button>
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
 
 @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap-select")
 <script>
     $(".list-inline-item").first().addClass("active");
+
+
+    $('.selectpickercategory').selectpicker({
+        style: 'btn-success',
+        size: 6
+    });
+
+    $('.selectpickershop').selectpicker({
+        style: 'btn-success',
+        size: 6
+    });
+
+
+
+
 </script>
+
+
+@*If updating task, puts correct category and shop*@
+@{
+    if (Model.ParserTask != null)
+    {
+        <script>
+            $('.selectpickercategory').selectpicker('val', @Model.ParserTask.CategoryId);
+            console.log(@Model.ParserTask.CategoryId);
+
+            $('.selectpickershop').selectpicker('val', @Model.ParserTask.WebShopId);
+        </script>
+    }
+}

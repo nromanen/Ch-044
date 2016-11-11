@@ -210,8 +210,7 @@
   <data name="CategoryName" xml:space="preserve">
     <value>Category Name</value>
   </data>
-  <data name="
-        teristicId" xml:space="preserve">
+  <data name="&#xD;&#xA;        teristicId" xml:space="preserve">
     <value>Characteristic Id</value>
   </data>
   <data name="DefaultValue" xml:space="preserve">
@@ -258,5 +257,74 @@
   </data>
   <data name="Inputs" xml:space="preserve">
     <value>Inputs</value>
+  </data>
+  <data name="AddNewParserTask" xml:space="preserve">
+    <value>Add new parser task</value>
+  </data>
+  <data name="AdminSettings" xml:space="preserve">
+    <value>Admin Settings</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ConfigSettings" xml:space="preserve">
+    <value>Configuration settings</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="EditCategories" xml:space="preserve">
+    <value>Edit Categories</value>
+  </data>
+  <data name="EnterDisc" xml:space="preserve">
+    <value>Enter description of task</value>
+  </data>
+  <data name="EnterPriority" xml:space="preserve">
+    <value>Enter priority of task</value>
+  </data>
+  <data name="Grabber" xml:space="preserve">
+    <value>Grabber</value>
+  </data>
+  <data name="Iterator" xml:space="preserve">
+    <value>Iterator</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phones</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="UpdatingParserTask" xml:space="preserve">
+    <value>Updating parser task</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="ItemIterator" xml:space="preserve">
+    <value>Item Iterator</value>
+  </data>
+  <data name="PageIterator" xml:space="preserve">
+    <value>Page Iterator</value>
+  </data>
+  <data name="PageURLIterator" xml:space="preserve">
+    <value>Page URL Iterator</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="URLMask" xml:space="preserve">
+    <value>URL Mask</value>
+  </data>
+  <data name="XPathPagination" xml:space="preserve">
+    <value>XPath Pagination</value>
   </data>
 </root>
