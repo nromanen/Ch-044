@@ -384,4 +384,16 @@
   <data name="RequiredField" xml:space="preserve">
     <value>Поле обязательное для ввода</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Зарегестрироваться</value>
+  </data>
+  <data name="SocialNetworksMessage" xml:space="preserve">
+    <value>Вы можете использовать социальные сети</value>
+  </data>
 </root>
