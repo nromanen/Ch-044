@@ -31,16 +31,9 @@
     </div>
 
     <div class="modal-footer">
-        @*<a href="@Url.Action("Delete")" class="btn btn-danger btn-md">
-                <span></span> OK
-            </a>*@
         @using (Html.BeginForm())
         {
             <input type="submit" value="@Resources.Resource.Delete" class="btn btn-danger btn-md col-md-12" />
-
-            @*<a href="@Url.Action("Index")" class="btn btn-default btn-md">
-                    <span></span> CANCEL
-                </a>*@
         }
     </div>
 </div>

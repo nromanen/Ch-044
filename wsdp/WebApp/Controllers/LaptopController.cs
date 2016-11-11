@@ -9,32 +9,32 @@ namespace WebApp.Controllers
     [Authorize]
     public class LaptopController : BaseController
     {
-        private ILaptopManager _laptopManager;
-        private ILaptopParseManager _laptopParseManager;
+        private ILaptopManager LaptopManager { get; }
+        private ILaptopParseManager LaptopParseManager { get; }
 
         public LaptopController(ILaptopManager laptopManager, ILaptopParseManager laptopParseManager)
         {
-            _laptopManager = laptopManager;
-            _laptopParseManager = laptopParseManager;
+            LaptopManager = laptopManager;
+            LaptopParseManager = laptopParseManager;
         }
 
         // GET: Laptop
         public ActionResult Index()
         {
-            IEnumerable<Laptop> laptops = _laptopManager.GetAll().Where(x => x.ImgPath != null);
+            IEnumerable<Laptop> laptops = LaptopManager.GetAll().Where(x => x.ImgPath != null);
             return View(laptops);
         }
 
         public ActionResult OneLaptop(int? id)
         {
             int id1 = id ?? 0;
-            Laptop laptop = _laptopManager.GetById(id1) ?? new Laptop();
+            Laptop laptop = LaptopManager.GetById(id1) ?? new Laptop();
             return View(laptop);
         }
         [Authorize(Roles = "Administrator")]
         public ActionResult ParseOnBase()
         {
-            _laptopParseManager.ParseAll("http://www.ttt.ua/shop/category/noutbuki-pk-i-orgtehnika/noutbuki");
+            LaptopParseManager.ParseAll("http://www.ttt.ua/shop/category/noutbuki-pk-i-orgtehnika/noutbuki");
             return View("Index");
         }
     }

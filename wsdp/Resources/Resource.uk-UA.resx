@@ -363,4 +363,7 @@
   <data name="ValidationUserName" xml:space="preserve">
     <value>Мінімальна довжина- 4 символа</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Відмінити</value>
+  </data>
 </root>

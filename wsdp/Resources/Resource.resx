@@ -184,7 +184,7 @@
     <value>Logo</value>
   </data>
   <data name="SAVE" xml:space="preserve">
-    <value>SAVE</value>
+    <value>Save</value>
   </data>
   <data name="Sure" xml:space="preserve">
     <value>Are you shure you want to delete</value>
@@ -359,5 +359,8 @@
   </data>
   <data name="ValidationUserName" xml:space="preserve">
     <value>Minimum length - 4 characters</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
 </root>
