@@ -63,6 +63,7 @@
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\GrabberSettingsDTO.cs" />
+    <Compile Include="DTO\IndexViewDTO.cs" />
     <Compile Include="DTO\IteratorSettingsDTO.cs" />
     <Compile Include="DTO\ParserDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
@@ -90,6 +91,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{f2d491d6-8d33-40b0-a19c-804134a6ec07}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{8ed9bf2d-1ddb-46f0-8d3a-4c967d5f9cf7}</Project>
+      <Name>Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

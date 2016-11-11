@@ -22,45 +22,55 @@ namespace DAL.Migrations
 
             Category categorySmartPhonesAndMobilePhones = new Category()
             {
-                Name = "SmartPhonesAndMobilePhones"
+                Name = "SmartPhonesAndMobilePhones",
+                OrderNo = 1
             };
             Category categoryForHouse = new Category()
             {
-                Name = "ForHouse"
+                Name = "ForHouse",
+                OrderNo = 2
             };
             Category categoryComputers = new Category()
             {
-                Name = "Computers"
+                Name = "Computers",
+                OrderNo = 3
             };
             Category categorySmartphones = new Category()
             {
                 Name = "Smartphones",
-                ParentCategory = categorySmartPhonesAndMobilePhones
+                ParentCategory = categorySmartPhonesAndMobilePhones,
+                OrderNo = 1
             };
             Category categoryMobilephones = new Category()
             {
                 Name = "Mobile phones",
-                ParentCategory = categorySmartPhonesAndMobilePhones
+                ParentCategory = categorySmartPhonesAndMobilePhones,
+                OrderNo = 2
             };
             Category categoryTv = new Category()
             {
                 Name = "TV sets",
-                ParentCategory = categoryForHouse
+                ParentCategory = categoryForHouse,
+                OrderNo = 1
+
             };
             Category categoryFridges = new Category()
             {
                 Name = "Fridges",
-                ParentCategory = categoryForHouse
+                ParentCategory = categoryForHouse,
+                OrderNo = 2
             };
             Category categoryMicrowaves = new Category()
             {
                 Name = "Microwaves",
-                ParentCategory = categoryForHouse
+                ParentCategory = categoryForHouse,
+                OrderNo = 3
             };
             Category categoryLaptops = new Category()
             {
                 Name = "Laptops",
-                ParentCategory = categoryComputers
+                ParentCategory = categoryComputers,
+                OrderNo = 1
             };
 			Property prop1 = new Property() {
 				Category = categorySmartPhonesAndMobilePhones,
@@ -135,7 +145,7 @@ namespace DAL.Migrations
 			};
 
 
-			context.Roles.AddOrUpdate(role);
+            context.Roles.AddOrUpdate(role);
             context.Roles.AddOrUpdate(role_user);
             context.Users.AddOrUpdate(user);
             context.Users.AddOrUpdate(user2);

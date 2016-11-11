@@ -6,6 +6,7 @@ var new_role = null;
 //Init datatable
 $(document).ready(function () {
     $('#example').DataTable();
+
     $(".close").click(function () {
         $("#ModalUser").hide();
     });
@@ -21,21 +22,26 @@ $(document).on('click', '.edit-user', function () {
     var userName = $("#example tr[data-user-id=" + user_id + "]").find("td").eq(1).html();
     var userPassword = $("#example tr[data-user-id=" + user_id + "]").find("td").eq(2).html();
     var userEmail = $("#example tr[data-user-id=" + user_id + "]").find("td").eq(3).html();
-    $("#username").val(userName);
-    $("#password").val(userPassword);
-    $("#email").val(userEmail);
+    $("#ModalUser .user-name:first").val(userName);
+    $("#ModalUser .user-pass:first").val(userPassword);
+    $("#ModalUser .user-email:first").val(userEmail);
 });
 
 //Updating User
 function UpdateUser() {
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var email = $("#email").val();
-    var role_id = $("#role_update option:selected").val();
-    role_name = $("#role_update option:selected").text();
-    var u_id = user_id;
-    UpdateUserAjax(u_id, username, password, email, role_id);
-    $(".close").click();
+    if ($(".field-validation-error").length) {
+        console.log("Validation error.")
+    }
+    else {
+        var username = $("#ModalUser .user-name:first").val();
+        var password = $("#ModalUser .user-pass:first").val();
+        var email = $("#ModalUser .user-email:first").val();
+        var role_id = $("#role_update option:selected").val();
+        role_name = $("#role_update option:selected").text();
+        var u_id = user_id;
+        UpdateUserAjax(u_id, username, password, email, role_id);
+        $(".close").click();
+    }
 }
 
 //ajax query update user

@@ -1,0 +1,46 @@
+﻿@model WebApp.Models.EditUserModel
+
+    <!--
+        Modal Window
+    -->
+    <div class="modal" tabindex="-1" role="dialog" id="ModalUser">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Update user information</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="EditUserForm">
+                        <div class="form-group">
+                            <input type="hidden" name="role_id" value="" id="data-role-id" />
+                            <div>
+                                <label for="username_update">@Resources.Resource.UserName:</label>
+                                @Html.TextBoxFor(model => model.User.UserName, "", new { placeholder =@Resources.Resource.EnterNewUserName, @class = "form-control user-name" })
+                                @Html.ValidationMessageFor(model => model.User.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                <label for="password">@Resources.Resource.Password:</label>
+                                @Html.TextBoxFor(model => model.User.Password, "", new { placeholder = @Resources.Resource.EnterNewPassword, @class = "form-control user-pass" })
+                                @Html.ValidationMessageFor(model => model.User.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                <label for="email">@Resources.Resource.Email:</label>
+                                @Html.TextBoxFor(model => model.User.Email, "", new { placeholder = @Resources.Resource.EnterNewEmail, @class = "form-control user-email" })
+                                @Html.ValidationMessageFor(model => model.User.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                            <label for="Role">@Resources.Resource.Role:</label>
+                            <select class="form-control" id="role_update" name="Role_Id">
+                                @foreach (var role in Model.Roles)
+                                {
+                                    <option value="@role.Id">@role.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <a onclick="UpdateUser()" class="btn btn-success">@Resources.Resource.Submit</a>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->

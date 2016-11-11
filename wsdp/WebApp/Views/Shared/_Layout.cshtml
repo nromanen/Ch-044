@@ -29,6 +29,8 @@
                             <li class="divider"></li>
                             <li>@Html.ActionLink(@Resources.Resource.EditCategories, "EditCategories", "Admin")</li>
                             <li class="divider"></li>
+                            <li>@Html.ActionLink(@Resources.Resource.EditUsers, "EditUsers", "Admin")</li>
+                            <li class="divider"></li>
                             <li>@Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")</li>
                             <li>@Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")</li>
                             <li class="divider"></li>
@@ -84,11 +86,13 @@
         </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/EditProperties")
     @Scripts.Render("~/bundles/WebShop")
     @Scripts.Render("~/bundles/EditUsers")
     @Scripts.Render("~/Content/editcategories")
+    @Styles.Render("~/content/EditUsers_css")
     @RenderSection("scripts", required: false)
 </body>
 </html>

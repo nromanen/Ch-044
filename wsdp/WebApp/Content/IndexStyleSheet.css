@@ -1,0 +1,152 @@
+﻿.header {
+    position: relative;
+    height: 70px;
+    z-index: 1001;
+}
+
+.wrap {
+    max-width: 1280px;
+    min-width: 320px;
+    width: auto;
+    background: #fff;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+    z-index: 10;
+}
+.top-nav-bg {
+    top: 20px;
+    display: table;
+    height: 47px;
+    width: 100%;
+    background: #2a4192;
+    z-index: 10;
+}
+.abs {
+    position: absolute;
+}
+.razdel-box {
+    width: 240px;
+}
+.razdel-box, .search-box, .srv-box {
+    display: table-cell;
+    vertical-align: top;
+    height: 47px;
+}
+.rel {
+    position: relative;
+}
+.razdel, .razdel:hover {
+    display: block;
+    text-decoration: none;
+    z-index: 2;
+    cursor: pointer;
+}
+.adapt-1024 {
+    display: none!important;
+    visibility: hidden!important;
+}
+a {
+    color: #35a;
+    text-decoration: none;
+}
+.razdel b {
+    display: block;
+    height: 47px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 13px 0 0 52px;
+}
+.search-box input[type=checkbox], .search-box label {
+    display: none;
+}
+html,body,div {
+    font: normal 12px/16px Arial,Geneva,Tahoma,sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+.search-box form {
+    position: relative;
+    padding: 7px 58px 0 17px;
+}
+.search-box input[type=submit] {
+    top: 7px;
+    right: 58px;
+    width: 41px;
+    height: 33px;
+    text-indent: -3000px;
+    margin: 0 -41px 0 0;
+}
+.search-box label b, .search-box input[type=submit] {
+    height: 33px;
+    background: url(http://hotline.ua/img/s/v3/bg_but_search.png) no-repeat;
+}
+.search-box form .s-inp {
+    position: relative;
+    background: #fff;
+    padding: 0 2px;
+}
+.search-box input[type=text] {
+    width: 100%;
+    height: 33px;
+    font-size: 16px;
+    color: #666;
+    background: 0;
+    border: 0;
+    padding: 0;
+}
+.content .col-left {
+    width: 260px;
+    padding: 0 20px 0 0;
+}
+.col-left, .col-middle, .col-right {
+    float: left;
+}
+.menu {
+    position: relative;
+    z-index: 50;
+     padding-left:3px;
+}
+.menu .lvl1 {
+    border-top: 1px solid #fff;
+}
+.menu .lvl1, .menu li span, .menu .lvl1 a, .menu .lvl1>a>b {
+    position: relative;
+    display: block;
+}
+.menu .lvl1>a {
+    color: #35a;
+    background-color: #f6f6f6;
+    text-decoration: none;
+    z-index: 8;
+  
+}
+.menu .lvl1>a>b {
+    min-height: 34px;
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 9px 10px 7px 26px;
+    text-shadow: 1px 1px #fff;
+    z-index: 8;
+}
+
+ul.list-group:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+.price-good
+{
+    border-left:3px;
+}
+.bx-wrapper {
+    position: relative;
+    margin: 0 auto 0;
+    padding: 0;
+    max-width:100%;
+}

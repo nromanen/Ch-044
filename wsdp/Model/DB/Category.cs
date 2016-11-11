@@ -13,5 +13,6 @@ namespace Model.DB
         public ICollection<Category> ChildrenCategory { get; set; }
         public Category ParentCategory { get; set; }
         public List<Property> Properties { get; set; }
+        public int OrderNo { get; set; }
     }
 }

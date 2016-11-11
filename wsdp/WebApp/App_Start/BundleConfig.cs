@@ -38,6 +38,10 @@ namespace WebApp
         "~/Content/EditUsersStylesheet.css"
         ));
 
+
+            bundles.Add(new StyleBundle("~/Content/IndexStylesheet").Include(
+        "~/Content/IndexStyleSheet.css"
+        ));
             bundles.Add(new StyleBundle("~/Content/EditPropertiesStylesheet").Include(
                     "~/Content/bootstrap.css",
                     "~/Content/EditPropertiesStylesheet.css",
