@@ -1,4 +1,6 @@
-﻿body.dragging, body.dragging * { cursor: move !important; }
+﻿body.dragging, body.dragging * {
+    cursor: move !important;
+}
 
 .dragged {
     position: absolute;
@@ -11,10 +13,10 @@ ol.example li.placeholder {
     /** More li styles **/
 }
 
-ol.example li.placeholder:before {
-    position: absolute;
-    /** Define arrowhead **/
-}
+    ol.example li.placeholder:before {
+        position: absolute;
+        /** Define arrowhead **/
+    }
 
 .serialization li {
     line-height: 42px;
@@ -28,14 +30,18 @@ ol.example li.placeholder:before {
     border-left: 3px solid #555;
 }
 
-.serialization li > ul > li { border-left: 3px solid #999; }
+    .serialization li > ul > li {
+        border-left: 3px solid #999;
+    }
 
-.serialization li > ul > li > ul > li { border-left: 3px solid #BBB; }
+        .serialization li > ul > li > ul > li {
+            border-left: 3px solid #BBB;
+        }
 
-.serialization li :hover {
-    border-color: #318344;
-    color: #318344;
-}
+    .serialization li :hover {
+        border-color: #318344;
+        color: #318344;
+    }
 
 .placeholdertrue {
     background: #a5d3b0;
@@ -49,10 +55,10 @@ ol.example li.placeholder:before {
     cursor: pointer;
 }
 
-.transperent:hover {
-    background: rgba(0, 0, 0, 0.00);
-    color: #888;
-}
+    .transperent:hover {
+        background: rgba(0, 0, 0, 0.00);
+        color: #888;
+    }
 
 .btn-config {
     position: absolute;
@@ -78,14 +84,14 @@ ol.example li.placeholder:before {
     vertical-align: middle;
 }
 
-.info h2 {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-}
+    .info h2 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+    }
 
 .btn-addnewcategory {
-    background: #318344;
+    background: rgb(34, 187, 157);
     min-height: 30px;
     border: 0px solid #808080;
     padding: 15px;
@@ -95,30 +101,46 @@ ol.example li.placeholder:before {
     color: #FFF;
 }
 
-.btn-addnewcategory:hover { background: #41a959; }
+    .btn-addnewcategory:hover {
+    }
 
-.modal.modal-wide .modal-dialog { width: 50%; }
+.modal.modal-wide .modal-dialog {
+    width: 50%;
+}
 
 .modal-wide .modal-body {
     padding: 5px;
     overflow-y: auto;
 }
 
-.modal-content div { padding: 25px; }
-
-.modal .form-group, .modal-body { padding: 5px; }
-
-@media screen and (max-width: 820px) {
-    .modal.modal-wide .modal-dialog { width: 100%; }
-
-    .serialization button { border: none; }
-
-    .serialization li { font-size: 16px; }
+.modal-content div {
+    padding: 25px;
 }
 
-.modal-body { padding: 5px; }
+.modal .form-group, .modal-body {
+    padding: 5px;
+}
 
-.serialization button { }
+@media screen and (max-width: 820px) {
+    .modal.modal-wide .modal-dialog {
+        width: 100%;
+    }
+
+    .serialization button {
+        border: none;
+    }
+
+    .serialization li {
+        font-size: 16px;
+    }
+}
+
+.modal-body {
+    padding: 5px;
+}
+
+.serialization button {
+}
 
 .btn-submit {
     height: 35px;
@@ -126,8 +148,7 @@ ol.example li.placeholder:before {
     margin: 3px;
 }
 
-#prop_id_delete
-{
+#prop_id_delete {
     margin: 0 0 10px;
 }
 
@@ -137,25 +158,48 @@ ol.example li.placeholder:before {
     line-height: initial;
     padding-left: 5px;
 }
+
 .properties_list {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     height: 30px;
     text-align: left;
 }
+
 .property_item {
     height: 30px;
     line-height: initial;
     width: auto;
     text-align: center;
-    margin-right:5px;
+    margin-right: 5px;
 }
-.treemenu .toggler
-{
-    float:left;
+
+.treemenu .toggler {
+    float: left;
 }
-.properties, .properties .properties_list { height: auto; padding: 0px; margin: 0px; }
-.property_item  .propert-actions { display: none; }
-.property_item:hover .propert-actions { display: inline; width: auto; }
-.property_item:hover .propert-actions .glyphicon { display: inline; }
-.update_prop{cursor:pointer}
-.delete_prop{cursor:pointer}
+
+.properties, .properties .properties_list {
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+}
+
+.property_item .propert-actions {
+    display: none;
+}
+
+.property_item:hover .propert-actions {
+    display: inline;
+    width: auto;
+}
+
+    .property_item:hover .propert-actions .glyphicon {
+        display: inline;
+    }
+
+.update_prop {
+    cursor: pointer;
+}
+
+.delete_prop {
+    cursor: pointer;
+}

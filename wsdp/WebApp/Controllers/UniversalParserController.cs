@@ -13,36 +13,54 @@ namespace WebApp.Controllers
         private IDownloadManager downloadManager;
         private ICategoryManager categoryManager;
         private IWebShopManager shopManager;
-        private IParserTaskManager parserManager;
+        private IParserTaskManager parsertaskManager;
 
-        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parserManager)
+        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager)
         {
             this.downloadManager = downloadManager;
             this.categoryManager = categoryManager;
             this.shopManager = shopManager;
-            this.parserManager = parserManager;
+            this.parsertaskManager = parsertaskManager;
         }
 
         // GET: Settings
         [Authorize(Roles = "Administrator")]
         [HttpGet]
-        public ActionResult Settings()
+        public ActionResult Settings(int? id)
         {
+            ParserTaskDTO parsertask = null;
+            if (id != null)
+            {
+                parsertask = parsertaskManager.Get(id ?? -1);
+            }
             SettingsViewDTO settingsView = new SettingsViewDTO()
             {
-                Categories = categoryManager.GetAll().Where(c => c.ParentCategoryId == null).Select(c => c).ToList(),
+                Categories = categoryManager.GetAll().Where(c => c.HasChildrenCategories == false).Select(c => c).ToList(),
                 Shops = shopManager.GetAll().ToList()
             };
+            if (parsertask != null)
+            {
+                settingsView.ParserTask = parsertask;
+            }
             return View(settingsView);
         }
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult Settings(ParserTaskDTO parser)
+        public ActionResult Settings(ParserTaskDTO parsertask, int? parsertaskid)
         {
-            parser.Status = "Not Finished";
-            int newid = parserManager.Add(parser);
-            //return RedirectToAction("Iterator", newid);
-            return View();
+            int newid = -1;
+            if (parsertaskid != null)
+            {
+                parsertask.Id = parsertaskid ?? -1;
+                parsertaskManager.Update(parsertask);
+            }
+            else
+            {
+                parsertaskManager.Delete(4);
+                parsertask.Status = "Not Finished";
+                newid = parsertaskManager.Add(parsertask);
+            }
+            return RedirectToAction("Iterator", new { id = parsertaskid ?? newid });
         }
 
         //GET:UniverslaParser/Iterator/id?

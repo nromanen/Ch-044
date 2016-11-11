@@ -37,18 +37,46 @@ namespace BAL.Manager
 
             ParserTask parsertaskDb = Mapper.Map<ParserTask>(parsertask);
 
-            //parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
-            //parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
+            try
+            {
+                parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
+                parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
 
-            uOW.ParserRepo.Insert(parsertaskDb);
-            uOW.Save();
-            return parsertaskDb.Id;
+                uOW.ParserRepo.Insert(parsertaskDb);
+                uOW.Save();
+                return parsertaskDb.Id;
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message);
+                return -1;
+            }
+
         }
 
+        /// <summary>
+        /// Deletes parser task by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool Delete(int id)
         {
-            /*TO DO*/
-            throw new NotImplementedException();
+            try
+            {
+                var parsertask = uOW.ParserRepo.GetByID(id);
+                if (parsertask == null)
+                {
+                    return false;
+                }
+                uOW.ParserRepo.Delete(parsertask);
+                uOW.Save();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
+            return false;
         }
 
         /// <summary>
@@ -67,19 +95,28 @@ namespace BAL.Manager
             }
 
             uOW.ParserRepo.SetStateModified(temp);
-            temp.GrabberSettings = serializer.Serialize(parsertask.GrabberSettings);
-            temp.IteratorSettings = serializer.Serialize(parsertask.IteratorSettings);
+            if (parsertask.GrabberSettings != null)
+            {
+                temp.GrabberSettings = serializer.Serialize(parsertask.GrabberSettings);
+            }
+            if (parsertask.IteratorSettings != null)
+            {
+                temp.IteratorSettings = serializer.Serialize(parsertask.IteratorSettings);
+            }
+
             temp.Priority = parsertask.Priority;
             temp.Status = parsertask.Status;
-            temp.WebShop = uOW.WebShopRepo.GetByID(parsertask.WebShopId);
-            temp.Category = uOW.CategoryRepo.GetByID(parsertask.CategoryId);
+            temp.Description = parsertask.Description;
             return Mapper.Map<ParserTaskDTO>(temp);
         }
 
+        /// <summary>
+        /// Returns all parser tasks
+        /// </summary>
+        /// <returns></returns>
         public List<ParserTaskDTO> GetAll()
         {
-            /*TO DO*/
-            throw new NotImplementedException();
+            return uOW.ParserRepo.All.ToList().Select(c => Mapper.Map<ParserTaskDTO>(c)).ToList();
         }
     }
 }

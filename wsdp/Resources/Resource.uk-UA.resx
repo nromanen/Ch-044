@@ -258,34 +258,52 @@
   <data name="Inputs" xml:space="preserve">
     <value>Поля для запису</value>
   </data>
-  <data name="From" xml:space="preserve">
-    <value>Від</value>
+  <data name="AddNewParserTask" xml:space="preserve">
+    <value>Додавання нового завдання-парсеру</value>
+  </data>
+  <data name="AdminSettings" xml:space="preserve">
+    <value>Налаштування адміна</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категорія</value>
+  </data>
+  <data name="ConfigSettings" xml:space="preserve">
+    <value>Зміна налаштування</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="EditCategories" xml:space="preserve">
+    <value>Зміна категорій</value>
+  </data>
+  <data name="EnterDisc" xml:space="preserve">
+    <value>Введіть опис завдання</value>
+  </data>
+  <data name="EnterPriority" xml:space="preserve">
+    <value>Введіть пріоритет завдання</value>
   </data>
   <data name="Grabber" xml:space="preserve">
     <value>Граббер</value>
   </data>
-  <data name="ItemIterator" xml:space="preserve">
-    <value>Нумератор об'єкта</value>
-  </data>
   <data name="Iterator" xml:space="preserve">
     <value>Ітератор</value>
   </data>
-  <data name="PageIterator" xml:space="preserve">
-    <value>Нумератор сторінок</value>
+  <data name="Next" xml:space="preserve">
+    <value>Далі</value>
   </data>
-  <data name="PageURLIterator" xml:space="preserve">
-    <value>URL нумератор сторінок</value>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефони</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Пріоритет</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Налаштування</value>
   </data>
-  <data name="To" xml:space="preserve">
-    <value>До</value>
+  <data name="Shop" xml:space="preserve">
+    <value>Магазин</value>
   </data>
-  <data name="URLMask" xml:space="preserve">
-    <value>URL Маска</value>
-  </data>
-  <data name="XPathPagination" xml:space="preserve">
-    <value>XPath Нумератор сторінок</value>
+  <data name="UpdatingParserTask" xml:space="preserve">
+    <value>Оновлення завдання-парсеру</value>
   </data>
 </root>

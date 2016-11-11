@@ -7,7 +7,6 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Content/sidebar-style.css">
-    <script src="~/Scripts/IteratorPage/IteratorPage.js"></script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -24,20 +23,23 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(Resources.Resource.Home, "Index", "Home")</li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> [Admin Settings] <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> @Resources.Resource.AdminSettings <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink(Resources.Resource.IFrame, "Index", "Frame")</li>
-                            <li>@Html.ActionLink("Edit Categories", "EditCategories", "Admin")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@Resources.Resource.EditCategories, "EditCategories", "Admin")</li>
+                            <li class="divider"></li>
                             <li>@Html.ActionLink(Resources.Resource.AddItem, "Create", "WebShop")</li>
                             <li>@Html.ActionLink(Resources.Resource.WebShops, "Index", "WebShop")</li>
-                            <li>@Html.ActionLink("Settings/Iterator/Grabber","Settings", "UniversalParser")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@Resources.Resource.AddNewParserTask, "Settings", "UniversalParser")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> @Resources.Resource.Parsers <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                @Html.ActionLink("Phone", "Index", "Phone")
+                                @Html.ActionLink(@Resources.Resource.Phone, "Index", "Phone")
                             </li>
                             <li>
                                 @Html.ActionLink(@Resources.Resource.TVs, "Index", "TV")
@@ -71,7 +73,7 @@
                 @RenderBody()
                 <hr />
                 <footer>
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                    <p>&copy; @DateTime.Now.Year - Ch-044</p>
                     <ul class="list-inline text-center">
                         <li>@Html.ActionLink("UA", "Change", "Base", new { language = "uk-UA", url = Request.Url.AbsoluteUri }, null)</li>
                         <li>@Html.ActionLink("RU", "Change", "Base", new { language = "ru-RU", url = Request.Url.AbsoluteUri }, null)</li>
