@@ -15,22 +15,22 @@
                         <div class="form-group">
                             <input type="hidden" name="role_id" value="" id="data-role-id" />
                             <div>
-                                <label for="username_update">User Name:</label>
-                                @Html.TextBoxFor(model => model.User.UserName, "", new { placeholder = "Enter new username", @class = "form-control user-name" })
+                                <label for="username_update">@Resources.Resource.UserName:</label>
+                                @Html.TextBoxFor(model => model.User.UserName, "", new { placeholder =@Resources.Resource.EnterNewUserName, @class = "form-control user-name" })
                                 @Html.ValidationMessageFor(model => model.User.UserName, "", new { @class = "text-danger" })
                             </div>
                             <div>
-                                <label for="password">Password:</label>
-                                @Html.TextBoxFor(model => model.User.Password, "", new { placeholder = "Enter new password", @class = "form-control user-pass" })
+                                <label for="password">@Resources.Resource.Password:</label>
+                                @Html.TextBoxFor(model => model.User.Password, "", new { placeholder = @Resources.Resource.EnterNewPassword, @class = "form-control user-pass" })
                                 @Html.ValidationMessageFor(model => model.User.Password, "", new { @class = "text-danger" })
                             </div>
                             <div>
-                                <label for="email">Email:</label>
-                                @Html.TextBoxFor(model => model.User.Email, "", new { placeholder = "Enter new email", @class = "form-control user-email" })
+                                <label for="email">@Resources.Resource.Email:</label>
+                                @Html.TextBoxFor(model => model.User.Email, "", new { placeholder = @Resources.Resource.EnterNewEmail, @class = "form-control user-email" })
                                 @Html.ValidationMessageFor(model => model.User.Email, "", new { @class = "text-danger" })
                             </div>
 
-                            <label for="Role">Change Role:</label>
+                            <label for="Role">@Resources.Resource.Role:</label>
                             <select class="form-control" id="role_update" name="Role_Id">
                                 @foreach (var role in Model.Roles)
                                 {

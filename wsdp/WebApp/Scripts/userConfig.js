@@ -6,6 +6,7 @@ var new_role = null;
 //Init datatable
 $(document).ready(function () {
     $('#example').DataTable();
+
     $(".close").click(function () {
         $("#ModalUser").hide();
     });

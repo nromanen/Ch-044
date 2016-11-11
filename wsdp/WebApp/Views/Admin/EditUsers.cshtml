@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Configuring users</h2>
+<h2>@Resources.Resource.EditUsers</h2>
 
 @Html.Partial("~/Views/Users/_UserEditModalView.cshtml", new WebApp.Models.EditUserModel() { Roles = Model.Roles })
 
@@ -12,11 +12,11 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>User Name</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
+            <th>@Resources.Resource.UserName</th>
+            <th>@Resources.Resource.Password</th>
+            <th>@Resources.Resource.Email</th>
+            <th>@Resources.Resource.Role</th>
+            <th>@Resources.Resource.Actions</th>
         </tr>
     </thead>
     <tbody>

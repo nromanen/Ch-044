@@ -210,9 +210,6 @@
   <data name="CategoryName" xml:space="preserve">
     <value>Category Name</value>
   </data>
-  <data name="&#xD;&#xA;        teristicId" xml:space="preserve">
-    <value>Characteristic Id</value>
-  </data>
   <data name="DefaultValue" xml:space="preserve">
     <value>Default Value</value>
   </data>
@@ -326,5 +323,41 @@
   </data>
   <data name="XPathPagination" xml:space="preserve">
     <value>XPath Pagination</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="EditUsers" xml:space="preserve">
+    <value>Edit Users</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="EnterNewEmail" xml:space="preserve">
+    <value>Enter new email</value>
+  </data>
+  <data name="EnterNewPassword" xml:space="preserve">
+    <value>Enter new password</value>
+  </data>
+  <data name="EnterNewUserName" xml:space="preserve">
+    <value>Enter new User Name</value>
+  </data>
+  <data name="ValidationEmail" xml:space="preserve">
+    <value>Email is incorrect</value>
+  </data>
+  <data name="ValidationPassword" xml:space="preserve">
+    <value>Minimum length - 6 characters</value>
+  </data>
+  <data name="ValidationUserName" xml:space="preserve">
+    <value>Minimum length - 4 characters</value>
   </data>
 </root>

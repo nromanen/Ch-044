@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Actions {
+            get {
+                return ResourceManager.GetString("Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add category to .
         /// </summary>
         public static string AddCategory {
@@ -295,11 +304,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Users.
+        /// </summary>
+        public static string EditUsers {
+            get {
+                return ResourceManager.GetString("EditUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter description of task.
         /// </summary>
         public static string EnterDisc {
             get {
                 return ResourceManager.GetString("EnterDisc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter new email.
+        /// </summary>
+        public static string EnterNewEmail {
+            get {
+                return ResourceManager.GetString("EnterNewEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter new password.
+        /// </summary>
+        public static string EnterNewPassword {
+            get {
+                return ResourceManager.GetString("EnterNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter new User Name.
+        /// </summary>
+        public static string EnterNewUserName {
+            get {
+                return ResourceManager.GetString("EnterNewUserName", resourceCulture);
             }
         }
         
@@ -457,6 +511,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phones.
         /// </summary>
         public static string Phone {
@@ -507,6 +570,15 @@ namespace Resources {
         public static string Remove {
             get {
                 return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
             }
         }
         
@@ -660,6 +732,42 @@ namespace Resources {
         public static string URLMask {
             get {
                 return ResourceManager.GetString("URLMask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is incorrect.
+        /// </summary>
+        public static string ValidationEmail {
+            get {
+                return ResourceManager.GetString("ValidationEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum length - 6 characters.
+        /// </summary>
+        public static string ValidationPassword {
+            get {
+                return ResourceManager.GetString("ValidationPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum length - 4 characters.
+        /// </summary>
+        public static string ValidationUserName {
+            get {
+                return ResourceManager.GetString("ValidationUserName", resourceCulture);
             }
         }
         

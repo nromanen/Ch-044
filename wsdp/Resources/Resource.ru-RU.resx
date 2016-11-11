@@ -327,4 +327,40 @@
   <data name="XPathPagination" xml:space="preserve">
     <value>XPath Нумератор страниц</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="EditUsers" xml:space="preserve">
+    <value>Редактирование пользоватлей</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Почта</value>
+  </data>
+  <data name="EnterNewEmail" xml:space="preserve">
+    <value>Введите новую почту</value>
+  </data>
+  <data name="EnterNewPassword" xml:space="preserve">
+    <value>Введите новый пароль</value>
+  </data>
+  <data name="EnterNewUserName" xml:space="preserve">
+    <value>Введите новое имя пользователя</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роль</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Имя пользователя</value>
+  </data>
+  <data name="ValidationEmail" xml:space="preserve">
+    <value>Некоректная почта</value>
+  </data>
+  <data name="ValidationPassword" xml:space="preserve">
+    <value>Минимальная длина - 6 символов</value>
+  </data>
+  <data name="ValidationUserName" xml:space="preserve">
+    <value>Минимальная длина - 4 символа</value>
+  </data>
 </root>

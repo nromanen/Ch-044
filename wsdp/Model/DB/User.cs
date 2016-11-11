@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Model.DB
 {
     public class User
@@ -14,12 +15,12 @@ namespace Model.DB
         public int Id { get; set; }
 
         [Required]
-        [MinLength(4, ErrorMessage = "Минимальная длина - 4 символа")]
+        [MinLength(4, ErrorMessage = "Minimum length - 4 characters")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Минимальная длина - 6 символа")]
+        [MinLength(6, ErrorMessage = "Minimum length - 6 characters")]
         public string Password { get; set; }
 
         [Required]
