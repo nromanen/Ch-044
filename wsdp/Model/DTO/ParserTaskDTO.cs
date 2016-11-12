@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Enum;
+using System;
 
 namespace Model.DTO
 {
@@ -13,11 +14,11 @@ namespace Model.DTO
         public int WebShopId { get; set; }
         public WebShopDTO WebShop { get; set; }
 
-        public string Priority { get; set; }
+        public Priority Priority { get; set; }
 
-        public string Status { get; set; }
+        public Status Status { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public IteratorSettingsDTO IteratorSettings { get; set; }
 

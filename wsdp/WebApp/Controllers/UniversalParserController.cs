@@ -56,8 +56,7 @@ namespace WebApp.Controllers
             }
             else
             {
-                parsertaskManager.Delete(4);
-                parsertask.Status = "Not Finished";
+                parsertask.Status = Common.Enum.Status.NotFinished;
                 newid = parsertaskManager.Add(parsertask);
             }
             return RedirectToAction("Iterator", new { id = parsertaskid ?? newid });

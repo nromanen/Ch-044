@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Enum;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Model.DB
@@ -17,12 +18,12 @@ namespace Model.DB
         public WebShop WebShop { get; set; }
 
         [Required]
-        public string Priority { get; set; }
+        public Priority Priority { get; set; }
 
         [Required]
-        public string Status { get; set; }
+        public Status Status { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public string IteratorSettings { get; set; }
 

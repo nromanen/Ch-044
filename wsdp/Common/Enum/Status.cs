@@ -2,9 +2,9 @@
 {
     public enum Status
     {
-        NotCreated,
+        NotFinished = 1,
         Coming,
-        Periodic,
+        Infinite,
         Finished
     }
 }

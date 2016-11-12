@@ -130,17 +130,17 @@ namespace DAL.Migrations
 			ParserTask task = new ParserTask() {
 				Category = categorySmartPhonesAndMobilePhones,
 				Description = "Smth",
-				Priority = "High",
-				Status = "Not Finished",
+				Priority = Priority.Low,
+				Status = Status.NotFinished,
 				WebShop = webShop1,
 				EndDate = DateTime.Now
 			};
 			ParserTask task2 = new ParserTask() {
 				Category = categorySmartPhonesAndMobilePhones,
 				Description = "Smth",
-				Priority = "High",
-				Status = "Not Finished",
-				WebShop = webShop2,
+                Priority = Priority.Middle,
+                Status = Status.NotFinished,
+                WebShop = webShop2,
 				EndDate = DateTime.Now
 			};
 
