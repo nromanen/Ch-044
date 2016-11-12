@@ -303,6 +303,7 @@
     <Content Include="Scripts\editcategories.js" />
     <Content Include="Scripts\EditProperties.js" />
     <Content Include="Scripts\Frame\Main.js" />
+    <Content Include="Scripts\index.goods.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -371,6 +372,7 @@
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Users\_UserEditModalView.cshtml" />
+    <Content Include="Views\CategoryTree\SubCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

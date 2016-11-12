@@ -1,0 +1,21 @@
+﻿@model Model.DTO.CategoryDTO
+
+<div class="root-cat float-left">
+	<div class="cat-name float-left">
+		<a href="#" class="unclickable g_statistic"><b>@Model.Name</b></a>
+	</div>
+	@if (Model.HasChildrenCategories)
+	{
+		<div class="sub-cat float-left">
+			@foreach (var sc in Model.ChildrenCategory)
+			{
+				@Html.Partial("~/Views/CategoryTree/SubCategory.cshtml", sc)
+				<div class="clearfix"></div>
+			}
+			
+		</div>
+	}
+
+	<div class="clearfix"></div>
+</div>
+

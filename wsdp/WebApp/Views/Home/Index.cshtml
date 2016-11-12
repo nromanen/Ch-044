@@ -1,66 +1,215 @@
-﻿﻿@model  Model.DTO.IndexViewDTO
+﻿﻿@model Model.DTO.IndexViewDTO
 
 @{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
 
 @Styles.Render("~/Content/IndexStylesheet")
 
 
 <div class="cf wrap container">
-    <header class="header">
-        <div class="top-nav-bg abs">
-            <div class="razdel-box rel">
-                <a href="#" class="razdel adapt-1024 js-mmenu-initiator"><b>Каталог товаров</b></a>
-                <span class="razdel-opener razdel open no-adapt-1024"><b>Каталог товаров</b></span>
+	<header class="header">
+		<div class="top-nav-bg abs">
+			<div class="razdel-box rel">
+				<a href="#" class="razdel adapt-1024 js-mmenu-initiator">
+					<b>Каталог товаров</b>
+				</a>
+				<span class="razdel-opener razdel open no-adapt-1024"><b><small class="glyphicon glyphicon-arrow-down"></small>Каталог товаров</b></span>
 
-            </div>
-            <div class="search-box">
-                <label for="toggle-1"><b>Поиск</b></label>
-                <div class="s-form-box">
-                    <form action="/sr/" method="get" class="open-pup">
-                        <input type="submit" value="Поиск" class="but abs" id="doSearch">
-                        <div class="s-inp">
-                            <input id="searchbox" name="q" type="text" class="search-txt ui-autocomplete-input" data-default="Что вы хотите купить?" value="Что вы хотите купить?" onfocus="javascript:if(this.value=='Что вы хотите купить?')this.value=''" onblur="javascript:if(this.value=='')this.value='Что вы хотите купить?'" autocomplete="off">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="content right row-1024">
-        <aside class="col-left">
-            <ul class="menu no-adapt-1024">
-                @foreach (var category in Model.CategoryList.Where(i => i.ParentCategoryId == null))
-                {
-                    <li class="g_static lvl1">
-                        <a href="#" class="js-touch-no-redirect">
-                            <b data-ru-title="@category.Name">@category.Name</b>
-                        </a>
-                    </li>
-                }
-            </ul>
-        </aside>
-        <div class="row">
-        <div class="col-sm-9">
-            @foreach (var category in Model.CategoryList.Where(i=>i.Id==43))
-            {
-            <div class="h3">
-                @category.Name
-            </div>
-            }
-            @foreach (var good in Model.GoodTVList)
-            {
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        @good.Name
-                        <div class="price-good">@good.Price</div>
-                    </a>
-                </div>
-            }
-        </div>
-            
+			</div>
+			<div class="search-box">
+				<label for="toggle-1">
+					<b>Поиск</b>
+				</label>
+				<div class="s-form-box">
+					<form action="/sr/" method="get" class="open-pup">
+						<input type="submit" value="Поиск" class="but abs" id="doSearch">
+						<div class="s-inp">
+							<input id="searchbox" name="q" type="text" class="search-txt ui-autocomplete-input" data-default="Что вы хотите купить?" value="Что вы хотите купить?" onfocus="javascript:if (this.value == 'Что вы хотите купить?')this.value = ''" onblur="javascript:if (this.value == '')this.value = 'Что вы хотите купить?'" autocomplete="off">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="content right row-1024">
+		<aside class="category-menu-wapper float-left">
+			<div class="abs-wrapper">
+				@foreach (var rc in Model.CategoryList)
+				{
+					@Html.Partial("~/Views/CategoryTree/SubCategory.cshtml", rc)
+					<div class="clearfix"></div>
+				}
+			</div>
 
-    </div>
-</div>
+
+		</aside>
+		<div class="row">
+			<div class="col-sm-9">
+				@foreach (var category in Model.CategoryList.Where(i => i.Id == 43))
+				{
+					<div class="h3">
+						@category.Name
+					</div>
+				}
+				@foreach (var good in Model.GoodTVList)
+				{
+					<div class="list-group">
+						<a href="#" class="list-group-item">
+							@good.Name
+							<div class="price-good">@good.Price</div>
+						</a>
+					</div>
+				}
+			</div>
+
+
+		</div>
+
+		<div class="content float-left hidden">
+
+
+			<aside class="col-left">
+				<ul class="menu no-adapt-1024">
+					@*@foreach (var category in Model.CategoryList.Where(i => i.ParentCategoryId == null))*@
+					@*{*@
+					<li class="g_static lvl1">
+						<a href="#" class="js-touch-no-redirect">
+							<b data-ru-title="@*@category.Name*@">@*@category.Name*@Category1</b>
+						</a>
+						<div class="sub-box">
+							<ul class="lvl2 col-xs-4">
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная бытовая техника
+									</a>
+									<div>
+										<ul class="lvl3">
+											<li>
+												<a class="unclickable g_statistic" onclick="" href="#">
+													Крупная техника
+												</a>
+												<div>
+													<ul class="lvl4">
+														<li>
+															<a class="unclickable g_statistic" onclick="" href="#">
+																Крупная техника
+															</a>
+														</li>
+														<li>
+															<a class="unclickable g_statistic" onclick="" href="#">
+																бытовая техника
+															</a>
+														</li>
+														<li>
+															<a class="unclickable g_statistic" onclick="" href="#">
+																Крупная бытовая техника
+															</a>
+														</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a class="unclickable g_statistic" onclick="" href="#">
+													бытовая техника
+												</a>
+											</li>
+											<li>
+												<a class="unclickable g_statistic" onclick="" href="#">
+													Крупная бытовая техника
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										бытовая техника
+									</a>
+								</li>
+								<li>
+									<a class="unclickable g_statistic" onclick="" href="#">
+										Крупная бытовая техника
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					@*}*@
+				</ul>
+			</aside>
+			<div class="row">
+				<div class="col-sm-9">
+					@foreach (var category in Model.CategoryList.Where(i => i.Id == 43))
+					{
+						<div class="h3">
+							@category.Name
+						</div>
+					}
+					@foreach (var good in Model.GoodTVList)
+					{
+						<div class="list-group">
+							<a href="#" class="list-group-item">
+								@good.Name
+								<div class="price-good">@good.Price</div>
+							</a>
+						</div>
+					}
+				</div>
+
+
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
 </div>
