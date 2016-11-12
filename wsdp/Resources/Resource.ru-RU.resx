@@ -363,4 +363,37 @@
   <data name="ValidationUserName" xml:space="preserve">
     <value>Минимальная длина - 4 символа</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="EmailExist" xml:space="preserve">
+    <value>Email уже существует</value>
+  </data>
+  <data name="InputPassword" xml:space="preserve">
+    <value>Введите пароль</value>
+  </data>
+  <data name="UncorrectEmailPassword" xml:space="preserve">
+    <value>Неправильный email или пароль</value>
+  </data>
+  <data name="UserNameExist" xml:space="preserve">
+    <value>Имя пользователя уже существует</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Пароли не совпадают</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Поле обязательное для ввода</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Зарегестрироваться</value>
+  </data>
+  <data name="SocialNetworksMessage" xml:space="preserve">
+    <value>Вы можете использовать социальные сети</value>
+  </data>
 </root>

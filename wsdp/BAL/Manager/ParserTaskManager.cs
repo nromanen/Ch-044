@@ -107,6 +107,7 @@ namespace BAL.Manager
             temp.Priority = parsertask.Priority;
             temp.Status = parsertask.Status;
             temp.Description = parsertask.Description;
+            uOW.Save();
             return Mapper.Map<ParserTaskDTO>(temp);
         }
 

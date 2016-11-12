@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Resources;
 
 namespace Model.DTO
 {
@@ -6,23 +7,22 @@ namespace Model.DTO
     {
         public int Id { get; set; }
 
-        [Required]
-        [MinLength(4, ErrorMessage = "Минимальная длина - 4 символа")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
+        [MinLength(4, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationUserName")]
         public string UserName { get; set; }
 
-        [Required]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationEmail")]
         public string Email { get; set; }
 
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Минимальная длина - 6 символа")]
+        [MinLength(4, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationPassword")]
         public string Password { get; set; }
 
-        [Compare("Password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        [Compare("Password", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordConfirmation")]
         public string ConfirmPassword { get; set; }
     }
 }

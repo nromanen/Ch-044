@@ -13,11 +13,11 @@ namespace WebApp.Controllers
         /// <summary>
         /// The variable gives the acces to DB for WebShopSTO
         /// </summary>
-        private IWebShopManager _webShopManager;
+        private IWebShopManager WebShopManager { get; }
 
         public WebShopController(IWebShopManager webShopManager)
         {
-            _webShopManager = webShopManager;
+            WebShopManager = webShopManager;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace WebApp.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            IEnumerable<WebShopDTO> webShopsList = _webShopManager.GetAll();
+            IEnumerable<WebShopDTO> webShopsList = WebShopManager.GetAll();
             return View(webShopsList);
         }
 
@@ -53,7 +53,7 @@ namespace WebApp.Controllers
                 webShop.LogoPath = CreateImgName();
                 upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
             }
-            _webShopManager.Insert(webShop);
+            WebShopManager.Insert(webShop);
             return RedirectToAction("Index");
         }
 
@@ -64,7 +64,7 @@ namespace WebApp.Controllers
         public ActionResult Delete(int? id)
         {
             if (id == null) return HttpNotFound();
-            WebShopDTO webShop = _webShopManager.GetById((int)id);
+            WebShopDTO webShop = WebShopManager.GetById((int)id);
             if (webShop != null)
                 return PartialView(webShop);
             return HttpNotFound();
@@ -77,8 +77,8 @@ namespace WebApp.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            WebShopDTO wShop = _webShopManager.GetById(id);
-            _webShopManager.Delete(wShop);
+            WebShopDTO wShop = WebShopManager.GetById(id);
+            WebShopManager.Delete(wShop);
             return RedirectToAction("Index");
         }
 
@@ -90,7 +90,7 @@ namespace WebApp.Controllers
         {
             if (id == null) return HttpNotFound();
 
-            WebShopDTO webShop = _webShopManager.GetById((int)id);
+            WebShopDTO webShop = WebShopManager.GetById((int)id);
             if (webShop == null) return HttpNotFound();
 
             return View(webShop);
@@ -110,7 +110,7 @@ namespace WebApp.Controllers
                 webShop.LogoPath = CreateImgName();
                 upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
             }
-            _webShopManager.Update(webShop);
+            WebShopManager.Update(webShop);
             return RedirectToAction("Index");
         }
 

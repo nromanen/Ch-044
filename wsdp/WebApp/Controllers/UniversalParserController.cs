@@ -66,19 +66,33 @@ namespace WebApp.Controllers
         //GET:UniverslaParser/Iterator/id?
         [Authorize(Roles = "Administrator")]
         [HttpGet]
-        public ActionResult Iterator(int? id)
+        public ActionResult Iterator(int? id, string URL)
         {
+            IteratorSettingsDTO iteratorViewModel = new IteratorSettingsDTO();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             else
             {
+                var task = parsertaskManager.Get(id.Value);
+
+                if (task.IteratorSettings == null)
+                {
+                    task.IteratorSettings = new IteratorSettingsDTO();
+                }
+                if(iteratorViewModel.Url==null)
+                {
+                    iteratorViewModel.Url = URL;
+                }
+                iteratorViewModel = task.IteratorSettings;
+                
                 ViewBag.Id = id;
             }
 
             ViewBag.Path = TempData["Path"];
-            return View();
+
+            return View(iteratorViewModel);
         }
 
         //POST:UniversalParser/url,id
@@ -86,12 +100,13 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult Download(string url, int? id)
         {
-            string pathToSite;
+            string localPathToSite;
             if (!String.IsNullOrWhiteSpace(url))
             {
                 Guid res = downloadManager.DownloadFromPath(url);
-                pathToSite = "/WebSites/" + res + ".html";
-                TempData["Path"] = pathToSite;
+                localPathToSite = "/WebSites/" + res + ".html";
+                TempData["Path"] = localPathToSite;
+
             }
             else
             {
@@ -99,15 +114,14 @@ namespace WebApp.Controllers
                 return RedirectToAction("Iterator", new { id = id.Value });
             }
 
-            return RedirectToAction("Iterator", new { id = id.Value });
+            return RedirectToAction("Iterator", new { id = id.Value, URL = url });
         }
         //POST:UniversalParser/IteratorConfigurations
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult IteratorConfigurations(int? id, string url, IteratorSettingsDTO model)
+        public ActionResult IteratorConfigurations(int? id, IteratorSettingsDTO model)
         {
             var _task = parsertaskManager.Get(id.Value);
-            model.Url = url;
             _task.IteratorSettings = model;
 
             parsertaskManager.Update(_task);
