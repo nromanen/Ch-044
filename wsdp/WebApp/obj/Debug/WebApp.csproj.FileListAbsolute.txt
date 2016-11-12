@@ -1337,3 +1337,9 @@ E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.xml
 E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
 E:\repository\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Core.xml
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\C# PROJECTS\SuperParser\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml

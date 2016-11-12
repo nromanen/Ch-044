@@ -41,7 +41,7 @@ namespace BAL.Manager
             {
                 parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
                 parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
-
+                parsertaskDb.Status = Common.Enum.Status.NotFinished;
                 uOW.ParserRepo.Insert(parsertaskDb);
                 uOW.Save();
                 return parsertaskDb.Id;
@@ -93,20 +93,47 @@ namespace BAL.Manager
             {
                 return null;
             }
+            //temp vars for checking fillness additional settings
+            bool IsIteratorSettingsAreFilled = false;
+            bool IsGrabebrSettingsAreFilled = false;
 
-            uOW.ParserRepo.SetStateModified(temp);
+            
+            //Filling and checking additional settings
             if (parsertask.GrabberSettings != null)
             {
                 temp.GrabberSettings = serializer.Serialize(parsertask.GrabberSettings);
+                IsIteratorSettingsAreFilled = true;
             }
             if (parsertask.IteratorSettings != null)
             {
                 temp.IteratorSettings = serializer.Serialize(parsertask.IteratorSettings);
+                IsGrabebrSettingsAreFilled = true;
+            }
+
+            if (IsGrabebrSettingsAreFilled && IsIteratorSettingsAreFilled)
+            {
+                if (parsertask.EndDate == null)
+                    temp.Status = Common.Enum.Status.Infinite;
+                else
+                    temp.Status = Common.Enum.Status.Finished;
+            }
+            else
+            {
+                temp.Status = Common.Enum.Status.NotFinished;
             }
 
             temp.Priority = parsertask.Priority;
-            temp.Status = parsertask.Status;
+
             temp.Description = parsertask.Description;
+            temp.EndDate = parsertask.EndDate;
+
+            temp.CategoryId = parsertask.CategoryId;
+            temp.WebShopId = parsertask.WebShopId;
+
+            temp.Category = uOW.CategoryRepo.GetByID(temp.CategoryId);
+            temp.WebShop = uOW.WebShopRepo.GetByID(temp.WebShopId);
+
+            uOW.ParserRepo.SetStateModified(temp);
             uOW.Save();
             return Mapper.Map<ParserTaskDTO>(temp);
         }
@@ -117,7 +144,12 @@ namespace BAL.Manager
         /// <returns></returns>
         public List<ParserTaskDTO> GetAll()
         {
-            return uOW.ParserRepo.All.ToList().Select(c => Mapper.Map<ParserTaskDTO>(c)).ToList();
+            List<ParserTaskDTO> resultList = new List<ParserTaskDTO>();
+            foreach (var parsertask in uOW.ParserRepo.All)
+            {
+                resultList.Add(Mapper.Map<ParserTaskDTO>(parsertask));
+            }
+            return resultList;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BAL.Interface;
 using Model.DTO;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -22,6 +23,15 @@ namespace WebApp.Controllers
             this.shopManager = shopManager;
             this.parsertaskManager = parsertaskManager;
         }
+        // GET: Index - list of all parser tasks
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult Index()
+        {
+            List<ParserTaskDTO> parsertasks = parsertaskManager.GetAll();
+
+            return View(parsertasks);
+        }
 
         // GET: Settings
         [Authorize(Roles = "Administrator")]
@@ -29,15 +39,17 @@ namespace WebApp.Controllers
         public ActionResult Settings(int? id)
         {
             ParserTaskDTO parsertask = null;
-            if (id != null)
-            {
-                parsertask = parsertaskManager.Get(id ?? -1);
-            }
             SettingsViewDTO settingsView = new SettingsViewDTO()
             {
                 Categories = categoryManager.GetAll().Where(c => c.HasChildrenCategories == false).Select(c => c).ToList(),
                 Shops = shopManager.GetAll().ToList()
             };
+
+            if (id != null)
+            {
+                parsertask = parsertaskManager.Get(id.GetValueOrDefault());
+            }
+
             if (parsertask != null)
             {
                 settingsView.ParserTask = parsertask;
@@ -60,6 +72,14 @@ namespace WebApp.Controllers
                 newid = parsertaskManager.Add(parsertask);
             }
             return RedirectToAction("Iterator", new { id = parsertaskid ?? newid });
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult Remove(int id)
+        {
+            parsertaskManager.Delete(id);
+            return Redirect("Index");
         }
 
         //GET:UniverslaParser/Iterator/id?

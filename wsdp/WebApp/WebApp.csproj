@@ -277,6 +277,7 @@
     <Content Include="Content\IndexStyleSheet.css" />
     <Content Include="Content\jquery.treemenu.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\ParserTaskIndex.css" />
     <Content Include="Content\sidebar-style.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\TVstylesheet.css" />
@@ -373,6 +374,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Users\_UserEditModalView.cshtml" />
     <Content Include="Views\CategoryTree\SubCategory.cshtml" />
+    <Content Include="Views\UniversalParser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
