@@ -22,7 +22,7 @@ namespace BAL.Manager
         {
             List<TapeRecorderDTO> microwaves = new List<TapeRecorderDTO>();
             ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
-            foreach (var MicrowaveDb in uOW.GoodRepo.All.Where(g => g.Category == GoodCategory.Microwave))
+            foreach (var MicrowaveDb in uOW.GoodRepo.All.Where(g => g.Category_Id==62))
             {
                 TapeRecorder wave = serializer.Deserialize(MicrowaveDb.XmlData, typeof(TapeRecorder)) as TapeRecorder;
                 wave.Id = MicrowaveDb.Id;

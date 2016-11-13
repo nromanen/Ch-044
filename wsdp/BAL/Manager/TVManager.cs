@@ -25,7 +25,7 @@ namespace BAL.Manager.ParseManagers
         {
             List<TVDTO> TVs = new List<TVDTO>();
             ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
-            foreach (var tvDb in uOW.GoodRepo.All.Where(g => g.Category == Common.Enum.GoodCategory.TV))
+            foreach (var tvDb in uOW.GoodRepo.All.Where(g => g.Category_Id==6))
             {
                 var tv = ser.Deserialize(tvDb.XmlData, typeof(TV)) as TV;
                 tv.Id = tvDb.Id;

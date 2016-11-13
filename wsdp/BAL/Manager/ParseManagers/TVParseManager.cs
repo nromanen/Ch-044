@@ -51,7 +51,7 @@ namespace BAL.Manager.ParseManagers
                     foreach (var good in GetGoodsFromPage(urlpath + "?PAGEN_1=" + i))
                     {
                         Good goodDb = new Good();
-                        goodDb.Category = Common.Enum.GoodCategory.TV;
+                        goodDb.Category_Id =6;
                         ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
 
                         goodDb.XmlData = ser.Serialize(good);

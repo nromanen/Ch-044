@@ -21,7 +21,7 @@ namespace BAL.Manager
         {
             List<PhoneSimpleDTO> phones = new List<PhoneSimpleDTO>();
             ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
-            foreach (var phoneDb in uOW.GoodRepo.All.Where(g => g.Category == Common.Enum.GoodCategory.Phone))
+            foreach (var phoneDb in uOW.GoodRepo.All.Where(g => g.Category_Id==5))
             {
                 var phone = ser.Deserialize(phoneDb.XmlData, typeof(ConcreteGood)) as ConcreteGood;
                 phone.Id = phoneDb.Id;

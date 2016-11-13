@@ -135,7 +135,7 @@ namespace BAL.Manager.ParseManagers
             Good result = new Good();
             ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
 
-            result.Category = GoodCategory.Laptop;
+            result.Category_Id=21;
             result.XmlData = serializer.Serialize(resultGood);
 
             GoodManager goodManager = new GoodManager(uOW);

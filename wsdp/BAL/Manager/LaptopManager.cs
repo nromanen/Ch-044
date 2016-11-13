@@ -19,7 +19,7 @@ namespace BAL.Manager
         {
             var laptopList = new List<Laptop>();
             ExtendedXmlSerializer serialiser = new ExtendedXmlSerializer();
-            var goodList = uOW.GoodRepo.All.Where(x => x.Category == GoodCategory.Laptop);
+            var goodList = uOW.GoodRepo.All.Where(x => x.Category_Id==21);
             foreach (var good in goodList)
             {
                 laptopList.Add(serialiser.Deserialize(good.XmlData, typeof(Laptop)) as Laptop);

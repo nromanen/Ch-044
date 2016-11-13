@@ -21,7 +21,7 @@ namespace BAL.Manager
         {
             List<FridgeDTO> fridges = new List<FridgeDTO>();
             ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
-            foreach (var fridgeDb in uOW.GoodRepo.All.Where(g => g.Category == Common.Enum.GoodCategory.Fridge))
+            foreach (var fridgeDb in uOW.GoodRepo.All.Where(g => g.Category_Id == 7))
             {
                 var fridge = ser.Deserialize(fridgeDb.XmlData, typeof(Fridge)) as Fridge;
                 fridge.Id = fridgeDb.Id;

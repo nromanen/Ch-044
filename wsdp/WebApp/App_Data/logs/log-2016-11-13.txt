@@ -1,0 +1,5 @@
+ERROR 2016-11-13 13:49:01,747 [6] 114973ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-11-13 13:49:07,033 [6] 120260ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-11-13 16:05:21,243 [14] 8294470ms [GetGood BAL.Manager.ParseManagers.TVParseManager] : The operation has timed out.
+ERROR 2016-11-13 16:05:37,231 [14] 8310457ms [ParseCategory BAL.Manager.ParseManagers.TVParseManager] : Object reference not set to an instance of an object.

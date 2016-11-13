@@ -23,21 +23,23 @@ namespace WebApp.Controllers
 
 		public ActionResult Index()
 		{
-			var goods = goodManager.GetAll().Select(c => c).ToList();
+			var goods = goodManager.GetAll();
 			var categories = categoryManager.GetAll();
-			var goods_TV = new List<TVDTO>();
+			var goods_list = new List<GoodViewDTO>();
 			foreach (var good in goods)
 			{
-				//xRoot.ElementName = "TV";
-				var good_temp = new TVDTO();
-				XmlSerializer serializer = new XmlSerializer(typeof (TVDTO));
+				var good_temp = new GoodViewDTO();
+				var xml_root = categories.Where(i => i.Id == good.Category_Id).Select(i => i.Name).FirstOrDefault();
+				XmlSerializer xmlSerializer = new XmlSerializer(typeof(GoodViewDTO), new XmlRootAttribute(xml_root));
 				StringReader rdr = new StringReader(good.XmlData);
-				good_temp = (TVDTO) serializer.Deserialize(rdr);
-				goods_TV.Add(good_temp);
+				good_temp = (GoodViewDTO)xmlSerializer.Deserialize(rdr);
+				good_temp.CategoryName = xml_root;
+				goods_list.Add(good_temp);
 			}
+			var cat_goods = goods_list.Select(i => i.CategoryName).Distinct().ToList();
 			var Custom_model = new IndexViewDTO()
 			{
-				GoodTVList = goods_TV,
+				GoodCollection = goods_list,
 				CategoryList = categories,
 				GoodList = goods
 			};
