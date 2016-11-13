@@ -29,102 +29,117 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div class="container">
-    <h2>[Parser Tasks]</h2>
+    <div class="row">
+        <h2 class="col-xs-12">[Parser Tasks]</h2>
+    </div>
     @foreach (var parsertask in Model)
     {
         <div class="row material-design-block">
-            <div class="">
-                <div class="col-xs-3">
-                    @parsertask.Description
-                    <br />
-                    @if (parsertask.Status == Common.Enum.Status.NotFinished)
-                    {
-                        <span class="label label-danger">Not Finished</span>
-                    }
-                    @if (parsertask.Status == Common.Enum.Status.Coming)
-                    {
-                        <span class="label label-warning">Coming</span>
-                    }
-                    @if (parsertask.Status == Common.Enum.Status.Infinite)
-                    {
-                        <span class="label label-primary">Infinite</span>
-                    }
-                    @if (parsertask.Status == Common.Enum.Status.Finished)
-                    {
-                        <span class="label label-success">Finished</span>
-                    }
-                </div>
-                <div class="col-xs-1">
-                    <b>@parsertask.WebShop.Name</b>
-                    <br />
+            <div class="col-md-2 col-xs-4">
+                <b>@parsertask.Description</b>
+                <br />
+                @if (parsertask.Status == Common.Enum.Status.NotFinished)
+                {
+                    <span class="label label-danger">Not Finished</span>
+                }
+                @if (parsertask.Status == Common.Enum.Status.Coming)
+                {
+                    <span class="label label-warning">Coming</span>
+                }
+                @if (parsertask.Status == Common.Enum.Status.Infinite)
+                {
+                    <span class="label label-primary">Infinite</span>
+                }
+                @if (parsertask.Status == Common.Enum.Status.Finished)
+                {
+                    <span class="label label-success">Finished</span>
+                }
+                <br />
+                <span class="label label-default">@parsertask.Priority.ToString()</span>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <b>Category:</b>
+                <br />
+                <b class="text-success">@parsertask.Category.Name  </b>
+            </div>
+            <div class="col-md-1 col-xs-3">
+                <b>Shop:</b>
+                <br />
+                <b class="text-success">@parsertask.WebShop.Name</b>
+            </div>
+            <div class="col-md-2 col-xs-2">
+                <b>URL:</b>
+                <br />
 
-                </div>
-                <div class="col-xs-1">
-                    <b>Priority:</b>
-                    <br />
-                    <span class="text-success">@parsertask.Priority.ToString()</span>
-                </div>
-                <div class="col-xs-2">
-                    <b>Date:</b>
-                    <br />
-
-                    @if (parsertask.EndDate == null)
+                    @if (parsertask.IteratorSettings != null)
                     {
-                        <span class="text-muted">
-                            Infinite
-                        </span>
+                        <span class="text-muted"><a href="@parsertask.IteratorSettings.Url">@parsertask.IteratorSettings.Url</a></span>
                     }
                     else
                     {
-                        <span class="text-muted">
-                            @parsertask.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")
-                        </span>
+                        <span class="text-muted">None</span>
                     }
-                    </div>
-                    <div class="col-xs-2">
-                        <b>It.Settings :</b>
-                        <br />
-                        @if (parsertask.IteratorSettings == null)
-                    {
-                            <span class="text-danger">Not Filled</span>
-                        }
-                        else
-                        {
-                            <span class="text-success">Filled</span>
-                        }
-                    </div>
-                    <div class="col-xs-2">
-                        <b>Gr.Settings :</b>
-                        <br />
-                        @if (parsertask.GrabberSettings == null)
-                    {
-                            <span class="text-danger">Not Filled</span>
-                        }
-                        else
-                        {
-                            <span class="text-success">Filled</span>
-                        }
-                    </div>
-                    <div class="col-xs-1">
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background:none; border:none; color:#333;">
-                                <span class="glyphicon glyphicon-option-vertical"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="Settings?id=@parsertask.Id">Update</a></li>
-                                <li><a href="#" onclick="SetDeleteTask(@parsertask.Id)" data-toggle="modal" data-target="#ModalDelete">Remove</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+             </div>
+        <div class="col-md-2 col-xs-4">
+            <b>Date:</b>
+            <br />
 
+            @if (parsertask.EndDate == null)
+                {
+                <span class="text-muted">
+                    Infinite
+                </span>
+            }
+            else
+            {
+                <span class="text-muted">
+                    @parsertask.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")
+                </span>
+            }
+        </div>
+        <div class="col-md-1 col-xs-3">
+            <b>It.Settings :</b>
+            <br />
+            @if (parsertask.IteratorSettings == null)
+                {
+                <span class="text-danger">Not Filled</span>
+            }
+            else
+            {
+                <span class="text-success">Filled</span>
+            }
+        </div>
+        <div class="col-md-1 col-xs-3">
+            <b>Gr.Settings :</b>
+            <br />
+            @if (parsertask.GrabberSettings == null)
+                {
+                <span class="text-danger">Not Filled</span>
+            }
+            else
+            {
+                <span class="text-success">Filled</span>
+            }
+        </div>
+        <div class="col-md-1 col-xs-2">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background:none; border:none; color:#333;">
+                    <span class="glyphicon glyphicon-option-vertical"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="Settings?id=@parsertask.Id">Update</a></li>
+                    <li><a href="#" onclick="SetDeleteTask(@parsertask.Id)" data-toggle="modal" data-target="#ModalDelete">Remove</a></li>
+                </ul>
             </div>
-                    }
-                </div>
+        </div>
 
-                @Scripts.Render("~/bundle/jquery")
-                <script>
-                    function SetDeleteTask(id) {
-                        $("#deletetaskid").val(id);
-                    }
-                </script>
+    </div>
+    }
+</div>
+
+@Scripts.Render("~/bundle/jquery")
+<script>
+    function SetDeleteTask(id) {
+        $("#deletetaskid").val(id);
+    }
+</script>

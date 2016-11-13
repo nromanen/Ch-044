@@ -45,6 +45,7 @@ $(document).ready(function () {
             var itemid = $item.attr("data-id");
             var itemparent = $item.parent().parent().attr("data-id");
             ChangeParent(itemid, itemparent);
+            ChangeOrderNoForList($item.parent());
         },
         pullPlaceholder: true,
         placeholder: '<li class="placeholdertrue"></li>',
@@ -262,6 +263,7 @@ $("#delete_prop_close").click(function () {
 
 //correct filling update modal form
 function UpdateCategory(id, name) {
+    $("#nameupdatedcategory").val(name);
     $("#CategoryNameForUpdate").html(name);
     $("#updatedidhidden").val(id);
     $("#removedidhidden").val(id);
@@ -307,5 +309,29 @@ function MakeHovers() {
                 $(this).removeClass("hidden");
             });
         });
+    });
+}
+
+
+//changes orderno for all elements in list node
+function ChangeOrderNoForList(listnode)
+{
+    var i = 1;
+    $(listnode).children("li").each(function () {
+        var id = $(this).attr("data-id");
+        ChangeOrderNoForOneElement(id, i);
+        i++;
+        console.log($(this).attr("data-id"));
+        console.log(i);
+    });
+
+    console.log($(listnode).children("li"));
+}
+
+//ajax post action to change orderno for one element
+function ChangeOrderNoForOneElement(id, orderno)
+{
+    $.post('ChangeOrderNo', { id: id, orderno: orderno }, function (data) {
+        console.log(data);
     });
 }

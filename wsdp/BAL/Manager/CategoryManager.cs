@@ -33,7 +33,7 @@ namespace BAL.Manager
 
             if (includeChildren && category.ChildrenCategory != null)
             {
-                foreach (var child in category.ChildrenCategory)
+                foreach (var child in category.ChildrenCategory.OrderBy(x => x.OrderNo))
                 {
                     result.ChildrenCategory.Add(Get(child.Id, true));
                 }
@@ -52,6 +52,7 @@ namespace BAL.Manager
         {
             var parent = parentId != -1 ? uOW.CategoryRepo.GetByID(parentId) : null;
             var newCategory = new Category() { Name = name, ParentCategory = parent };
+            newCategory.OrderNo = uOW.CategoryRepo.All.ToList().Where(c => c.ParentCategory == parent).Max(x => x.OrderNo) + 1;
             uOW.CategoryRepo.Insert(newCategory);
             uOW.Save();
             return newCategory.Id;
@@ -143,6 +144,31 @@ namespace BAL.Manager
 
             return false;
         }
+        /// <summary>
+        /// Changer OrderNo for one category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="orderno"></param>
+        /// <returns></returns>
+        public bool ChangeOrderNo(int id, int orderno)
+        {
+            try
+            {
+                var category = uOW.CategoryRepo.GetByID(id);
+                if (category == null)
+                    return false;
+
+                category.OrderNo = orderno;
+                uOW.Save();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
+
+            return false;
+        }
 
         /// <summary>
         /// Get all categories.
@@ -151,7 +177,7 @@ namespace BAL.Manager
         public List<CategoryDTO> GetAll()
         {
             List<CategoryDTO> categories = new List<CategoryDTO>();
-            foreach (var category in uOW.CategoryRepo.All.ToList())
+            foreach (var category in uOW.CategoryRepo.All.ToList().OrderBy(x => x.OrderNo))
             {
                 var categoryWithChildren = this.Get(category.Id, true);
                 categories.Add(categoryWithChildren);

@@ -145,7 +145,7 @@ namespace BAL.Manager
         public List<ParserTaskDTO> GetAll()
         {
             List<ParserTaskDTO> resultList = new List<ParserTaskDTO>();
-            foreach (var parsertask in uOW.ParserRepo.All)
+            foreach (var parsertask in uOW.ParserRepo.All.ToList())
             {
                 resultList.Add(Mapper.Map<ParserTaskDTO>(parsertask));
             }

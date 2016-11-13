@@ -14,6 +14,7 @@ namespace BAL.Interface
         bool Rename(int id, string name);
 
         bool ChangeParent(int id, int parent);
+        bool ChangeOrderNo(int id, int orderno);
 
         List<CategoryDTO> GetAll();
     }
