@@ -1,5 +1,6 @@
 ﻿using Common.Enum;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model.DB
 {
@@ -8,8 +9,11 @@ namespace Model.DB
 		[Key]
 		public int Id { get; set; }
 
+		[ForeignKey("Category_Id")]
+		public virtual Category Category { get; set; }
+
 		[Required]
-		public GoodCategory Category { get; set; }
+		public int Category_Id { get; set; }
 
 		[Required]
 		public string XmlData { get; set; }

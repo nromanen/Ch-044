@@ -49,14 +49,14 @@ namespace DAL.Migrations
             };
             Category categoryTv = new Category()
             {
-                Name = "TV sets",
+                Name = "TV",
                 ParentCategory = categoryForHouse,
                 OrderNo = 1
 
             };
             Category categoryFridges = new Category()
             {
-                Name = "Fridges",
+                Name = "Fridge",
                 ParentCategory = categoryForHouse,
                 OrderNo = 2
             };

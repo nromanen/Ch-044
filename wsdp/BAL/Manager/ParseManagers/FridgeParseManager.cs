@@ -34,7 +34,7 @@ namespace BAL.Manager.ParseManagers
                     foreach (var good in GetFridgesFromPage(url + i.ToString()))
                     {
                         var goodDB = new Good();
-                        goodDB.Category = GoodCategory.Fridge;
+                        goodDB.Category_Id = 7;
                         ExtendedXmlSerializer ser = new ExtendedXmlSerializer();
 
                         var xmlGood = ser.Serialize(good);
@@ -125,7 +125,7 @@ namespace BAL.Manager.ParseManagers
                     var link = findDiv.ChildNodes.FirstOrDefault(n => n.Name == "a");
                     var href = @"http://tehnotrade.com.ua" + link.Attributes["href"].Value;
 
-                    fridge.ImagePath = href;
+                    fridge.ImageLink = href;
                 }
                 catch (Exception ex)
                 {

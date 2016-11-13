@@ -62,6 +62,7 @@
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
+    <Compile Include="DTO\GoodViewDTO.cs" />
     <Compile Include="DTO\GrabberSettingsDTO.cs" />
     <Compile Include="DTO\IndexViewDTO.cs" />
     <Compile Include="DTO\IteratorSettingsDTO.cs" />

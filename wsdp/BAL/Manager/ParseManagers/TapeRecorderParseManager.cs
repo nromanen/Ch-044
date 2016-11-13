@@ -66,7 +66,7 @@ namespace BAL.Manager.ParseManagers
                 }
                 Good good = new Good()
                 {
-                    Category = GoodCategory.Microwave,
+                    Category_Id = 62,
                     XmlData = sererializer.Serialize(wave)
                 };
                 goodManager.InsertGood(good);

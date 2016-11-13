@@ -281,3 +281,15 @@ ul { list-style: none; }
 	position: relative;
 	display: block;
 }
+.adv {
+	height: 350px;
+}
+.g-name {
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 79%;
+}
+.g-images {
+	max-height: 227px;
+}

@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201611121650508_Updated ParserTask.Designer.cs">
       <DependentUpon>201611121650508_Updated ParserTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611131102472_Updated_good_Category_Id.cs" />
+    <Compile Include="Migrations\201611131102472_Updated_good_Category_Id.Designer.cs">
+      <DependentUpon>201611131102472_Updated_good_Category_Id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -204,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611121650508_Updated ParserTask.resx">
       <DependentUpon>201611121650508_Updated ParserTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611131102472_Updated_good_Category_Id.resx">
+      <DependentUpon>201611131102472_Updated_good_Category_Id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
