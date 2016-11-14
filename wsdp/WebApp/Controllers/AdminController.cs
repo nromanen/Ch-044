@@ -65,7 +65,7 @@ namespace WebApp.Controllers
         public ActionResult AddProperty(int catid)
         {
             List<CategoryDTO> categories =
-                categoryManager.GetAll().Select(c => c).ToList();
+                categoryManager.GetAll();
             List<string> enums = new List<string>();
             foreach (var i in Enum.GetNames(typeof(PropertyType)))
                 enums.Add(i);
@@ -78,7 +78,7 @@ namespace WebApp.Controllers
         {
             var properties = propertyManager.GetAll().Select(c => c).ToList();
             var categories =
-             categoryManager.GetAll().Select(c => c).ToList();
+             categoryManager.GetAll();
             var enums = new List<string>();
             foreach (var i in Enum.GetNames(typeof(PropertyType)))
                 enums.Add(i);
@@ -122,5 +122,12 @@ namespace WebApp.Controllers
         {
             userManager.UpdateUser(Id, UserName, Password, Email, RoleId);
         }
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public void ChangeOrderNo(int id, int orderno)
+        {
+            categoryManager.ChangeOrderNo(id, orderno);
+        }
+
     }
 }

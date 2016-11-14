@@ -6,6 +6,7 @@ using Model.DTO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using System;
 
 namespace BAL.Manager
 {
@@ -38,8 +39,19 @@ namespace BAL.Manager
 		{
 			return GetAll().FirstOrDefault(x => x.Email == email && x.Password == password);
 		}
+        
+        /// <summary>
+        /// Get social network user from database from autogenerate uid password and network name  
+        /// </summary>
+        /// <param name="password">ULoginUser.Uid</param>
+        /// <param name="network"></param>
+        /// <returns></returns>
+        public UserDTO GetSocialNetworkUser(string uId, string network)
+        {
+            return network != null ? GetAll().FirstOrDefault(x => x.Password == uId && x.SocialNetwork == network) : null;
+        }
 
-		/// <summary>
+	    /// <summary>
 		/// Update User in database.
 		/// </summary>
 		/// <param name="Id"></param>
@@ -69,14 +81,14 @@ namespace BAL.Manager
 			uOW.Save();
 		}
 
+        /// <summary>
+        /// Check the email's exictance in database
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
 		public bool EmailIsExist(string email)
 		{
 			return uOW.UserRepo.All.Any(x => x.Email == email);
 		}
-		public bool UserNameIsExist(string userName)
-		{
-			return uOW.UserRepo.All.Any(x => x.UserName == userName);
-		}
-
-	}
+    }
 }

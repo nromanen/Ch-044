@@ -24,5 +24,6 @@ namespace DAL
         public DbSet<WebShop> WebShops { get; set; }
         public DbSet<Property> Properties { get; set; }
         public DbSet<ParserTask> ParserTasks { get; set; }
+
     }
 }
