@@ -37,8 +37,8 @@
 			<div class="abs-wrapper">
 				@foreach (var rc in Model.CategoryList)
 				{
-				@Html.Partial("~/Views/CategoryTree/SubCategory.cshtml", rc)
-				<div class="clearfix"></div>
+					@Html.Partial("~/Views/CategoryTree/SubCategory.cshtml", rc)
+					<div class="clearfix"></div>
 				}
 			</div>
 
@@ -54,30 +54,30 @@
 		<div id="products" class="row list-group">
 			@foreach (var good in Model.GoodCollection)
 			{
-		<div class="item  col-xs-4 col-lg-4">
-			<div class="thumbnail">
-				<a id="item_img" href="#">
-					<img class="group list-group-image g-images col-sm-9" id="product_img" src="@good.ImageLink" alt="@good.Name">
-				</a>
-				<div class="caption">
-					<a class="pull-left" href="#">
-						<h4 class="group inner g-name list-group-item-heading">
-							<br />
-							@good.Name
-						</h4>
-					</a>
-					<div class="clearfix"></div>
-					<div class="row">
+				<div class="item  col-xs-4 col-lg-4">
+					<div class="thumbnail">
+						<a id="item_img" href="#">
+							<img class="group list-group-image g-images col-sm-9" id="product_img" src="@good.ImageLink" alt="@good.Name">
+						</a>
+						<div class="caption">
+							<a class="pull-left" href="#">
+								<h4 class="group inner g-name list-group-item-heading">
+									<br/>
+									@good.Name
+								</h4>
+							</a>
+							<div class="clearfix"></div>
+							<div class="row">
 
-						<div class="col-xs-12 col-md-6">
-							<p class="price-lead">
-								@good.Price грн.
-							</p>
+								<div class="col-xs-12 col-md-6">
+									<p class="price-lead">
+										@good.Price грн.
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 			}
 		</div>
 		<div class="clearfix"></div>

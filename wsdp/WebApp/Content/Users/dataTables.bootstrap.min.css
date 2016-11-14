@@ -111,12 +111,12 @@ table.dataTable thead.sorting_desc_disabled:after {
     color: #eee
 }
 div.dataTables_scrollHead table.dataTable {
-    margin - bottom: 0!important
+    margin-bottom: 0!important
 }
 div.dataTables_scrollBody table {
-    border - top: none;
-    margin - top: 0!important;
-    margin - bottom: 0!important
+    border-top:none;
+    margin-top:0!important;
+    margin-bottom:0!important
 }
 div.dataTables_scrollBody table thead.sorting:after,
 div.dataTables_scrollBody table thead.sorting_asc:after,
@@ -167,10 +167,4 @@ div.dataTables_scrollHead table.table-bordered {
 }
 div.table-responsive > div.dataTables_wrapper > div.row {
     margin: 0
-}
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^"col-"]:first-child {
-    padding-left: 0
-}
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^"col-"]:last-child {
-    padding-right: 0
 }
