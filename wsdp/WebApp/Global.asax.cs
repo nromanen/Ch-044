@@ -45,7 +45,6 @@ namespace WebApp
             try
             {
                 var container = new Container();
-                // Так делать вобще нельзя
                 container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
 
                 container.Register<IUserManager, UserManager>();

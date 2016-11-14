@@ -24,7 +24,7 @@
 	display: table;
 	height: 47px;
 	width: 100%;
-	background: #2a4192;
+	background: rgb(34, 187, 157);
 	z-index: 10;
 }
 
@@ -53,7 +53,7 @@
 }
 
 a {
-	color: #35a;
+	color: rgb(34, 187, 157);
 	text-decoration: none;
 }
 
@@ -64,13 +64,12 @@ a {
 	line-height: 22px;
 	color: #fff;
 	text-transform: uppercase;
-	padding: 13px 0 0 25px;
+	padding: 14px 0 0 26px;
 }
 
 .search-box input[type=checkbox], .search-box label { display: none; }
 
 html, body, div {
-	font: normal 12px/16px Arial, Geneva, Tahoma, sans-serif;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -84,7 +83,7 @@ html, body, div {
 
 .search-box input[type=submit] {
 	top: 7px;
-	right: 58px;
+	right: 57px;
 	width: 41px;
 	height: 33px;
 	text-indent: -3000px;
@@ -93,7 +92,7 @@ html, body, div {
 
 .search-box label b, .search-box input[type=submit] {
 	height: 33px;
-	background: url(http://hotline.ua/img/s/v3/bg_but_search.png) no-repeat;
+	background: url(http://mo-neosho.civicplus.com/images/layout/design21/go.png) no-repeat;
 }
 
 .search-box form .s-inp {
@@ -105,7 +104,7 @@ html, body, div {
 .search-box input[type=text] {
 	width: 100%;
 	height: 33px;
-	font-size: 16px;
+	font-size: 14px;
 	color: #666;
 	background: 0;
 	border: 0;
@@ -120,20 +119,21 @@ html, body, div {
 	display: block;
 	background-color: #eeeeee;
 }
-.root-cat { position: relative; }
+.root-cat { position: relative; 
+}
 
 .sub-cat {
 	position: absolute;
-	left: 254px;
+	left: 250px;
 }
 .cat-name:hover > a > b:hover {
-	background-color: #35a;
+	background-color: rgb(34, 187, 157);
 	color: #eeeeee;
 	text-shadow: none;
 }
 .cat-name {
-	margin-right: 4px;
-	padding-bottom: 3px;
+	/*margin-right: 4px;
+	padding-bottom: 3px;*/
 	width: 250px;
 }
 
