@@ -331,7 +331,17 @@ function ChangeOrderNoForList(listnode)
 //ajax post action to change orderno for one element
 function ChangeOrderNoForOneElement(id, orderno)
 {
-    $.post('ChangeOrderNo', { id: id, orderno: orderno }, function (data) {
-        console.log(data);
+    //$.post('ChangeOrderNo', { id: id, orderno: orderno }, function (data) {
+    //    console.log("succ");
+    //});
+    $.ajax({
+        type: 'POST',
+        url: 'ChangeOrderNo',
+        data: { id: id, orderno: orderno },
+        async: false,
+        success: function()
+        {
+            console.log("DONE");
+        }
     });
 }
