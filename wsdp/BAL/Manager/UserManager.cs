@@ -37,19 +37,15 @@ namespace BAL.Manager
 		/// </summary>
 		public UserDTO GetUser(string email, string password)
 		{
-			return GetAll().FirstOrDefault(x => x.Email == email && x.Password == password);
-		}
-        
-        /// <summary>
-        /// Get social network user from database from autogenerate uid password and network name  
-        /// </summary>
-        /// <param name="password">ULoginUser.Uid</param>
-        /// <param name="network"></param>
-        /// <returns></returns>
-        public UserDTO GetSocialNetworkUser(string uId, string network)
-        {
-            return network != null ? GetAll().FirstOrDefault(x => x.Password == uId && x.SocialNetwork == network) : null;
+            var user = uOW.UserRepo.All.FirstOrDefault(x => x.Email == email && x.Password == password);
+            return Mapper.Map<UserDTO>(user);
         }
+
+	    public NetworkUserDTO GetNetworkUser(string networkAccountId, string network)
+	    {
+	        var user = uOW.UserRepo.All.FirstOrDefault(x => x.NetworkAccountId == networkAccountId && x.Network == network);
+            return Mapper.Map<NetworkUserDTO>(user);
+	    }
 
 	    /// <summary>
 		/// Update User in database.
@@ -80,6 +76,14 @@ namespace BAL.Manager
 			uOW.UserRepo.Insert(dbUser);
 			uOW.Save();
 		}
+        public void Insert(NetworkUserDTO user)
+        {
+            if (user == null) return;
+            User dbUser = Mapper.Map<User>(user);
+            dbUser.RoleId = user.RoleId == 0 ? 2 : dbUser.RoleId;
+            uOW.UserRepo.Insert(dbUser);
+            uOW.Save();
+        }
 
         /// <summary>
         /// Check the email's exictance in database

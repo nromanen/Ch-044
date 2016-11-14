@@ -27,41 +27,39 @@ namespace WebApp.Controllers
             }
         }
 
-        #region signup
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult GetDataFromSocial()
+        public ActionResult GetDataFromNetwork()
         {
             var uLoginUser = ULoginHelper.GetULoginUser(
               this.Request.Form["token"],
               this.Request.ServerVariables["SERVER_NAME"]);
 
-            UserDTO userDTO = new UserDTO()
+            var user = new NetworkUserDTO()
             {
                 UserName = ULoginHelper.GetName(uLoginUser),
                 Email = uLoginUser.Email,
-                SocialNetwork = uLoginUser.Network,
-                Password = uLoginUser.Uid,
-                ConfirmPassword = uLoginUser.Uid
+                Network = uLoginUser.Network,
+                NetworkAccountId = uLoginUser.Uid
             };
 
-            if (userDTO.Email == null)
-                return View("EnterEmail", userDTO);
+            if (user.Email == null)
+                return View("EnterEmail", user);
 
-            return SocialNetworkSignUp(userDTO);
+            return NetworkSignUp(user);
         }
 
         [HttpPost]
-        public ActionResult SocialNetworkSignUp(UserDTO user)
+        public ActionResult NetworkSignUp(NetworkUserDTO user)
         {
             if (UserManager.EmailIsExist(user.Email))
             {
                 ModelState.AddModelError("Email", Resources.Resource.EmailExist);
                 return View("EnterEmail", user);
             }
-            if (!ModelState.IsValid || user.SocialNetwork == null)
+            if (!ModelState.IsValid || user.Network == null)
             {
-                return View("SocialNetworkErrMessage");
+                return View("NetworkErrMessage");
             }
 
             UserManager.Insert(user);
@@ -89,22 +87,22 @@ namespace WebApp.Controllers
             UserManager.Insert(user);
             return RedirectToAction("Index", "Home");
         }
-        #endregion
+   
 
-        #region login
+
 
         [HttpPost]
-        public ActionResult SocialNetworkLogin()
+        public ActionResult NetworkLogin()
         {
             var uLoginUser = ULoginHelper.GetULoginUser(
                 this.Request.Form["token"],
                 this.Request.ServerVariables["SERVER_NAME"]);
 
-            UserDTO user = UserManager.GetSocialNetworkUser(uLoginUser.Uid, uLoginUser.Network);
+            NetworkUserDTO user = UserManager.GetNetworkUser(uLoginUser.Uid, uLoginUser.Network);
 
             if (user == null)
             {
-                return View("SocialNetworkErrMessage");
+                return View("NetworkErrMessage");
             }
 
             var claim = new ClaimsIdentity("ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
@@ -119,7 +117,6 @@ namespace WebApp.Controllers
             AuthenticationManager.SignOut();
             AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = true}, claim);
             return RedirectToAction("Index", "Home");
-
         }
 
         public ActionResult Login()
@@ -159,14 +156,12 @@ namespace WebApp.Controllers
             }
             return View(model);
         }
-        #endregion
 
-        #region logout
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
-        #endregion
+
     }
 }

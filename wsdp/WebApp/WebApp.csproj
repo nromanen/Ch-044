@@ -380,7 +380,7 @@
     <Content Include="Views\CategoryTree\SubCategory.cshtml" />
     <Content Include="Views\UniversalParser\Index.cshtml" />
     <Content Include="Views\Account\EnterEmail.cshtml" />
-    <Content Include="Views\Account\SocialNetworkErrMessage.cshtml" />
+    <Content Include="Views\Account\NetworkErrMessage.cshtml" />
     <Content Include="Views\UniversalParser\FlexibleSelectList.cshtml" />
   </ItemGroup>
   <ItemGroup>
