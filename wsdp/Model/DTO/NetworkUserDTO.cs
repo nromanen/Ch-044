@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Resources;
 
 namespace Model.DTO
 {
-    public class UserDTO
+    public class NetworkUserDTO
     {
         public int Id { get; set; }
 
@@ -14,15 +19,11 @@ namespace Model.DTO
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
         [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationEmail")]
         public string Email { get; set; }
-
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        [DataType(DataType.Password)]
-        [MinLength(4, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationPassword")]
-        public string Password { get; set; }
+        public string Network { get; set; }
 
-        [Compare("Password", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordConfirmation")]
-        public string ConfirmPassword { get; set; }
+        public string NetworkAccountId { get; set; }
     }
 }

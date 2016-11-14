@@ -66,6 +66,7 @@
     <Compile Include="DTO\GrabberSettingsDTO.cs" />
     <Compile Include="DTO\IndexViewDTO.cs" />
     <Compile Include="DTO\IteratorSettingsDTO.cs" />
+    <Compile Include="DTO\NetworkUserDTO.cs" />
     <Compile Include="DTO\ParserTaskDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="DTO\SettingsViewDTO.cs" />

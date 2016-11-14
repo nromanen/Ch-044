@@ -1,4 +1,4 @@
-﻿@model Model.DTO.UserDTO
+﻿@model Model.DTO.NetworkUserDTO
 
 @{
     ViewBag.Title = "EnterEmail";
@@ -8,7 +8,7 @@
 <h2>[Please, enter your email]</h2>
 <div class="container">
     <div class="row">
-        <form action="/Account/SocialNetworkSignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="/Account/NetworkSignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
 
             @Html.AntiForgeryToken()
 
@@ -24,7 +24,7 @@
                 @*Hidden field*@
                 <div class="form-group">
                     <div class="col-md-4">
-                        <input id="textinput" name="SocialNetwork" type="hidden" value="@Model.SocialNetwork" placeholder="placeholder" class="form-control input-md">
+                        <input id="textinput" name="SocialNetwork" type="hidden" value="@Model.Network" placeholder="placeholder" class="form-control input-md">
                     </div>
                 </div>
                 @*Hidden field*@
@@ -36,15 +36,16 @@
                 @*Hidden field*@
                 <div class="form-group">
                     <div class="col-md-4">
-                        <input id="textinput" name="Password" type="hidden" value="@Model.Password" placeholder="placeholder" class="form-control input-md">
+                        <input id="textinput" name="Network" type="hidden" value="@Model.Network" placeholder="placeholder" class="form-control input-md">
                     </div>
                 </div>
                 @*Hidden field*@
                 <div class="form-group">
                     <div class="col-md-4">
-                        <input id="textinput" name="ConfirmPassword" type="hidden" value="@Model.ConfirmPassword" placeholder="placeholder" class="form-control input-md">
+                        <input id="textinput" name="NetworkAccountId" type="hidden" value="@Model.NetworkAccountId" placeholder="placeholder" class="form-control input-md">
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="[Save]" class="btn btn-default" />

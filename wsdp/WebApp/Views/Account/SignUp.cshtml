@@ -13,13 +13,13 @@
             <span>@Resources.Resource.SocialNetworksMessage:</span>
         </div>
         <div class="col-md-3 col-md-offset-9">
-            <div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name;providers=vkontakte,facebook,googleplus;hidden=;redirect_uri=@Url.Action("GetDataFromSocial", "Account");mobilebuttons=0;"></div>
+            <div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name;providers=vkontakte,facebook,googleplus;hidden=;redirect_uri=@Url.Action("GetDataFromNetwork", "Account");mobilebuttons=0;"></div>
         </div>
     </div>
     <div class="row">
         <form action="/Account/SignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
 
-            @Html.AntiForgeryToken()
+
 
             <div class="form-horizontal">
                 <hr/>
@@ -67,3 +67,13 @@
 </div>
 
 <script src="//ulogin.ru/js/ulogin.js"></script>
+<script>
+    $s = file_get_contents('http://ulogin.ru/token.php?token=' + $_POST['token'] + '&host=' + $_SERVER['HTTP_HOST']);
+    $user = json_decode($s, true);
+    //$user['network'] - соц. сеть, через которую авторизовался пользователь
+    //$user['identity'] - уникальная строка определяющая конкретного пользователя соц. сети
+    //$user['first_name'] - имя пользователя
+    //$user['last_name'] - фамилия пользователя
+
+
+</script>
