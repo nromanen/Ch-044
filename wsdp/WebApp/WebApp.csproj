@@ -257,6 +257,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ULoginHelper.cs" />
     <Compile Include="Models\EditUserModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -375,11 +376,12 @@
     <Content Include="Views\Users\_UserEditModalView.cshtml" />
     <Content Include="Views\CategoryTree\SubCategory.cshtml" />
     <Content Include="Views\UniversalParser\Index.cshtml" />
+    <Content Include="Views\Account\EnterEmail.cshtml" />
+    <Content Include="Views\Account\SocialNetworkErrMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\WebShopsLogo\" />
-    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
