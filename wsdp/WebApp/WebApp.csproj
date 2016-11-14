@@ -378,7 +378,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\WebShopsLogo\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
