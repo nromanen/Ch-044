@@ -1,0 +1,4 @@
+ERROR 2016-11-14 15:38:15,638 [7] 259319ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Object reference not set to an instance of an object.
+ERROR 2016-11-14 15:38:17,390 [7] 261072ms [ParseFridge BAL.Manager.ParseManagers.FridgeParseManager] : Value cannot be null.
+Parameter name: source
+ERROR 2016-11-14 17:25:19,368 [1] 443ms [InjectorContainer WebApp.MvcApplication] : To be able to use the Lifestyle.Scoped property, please ensure that the container is configured with a default scoped lifestyle by setting the Container.Options.DefaultScopedLifestyle property with the required scoped lifestyle for your type of application.
