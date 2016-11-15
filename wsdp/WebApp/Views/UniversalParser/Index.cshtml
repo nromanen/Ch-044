@@ -17,7 +17,7 @@
             </div>
             <div class="modal-body">
                 <p>Do you really want to delete this task ? </p>
-                <form action="Remove" method="post">
+                <form action="UniversalParser/Remove" method="post">
                     <div class="form-group">
                         <small class="form-text text-muted">@Resources.Resource.BeAware ! <br /></small>
                         <input type="hidden" name="id" value="" id="deletetaskid" />
@@ -127,7 +127,7 @@
                     <span class="glyphicon glyphicon-option-vertical"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="Settings?id=@parsertask.Id">Update</a></li>
+                    <li><a href="UniversalParser/Settings?id=@parsertask.Id">Update</a></li>
                     <li><a href="#" onclick="SetDeleteTask(@parsertask.Id)" data-toggle="modal" data-target="#ModalDelete">Remove</a></li>
                 </ul>
             </div>
