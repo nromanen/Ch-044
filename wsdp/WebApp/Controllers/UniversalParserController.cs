@@ -139,7 +139,7 @@ namespace WebApp.Controllers {
 				} else {
 					grabber.Id = id.Value;
 					task.Category = categoryManager.Get(task.CategoryId);
-					grabber.PropertyItems = Mapper.Map<List<GraberPropertyItemDTO>>(task.Category.PropertiesList);
+					grabber.PropertyItems = Mapper.Map<List<GrabberPropertyItemDTO>>(task.Category.PropertiesList);
 				}
 			}
 			return View(grabber);
