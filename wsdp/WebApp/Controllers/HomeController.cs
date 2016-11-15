@@ -23,6 +23,7 @@ namespace WebApp.Controllers
 
 		public ActionResult Index()
 		{
+		    
 			var goods = goodManager.GetAll();
 			var categories = categoryManager.GetAll();
 			var goods_list = new List<GoodViewDTO>();

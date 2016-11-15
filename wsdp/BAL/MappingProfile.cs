@@ -75,7 +75,7 @@ namespace BAL
                 p => p.GrabberSettings,
                 m => m.MapFrom(x => (x.GrabberSettings != null ? serializer.Serialize(x.GrabberSettings) : null)));
 
-			CreateMap<PropertyDTO, GraberPropertyItemDTO>();
+			CreateMap<PropertyDTO, GrabberPropertyItemDTO>();
 		}
     }
 }
