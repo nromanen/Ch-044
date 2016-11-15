@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using log4net;
+using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace SiteProcessor
         private const int CONTROL_PORT = 9051;
         private const string PATH = @"Tor\Tor\tor.exe";
         private static Client client = null;
+        static PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
+
+        protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
         public SiteDownloader()
         {
@@ -32,25 +36,23 @@ namespace SiteProcessor
                 createParameters.SetConfig(ConfigurationNames.GeoIPFile, Path.Combine(Environment.CurrentDirectory, @"Tor\Data\Tor\geoip"));
                 createParameters.SetConfig(ConfigurationNames.GeoIPv6File, Path.Combine(Environment.CurrentDirectory, @"Tor\Data\Tor\geoip6"));
 
-                Client client = Client.Create(createParameters);
+                client = Client.Create(createParameters);
+                
+                service.AddArguments(new string[] {
+                "--proxy-type=socks5","--proxy=127.0.0.1:9050"
+            });
             }
         }
 
 
-        public string DownloadSite(string url, string path)
+        public bool DownloadSite(string url, string path)
         {
-            PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
-
-            service.AddArguments(new string[] {
-                "--proxy-type=socks5","--proxy=127.0.0.1:9050"
-            });
-
             using (IWebDriver driver = new PhantomJSDriver(service))
             {
                 try
                 {
                     driver.Navigate().GoToUrl(@"http://2ip.ru");
-                    Console.WriteLine("GoToURL");
+
                     using (FileStream fs = new FileStream(path, FileMode.Create))
                     {
                         using (StreamWriter sw = new StreamWriter(fs))
@@ -59,15 +61,36 @@ namespace SiteProcessor
                         }
                     }
 
-                    return driver.PageSource;
+                    return true;
+
                 }
                 catch(Exception ex)
                 {
-                    /*TO DO*/
+                    logger.Error(ex.Message);
+                    return false;
+                }
+
+            }
+        }
+
+        public string GetPageSouce(string url)
+        {
+            using (IWebDriver driver = new PhantomJSDriver(service))
+            {
+                try
+                {
+                    driver.Navigate().GoToUrl(@"http://2ip.ru");
+                    return driver.PageSource;
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.Message);
                     return null;
                 }
 
             }
         }
+
+
     }
 }
