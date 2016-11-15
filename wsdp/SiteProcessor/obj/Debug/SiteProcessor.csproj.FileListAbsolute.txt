@@ -1,0 +1,9 @@
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\SiteProcessor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\SiteProcessor.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\Tor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.dll
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\Tor.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.xml
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.csprojResolveAssemblyReference.cache
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.pdb

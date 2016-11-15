@@ -64,6 +64,7 @@
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\GoodViewDTO.cs" />
     <Compile Include="DTO\GrabberSettingsDTO.cs" />
+    <Compile Include="DTO\GraberPropertyItemDTO.cs" />
     <Compile Include="DTO\IndexViewDTO.cs" />
     <Compile Include="DTO\IteratorSettingsDTO.cs" />
     <Compile Include="DTO\NetworkUserDTO.cs" />
