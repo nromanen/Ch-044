@@ -396,4 +396,10 @@
   <data name="NetworkErrMessage" xml:space="preserve">
     <value>Sorry, but we can't provide this account or you have not registered yet.Try to use other account or register on our site.</value>
   </data>
+  <data name="GoHome" xml:space="preserve">
+    <value>Return to the main page.</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>The page is not found. Try later.</value>
+  </data>
 </root>
