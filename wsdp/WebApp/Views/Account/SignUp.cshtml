@@ -18,6 +18,8 @@
     </div>
     <div class="row">
         <form action="/Account/SignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
             <div class="form-horizontal">
                 <hr />
                 <div class="form-group">

@@ -92,9 +92,6 @@ namespace WebApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
-
-
         [HttpPost]
         public ActionResult NetworkLogin()
         {
