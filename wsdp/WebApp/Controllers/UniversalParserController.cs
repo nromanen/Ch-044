@@ -77,7 +77,7 @@ namespace WebApp.Controllers {
 		public ActionResult Iterator(int? id, string URL) {
 			IteratorSettingsDTO iteratorViewModel = new IteratorSettingsDTO();
 			if (id == null) {
-				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+				return HttpNotFound();
 			} else {
 				var task = parserTaskManager.Get(id.Value);
 
@@ -128,6 +128,7 @@ namespace WebApp.Controllers {
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
 		public ActionResult Grabber(int? id) {
+			if(id == null) { return HttpNotFound(); }
 			var task = new ParserTaskDTO();
 			var grabber = new GrabberSettingsDTO();
 			if (id != null) {
