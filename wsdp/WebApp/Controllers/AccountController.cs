@@ -167,5 +167,10 @@ namespace WebApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
+        public ActionResult Bad()
+        {
+            return HttpNotFound();
+        }
     }
 }
