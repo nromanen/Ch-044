@@ -131,11 +131,11 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserDTO user = UserManager.GetUser(model.Email, model.Password);
+                UserDTO user = UserManager.GetByEmail(model.Name, model.Password) ?? UserManager.GetByUserName(model.Name, model.Password);
 
                 if (user == null)
                 {
-                    ModelState.AddModelError("Email", Resources.Resource.UncorrectEmailPassword);
+                    ModelState.AddModelError("Name", Resources.Resource.UncorrectEmailPassword);
                     ModelState.AddModelError("Password", Resources.Resource.UncorrectEmailPassword);
                 }
                 else
