@@ -2,3 +2,8 @@ D:\Programming\SoftServe\Ch-044\wsdp\Tor\bin\Debug\Tor.dll
 D:\Programming\SoftServe\Ch-044\wsdp\Tor\bin\Debug\Tor.pdb
 D:\Programming\SoftServe\Ch-044\wsdp\Tor\obj\Debug\Tor.dll
 D:\Programming\SoftServe\Ch-044\wsdp\Tor\obj\Debug\Tor.pdb
+D:\Wsdp\Ch-044\wsdp\Tor\bin\Debug\Tor.dll
+D:\Wsdp\Ch-044\wsdp\Tor\bin\Debug\Tor.pdb
+D:\Wsdp\Ch-044\wsdp\Tor\obj\Debug\Tor.csprojResolveAssemblyReference.cache
+D:\Wsdp\Ch-044\wsdp\Tor\obj\Debug\Tor.dll
+D:\Wsdp\Ch-044\wsdp\Tor\obj\Debug\Tor.pdb

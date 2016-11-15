@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,16 @@ using System.Threading.Tasks;
 using Tor;
 using Tor.Config;
 
+
 namespace SiteProcessor
 {
     public class SiteDownloader
     {
         private const int CONTROL_PORT = 9051;
-        private const string PATH = @"Tor\Tor\tor.exe";
-        private static Client client = null;
-        static PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
+        private const string PATH = @"D:\TORNET\Example\Tor\Tor\tor.exe";
 
         protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
+        static Client client = null;
 
         public SiteDownloader()
         {
@@ -37,21 +38,32 @@ namespace SiteProcessor
                 createParameters.SetConfig(ConfigurationNames.GeoIPv6File, Path.Combine(Environment.CurrentDirectory, @"Tor\Data\Tor\geoip6"));
 
                 client = Client.Create(createParameters);
-                
-                service.AddArguments(new string[] {
-                "--proxy-type=socks5","--proxy=127.0.0.1:9050"
-            });
+
             }
         }
 
 
         public bool DownloadSite(string url, string path)
         {
+            //Process[] previous = Process.GetProcessesByName("tor");
+
+
+            //if (previous != null && previous.Length > 0)
+            //{
+
+            //    foreach (Process process in previous)
+            //        process.Kill();
+            //}
+
+            PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
+            service.AddArguments(new string[] {
+                "--proxy-type=socks5","--proxy=127.0.0.1:9050"
+            });
             using (IWebDriver driver = new PhantomJSDriver(service))
             {
                 try
                 {
-                    driver.Navigate().GoToUrl(@"http://2ip.ru");
+                    driver.Navigate().GoToUrl(url);
 
                     using (FileStream fs = new FileStream(path, FileMode.Create))
                     {
@@ -75,6 +87,10 @@ namespace SiteProcessor
 
         public string GetPageSouce(string url)
         {
+            PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
+            service.AddArguments(new string[] {
+                "--proxy-type=socks5","--proxy=127.0.0.1:9050"
+            });
             using (IWebDriver driver = new PhantomJSDriver(service))
             {
                 try

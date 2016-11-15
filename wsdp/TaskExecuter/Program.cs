@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SiteProcessor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,11 @@ namespace TaskExecuter
     {
         static void Main(string[] args)
         {
+            SiteDownloader downloader = new SiteDownloader();
+
+            Console.WriteLine(downloader.GetPageSouce(@"http://2ip.ru"));
+
+            Console.ReadLine();
         }
     }
 }
