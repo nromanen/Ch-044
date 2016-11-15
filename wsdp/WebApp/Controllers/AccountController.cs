@@ -165,9 +165,6 @@ namespace WebApp.Controllers
         }
 
 
-        public ActionResult Bad()
-        {
-            return HttpNotFound();
-        }
+      
     }
 }

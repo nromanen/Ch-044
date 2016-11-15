@@ -389,6 +389,7 @@
     <Content Include="Views\Account\NetworkErrMessage.cshtml" />
     <Content Include="Views\UniversalParser\FlexibleSelectList.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\InternalServer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
