@@ -391,6 +391,9 @@
     <value>Sign up</value>
   </data>
   <data name="SocialNetworksMessage" xml:space="preserve">
-    <value>Also You may to sign up via social networks</value>
+    <value>You can use social networks</value>
+  </data>
+  <data name="NetworkErrMessage" xml:space="preserve">
+    <value>Sorry, but we can't provide this account or you have not registered yet.Try to use other account or register on our site.</value>
   </data>
 </root>

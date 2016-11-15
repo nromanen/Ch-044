@@ -520,6 +520,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, but we can&apos;t provide this account or you have not registered yet.Try to use other account or register on our site..
+        /// </summary>
+        public static string NetworkErrMessage {
+            get {
+                return ResourceManager.GetString("NetworkErrMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -682,7 +691,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Also You may to sign up via social networks.
+        ///   Looks up a localized string similar to You can use social networks.
         /// </summary>
         public static string SocialNetworksMessage {
             get {

@@ -396,4 +396,7 @@
   <data name="SocialNetworksMessage" xml:space="preserve">
     <value>Ви можете використовувати соціальні мережі</value>
   </data>
+  <data name="NetworkErrMessage" xml:space="preserve">
+    <value>Вибачте, але ми не можемо підтримувати цей аккаунт або ви ще не зареєстровані. Спробуйте використати інший акаунт або зареєструватися через наш сайт.</value>
+  </data>
 </root>
