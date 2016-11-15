@@ -412,6 +412,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Return to the main page..
+        /// </summary>
+        public static string GoHome {
+            get {
+                return ResourceManager.GetString("GoHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GO TO SHOP.
         /// </summary>
         public static string GoToShop {
@@ -520,11 +529,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, but we can&apos;t provide this account or you have not registered yet.Try to use other account or register on our site..
+        /// </summary>
+        public static string NetworkErrMessage {
+            get {
+                return ResourceManager.GetString("NetworkErrMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page is not found. Try later..
+        /// </summary>
+        public static string NotFoundMessage {
+            get {
+                return ResourceManager.GetString("NotFoundMessage", resourceCulture);
             }
         }
         
@@ -682,7 +709,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Also You may to sign up via social networks.
+        ///   Looks up a localized string similar to You can use social networks.
         /// </summary>
         public static string SocialNetworksMessage {
             get {

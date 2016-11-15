@@ -27,13 +27,17 @@ namespace WebApp.Controllers
             }
         }
 
-        
+
         [HttpPost]
         public ActionResult GetDataFromNetwork()
         {
             var uLoginUser = ULoginHelper.GetULoginUser(
               this.Request.Form["token"],
               this.Request.ServerVariables["SERVER_NAME"]);
+
+            //If user account is already exist redirect to login method
+            if (UserManager.NetworkAccountExict(uLoginUser.Uid, uLoginUser.Network))
+                return NetworkLogin();
 
             var user = new NetworkUserDTO()
             {
@@ -87,7 +91,7 @@ namespace WebApp.Controllers
             UserManager.Insert(user);
             return RedirectToAction("Index", "Home");
         }
-   
+
 
 
 
@@ -115,7 +119,7 @@ namespace WebApp.Controllers
             claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.RoleName, ClaimValueTypes.String));
 
             AuthenticationManager.SignOut();
-            AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = true}, claim);
+            AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
             return RedirectToAction("Index", "Home");
         }
 
@@ -150,7 +154,7 @@ namespace WebApp.Controllers
                     claim.AddClaim(new Claim(ClaimsIdentity.DefaultRoleClaimType, user.RoleName, ClaimValueTypes.String));
 
                     AuthenticationManager.SignOut();
-                    AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = true}, claim);
+                    AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -163,5 +167,10 @@ namespace WebApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
+        public ActionResult Bad()
+        {
+            return HttpNotFound();
+        }
     }
 }

@@ -4,12 +4,14 @@ using Model.DB;
 using Model.DTO;
 using Model.Product;
 using System.Collections.Generic;
+using BAL.Manager;
 
 namespace BAL
 {
     public class MappingProfile : Profile
     {
         private ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
+		private SerializerForGrabber grabberSerializer = new SerializerForGrabber();
 
         protected override void Configure()
         {
@@ -55,7 +57,7 @@ namespace BAL
                 m => m.MapFrom(x => (IteratorSettingsDTO)serializer.Deserialize(x.IteratorSettings, typeof(IteratorSettingsDTO))))
                 .ForMember(
                 p => p.GrabberSettings,
-                m => m.MapFrom(x => (GrabberSettingsDTO)serializer.Deserialize(x.GrabberSettings, typeof(GrabberSettingsDTO))));
+                m => m.MapFrom(x => (GrabberSettingsDTO)grabberSerializer.Deserialize(x.GrabberSettings, typeof(GrabberSettingsDTO))));
 
             CreateMap<ParserTaskDTO, ParserTask>()
                 .ForMember(
@@ -72,6 +74,8 @@ namespace BAL
                 .ForMember(
                 p => p.GrabberSettings,
                 m => m.MapFrom(x => (x.GrabberSettings != null ? serializer.Serialize(x.GrabberSettings) : null)));
-        }
+
+			CreateMap<PropertyDTO, GraberPropertyItemDTO>();
+		}
     }
 }

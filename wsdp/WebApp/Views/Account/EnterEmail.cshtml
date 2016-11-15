@@ -13,44 +13,39 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <hr/>
+                <hr />
                 <div class="form-group">
                     <label class="control-label col-md-2">@Resources.Resource.Email</label>
                     <div class="col-md-4">
                         <input id="textinput" name="Email" type="text" value="@Model.Email" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                @*Hidden field*@
-                <div class="form-group">
-                    <div class="col-md-4">
-                        <input id="textinput" name="SocialNetwork" type="hidden" value="@Model.Network" placeholder="placeholder" class="form-control input-md">
-                    </div>
-                </div>
-                @*Hidden field*@
-                <div class="form-group">
-                    <div class="col-md-4">
-                        <input id="textinput" name="UserName" type="hidden" value="@Model.UserName" placeholder="placeholder" class="form-control input-md">
-                    </div>
-                </div>
-                @*Hidden field*@
-                <div class="form-group">
-                    <div class="col-md-4">
-                        <input id="textinput" name="Network" type="hidden" value="@Model.Network" placeholder="placeholder" class="form-control input-md">
-                    </div>
-                </div>
-                @*Hidden field*@
-                <div class="form-group">
-                    <div class="col-md-4">
-                        <input id="textinput" name="NetworkAccountId" type="hidden" value="@Model.NetworkAccountId" placeholder="placeholder" class="form-control input-md">
-                    </div>
-                </div>
-                
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="[Save]" class="btn btn-default" />
+                        <input type="submit" value=@Resources.Resource.SAVE class="btn btn-default" />
                     </div>
                 </div>
+                @*Hidden field*@
+                <div class="form-group">
+                    <input id="textinput" name="SocialNetwork" type="hidden" value="@Model.Network" placeholder="placeholder" class="form-control input-md">
+                </div>
+
+                @*Hidden field*@
+                <div class="form-group">
+                    <input id="textinput" name="UserName" type="hidden" value="@Model.UserName" placeholder="placeholder" class="form-control input-md">
+                </div>
+
+                @*Hidden field*@
+                <div class="form-group">
+                    <input id="textinput" name="Network" type="hidden" value="@Model.Network" placeholder="placeholder" class="form-control input-md">
+                </div>
+
+                @*Hidden field*@
+                <div class="form-group">
+                    <input id="textinput" name="NetworkAccountId" type="hidden" value="@Model.NetworkAccountId" placeholder="placeholder" class="form-control input-md">
+                </div>
+
             </div>
         </form>
     </div>

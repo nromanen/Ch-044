@@ -14,66 +14,57 @@ namespace DAL.Migrations
 
         protected override void Seed(DAL.MainContext context)
         {
-            //  This method will be called after migrating to the latest version.
-            Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator" };
-            Role role_user = new Role() { Id = 2, Name = "User", Description = "Application user" };
-            User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
-            User user2 = new User() { Id = 2, Email = "user@admin.admin", UserName = "user", Password = "qwerty", Role = role };
+			//  This method will be called after migrating to the latest version.
+			Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator" };
+			Role role_user = new Role() { Id = 2, Name = "User", Description = "Application user" };
+			User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
+			User user2 = new User() { Id = 2, Email = "user@admin.admin", UserName = "user", Password = "qwerty", Role = role };
 
-            Category categorySmartPhonesAndMobilePhones = new Category()
-            {
-                Name = "SmartPhonesAndMobilePhones",
-                OrderNo = 1
-            };
-            Category categoryForHouse = new Category()
-            {
-                Name = "ForHouse",
-                OrderNo = 2
-            };
-            Category categoryComputers = new Category()
-            {
-                Name = "Computers",
-                OrderNo = 3
-            };
-            Category categorySmartphones = new Category()
-            {
-                Name = "Smartphones",
-                ParentCategory = categorySmartPhonesAndMobilePhones,
-                OrderNo = 1
-            };
-            Category categoryMobilephones = new Category()
-            {
-                Name = "Mobile phones",
-                ParentCategory = categorySmartPhonesAndMobilePhones,
-                OrderNo = 2
-            };
-            Category categoryTv = new Category()
-            {
-                Name = "TV",
-                ParentCategory = categoryForHouse,
-                OrderNo = 1
+			Category categorySmartPhonesAndMobilePhones = new Category() {
+				Name = "SmartPhonesAndMobilePhones",
+				OrderNo = 1
+			};
+			Category categoryForHouse = new Category() {
+				Name = "ForHouse",
+				OrderNo = 2
+			};
+			Category categoryComputers = new Category() {
+				Name = "Computers",
+				OrderNo = 3
+			};
+			Category categorySmartphones = new Category() {
+				Name = "Smartphones",
+				ParentCategory = categorySmartPhonesAndMobilePhones,
+				OrderNo = 1
+			};
+			Category categoryMobilephones = new Category() {
+				Name = "Mobile phones",
+				ParentCategory = categorySmartPhonesAndMobilePhones,
+				OrderNo = 2
+			};
+			Category categoryTv = new Category() {
+				Name = "TV",
+				ParentCategory = categoryForHouse,
+				OrderNo = 1
 
-            };
-            Category categoryFridges = new Category()
-            {
-                Name = "Fridge",
-                ParentCategory = categoryForHouse,
-                OrderNo = 2
-            };
-            Category categoryMicrowaves = new Category()
-            {
-                Name = "Microwaves",
-                ParentCategory = categoryForHouse,
-                OrderNo = 3
-            };
-            Category categoryLaptops = new Category()
-            {
-                Name = "Laptops",
-                ParentCategory = categoryComputers,
-                OrderNo = 1
-            };
+			};
+			Category categoryFridges = new Category() {
+				Name = "Fridge",
+				ParentCategory = categoryForHouse,
+				OrderNo = 2
+			};
+			Category categoryMicrowaves = new Category() {
+				Name = "Microwaves",
+				ParentCategory = categoryForHouse,
+				OrderNo = 3
+			};
+			Category categoryLaptops = new Category() {
+				Name = "Laptops",
+				ParentCategory = categoryComputers,
+				OrderNo = 1
+			};
 			Property prop1 = new Property() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Name = "Display",
 				DefaultValue = "Retina",
 				Description = "qwerty",
@@ -82,7 +73,7 @@ namespace DAL.Migrations
 				Type = PropertyType.String
 			};
 			Property prop2 = new Property() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Name = "Diagonal",
 				DefaultValue = "5,7",
 				Description = "qwerty",
@@ -91,7 +82,7 @@ namespace DAL.Migrations
 				Type = PropertyType.String
 			};
 			Property prop3 = new Property() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Name = "Camera",
 				DefaultValue = "8",
 				Description = "qwerty",
@@ -100,7 +91,7 @@ namespace DAL.Migrations
 				Type = PropertyType.String
 			};
 			Property prop4 = new Property() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Name = "Battery",
 				DefaultValue = "3700",
 				Description = "qwerty",
@@ -109,7 +100,7 @@ namespace DAL.Migrations
 				Type = PropertyType.String
 			};
 			Property prop5 = new Property() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Name = "Sound",
 				DefaultValue = "Gromkiy",
 				Description = "qwerty",
@@ -128,7 +119,7 @@ namespace DAL.Migrations
 				Status = true
 			};
 			ParserTask task = new ParserTask() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Description = "Smth",
 				Priority = Priority.Low,
 				Status = Status.NotFinished,
@@ -136,16 +127,16 @@ namespace DAL.Migrations
 				EndDate = DateTime.Now
 			};
 			ParserTask task2 = new ParserTask() {
-				Category = categorySmartPhonesAndMobilePhones,
+				Category = categorySmartphones,
 				Description = "Smth",
-                Priority = Priority.Middle,
-                Status = Status.NotFinished,
-                WebShop = webShop2,
+				Priority = Priority.Middle,
+				Status = Status.NotFinished,
+				WebShop = webShop2,
 				EndDate = DateTime.Now
 			};
 
 
-            context.Roles.AddOrUpdate(role);
+			context.Roles.AddOrUpdate(role);
             context.Roles.AddOrUpdate(role_user);
             context.Users.AddOrUpdate(user);
             context.Users.AddOrUpdate(user2);
