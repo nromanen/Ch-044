@@ -1,0 +1,13 @@
+D:\Programming\SoftServe\Ch-044\wsdp\Tor\bin\Debug\Tor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\Tor\bin\Debug\Tor.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\Tor\obj\Debug\Tor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\Tor\obj\Debug\Tor.pdb
+D:\GitRepo\Ch-044\wsdp\Tor\bin\Debug\Tor.dll
+D:\GitRepo\Ch-044\wsdp\Tor\bin\Debug\Tor.pdb
+D:\GitRepo\Ch-044\wsdp\Tor\obj\Debug\Tor.csprojResolveAssemblyReference.cache
+D:\GitRepo\Ch-044\wsdp\Tor\obj\Debug\Tor.dll
+D:\GitRepo\Ch-044\wsdp\Tor\obj\Debug\Tor.pdb
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\Tor\bin\Debug\Tor.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\Tor\bin\Debug\Tor.pdb
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\Tor\obj\Debug\Tor.dll
+D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\Tor\obj\Debug\Tor.pdb

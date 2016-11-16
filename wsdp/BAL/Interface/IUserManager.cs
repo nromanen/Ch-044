@@ -7,13 +7,16 @@ namespace BAL.Interface
     {
         void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId);
 
-        UserDTO GetUser(string email, string password);
-        UserDTO GetSocialNetworkUser(string uId, string network);
+        UserDTO GetByEmail(string email, string password);
+        UserDTO GetByUserName(string userName, string password);
+        NetworkUserDTO GetNetworkUser(string networkAccountId, string network);
 
         List<UserDTO> GetAll();
 
         void Insert(UserDTO user);
+        void Insert(NetworkUserDTO user);
 
         bool EmailIsExist(string email);
+        bool NetworkAccountExict(string networkAccountId, string network);
     }
 }

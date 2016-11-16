@@ -396,4 +396,13 @@
   <data name="SocialNetworksMessage" xml:space="preserve">
     <value>Ви можете використовувати соціальні мережі</value>
   </data>
+  <data name="NetworkErrMessage" xml:space="preserve">
+    <value>Вибачте, але ми не можемо підтримувати цей аккаунт або ви ще не зареєстровані. Спробуйте використати інший акаунт або зареєструватися через наш сайт.</value>
+  </data>
+  <data name="GoHome" xml:space="preserve">
+    <value>Перейти на головну сторінку.</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>Сторінка не знайдена. Спробуйте пізніше.</value>
+  </data>
 </root>

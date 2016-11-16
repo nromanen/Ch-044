@@ -117,6 +117,7 @@
     <Compile Include="Manager\LaptopManager.cs" />
     <Compile Include="Manager\ParserTaskManager.cs" />
     <Compile Include="Manager\RoleManager.cs" />
+    <Compile Include="Manager\SerializerForGrabber.cs" />
     <Compile Include="Manager\TapeRecorderManager.cs" />
     <Compile Include="Manager\ParseManagers\FridgeParseManager.cs" />
     <Compile Include="Manager\ParseManagers\LaptopParseManager.cs" />

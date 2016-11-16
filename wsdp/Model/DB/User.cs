@@ -32,6 +32,8 @@ namespace Model.DB
 
         public int RoleId { get; set; }
 
-        public string SocialNetwork { get; set; }
+        public string Network { get; set; }
+
+        public string NetworkAccountId { get; set; }
     }
 }

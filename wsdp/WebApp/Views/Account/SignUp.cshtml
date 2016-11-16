@@ -8,26 +8,25 @@
 
 <div class="container">
     <div class="row">
-        <h2>@Resources.Resource.SignUp</h2>
-        <div class="col-md-4 col-md-offset-8">
+        <div class="col-md-12"><h2>@Resources.Resource.LogIn</h2></div>
+        <div class="col-md-12">
             <span>@Resources.Resource.SocialNetworksMessage:</span>
         </div>
-        <div class="col-md-3 col-md-offset-9">
-            <div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name;providers=vkontakte,facebook,googleplus;hidden=;redirect_uri=@Url.Action("GetDataFromSocial", "Account");mobilebuttons=0;"></div>
+        <div class="col-md-3">
+            <div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name;providers=vkontakte,facebook,googleplus;hidden=;redirect_uri=@Url.Action("GetDataFromNetwork", "Account");mobilebuttons=0;"></div>
         </div>
     </div>
     <div class="row">
         <form action="/Account/SignUp" class="form-horizontal" method="post" enctype="multipart/form-data">
-
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <hr/>
+                <hr />
                 <div class="form-group">
                     <label class="control-label col-md-2">@Resources.Resource.UserName</label>
                     <div class="col-md-4">
                         <input id="textinput" name="UserName" type="text" value="@Model.UserName" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.UserName, "", new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -35,7 +34,7 @@
                     <label class="control-label col-md-2">@Resources.Resource.Email</label>
                     <div class="col-md-4">
                         <input id="textinput" name="Email" type="text" value="@Model.Email" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -43,21 +42,21 @@
                     <label class="control-label col-md-2">@Resources.Resource.Password</label>
                     <div class="col-md-4">
                         <input id="textinput" name="Password" type="password" value="@Model.Password" placeholder="placeholder" class="form-control input-md">
-                        @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2">@Resources.Resource.ConfirmPassword</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="ConfirmPassword" type="password" value="@Model.ConfirmPassword" placeholder="placeholder" class="form-control input-md password-confirm"/>
-                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "text-danger"})
+                        <input id="textinput" name="ConfirmPassword" type="password" value="@Model.ConfirmPassword" placeholder="placeholder" class="form-control input-md password-confirm" />
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value=@Resources.Resource.SAVE class="btn btn-default"/>
+                        <input type="submit" value="@Resources.Resource.SAVE" class="btn btn-default" />
                     </div>
                 </div>
             </div>
@@ -67,3 +66,13 @@
 </div>
 
 <script src="//ulogin.ru/js/ulogin.js"></script>
+<script>
+    $s = file_get_contents('http://ulogin.ru/token.php?token=' + $_POST['token'] + '&host=' + $_SERVER['HTTP_HOST']);
+    $user = json_decode($s, true);
+    //$user['network'] - соц. сеть, через которую авторизовался пользователь
+    //$user['identity'] - уникальная строка определяющая конкретного пользователя соц. сети
+    //$user['first_name'] - имя пользователя
+    //$user['last_name'] - фамилия пользователя
+
+
+</script>

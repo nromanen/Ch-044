@@ -140,6 +140,10 @@
     <Compile Include="Migrations\201611131102472_Updated_good_Category_Id.Designer.cs">
       <DependentUpon>201611131102472_Updated_good_Category_Id.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611141242326_Add_NetworkAccountId.cs" />
+    <Compile Include="Migrations\201611141242326_Add_NetworkAccountId.Designer.cs">
+      <DependentUpon>201611141242326_Add_NetworkAccountId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -149,16 +153,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{f2d491d6-8d33-40b0-a19c-804134a6ec07}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{e55ab93e-f921-402b-baf4-508545b964db}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610191335460_Initial.resx">
@@ -212,6 +206,9 @@
     <EmbeddedResource Include="Migrations\201611131102472_Updated_good_Category_Id.resx">
       <DependentUpon>201611131102472_Updated_good_Category_Id.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611141242326_Add_NetworkAccountId.resx">
+      <DependentUpon>201611141242326_Add_NetworkAccountId.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -224,6 +221,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{f2d491d6-8d33-40b0-a19c-804134a6ec07}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{e55ab93e-f921-402b-baf4-508545b964db}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

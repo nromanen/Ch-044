@@ -15,7 +15,7 @@ namespace Model.DB
         public virtual Category Category { get; set; }
 
         public int WebShopId { get; set; }
-        public WebShop WebShop { get; set; }
+        virtual public WebShop WebShop { get; set; }
 
         [Required]
         public Priority Priority { get; set; }

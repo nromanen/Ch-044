@@ -16,6 +16,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebApp.Scheduler;
 
 namespace WebApp
 {
@@ -35,7 +36,8 @@ namespace WebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Configure();
-        }
+			//JobScheduler.Start();
+		}
 
         /// <summary>
         /// To create injector container and register dependencies
@@ -45,7 +47,6 @@ namespace WebApp
             try
             {
                 var container = new Container();
-                // Так делать вобще нельзя
                 container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
 
                 container.Register<IUserManager, UserManager>();

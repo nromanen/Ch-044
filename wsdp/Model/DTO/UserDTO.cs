@@ -24,7 +24,5 @@ namespace Model.DTO
 
         [Compare("Password", ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordConfirmation")]
         public string ConfirmPassword { get; set; }
-
-        public string SocialNetwork { get; set; }
     }
 }
