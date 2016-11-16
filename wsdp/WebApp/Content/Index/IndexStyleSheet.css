@@ -112,126 +112,7 @@ html, body, div {
 	padding: 0;
 }
 
-.content .col-left {
-	width: 260px;
-	padding: 0 20px 0 0;
-}
-
-.col-left, .col-middle, .col-right { float: left; }
-
-.menu {
-	position: relative;
-	z-index: 50;
-	padding-left: 3px;
-}
-
-.menu .lvl1 { border-top: 1px solid #fff; }
-
-.menu .lvl1, .menu li span, .menu .lvl1 a, .menu .lvl1 > a > b {
-	position: relative;
-	display: block;
-}
-
-.menu .lvl1 > a {
-	color: #35a;
-	background-color: #f6f6f6;
-	text-decoration: none;
-	z-index: 8;  
-}
-
-.menu .lvl1 > a > b {
-	min-height: 34px;
-	font-weight: normal;
-	font-size: 14px;
-	text-decoration: none;
-	padding: 9px 10px 7px 26px;
-	text-shadow: 1px 1px #fff;
-	z-index: 8;
-}
-
-ul.list-group:after {
-	clear: both;
-	display: block;
-	content: "";
-}
-
-.price-good { border-left: 3px; }
-
-.bx-wrapper {
-	position: relative;
-	margin: 0 auto 0;
-	padding: 0;
-	max-width: 100%;
-}
-
-.sub-box {
-	top: 0px;
-	display: block;
-	position: absolute;
-	left: 100%;
-	width: 727px;
-	z-index: 0;
-	background: #666;
-	padding: 8px 8px 8px 20px;
-	border-radius: 0 3px 3px 3px;
-}
-
-.lvl2 {
-	min-height: 300px;
-	padding-left: 0px;
-}
-
-ul { list-style: none; }
-
-.lvl2 > li > a, .lvl2 > li > a:hover {
-	display: block;
-	padding: 9px 24px;
-	font-weight: bold;
-	color: #fff;
-	text-decoration: none;
-}
-
-.lvl3 {
-	top: 0px;
-	display: block;
-	position: absolute;
-	left: 100%;
-	z-index: 0;
-	background: #666;
-	padding: 8px 8px 8px 20px;
-	border-radius: 0 3px 3px 3px;
-}
-
-.lvl3 > li > a, .lvl3 > li > a:hover {
-	display: block;
-	padding: 9px 24px;
-	font-weight: bold;
-	color: #fff;
-	text-decoration: none;
-}
-
-.lvl4 {
-	top: 0px;
-	display: block;
-	position: absolute;
-	left: 100%;
-	z-index: 0;
-	background: #666;
-	padding: 8px 8px 8px 20px;
-	border-radius: 0 3px 3px 3px;
-}
-
-.lvl4 > li > a, .lvl4 > li > a:hover {
-	display: block;
-	padding: 9px 24px;
-	font-weight: bold;
-	color: #fff;
-	text-decoration: none;
-}
-
 /* for categories */
-
-/*.category-menu-wapper > .root-cat > cat-name { background-color: #ccc; }*/
 
 .category-menu-wapper .sub-cat { display: none; }
 
@@ -239,23 +120,17 @@ ul { list-style: none; }
 	display: block;
 	background-color: #eeeeee;
 }
-
-
 .root-cat { position: relative; }
 
 .sub-cat {
 	position: absolute;
 	left: 254px;
 }
-
-
-
 .cat-name:hover > a > b:hover {
 	background-color: #35a;
 	color: #eeeeee;
 	text-shadow: none;
 }
-
 .cat-name {
 	margin-right: 4px;
 	padding-bottom: 3px;

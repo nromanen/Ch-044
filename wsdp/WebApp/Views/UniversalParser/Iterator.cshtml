@@ -136,6 +136,14 @@
             $("#iframe").show();
         }
 
+        var iframe = $("#iframe");
+
+        var iframeDoc = iframe.contents();
+
+        var smth = $(iframeDoc).click(function (event) {
+            alert(this);
+        })
+
     });
 </script>
 

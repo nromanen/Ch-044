@@ -94,18 +94,26 @@ namespace WebApp.Controllers
             }
             else
             {
-                var task = parsertaskManager.Get(id.Value);
+                try
+                {
+                    var task = parsertaskManager.Get(id.Value);
 
-                if (task.IteratorSettings == null)
-                {
-                    task.IteratorSettings = new IteratorSettingsDTO();
+                    if (task.IteratorSettings == null)
+                    {
+                        task.IteratorSettings = new IteratorSettingsDTO();
+                    }
+                    if (iteratorViewModel.Url == null)
+                    {
+                        iteratorViewModel.Url = URL;
+                    }
+                    iteratorViewModel = task.IteratorSettings;
                 }
-                if(iteratorViewModel.Url==null)
+                catch
                 {
-                    iteratorViewModel.Url = URL;
+                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
                 }
-                iteratorViewModel = task.IteratorSettings;
-                
+
+
                 ViewBag.Id = id;
             }
 
