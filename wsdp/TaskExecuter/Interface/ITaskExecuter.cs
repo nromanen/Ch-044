@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskExecuter
+namespace TaskExecuting.Interface
 {
-    class TaskExecuter
+    public interface ITaskExecuter
     {
-        /*TODO*/
+        void ExecuteTask( int parsertaskid, string url);
     }
 }
