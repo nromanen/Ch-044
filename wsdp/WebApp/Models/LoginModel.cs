@@ -5,15 +5,14 @@ namespace WebApp.Models
 {
     public class LoginModel
     {
-        private string email;
+        private string name;
         private string password;
 
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
-        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ValidationEmail")]
-        public string Email
+        public string Name
         {
-            get { return email; }
-            set { email = value?.Trim(); }
+            get { return name; }
+            set { name = value?.Trim(); }
         }
 
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "RequiredField")]
