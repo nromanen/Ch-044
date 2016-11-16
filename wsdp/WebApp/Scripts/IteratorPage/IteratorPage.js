@@ -3,11 +3,11 @@
 
     enableXpathSearch();
 
-    $('#var2').click(function () {
+    $('.button2').click(function () {
         enableUrlSearch();
     });
 
-    $('#var1').click(function () {
+    $('.button1').click(function () {
         enableXpathSearch();
     });
 });

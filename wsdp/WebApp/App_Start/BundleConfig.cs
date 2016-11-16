@@ -24,9 +24,13 @@ namespace WebApp
 				"~/Scripts/WebShop/webshop.js")
 				);
 
-			bundles.Add(new ScriptBundle("~/bundles/IteratorPage").Include(
-				"~/Scripts/IteratorPage/IteratorPage.js"
+			bundles.Add(new ScriptBundle("~/Scripts/IteratorPage").Include(
+				"~/Scripts/IteratorPage/IteratorPage.js",
+				"~/Scripts/Frame/IteratorMain.js"
 				));
+
+			bundles.Add(new ScriptBundle("~/Scripts/GrabberJs").Include(
+				"~/Scripts/Frame/GrabberMain.js"));
 
 			bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
 				"~/Scripts/Categories/editcategories.js",
@@ -44,8 +48,7 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 				"~/Scripts/modernizr-*"));
 
-			bundles.Add(new ScriptBundle("~/Content/IFrameJs").Include(
-				"~/Scripts/Frame/Main.js"));
+			
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap-select").Include(
 				"~/Scripts/Bootstrap-select/bootstrap-select.min.js"));
@@ -80,8 +83,6 @@ namespace WebApp
 			bundles.Add(new StyleBundle("~/Content/styles").Include(
 				"~/Content/style.css"));
 
-			bundles.Add(new StyleBundle("~/Content/IFrameStyle").Include(
-				"~/Content/Frame/highlight.css"));
 
 			bundles.Add(new StyleBundle("~/Content/bootstrap-select").Include(
 				"~/Content/bootstrap-select.min.css"));
