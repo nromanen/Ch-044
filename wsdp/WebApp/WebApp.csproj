@@ -265,9 +265,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\QueueController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
-    <Compile Include="Controllers\FrameController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaptopController.cs" />
@@ -287,6 +287,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap.flaty.min.css" />
+    <Content Include="Content\Errors\404.jpg" />
     <Content Include="Content\Properties\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
@@ -315,6 +319,7 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Scripts\Frame\IteratorMain.js" />
     <Content Include="Scripts\IteratorPage\IteratorPage.js" />
     <Content Include="Scripts\Properties\bootstrap-combobox.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap.js" />
@@ -326,6 +331,7 @@
     <Content Include="Content\bootstrap\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
     <Content Include="Content\bootstrap\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -333,7 +339,7 @@
     <Content Include="Scripts\Users\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\Categories\editcategories.js" />
     <Content Include="Scripts\Properties\EditProperties.js" />
-    <Content Include="Scripts\Frame\Main.js" />
+    <Content Include="Scripts\Frame\GrabberMain.js" />
     <Content Include="Scripts\index.goods.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -386,8 +392,6 @@
     <Content Include="Views\UniversalParser\Settings.cshtml" />
     <Content Include="Views\TapeRecorder\All.cshtml" />
     <Content Include="Views\TapeRecorder\GetTapeRecorder.cshtml" />
-    <Content Include="Views\Frame\IFrame.cshtml" />
-    <Content Include="Views\Frame\Index.cshtml" />
     <Content Include="Views\Admin\AddProperty.cshtml" />
     <Content Include="Views\Admin\UpdateProperty.cshtml" />
     <Content Include="Views\WebShop\Delete.cshtml" />
@@ -409,6 +413,8 @@
     <Content Include="Views\Account\NetworkErrMessage.cshtml" />
     <Content Include="Views\UniversalParser\FlexibleSelectList.cshtml" />
     <Content Include="Views\Queue\Index.cshtml" />
+    <Content Include="Views\Error\InternalServer.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
