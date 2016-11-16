@@ -12,14 +12,16 @@
 	Messages
 </h4>
 <ul id="messages"></ul>
+
+@Scripts.Render("~/bundles/jquery")
 <script>
     $(function () {
         $("#publish").click(function () {
-            $.post("/Queue/publish")
+        	$.post('Publish')
         })
 
         $("#get").click(function () {
-            $.post("/Queue/get", function (msg) {
+        	$.post('Get', function (msg) {
                 $("#messages").append("<li>" + msg + "</li>")
             })
         })

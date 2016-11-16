@@ -7,3 +7,14 @@ D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.xml
 D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.csprojResolveAssemblyReference.cache
 D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.dll
 D:\Programming\SoftServe\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.pdb
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\SiteProcessor.dll
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\SiteProcessor.pdb
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\log4net.dll
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\Tor.dll
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.dll
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\Tor.pdb
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\log4net.xml
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.xml
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.csprojResolveAssemblyReference.cache
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.dll
+D:\GitRepo\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.pdb
