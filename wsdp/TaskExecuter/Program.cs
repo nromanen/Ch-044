@@ -14,7 +14,7 @@ namespace TaskExecuting
 {
     class Program
     {
-      
+
         static void Main(string[] args)
         {
             AutoMapperConfig.Configure();

@@ -86,6 +86,10 @@
       <Project>{e55ab93e-f921-402b-baf4-508545b964db}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{8ed9bf2d-1ddb-46f0-8d3a-4c967d5f9cf7}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SiteProcessor\SiteProcessor.csproj">
       <Project>{114d9bbd-2e29-4f0d-a3e9-3816f969f502}</Project>
       <Name>SiteProcessor</Name>
