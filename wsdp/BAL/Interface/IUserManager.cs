@@ -7,7 +7,8 @@ namespace BAL.Interface
     {
         void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId);
 
-        UserDTO GetUser(string email, string password);
+        UserDTO GetByEmail(string email, string password);
+        UserDTO GetByUserName(string userName, string password);
         NetworkUserDTO GetNetworkUser(string networkAccountId, string network);
 
         List<UserDTO> GetAll();

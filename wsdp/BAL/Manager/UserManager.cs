@@ -35,11 +35,28 @@ namespace BAL.Manager
         /// <summary>
         /// Get user by email and password
         /// </summary>
-        public UserDTO GetUser(string email, string password)
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public UserDTO GetByEmail(string email, string password)
         {
-            var user = uOW.UserRepo.All.FirstOrDefault(x => x.Email == email && x.Password == password);
+            var user = uOW.UserRepo.All.Where(x=>x.Network==null)
+                .FirstOrDefault(x => x.Email == email && x.Password == password);
             return Mapper.Map<UserDTO>(user);
         }
+        /// <summary>
+        /// Get user by userName and password
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public UserDTO GetByUserName(string userName, string password)
+        {
+            var user = uOW.UserRepo.All.Where(x => x.Network == null)
+                .FirstOrDefault(x => x.UserName == userName && x.Password == password);
+            return Mapper.Map<UserDTO>(user);
+        }
+
         /// <summary>
         /// Get user from database by networkAccountId and network
         /// </summary>

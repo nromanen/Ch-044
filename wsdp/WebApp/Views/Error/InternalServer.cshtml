@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "InternalServer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@Resources.Resource.NotFoundMessage</h1>
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <img src="~/Content/Errors/500.jpg" />
+    </div>
+    <div class="row">
+        <br />
+        <br />
+        <br />
+        <h3><a href="@Url.Action("Index", "Home")">@Resources.Resource.GoHome</a></h3>
+    </div>
+</div>
