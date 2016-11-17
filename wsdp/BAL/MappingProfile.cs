@@ -85,9 +85,6 @@ namespace BAL
                 .ForMember(
                 p => p.WebShop,
                 m => m.Ignore()
-                )
-                .ForMember(
-                p => p.
                 );
 
             CreateMap<GoodDTO, Good>()
