@@ -1480,3 +1480,14 @@ D:\GitRepo\Ch-044\wsdp\WebApp\bin\uk-UA\Resources.resources.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\GitRepo\Ch-044\wsdp\WebApp\obj\Debug\WebApp.dll
 D:\GitRepo\Ch-044\wsdp\WebApp\obj\Debug\WebApp.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Quartz.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\RabbitMQ.Client.dll
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.xml
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.xml
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Quartz.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Quartz.xml
+D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\RabbitMQ.Client.xml

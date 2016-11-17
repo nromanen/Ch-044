@@ -1,0 +1,14 @@
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\TaskExecuter.exe.config
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\TaskExecuter.exe
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\TaskExecuter.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\SiteProcessor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\log4net.dll
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\Tor.dll
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\WebDriver.dll
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\SiteProcessor.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\log4net.xml
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\Tor.pdb
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\bin\Debug\WebDriver.xml
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\obj\Debug\TaskExecuter.csprojResolveAssemblyReference.cache
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\obj\Debug\TaskExecuter.exe
+D:\Programming\SoftServe\Ch-044\wsdp\TaskExecuter\obj\Debug\TaskExecuter.pdb
