@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{08810AE4-EAFE-4D1C-BAA0-E082817F290F}"
 EndProject
@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteProcessor", "SiteProces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tor", "Tor\Tor.csproj", "{8EECD857-F347-4102-97D3-62A88F4FA23C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecuting", "TaskExecuter\TaskExecuting.csproj", "{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecuter", "TaskExecuter\TaskExecuter.csproj", "{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

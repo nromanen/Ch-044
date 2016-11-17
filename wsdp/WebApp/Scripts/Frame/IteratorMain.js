@@ -23,13 +23,15 @@ $(document).ready(function () {
 	setTimeout(function () {
 		EstablishingEvents();
 		console.log("EV");
-	}, 10000);
+	}, 1000);
 });
 
 function EstablishingEvents() {
 	var iframe = document.getElementById("iframe1");
 	iframe = iframe.contentWindow.document;
-
+	$(iframe).select("a").click(function (event) {
+		event.preventDefault();
+	});
 	$(iframe)
  	.mouseover(function (event) {
  		$(event.target).addClass('outline-element');
