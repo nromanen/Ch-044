@@ -16,8 +16,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using TaskExecuting.Interface;
-using TaskExecuting.Manager;
 using WebApp.Scheduler;
 
 namespace WebApp
@@ -69,7 +67,7 @@ namespace WebApp
                 container.Register<IRoleManager, RoleManager>();
                 container.Register<IParserTaskManager, ParserTaskManager>();
                 container.Register<IGoodManager, GoodManager>();
-
+                container.Register<IURLManager, URLManager>();
                 container.Verify();
                 DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
             }
