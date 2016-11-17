@@ -15,12 +15,14 @@ namespace WebApp.Controllers {
 		private ICategoryManager categoryManager;
 		private IWebShopManager shopManager;
 		private IParserTaskManager parserTaskManager;
+        private IURLManager urlManager;
 
-		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager) {
+		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager) {
 			this.downloadManager = downloadManager;
 			this.categoryManager = categoryManager;
 			this.shopManager = shopManager;
 			this.parserTaskManager = parsertaskManager;
+            this.urlManager = urlManager;
 		}
 		// GET: Index - list of all parser tasks
 		[Authorize(Roles = "Administrator")]
@@ -123,6 +125,9 @@ namespace WebApp.Controllers {
 
 			parserTaskManager.Update(_task);
 
+            var urls = urlManager.GetAllUrls(model);
+            TempData["Links"] = urls;
+
 			return RedirectToAction("Grabber", new { id = id.Value });
 		}
 		[Authorize(Roles = "Administrator")]
@@ -142,6 +147,9 @@ namespace WebApp.Controllers {
 					grabber.PropertyItems = Mapper.Map<List<GrabberPropertyItemDTO>>(task.Category.PropertiesList);
 				}
 			}
+            var links = TempData.Peek("Links") as List<string>;
+            ViewBag.Links = links;
+
 			return View(grabber);
 		}
 		[Authorize(Roles = "Administrator")]
