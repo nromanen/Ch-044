@@ -15,6 +15,12 @@ namespace Model.DB
 		[Required]
 		public int Category_Id { get; set; }
 
+        [ForeignKey("WebShop_Id")]
+        public virtual WebShop WebShop { get; set; }
+
+        [Required]
+        public int WebShop_Id { get; set; }
+
 		[Required]
 		public string XmlData { get; set; }
 	}

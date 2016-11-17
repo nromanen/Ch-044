@@ -136,7 +136,6 @@ namespace DAL.Migrations
 			};
 
 
-			context.Roles.AddOrUpdate(role);
             context.Roles.AddOrUpdate(role_user);
             context.Users.AddOrUpdate(user);
             context.Users.AddOrUpdate(user2);

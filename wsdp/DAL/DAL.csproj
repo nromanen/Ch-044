@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201611141242326_Add_NetworkAccountId.Designer.cs">
       <DependentUpon>201611141242326_Add_NetworkAccountId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611171238173_Added webshop to good.cs" />
+    <Compile Include="Migrations\201611171238173_Added webshop to good.Designer.cs">
+      <DependentUpon>201611171238173_Added webshop to good.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -208,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611141242326_Add_NetworkAccountId.resx">
       <DependentUpon>201611141242326_Add_NetworkAccountId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611171238173_Added webshop to good.resx">
+      <DependentUpon>201611171238173_Added webshop to good.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
