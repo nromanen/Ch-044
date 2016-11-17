@@ -1351,3 +1351,16 @@ E:\repositry\Ch-044\wsdp\WebApp\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\repositry\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\WebApp\bin\Microsoft.Owin.Security.OAuth.xml
+E:\repository\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\Common.Logging.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\Quartz.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\RabbitMQ.Client.dll
+E:\repository\Ch-044\wsdp\WebApp\bin\TaskExecuter.exe
+E:\repository\Ch-044\wsdp\WebApp\bin\TaskExecuter.pdb
+E:\repository\Ch-044\wsdp\WebApp\bin\Common.Logging.pdb
+E:\repository\Ch-044\wsdp\WebApp\bin\Common.Logging.xml
+E:\repository\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.pdb
+E:\repository\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.xml
+E:\repository\Ch-044\wsdp\WebApp\bin\Quartz.pdb
+E:\repository\Ch-044\wsdp\WebApp\bin\Quartz.xml
+E:\repository\Ch-044\wsdp\WebApp\bin\RabbitMQ.Client.xml
