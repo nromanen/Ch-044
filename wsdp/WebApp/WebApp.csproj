@@ -265,6 +265,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\QueueController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
@@ -286,6 +287,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap.flaty.min.css" />
+    <Content Include="Content\Errors\404.jpg" />
     <Content Include="Content\Properties\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
@@ -326,6 +331,7 @@
     <Content Include="Content\bootstrap\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
     <Content Include="Content\bootstrap\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -407,6 +413,8 @@
     <Content Include="Views\Account\NetworkErrMessage.cshtml" />
     <Content Include="Views\UniversalParser\FlexibleSelectList.cshtml" />
     <Content Include="Views\Queue\Index.cshtml" />
+    <Content Include="Views\Error\InternalServer.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -442,6 +450,10 @@
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{8ed9bf2d-1ddb-46f0-8d3a-4c967d5f9cf7}</Project>
       <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecuter\TaskExecuting.csproj">
+      <Project>{e210278f-1ca8-445b-be7d-ab8324f0f8c9}</Project>
+      <Name>TaskExecuting</Name>
     </ProjectReference>
     <ProjectReference Include="..\UnitTests\UnitTests.csproj">
       <Project>{d61e2271-fa26-4f5a-bb03-41891a9cbf3e}</Project>

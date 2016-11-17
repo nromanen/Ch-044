@@ -16,6 +16,27 @@ namespace BAL.Manager
         {
         }
 
+        public PropertyDTO Get(int id)
+        {
+            try
+            {
+                var property = uOW.PropertyRepo.GetByID(id);
+                if (property == null)
+                {
+                    return null;
+                }
+
+                var resultProperty = Mapper.Map<PropertyDTO>(property);
+                return resultProperty;
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message);
+                return null;
+            }
+
+        }
+
         public void Delete(int id)
         {
             try

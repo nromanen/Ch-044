@@ -76,6 +76,29 @@ namespace BAL
                 m => m.MapFrom(x => (x.GrabberSettings != null ? serializer.Serialize(x.GrabberSettings) : null)));
 
 			CreateMap<PropertyDTO, GrabberPropertyItemDTO>();
+
+            CreateMap<Good, GoodDTO>()
+                .ForMember(
+                p => p.Category,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.WebShop,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.
+                );
+
+            CreateMap<GoodDTO, Good>()
+                .ForMember(
+                p => p.Category,
+                m => m.Ignore()
+                )
+                .ForMember(
+                p => p.WebShop,
+                m => m.Ignore()
+                );
 		}
     }
 }

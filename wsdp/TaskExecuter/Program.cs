@@ -1,20 +1,22 @@
-﻿using SiteProcessor;
+﻿using BAL;
+using BAL.Manager;
+using DAL;
+using Model.DTO;
+using SiteProcessor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaskExecuting.Interface;
 
-namespace TaskExecuter
+namespace TaskExecuting
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            SiteDownloader downloader = new SiteDownloader();
-
-            Console.WriteLine(downloader.GetPageSouce(@"http://2ip.ru"));
-
             Console.ReadLine();
         }
     }
