@@ -1,5 +1,6 @@
 ﻿using BAL.Interface;
 using HtmlAgilityPack;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,23 @@ namespace BAL.Manager
 {
     public class URLManager : IURLManager
     {
-        public List<string> GetUrls(string url, string xpath)
+        public List<string> GetAllUrls(IteratorSettingsDTO model)
+        {
+            int from = model.From;
+            int to = model.To;
+
+            string xpath = model.GoodsIteratorXpath;
+            string url = model.Url;
+
+            var allUrls = new List<string>();
+            for (int i = from; i < to; i++)
+            {
+                allUrls.AddRange(GetUrlsFromOnePage(url.Replace("n", i.ToString()), xpath));
+            }
+            return allUrls;
+        }
+
+        public List<string> GetUrlsFromOnePage(string url, string xpath)
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
@@ -26,7 +43,6 @@ namespace BAL.Manager
                     {
                         string[] vals = url.Split('/');
                         var siteName = "http://" + vals[2];
-
                         var newLink = siteName + link;
 
                         newLinkList.Add(newLink);
@@ -37,7 +53,6 @@ namespace BAL.Manager
                     }
                 }
             }
-
             return newLinkList;
         }
     }
