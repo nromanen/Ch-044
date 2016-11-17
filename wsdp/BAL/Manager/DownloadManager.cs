@@ -81,7 +81,6 @@ namespace BAL.Manager
                         var fullLink = siteName + link;
 
                         source = source.Replace(link, fullLink);
-
                     }
                 }
                 this.WriteToFile(source);
