@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskExecuting.Interface;
+using TaskExecuting.Manager;
 
 namespace TaskExecuting
 {
@@ -17,6 +18,9 @@ namespace TaskExecuting
 
         static void Main(string[] args)
         {
+            ITaskExecuter te = new TaskExecuter();
+
+            te.ExecuteTask(3, "http://www.foxtrot.com.ua/ru/shop/noutbuki_hp_15-ay080ur-x8p85ea.html");
             Console.ReadLine();
         }
     }

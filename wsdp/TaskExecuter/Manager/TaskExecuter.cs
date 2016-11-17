@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using TaskExecuting.Interface;
 using Common.Enum;
 using SiteProcessor;
+using HtmlAgilityPack;
+using log4net;
 
 namespace TaskExecuting.Manager
 {
@@ -20,7 +22,7 @@ namespace TaskExecuting.Manager
         private UnitOfWork uOw = null;
         private ParserTaskManager parsermanager = null;
         private PropertyManager propmanager = null;
-
+        protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
         /// <summary>
         /// Initializating managers and uOw
@@ -43,8 +45,21 @@ namespace TaskExecuting.Manager
         public GoodDTO ExecuteTask(int parsertaskid, string url)
         {
             //downloading page source using tor+phantomjs
-            SiteDownloader sw = new SiteDownloader();
-            string pageSource = sw.GetPageSouce(url);
+
+            HtmlDocument doc = null;
+            try
+            {
+                SiteDownloader sw = new SiteDownloader();
+                string pageSource = sw.GetPageSouce(url);
+                doc = new HtmlDocument();
+                doc.LoadHtml(pageSource);
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message);
+                return null;
+            }
+
 
             //gets configuration from parsertask id
             ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
@@ -56,24 +71,43 @@ namespace TaskExecuting.Manager
             resultGood.Category_Id = parsertask.CategoryId;
 
             PropertyValuesDTO propertyValues = new PropertyValuesDTO();
+            propertyValues.DictDoubleProperties = new Dictionary<int, double>();
+            propertyValues.DictIntProperties = new Dictionary<int, int>();
+            propertyValues.DictStringProperties = new Dictionary<int, string>();
 
             foreach (var propitem in grabbersettings.PropertyItems)
             {
+                HtmlNode value = null;
                 PropertyDTO property = propmanager.Get(propitem.Id);
-
-                var value = 
+                try
+                {
+                    value = doc.DocumentNode.SelectSingleNode(propitem.Value);
+                }
+                catch(Exception ex)
+                {
+                    logger.Error(ex.Message);
+                    return null;
+                }
 
                 switch (property.Type)
                 {
                     case PropertyType.Integer:
-                        
-                  
+                        propertyValues.DictIntProperties.Add(propitem.Id, Convert.ToInt32(value.InnerHtml));
+                        break;
+                    case PropertyType.Double:
+                        propertyValues.DictDoubleProperties.Add(propitem.Id, Convert.ToDouble(value.InnerHtml));
+                        break;
+                    case PropertyType.String:
+                        propertyValues.DictStringProperties.Add(propitem.Id, value.InnerHtml);
+                        break;
                     default:
                         break;
                 }
             }
 
-            return null;
+            resultGood.PropertyValues = propertyValues;
+
+            return resultGood;
         }
     }
 }

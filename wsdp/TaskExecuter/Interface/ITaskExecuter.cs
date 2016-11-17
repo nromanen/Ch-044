@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace TaskExecuting.Interface
 {
     public interface ITaskExecuter
     {
-        void ExecuteTask( int parsertaskid, string url);
+        GoodDTO ExecuteTask( int parsertaskid, string url);
     }
 }
