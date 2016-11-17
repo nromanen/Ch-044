@@ -74,3 +74,11 @@ E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\uk-UA\Resources.resources.dll
 E:\repository\Ch-044\wsdp\TaskExecuter\obj\Debug\TaskExecuting.csprojResolveAssemblyReference.cache
 E:\repository\Ch-044\wsdp\TaskExecuter\obj\Debug\TaskExecuter.exe
 E:\repository\Ch-044\wsdp\TaskExecuter\obj\Debug\TaskExecuter.pdb
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Nest.dll
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Newtonsoft.Json.dll
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Elasticsearch.Net.dll
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Nest.pdb
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Nest.xml
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Newtonsoft.Json.xml
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Elasticsearch.Net.pdb
+E:\repository\Ch-044\wsdp\TaskExecuter\bin\Debug\Elasticsearch.Net.xml
