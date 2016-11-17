@@ -31,3 +31,14 @@ D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\SiteProcessor\bin\Debug\
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.xml
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.dll
 D:\softserve\localRepository\WebSite\Ch-044\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.pdb
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\SiteProcessor.dll
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\SiteProcessor.pdb
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\log4net.dll
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\Tor.dll
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.dll
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\Tor.pdb
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\log4net.xml
+E:\repository\Ch-044\wsdp\SiteProcessor\bin\Debug\WebDriver.xml
+E:\repository\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.csprojResolveAssemblyReference.cache
+E:\repository\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.dll
+E:\repository\Ch-044\wsdp\SiteProcessor\obj\Debug\SiteProcessor.pdb
