@@ -14,6 +14,7 @@ using Common.Enum;
 using SiteProcessor;
 using HtmlAgilityPack;
 using log4net;
+using System.IO;
 
 namespace TaskExecuting.Manager
 {
@@ -47,10 +48,12 @@ namespace TaskExecuting.Manager
             //downloading page source using tor+phantomjs
 
             HtmlDocument doc = null;
+            string pageSource = "";
             try
             {
                 SiteDownloader sw = new SiteDownloader();
-                string pageSource = sw.GetPageSouce(url);
+                pageSource = sw.GetPageSouce(url);
+
                 doc = new HtmlDocument();
                 doc.LoadHtml(pageSource);
             }
@@ -83,7 +86,7 @@ namespace TaskExecuting.Manager
                 {
                     value = doc.DocumentNode.SelectSingleNode(propitem.Value);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     logger.Error(ex.Message);
                     return null;
@@ -104,7 +107,18 @@ namespace TaskExecuting.Manager
                         break;
                 }
             }
+            //using (FileStream fs = new FileStream("page.txt", FileMode.Create))
+            //{
+            //    using (StreamWriter sw = new StreamWriter(fs))
+            //    {
+            //        sw.Write("213" + doc.DocumentNode.OuterHtml);
+            //    }
+            //}
 
+            //var b = doc.DocumentNode.SelectSingleNode(@"//div[@class='product_descr']");
+
+            //var a = doc.DocumentNode.SelectNodes(@"//div[@class='product_descr']");
+            
             resultGood.PropertyValues = propertyValues;
 
             return resultGood;
