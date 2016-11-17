@@ -17,14 +17,6 @@ namespace TaskExecuting
 
         static void Main(string[] args)
         {
-            AutoMapperConfig.Configure();
-            UnitOfWork uOw = new UnitOfWork();
-            ParserTaskManager pm = new ParserTaskManager(uOw);
-
-            ParserTaskDTO task = pm.Get(1);
-
-            Console.WriteLine(task.Description);
-
             Console.ReadLine();
         }
     }

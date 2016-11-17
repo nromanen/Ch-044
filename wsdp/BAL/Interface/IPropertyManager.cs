@@ -7,6 +7,8 @@ namespace BAL.Interface
     {
         void Delete(int id);
 
+        PropertyDTO Get(int id);
+
         void Add(string Name, string Description, string Type, string Prefix, string Sufix,
             int Category_Id, string DefaultValue);
 
