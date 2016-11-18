@@ -1491,10 +1491,8 @@ D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Common.Logging.Core.xml
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Quartz.pdb
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Quartz.xml
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\RabbitMQ.Client.xml
-D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\TaskExecuter.exe
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Nest.dll
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.dll
-D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\TaskExecuter.pdb
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Nest.pdb
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Nest.xml
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.pdb

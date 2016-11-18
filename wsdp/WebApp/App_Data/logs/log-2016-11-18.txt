@@ -1,0 +1,16 @@
+ERROR 2016-11-18 02:21:53,147 [7] 58941ms [WriteToFile BAL.Manager.DownloadManager] : Could not find a part of the path 'D:\Programming\SoftServe\Ch-044\wsdp\WebApp\WebSites\efa904b8-5426-4d13-85ec-c562bf5ebe99.html'.
+ERROR 2016-11-18 02:21:53,506 [8] 59299ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:22:14,115 [7] 79909ms [WriteToFile BAL.Manager.DownloadManager] : Could not find a part of the path 'D:\Programming\SoftServe\Ch-044\wsdp\WebApp\WebSites\a7c1de3a-d8e8-4996-a1e9-ff2ef26cfd6f.html'.
+ERROR 2016-11-18 02:22:14,382 [8] 80176ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:23:31,433 [14] 157227ms [WriteToFile BAL.Manager.DownloadManager] : Could not find a part of the path 'D:\Programming\SoftServe\Ch-044\wsdp\WebApp\WebSites\74e4233b-2611-4160-b4e0-ba92df8ff201.html'.
+ERROR 2016-11-18 02:23:31,636 [14] 157430ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:23:45,399 [9] 171192ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:24:03,661 [8] 189455ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:24:24,774 [8] 210568ms [WriteToFile BAL.Manager.DownloadManager] : Could not find a part of the path 'D:\Programming\SoftServe\Ch-044\wsdp\WebApp\WebSites\fc1fb192-2aa1-4886-912d-396735677aaf.html'.
+ERROR 2016-11-18 02:24:24,932 [9] 210726ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:26:16,659 [7] 12308ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:27:07,871 [11] 63520ms [WriteToFile BAL.Manager.DownloadManager] : Could not find a part of the path 'D:\Programming\SoftServe\Ch-044\wsdp\WebApp\WebSites\4e16697e-c323-422e-b603-8d0903b4df80.html'.
+ERROR 2016-11-18 02:27:08,051 [11] 63700ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:31:55,244 [13] 350893ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:32:31,365 [13] 387013ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 02:33:09,260 [16] 424909ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper

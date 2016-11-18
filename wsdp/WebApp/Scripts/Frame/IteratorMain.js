@@ -23,7 +23,7 @@ $(document).ready(function () {
 	setTimeout(function () {
 		EstablishingEvents();
 		console.log("EV");
-	}, 1000);
+	}, 10000);
 });
 
 function EstablishingEvents() {
