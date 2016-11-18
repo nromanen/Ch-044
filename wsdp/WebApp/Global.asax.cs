@@ -36,7 +36,7 @@ namespace WebApp
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			AutoMapperConfig.Configure();
-			JobScheduler.Start();
+			//JobScheduler.Start();
 		}
 
 		/// <summary>
