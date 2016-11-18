@@ -17,7 +17,8 @@ namespace DAL.Elastic
         public ElasticUnitOfWork()
         {
             context = new ElasticContext();
-            
+            repository = new ElasticRepository(context);
+
         }
 
         public IElasticRepository Repository

@@ -50,7 +50,10 @@ namespace WebApp
 			{
 				var container = new Container();
 				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
-				container.Register<IUserManager, UserManager>();
+                container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Singleton);
+                container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
+
+                container.Register<IUserManager, UserManager>();
 				container.Register<ICategoryManager, CategoryManager>();
 				container.Register<IPhoneManager, PhoneManager>();
 				container.Register<IPhoneParseManager, PhoneParseManager>();

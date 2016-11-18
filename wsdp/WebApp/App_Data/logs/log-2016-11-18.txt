@@ -40,3 +40,7 @@ ERROR 2016-11-18 14:41:38,551 [8] 5031ms [NotFound WebApp.Controllers.ErrorContr
 ERROR 2016-11-18 14:41:38,653 [7] 5133ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
 ERROR 2016-11-18 14:41:47,212 [10] 13692ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
 ERROR 2016-11-18 14:41:47,257 [8] 13737ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 16:00:18,396 [1] 29675ms [InjectorContainer WebApp.MvcApplication] : The configuration is invalid. Creating the instance for type IElasticUnitOfWork failed. Could not load file or assembly 'Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+ERROR 2016-11-18 16:00:31,507 [7] 42786ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 16:00:36,995 [10] 48274ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 16:00:37,136 [8] 48415ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper

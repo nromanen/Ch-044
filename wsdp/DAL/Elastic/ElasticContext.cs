@@ -22,6 +22,6 @@ namespace DAL.Elastic
             if(!responce.Exists) Client.CreateIndex(dataindex);
         }
 
-        public ElasticContext() : this("WSDPProducts") { }
+        public ElasticContext() : this("connection") { }
     }
 }
