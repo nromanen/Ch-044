@@ -14,3 +14,29 @@ ERROR 2016-11-18 02:27:08,051 [11] 63700ms [NotFound WebApp.Controllers.ErrorCon
 ERROR 2016-11-18 02:31:55,244 [13] 350893ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
 ERROR 2016-11-18 02:32:31,365 [13] 387013ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
 ERROR 2016-11-18 02:33:09,260 [16] 424909ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:40:49,960 [1] 455ms [InjectorContainer WebApp.MvcApplication] : The given type IElasticUnitOfWork is not a concrete type. Please use one of the other overloads to register this type.
+Parameter name: TImplementation
+ERROR 2016-11-18 14:40:52,120 [7] 2614ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:40:54,778 [8] 5273ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:40:59,365 [7] 9860ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:40:59,416 [7] 9910ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:00,141 [10] 10635ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:00,186 [8] 10680ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:04,277 [8] 14772ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:05,716 [7] 16211ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:05,771 [10] 16266ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:06,632 [7] 17126ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:06,676 [10] 17170ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:07,780 [7] 18274ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:07,816 [10] 18310ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:09,208 [7] 19703ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:09,251 [10] 19746ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:11,088 [7] 21582ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:11,188 [7] 21682ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:33,942 [1] 422ms [InjectorContainer WebApp.MvcApplication] : The given type IElasticUnitOfWork is not a concrete type. Please use one of the other overloads to register this type.
+Parameter name: TImplementation
+ERROR 2016-11-18 14:41:36,220 [7] 2700ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:38,551 [8] 5031ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:38,653 [7] 5133ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:47,212 [10] 13692ms [InternalServer WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
+ERROR 2016-11-18 14:41:47,257 [8] 13737ms [NotFound WebApp.Controllers.ErrorController] : System.Web.HttpContextWrapper
