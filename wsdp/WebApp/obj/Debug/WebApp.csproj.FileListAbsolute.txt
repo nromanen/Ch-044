@@ -1497,3 +1497,9 @@ D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Nest.pdb
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Nest.xml
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.pdb
 D:\Programming\SoftServe\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.xml
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\Nest.dll
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.dll
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\Nest.pdb
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\Nest.xml
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.pdb
+D:\GitRepo\Ch-044\wsdp\WebApp\bin\Elasticsearch.Net.xml

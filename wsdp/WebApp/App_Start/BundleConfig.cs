@@ -17,7 +17,7 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/EditUsers").Include(
 				"~/Scripts/Users/jquery.dataTables.min.js",
 				"~/Scripts/Users/dataTables.bootstrap.min.js",
-				"~/Scripts/Users/serConfig.js")
+				"~/Scripts/Users/userConfig.js")
 				);
 
 			bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
@@ -31,7 +31,7 @@ namespace WebApp
 
 			bundles.Add(new ScriptBundle("~/Scripts/GrabberJs").Include(
 				"~/Scripts/Frame/GrabberMain.js"));
-
+			
 			bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
 				"~/Scripts/Categories/editcategories.js",
 				"~/Scripts/Categories/jquery-sortable.js",
