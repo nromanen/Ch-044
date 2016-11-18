@@ -29,7 +29,9 @@ $(document).ready(function () {
 function EstablishingEvents() {
 	var iframe = document.getElementById("iframe1");
 	iframe = iframe.contentWindow.document;
-
+	$(iframe).select("a").click(function (event) {
+		event.preventDefault();
+	});
 	$(iframe)
  	.mouseover(function (event) {
  		$(event.target).addClass('outline-element');

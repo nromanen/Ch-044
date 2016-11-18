@@ -52,6 +52,7 @@ namespace WebApp.Controllers {
 			}
 			return View(settingsView);
 		}
+
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public ActionResult Settings(ParserTaskDTO parsertask, int? parsertaskid) {
@@ -130,6 +131,7 @@ namespace WebApp.Controllers {
 
 			return RedirectToAction("Grabber", new { id = id.Value });
 		}
+
 		[Authorize(Roles = "Administrator")]
 		[HttpGet]
 		public ActionResult Grabber(int? id) {

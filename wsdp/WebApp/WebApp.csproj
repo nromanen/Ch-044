@@ -451,10 +451,6 @@
       <Project>{8ed9bf2d-1ddb-46f0-8d3a-4c967d5f9cf7}</Project>
       <Name>Resources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TaskExecuter\TaskExecuting.csproj">
-      <Project>{e210278f-1ca8-445b-be7d-ab8324f0f8c9}</Project>
-      <Name>TaskExecuting</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UnitTests\UnitTests.csproj">
       <Project>{d61e2271-fa26-4f5a-bb03-41891a9cbf3e}</Project>
       <Name>UnitTests</Name>

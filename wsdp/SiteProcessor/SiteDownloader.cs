@@ -95,7 +95,7 @@ namespace SiteProcessor
             {
                 try
                 {
-                    driver.Navigate().GoToUrl(@"http://2ip.ru");
+                    driver.Navigate().GoToUrl(url);
                     return driver.PageSource;
                 }
                 catch (Exception ex)

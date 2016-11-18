@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteProcessor", "SiteProces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tor", "Tor\Tor.csproj", "{8EECD857-F347-4102-97D3-62A88F4FA23C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecuter", "TaskExecuter\TaskExecuter.csproj", "{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecuting", "TaskExecuter\TaskExecuting.csproj", "{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
