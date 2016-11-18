@@ -22,7 +22,7 @@ namespace BAL.Manager
             var allUrls = new List<string>();
             for (int i = from; i < to; i++)
             {
-                allUrls.AddRange(GetUrlsFromOnePage(url.Replace("n", i.ToString()), xpath));
+                allUrls.AddRange(GetUrlsFromOnePage(url.Replace("{n}", i.ToString()), xpath));
             }
             return allUrls;
         }
