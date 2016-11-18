@@ -52,6 +52,7 @@ namespace WebApp
 				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
                 container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Singleton);
                 container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
+                container.Register<IElasticManager, ElasticManager>();
 
                 container.Register<IUserManager, UserManager>();
 				container.Register<ICategoryManager, CategoryManager>();

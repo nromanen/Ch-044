@@ -93,6 +93,7 @@
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Interface\ICategoryManager.cs" />
     <Compile Include="Interface\IDownloadManager.cs" />
+    <Compile Include="Interface\IElasticManager.cs" />
     <Compile Include="Interface\IFridgeManager.cs" />
     <Compile Include="Interface\IFridgeParseManager.cs" />
     <Compile Include="Interface\IGoodDatabasesWizard.cs" />

@@ -43,7 +43,7 @@ namespace WebApp.Controllers
             GoodDTO good = new GoodDTO()
             {
                 Category_Id = 1,
-                Id = 1,
+                Id = 2,
                 PropertyValues = property,
                 WebShop_Id = 2
             };

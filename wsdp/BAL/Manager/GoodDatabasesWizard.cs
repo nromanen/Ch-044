@@ -10,15 +10,19 @@ using Model.DTO;
 
 namespace BAL.Manager
 {
-    public class GoodDatabasesWizard : ElasticManager, IGoodDatabasesWizard
+    public class GoodDatabasesWizard : IGoodDatabasesWizard
     {
-        public GoodDatabasesWizard(IElasticUnitOfWork elasticUOW) : base(elasticUOW)
+        private IElasticManager elasticManager;
+
+        public GoodDatabasesWizard(IElasticManager elasticManager)
         {
+            this.elasticManager = elasticManager;
         }
 
         public void AddItem(GoodDTO good)
         {
-            elasticUOW.Repository.Insert(good);
+            elasticManager.AddItem(good);
+            
         }
 
     }
