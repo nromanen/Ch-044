@@ -3,23 +3,25 @@ using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebApp.Scheduler
+namespace TaskExecuting.Scheduler
 {
-	public class JobScheduler
+	public class TaskExecutingScheduler
 	{
 		public static void Start()
 		{
+
 			IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
 			scheduler.Start();
 
-			IJobDetail job = JobBuilder.Create<ParserJob>().Build();
+			IJobDetail job = JobBuilder.Create<ExecuterJob>().Build();
 
 			ITrigger trigger = TriggerBuilder.Create()
 				.StartNow()
 					.WithSimpleSchedule(x => x
-						.WithIntervalInSeconds(10)
+						.WithIntervalInSeconds(1)
 						.RepeatForever())
 				.Build();
 

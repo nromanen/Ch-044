@@ -20,7 +20,7 @@ namespace BAL.Manager
             string url = model.Url;
 
             var allUrls = new List<string>();
-            for (int i = from; i < to; i++)
+            for (int i = from; i <= to; i++)
             {
                 allUrls.AddRange(GetUrlsFromOnePage(url.Replace("{n}", i.ToString()), xpath));
             }

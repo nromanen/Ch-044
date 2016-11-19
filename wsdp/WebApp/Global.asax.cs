@@ -6,6 +6,7 @@ using DAL;
 using DAL.Interface;
 using log4net;
 using SimpleInjector;
+using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using System;
 using System.Globalization;
@@ -27,9 +28,7 @@ namespace WebApp
 		protected void Application_Start()
 		{
 			log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
-
 			InjectorContainer();
-
 			AreaRegistration.RegisterAllAreas();
 			GlobalConfiguration.Configure(WebApiConfig.Register);
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -47,7 +46,8 @@ namespace WebApp
 			try
 			{
 				var container = new Container();
-				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Singleton);
+				container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
 
 				container.Register<IUserManager, UserManager>();
 				container.Register<ICategoryManager, CategoryManager>();

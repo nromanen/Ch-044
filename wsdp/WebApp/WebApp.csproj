@@ -314,8 +314,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Phone\Site.css" />
-    <Content Include="logs\log-2016-10-17.txt" />
-    <Content Include="logs\log-2016-10-18.txt" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.js" />

@@ -17,53 +17,64 @@ namespace WebApp.Scheduler
 	public class ParserJob : IJob
 	{
 		private UnitOfWork uOw = null;
-		private ParserTaskManager parsermanager = null;
+		private ParserTaskManager parserManager = null;
+		private URLManager urlManager = null;
 		public ParserJob()
 		{
 			uOw = new UnitOfWork();
-			parsermanager = new ParserTaskManager(uOw);
+			parserManager = new ParserTaskManager(uOw);
+			urlManager = new URLManager();
 
 		}
 		public void Execute(IJobExecutionContext context)
 		{
-
-			ConnectionFactory connFactory = new ConnectionFactory();
-			connFactory.uri = new Uri("amqp://bpmcftle:cxjupG82CztHJ_Nfkh2GUEyb0Z-2FyGY@chicken.rmq.cloudamqp.com/bpmcftle");
-			// create a connection and open a channel, dispose them when done
-			using (var conn = connFactory.CreateConnection())
-			using (var channel = conn.CreateModel())
+			var taskList = new List<TaskExecuterModel>();
+			var tasklistdb = parserManager.GetAll().Where(i => i.Status == (Common.Enum.Status.Coming)).ToList();
+			foreach (var task in tasklistdb)
 			{
-				channel.QueueDeclare(queue: "json",
-					 durable: true,
-					 exclusive: false,
-					 autoDelete: false,
-					 arguments: null);
-				var taskList = new List<TaskExecuterModel>();
-				var taskid = parsermanager.GetAll().Select(i => i.Id);
-				foreach (var i in taskid)
+				var urlList = urlManager.GetAllUrls(task.IteratorSettings);
+				foreach (var url in urlList)
 				{
-					var task = new TaskExecuterModel();
-					task.Id = i;
-					taskList.Add(task);
+					var taskExecute = new TaskExecuterModel();
+					taskExecute.TaskId = task.Id;
+					taskExecute.GoodUrl = url;
+					taskList.Add(taskExecute);
 				}
-				var serializer = new JavaScriptSerializer();
-				var output = serializer.Serialize(taskList).ToCharArray();
-
-				//var message = string.Join("*", model).ToCharArray();
-				// the data put on the queue must be a byte array
-				var data = Encoding.UTF8.GetBytes(output);
-				var properties = channel.CreateBasicProperties();
-				properties.Persistent = true;
-				// ensure that the queue exists before we publish to it
-				//channel.QueueDeclare("json", false, false, false, null);
-				// publish to the "default exchange", with the queue name as the routing key
-				channel.BasicPublish(exchange: "",
-					 routingKey: "json",
-					 basicProperties: properties,
-					 body: data);
-				//channel.BasicPublish("", "json", null, data);
 			}
+			foreach (var mess in taskList)
+			{
+				ConnectionFactory connFactory = new ConnectionFactory();
+				connFactory.uri = new Uri("amqp://bpmcftle:cxjupG82CztHJ_Nfkh2GUEyb0Z-2FyGY@chicken.rmq.cloudamqp.com/bpmcftle");
+				// create a connection and open a channel, dispose them when done
+				using (var conn = connFactory.CreateConnection())
+				using (var channel = conn.CreateModel())
+				{
+					channel.QueueDeclare(queue: "f_test",
+						 durable: true,
+						 exclusive: false,
+						 autoDelete: false,
+						 arguments: null);
+					var serializer = new JavaScriptSerializer();
+					var output = serializer.Serialize(mess).ToCharArray();
 
+					//var message = string.Join("*", model).ToCharArray();
+					// the data put on the queue must be a byte array
+					var data = Encoding.UTF8.GetBytes(output);
+					var properties = channel.CreateBasicProperties();
+					properties.Persistent = true;
+					// ensure that the queue exists before we publish to it
+					//channel.QueueDeclare("json", false, false, false, null);
+					// publish to the "default exchange", with the queue name as the routing key
+					channel.BasicPublish(exchange: "",
+						 routingKey: "f_test",
+						 basicProperties: properties,
+						 body: data);
+					//channel.BasicPublish("", "json", null, data);
+					var task_s = parserManager.Get(mess.TaskId);
+					task_s.Status = (Common.Enum.Status.NotFinished);
+					parserManager.Update(task_s);
+				}
+			}
 		}
 	}
 }

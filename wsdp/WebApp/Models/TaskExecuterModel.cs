@@ -8,7 +8,7 @@ namespace WebApp.Models
 {
 	public class TaskExecuterModel
 	{
-		public int Id { get; set; }
-		public string Url { get; set; }
+		public int TaskId { get; set; }
+		public string GoodUrl { get; set; }
 	}
 }
