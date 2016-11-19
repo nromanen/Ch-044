@@ -17,6 +17,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DAL.Elastic;
+using DAL.Elastic.Interface;
 using WebApp.Scheduler;
 
 namespace WebApp
@@ -48,8 +50,11 @@ namespace WebApp
 				var container = new Container();
 				container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
+                container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
+                container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Scoped);
+                container.Register<IElasticManager, ElasticManager>();
 
-				container.Register<IUserManager, UserManager>();
+                container.Register<IUserManager, UserManager>();
 				container.Register<ICategoryManager, CategoryManager>();
 				container.Register<IPhoneManager, PhoneManager>();
 				container.Register<IPhoneParseManager, PhoneParseManager>();

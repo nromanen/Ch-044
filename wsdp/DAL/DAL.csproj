@@ -85,7 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elastic\ElasticContext.cs" />
+    <Compile Include="Elastic\ElasticRepository.cs" />
     <Compile Include="Elastic\ElasticUnitOfWork.cs" />
+    <Compile Include="Elastic\Interface\IElasticRepository.cs" />
+    <Compile Include="Elastic\Interface\IElasticUnitOfWork.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\IGenericRepository.cs" />
     <Compile Include="Interface\IUnitOfWork.cs" />
