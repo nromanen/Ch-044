@@ -50,11 +50,11 @@ namespace WebApp
 				var container = new Container();
 				container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
-                container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
-                container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Scoped);
-                container.Register<IElasticManager, ElasticManager>();
+				container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
+				container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Scoped);
+				container.Register<IElasticManager, ElasticManager>();
 
-                container.Register<IUserManager, UserManager>();
+				container.Register<IUserManager, UserManager>();
 				container.Register<ICategoryManager, CategoryManager>();
 				container.Register<IPhoneManager, PhoneManager>();
 				container.Register<IPhoneParseManager, PhoneParseManager>();
