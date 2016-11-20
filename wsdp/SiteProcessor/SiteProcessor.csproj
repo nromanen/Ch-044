@@ -11,7 +11,8 @@
     <AssemblyName>SiteProcessor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>f20b331e</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,7 +84,7 @@
   <Import Project="..\packages\Selenium.WebDriver.PhantomJS.1.0.0.0\build\Selenium.WebDriver.PhantomJS.targets" Condition="Exists('..\packages\Selenium.WebDriver.PhantomJS.1.0.0.0\build\Selenium.WebDriver.PhantomJS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.PhantomJS.1.0.0.0\build\Selenium.WebDriver.PhantomJS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.PhantomJS.1.0.0.0\build\Selenium.WebDriver.PhantomJS.targets'))" />
   </Target>

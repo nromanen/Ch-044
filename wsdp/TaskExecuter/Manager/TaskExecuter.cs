@@ -108,17 +108,6 @@ namespace TaskExecuting.Manager
 						break;
 				}
 			}
-			//using (FileStream fs = new FileStream("page.txt", FileMode.Create))
-			//{
-			//    using (StreamWriter sw = new StreamWriter(fs))
-			//    {
-			//        sw.Write("213" + doc.DocumentNode.OuterHtml);
-			//    }
-			//}
-
-			//var b = doc.DocumentNode.SelectSingleNode(@"//div[@class='product_descr']");
-
-			//var a = doc.DocumentNode.SelectNodes(@"//div[@class='product_descr']");
 			
 			resultGood.PropertyValues = propertyValues;
 			return resultGood;

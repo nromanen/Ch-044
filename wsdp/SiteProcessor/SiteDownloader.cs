@@ -17,7 +17,7 @@ namespace SiteProcessor
     public class SiteDownloader
     {
         private const int CONTROL_PORT = 9051;
-        private const string PATH = @"D:\TORNET\Example\Tor\Tor\tor.exe";
+        private const string PATH = @"D:\C# PROJECTS\SuperParser\Ch-044\wsdp\SiteProcessor\Tor\Tor\tor.exe";
 
         protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         static Client client = null;
@@ -31,7 +31,7 @@ namespace SiteProcessor
                 createParameters.ControlPassword = "";
                 createParameters.ControlPort = CONTROL_PORT;
                 createParameters.DefaultConfigurationFile = "";
-                createParameters.Path = PATH;
+                createParameters.Path = GetTorDirectory(PATH);
 
                 createParameters.SetConfig(ConfigurationNames.AvoidDiskWrites, true);
                 createParameters.SetConfig(ConfigurationNames.GeoIPFile, Path.Combine(Environment.CurrentDirectory, @"Tor\Data\Tor\geoip"));
@@ -105,6 +105,14 @@ namespace SiteProcessor
                 }
 
             }
+        }
+
+        private string GetTorDirectory(string path)
+        {
+            string parentDir = System.IO.Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            parentDir += @"\SiteProcessor";
+
+            return Path.Combine(parentDir, path);
         }
 
 

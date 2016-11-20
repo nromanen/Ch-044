@@ -19,7 +19,11 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
-			TaskExecutingScheduler.Start();
+            //TaskExecutingScheduler.Start();
+
+            TaskExecuter te = new TaskExecuter();
+
+            te.ExecuteTask(3, "https://freelancehunt.com/");
 
 			Console.ReadLine();
 		}
