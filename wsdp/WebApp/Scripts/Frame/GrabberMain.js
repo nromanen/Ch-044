@@ -33,25 +33,25 @@ function EstablishingEvents() {
 		event.preventDefault();
 	});
 	$(iframe)
- 	.mouseover(function (event) {
- 		$(event.target).addClass('outline-element');
- 	})
- 	.mouseout(function (event) {
- 		$(event.target).removeClass('outline-element');
- 	})
+	.mouseover(function (event) {
+		$(event.target).addClass('outline-element');
+	})
+	.mouseout(function (event) {
+		$(event.target).removeClass('outline-element');
+	})
 	.click(function (event) {
 		$(event.target).toggleClass('outline-element-clicked');
 	})
- 	.click(function (event) {
- 		if (event === undefined) event = window.event;                     // IE hack
- 		var target = 'target' in event ? event.target : event.srcElement; // another IE hack
+	.click(function (event) {
+		if (event === undefined) event = window.event;                     // IE hack
+		var target = 'target' in event ? event.target : event.srcElement; // another IE hack
 
- 		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
+		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
 
- 		var path = getPathTo(target);
- 		var message = path;
- 		$("#clicked").val(getPathTo(event.target));
- 	});
+		var path = getPathTo(target);
+		var message = path;
+		$("#clicked").val(getPathTo(event.target));
+	});
 
 	$('input').click(function (event) {
 		//delete all Id`s

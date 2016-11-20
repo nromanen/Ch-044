@@ -11,6 +11,7 @@ using BAL.Interface;
 using DAL;
 using BAL.Manager;
 using WebApp.Models;
+using Model.DB;
 
 namespace WebApp.Scheduler
 {
@@ -24,8 +25,11 @@ namespace WebApp.Scheduler
 			uOw = new UnitOfWork();
 			parserManager = new ParserTaskManager(uOw);
 			urlManager = new URLManager();
-
 		}
+		/// <summary>
+		/// Publishing messeges to rabbitmq queue
+		/// </summary>
+		/// <param name="context"></param>
 		public void Execute(IJobExecutionContext context)
 		{
 			var taskList = new List<TaskExecuterModel>();
@@ -41,6 +45,7 @@ namespace WebApp.Scheduler
 					taskList.Add(taskExecute);
 				}
 			}
+
 			foreach (var mess in taskList)
 			{
 				ConnectionFactory connFactory = new ConnectionFactory();
@@ -66,10 +71,13 @@ namespace WebApp.Scheduler
 						 routingKey: "Queue-" + Environment.MachineName,
 						 basicProperties: properties,
 						 body: data);
-					var task_s = parserManager.Get(mess.TaskId);
-					task_s.Status = (Common.Enum.Status.Coming);
-					parserManager.Update(task_s);
 				}
+			}
+			var ids_update = taskList.Select(i => i.TaskId).Distinct();
+			foreach (var id in ids_update)
+			{
+				var parserTask = new ParserTaskDTO { Id = id, Status = Common.Enum.Status.Coming };
+				parserManager.Update(parserTask);
 			}
 		}
 	}
