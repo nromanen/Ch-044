@@ -27,9 +27,15 @@ namespace TaskExecuting.Scheduler
 
 			var obj = tg.GetTask();
 			var endTime = parsermanager.Get(obj.TaskId).EndDate;
-			if (endTime != null && DateTime.Now <= endTime)
+			if(endTime==null)
 			{
-				Console.WriteLine("Task-"+obj.TaskId+" executed!");
+				te.ExecuteTask(obj.TaskId, obj.GoodUrl);
+				var task_s = parsermanager.Get(obj.TaskId);
+				task_s.Status = (Common.Enum.Status.Infinite);
+				parsermanager.Update(task_s);
+			}
+			else if (endTime != null && DateTime.Now <= endTime)
+			{
 				te.ExecuteTask(obj.TaskId, obj.GoodUrl); }
 			else
 			{
