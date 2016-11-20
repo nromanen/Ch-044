@@ -29,7 +29,7 @@ namespace WebApp.Scheduler
 		public void Execute(IJobExecutionContext context)
 		{
 			var taskList = new List<TaskExecuterModel>();
-			var tasklistdb = parserManager.GetAll().Where(i => i.Status == (Common.Enum.Status.Coming)).ToList();
+			var tasklistdb = parserManager.GetAll().Where(i => i.Status == (Common.Enum.Status.NotFinished) || (i.Status==Common.Enum.Status.Infinite)).ToList();
 			foreach (var task in tasklistdb)
 			{
 				var urlList = urlManager.GetAllUrls(task.IteratorSettings);
@@ -49,29 +49,25 @@ namespace WebApp.Scheduler
 				using (var conn = connFactory.CreateConnection())
 				using (var channel = conn.CreateModel())
 				{
-					channel.QueueDeclare(queue: "f_test",
+					channel.QueueDeclare(queue:"Queue-"+Environment.MachineName,
 						 durable: true,
 						 exclusive: false,
 						 autoDelete: false,
 						 arguments: null);
 					var serializer = new JavaScriptSerializer();
 					var output = serializer.Serialize(mess).ToCharArray();
-
-					//var message = string.Join("*", model).ToCharArray();
 					// the data put on the queue must be a byte array
 					var data = Encoding.UTF8.GetBytes(output);
 					var properties = channel.CreateBasicProperties();
 					properties.Persistent = true;
 					// ensure that the queue exists before we publish to it
-					//channel.QueueDeclare("json", false, false, false, null);
 					// publish to the "default exchange", with the queue name as the routing key
 					channel.BasicPublish(exchange: "",
-						 routingKey: "f_test",
+						 routingKey: "Queue-" + Environment.MachineName,
 						 basicProperties: properties,
 						 body: data);
-					//channel.BasicPublish("", "json", null, data);
 					var task_s = parserManager.Get(mess.TaskId);
-					task_s.Status = (Common.Enum.Status.NotFinished);
+					task_s.Status = (Common.Enum.Status.Coming);
 					parserManager.Update(task_s);
 				}
 			}

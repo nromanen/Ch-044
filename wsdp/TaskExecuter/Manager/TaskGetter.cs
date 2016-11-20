@@ -25,7 +25,7 @@ namespace TaskExecuting.Manager
 				// ensure that the queue exists before we access it
 				//channel.QueueDeclare("json", false, false, false, null);
 				// do a simple poll of the queue 
-				var data = channel.BasicGet("f_test", false);
+				var data = channel.BasicGet("Queue-" + Environment.MachineName, false);
 				// the message is null if the queue was empty 
 
 				if (data == null)
