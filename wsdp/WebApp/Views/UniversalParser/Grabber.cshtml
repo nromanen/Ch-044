@@ -15,11 +15,13 @@
 		<div class="col-sm-12 col-md-6">
 			<div class="row">
 				<div class="col-sm-12" id="iframe">
-					<iframe id="iframe1" src="~/WebSites/0395551f-6840-4387-8d84-bb54b147f891.html" style="width:100%; height:600px;"></iframe>
+					<iframe id="iframe1" src="@TempData.Peek("FirstPage")" style="width:100%; height:600px;"></iframe>
+					<input type="button" value="Previous" class="btn btn-default col-md-2 center-block" id="Previous" />
+					<input type="button" value="Next" class="btn btn-default col-md-2 col-md-push-8 center-block" id="Next" />
 				</div>
 			</div>
 		</div>
-
+		<div class="hide" id="items" data-list-items="@Model.urlJsonData"></div>
 
 		<div class="col-sm-12 col-md-6">
 			<form class="form-horizontal" action="/UniversalParser/Grabber" method="post">
@@ -43,11 +45,32 @@
 				</div>
 			</form>
 		</div>
+
+
+
 	</div>
-	</div>
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/Scripts/GrabberJs")
-	<script>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/GrabberJs")
+<script>
+	$(document).ready(function () {
 		$(".list-inline-item:nth-child(3)").addClass("active");
-	</script>
+		var current = 0;
+		var ListItems = JSON.parse($('#items').attr('data-list-items'));
+		var length = ListItems.length;
+
+		$('#Next').click(function () {
+			if (current < length) {
+				current++;
+				$('#iframe1').attr('src', ListItems[current]);
+			}
+		});
+		$('#Previous').click(function () {
+			if (current > 0) {
+				current--;
+				$('#iframe1').attr('src', ListItems[current]);
+			}
+		});
+	});
+</script>
 

@@ -24,6 +24,31 @@ $(document).ready(function () {
 		EstablishingEvents();
 		console.log("EV");
 	}, 10000);
+	$(".list-inline-item:nth-child(3)").addClass("active");
+	var current = 0;
+	var ListItems = JSON.parse($('#items').attr('data-list-items'));
+	var length = ListItems.length;
+
+	$('#Next').click(function () {
+		setTimeout(function () {
+			EstablishingEvents();
+			console.log("EV");
+		}, 10000);
+		if (current < length) {
+			current++;
+			$('#iframe1').attr('src', ListItems[current]);
+		}
+	});
+	$('#Previous').click(function () {
+		setTimeout(function () {
+			EstablishingEvents();
+			console.log("EV");
+		}, 10000);
+		if (current > 0) {
+			current--;
+			$('#iframe1').attr('src', ListItems[current]);
+		}
+	});
 });
 
 function EstablishingEvents() {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
-
+using Newtonsoft.Json;
 
 namespace WebApp.Controllers {
 	[Authorize]
@@ -126,9 +126,6 @@ namespace WebApp.Controllers {
 
 			parserTaskManager.Update(_task);
 
-            var urls = urlManager.GetAllUrls(model);
-            TempData["Links"] = urls;
-
 			return RedirectToAction("Grabber", new { id = id.Value });
 		}
 
@@ -138,6 +135,8 @@ namespace WebApp.Controllers {
 			if(id == null) { return HttpNotFound(); }
 			var task = new ParserTaskDTO();
 			var grabber = new GrabberSettingsDTO();
+			var urlList = new List<string>();
+			string localPathToSite;
 			if (id != null) {
 				task = parserTaskManager.Get(id.Value);
 
@@ -148,10 +147,22 @@ namespace WebApp.Controllers {
 					task.Category = categoryManager.Get(task.CategoryId);
 					grabber.PropertyItems = Mapper.Map<List<GrabberPropertyItemDTO>>(task.Category.PropertiesList);
 				}
+				if(task.IteratorSettings != null) {
+					urlList = urlManager.GetAllUrls(task.IteratorSettings);
+				}
 			}
-            var links = TempData.Peek("Links") as List<string>;
-            ViewBag.Links = links;
+			var arrayOfLinks  = urlList.ToArray();
+			for (var i = 0; i < arrayOfLinks.Length - 60; i++) {
+				if (!String.IsNullOrWhiteSpace(arrayOfLinks[i])) {
+					Guid result = downloadManager.DownloadFromPath(arrayOfLinks[i]);
+					localPathToSite = "/WebSites/" + result + ".html";
+					arrayOfLinks[i] = localPathToSite;
+				}
+			}
+			grabber.urlJsonData = JsonConvert.SerializeObject(arrayOfLinks);
 
+			TempData["FirstPage"] = arrayOfLinks[0];
+			TempData["src"] = arrayOfLinks;
 			return View(grabber);
 		}
 		[Authorize(Roles = "Administrator")]
