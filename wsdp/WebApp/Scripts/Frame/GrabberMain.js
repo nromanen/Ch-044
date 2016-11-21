@@ -30,24 +30,17 @@ $(document).ready(function () {
 	var length = ListItems.length;
 
 	$('#Next').click(function () {
-		setTimeout(function () {
-			EstablishingEvents();
-			console.log("EV");
-		}, 10000);
-		if (current < length) {
+		if (current != length - 1) {
 			current++;
 			$('#iframe1').attr('src', ListItems[current]);
-		}
+		};
 	});
+
 	$('#Previous').click(function () {
-		setTimeout(function () {
-			EstablishingEvents();
-			console.log("EV");
-		}, 10000);
-		if (current > 0) {
+		if (current = !0) {
 			current--;
 			$('#iframe1').attr('src', ListItems[current]);
-		}
+		};
 	});
 });
 
