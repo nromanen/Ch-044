@@ -49,7 +49,7 @@ namespace WebApp.Scheduler
 			foreach (var mess in taskList)
 			{
 				ConnectionFactory connFactory = new ConnectionFactory();
-				connFactory.uri = new Uri("amqp://bpmcftle:cxjupG82CztHJ_Nfkh2GUEyb0Z-2FyGY@chicken.rmq.cloudamqp.com/bpmcftle");
+				connFactory.uri = new Uri(System.Configuration.ConfigurationManager.AppSettings["RabbitMqConnection"]);
 				// create a connection and open a channel, dispose them when done
 				using (var conn = connFactory.CreateConnection())
 				using (var channel = conn.CreateModel())
