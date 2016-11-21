@@ -95,7 +95,9 @@ namespace BAL
                 .ForMember(
                 p => p.WebShop,
                 m => m.Ignore()
-                );
+                )
+                .ForMember(x=>x.XmlData,
+                y=> y.MapFrom(t=>serializer.Serialize(t.PropertyValues)));
 		}
     }
 }
