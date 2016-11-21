@@ -19,7 +19,7 @@ namespace WebApp.Scheduler
 			ITrigger trigger = TriggerBuilder.Create()
 				.StartNow()
 					.WithSimpleSchedule(x => x
-						.WithIntervalInSeconds(100000000)
+						.WithIntervalInSeconds(10)
 						.RepeatForever())
 				.Build();
 

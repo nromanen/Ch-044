@@ -36,12 +36,12 @@ namespace TaskExecuting.Manager
 		public TaskExecuter()
 		{
 			uOw = new UnitOfWork();
-            elasticuOw = new ElasticUnitOfWork();
+            //elasticuOw = new ElasticUnitOfWork();
 			parsermanager = new ParserTaskManager(uOw);
 			propmanager = new PropertyManager(uOw);
             goodManager = new GoodManager(uOw);
-            elasticManager = new ElasticManager(elasticuOw);
-            goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
+            //elasticManager = new ElasticManager(elasticuOw);
+            //goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
 			AutoMapperConfig.Configure();
 		}
 
@@ -118,7 +118,7 @@ namespace TaskExecuting.Manager
 			}
 			
 			resultGood.PropertyValues = propertyValues;
-            goodwizardManager.AddItem(resultGood);
+            goodManager.InsertGood(resultGood);
 			return resultGood;
 		}
 	}

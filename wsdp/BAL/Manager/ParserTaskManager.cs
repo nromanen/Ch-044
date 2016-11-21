@@ -18,7 +18,8 @@ namespace BAL.Manager
 
 		public ParserTaskDTO Get(int id)
 		{
-			var parser = uOW.ParserRepo.GetByID(id);
+
+            var parser = uOW.ParserRepo.GetByID(id);
 			if (parser == null)
 				return null;
 			var result = Mapper.Map<ParserTaskDTO>(parser);
@@ -115,7 +116,7 @@ namespace BAL.Manager
 				if (parsertask.EndDate == null)
 					temp.Status = Common.Enum.Status.Infinite;
 				else
-					temp.Status = Common.Enum.Status.NotFinished;
+					temp.Status = Common.Enum.Status.Coming;
 			}
 			else
 			{

@@ -22,9 +22,9 @@ namespace SiteProcessor
         protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         static Client client = null;
 
-        public SiteDownloader()
+        public SiteDownloader(bool IsTor = true)
         {
-            if (client == null)
+            if (client == null && IsTor)
             {
                 ClientCreateParams createParameters = new ClientCreateParams();
                 createParameters.ConfigurationFile = "";
@@ -92,6 +92,24 @@ namespace SiteProcessor
                 "--proxy-type=socks5","--proxy=127.0.0.1:9050"
             });
             using (IWebDriver driver = new PhantomJSDriver(service))
+            {
+                try
+                {
+                    driver.Navigate().GoToUrl(url);
+                    return driver.PageSource;
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.Message);
+                    return null;
+                }
+
+            }
+        }
+
+        public string GetPageSouceDirectly(string url)
+        {
+            using (IWebDriver driver = new PhantomJSDriver())
             {
                 try
                 {

@@ -18,7 +18,6 @@ namespace TaskExecuting.Scheduler
 		{
 			uOw = new UnitOfWork();
 			parsermanager = new ParserTaskManager(uOw);
-
 		}
 		public void Execute(IJobExecutionContext context)
 		{

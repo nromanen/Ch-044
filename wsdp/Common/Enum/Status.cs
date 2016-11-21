@@ -5,6 +5,7 @@
         NotFinished = 1,
         Coming,
         Infinite,
-        Finished
+        Finished,
+        InQuery
     }
 }

@@ -14,6 +14,12 @@ namespace BAL.Manager
         {
         }
 
+        public void InsertGood(GoodDTO good)
+        {
+            uOW.GoodRepo.Insert(Mapper.Map<Good>(good));
+            uOW.Save();
+        }
+
         public void InsertGood(Good good)
         {
             uOW.GoodRepo.Insert(good);

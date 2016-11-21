@@ -33,7 +33,7 @@ namespace WebApp.Scheduler
 		public void Execute(IJobExecutionContext context)
 		{
 			var taskList = new List<TaskExecuterModel>();
-			var tasklistdb = parserManager.GetAll().Where(i => i.Status == (Common.Enum.Status.NotFinished) || (i.Status==Common.Enum.Status.Infinite)).ToList();
+			var tasklistdb = parserManager.GetAll().Where(i => i.Status == (Common.Enum.Status.Coming) || (i.Status==Common.Enum.Status.Infinite)).ToList();
 			foreach (var task in tasklistdb)
 			{
 				var urlList = urlManager.GetAllUrls(task.IteratorSettings);
@@ -79,7 +79,7 @@ namespace WebApp.Scheduler
 			foreach (var id in ids_update)
 			{
 			    var obj=parserManager.Get(id);
-			    obj.Status = Common.Enum.Status.Coming;
+			    obj.Status = Common.Enum.Status.InQuery;
 			    parserManager.Update(obj);
 			}
 		}
