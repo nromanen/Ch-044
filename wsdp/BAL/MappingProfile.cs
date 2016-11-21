@@ -85,6 +85,12 @@ namespace BAL
                 .ForMember(
                 p => p.WebShop,
                 m => m.Ignore()
+                )
+                .ForMember(
+                x => x.PropertyValues,
+                m => m.MapFrom(
+                    t => (serializer.Deserialize(t.XmlData, typeof(PropertyValuesDTO)) as PropertyValuesDTO)
+                    )
                 );
 
             CreateMap<GoodDTO, Good>()
@@ -96,8 +102,12 @@ namespace BAL
                 p => p.WebShop,
                 m => m.Ignore()
                 )
-                .ForMember(x=>x.XmlData,
-                y=> y.MapFrom(t=>serializer.Serialize(t.PropertyValues)));
+                .ForMember(
+                x => x.XmlData,
+                y => y.MapFrom(
+                    t=>serializer.Serialize(t.PropertyValues)
+                    )
+                );
 		}
     }
 }

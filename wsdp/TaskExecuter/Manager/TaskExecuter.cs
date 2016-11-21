@@ -15,14 +15,19 @@ using SiteProcessor;
 using HtmlAgilityPack;
 using log4net;
 using System.IO;
+using DAL.Elastic;
 
 namespace TaskExecuting.Manager
 {
 	public class TaskExecuter : ITaskExecuter
 	{
 		private UnitOfWork uOw = null;
+        private ElasticUnitOfWork elasticuOw = null;
 		private ParserTaskManager parsermanager = null;
+        private GoodDatabasesWizard goodwizardManager = null;
 		private PropertyManager propmanager = null;
+        private ElasticManager elasticManager = null;
+        private GoodManager goodManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
 		/// <summary>
@@ -30,10 +35,13 @@ namespace TaskExecuting.Manager
 		/// </summary>
 		public TaskExecuter()
 		{
-			UnitOfWork uOw = new UnitOfWork();
+			uOw = new UnitOfWork();
+            elasticuOw = new ElasticUnitOfWork();
 			parsermanager = new ParserTaskManager(uOw);
 			propmanager = new PropertyManager(uOw);
-
+            goodManager = new GoodManager(uOw);
+            elasticManager = new ElasticManager(elasticuOw);
+            goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
 			AutoMapperConfig.Configure();
 		}
 
@@ -110,6 +118,7 @@ namespace TaskExecuting.Manager
 			}
 			
 			resultGood.PropertyValues = propertyValues;
+            goodwizardManager.AddItem(resultGood);
 			return resultGood;
 		}
 	}

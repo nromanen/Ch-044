@@ -17,7 +17,7 @@ namespace SiteProcessor
     public class SiteDownloader
     {
         private const int CONTROL_PORT = 9051;
-        private const string PATH = @"D:\C# PROJECTS\SuperParser\Ch-044\wsdp\SiteProcessor\Tor\Tor\tor.exe";
+        private const string PATH = @"Tor\Tor\tor.exe";
 
         protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         static Client client = null;

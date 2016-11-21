@@ -44,6 +44,8 @@ namespace WebApp.Scheduler
 					taskExecute.GoodUrl = url;
 					taskList.Add(taskExecute);
 				}
+
+                break;
 			}
 
 			foreach (var mess in taskList)
