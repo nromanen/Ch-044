@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nest;
+using System.Configuration;
+
 
 namespace DAL.Elastic
 {
     public class ElasticContext
     {
         public ElasticClient Client { get; set; }
-        public ElasticContext(string connection)
+        public ElasticContext(string connection, string dataindex)
         {
-            var dataindex = connection;
-            var uri = new Uri("http://localhost:9200/");
+            string path = ConfigurationManager.ConnectionStrings[connection].ConnectionString;
+            var uri = new Uri(path);
             var settings = new ConnectionSettings(uri);
             settings.DefaultIndex(dataindex);
             Client = new ElasticClient(settings);
@@ -22,6 +24,6 @@ namespace DAL.Elastic
             if(!responce.Exists) Client.CreateIndex(dataindex);
         }
 
-        public ElasticContext() : this("connection") { }
+        public ElasticContext() : this("ElasticConnection", "wsdpgoods") { }
     }
 }

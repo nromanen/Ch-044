@@ -17,7 +17,7 @@ namespace TaskExecuting.Manager
 		public TaskExecuterModel GetTask()
 		{
 			ConnectionFactory connFactory = new ConnectionFactory();
-			connFactory.uri = new Uri("amqp://bpmcftle:cxjupG82CztHJ_Nfkh2GUEyb0Z-2FyGY@chicken.rmq.cloudamqp.com/bpmcftle");
+			connFactory.uri = new Uri(System.Configuration.ConfigurationManager.AppSettings["RabbitMqConnection"]);
 			using (var conn = connFactory.CreateConnection())
 			using (var channel = conn.CreateModel())
 			{
