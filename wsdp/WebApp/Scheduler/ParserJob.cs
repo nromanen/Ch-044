@@ -76,8 +76,9 @@ namespace WebApp.Scheduler
 			var ids_update = taskList.Select(i => i.TaskId).Distinct();
 			foreach (var id in ids_update)
 			{
-				var parserTask = new ParserTaskDTO { Id = id, Status = Common.Enum.Status.Coming };
-				parserManager.Update(parserTask);
+			    var obj=parserManager.Get(id);
+			    obj.Status = Common.Enum.Status.Coming;
+			    parserManager.Update(obj);
 			}
 		}
 	}
