@@ -89,15 +89,15 @@ namespace BAL
 
             CreateMap<GoodDTO, Good>()
                 .ForMember(
-                p => p.Category,
-                m => m.Ignore()
+                    p => p.Category,
+                    m => m.Ignore()
                 )
                 .ForMember(
-                p => p.WebShop,
-                m => m.Ignore()
+                    p => p.WebShop,
+                    m => m.Ignore()
                 )
-                .ForMember(x=>x.XmlData,
-                y=> y.MapFrom(t=>serializer.Serialize(t.PropertyValues)));
-		}
+                .ForMember(x => x.XmlData,
+                    y => y.MapFrom(t => serializer.Serialize(t.PropertyValues)));
+        }
     }
 }
