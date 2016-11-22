@@ -25,7 +25,14 @@ namespace TaskExecuting.Scheduler
 			TaskGetter tg = new TaskGetter();
 
 			var obj = tg.GetTask();
-			var endTime = parsermanager.Get(obj.TaskId).EndDate;
+
+            if (obj == null)
+            {
+                return;
+            }
+            
+            var task1 = parsermanager.Get(obj.TaskId);
+            var endTime = parsermanager.Get(obj.TaskId).EndDate;
 			if(endTime==null)
 			{
 				te.ExecuteTask(obj.TaskId, obj.GoodUrl);
