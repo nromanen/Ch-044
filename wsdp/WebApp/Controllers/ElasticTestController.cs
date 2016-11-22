@@ -38,16 +38,15 @@ namespace WebApp.Controllers
             property.DictDoubleProperties.Add(1, 12.3);
             property.DictDoubleProperties.Add(2, 3.2);
             property.DictIntProperties.Add(3, 2);
-            property.DictStringProperties.Add(2, "asdasd");
+            property.DictStringProperties.Add(2, "sdfgsdfgsdfgsdfg");
 
-            GoodDTO good = new GoodDTO()
+            GoodDTO good1= new GoodDTO()
             {
                 Category_Id = 1,
-                Id = 2,
                 PropertyValues = property,
-                WebShop_Id = 2
+                WebShop_Id = 1
             };
-            Wizard.AddItem(good);
+            Wizard.AddItem(good1);
 
             return View();
         }
