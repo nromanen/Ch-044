@@ -123,6 +123,11 @@ namespace BAL.Manager
 				temp.Status = Common.Enum.Status.NotFinished;
 			}
 
+            if (parsertask.Status == Common.Enum.Status.InQuery)
+            {
+                temp.Status = Common.Enum.Status.InQuery;
+            }
+
 			temp.Priority = parsertask.Priority;
 
 			temp.Description = parsertask.Description;

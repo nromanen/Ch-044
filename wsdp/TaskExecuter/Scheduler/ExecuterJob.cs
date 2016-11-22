@@ -35,7 +35,11 @@ namespace TaskExecuting.Scheduler
 			}
 			else if (endTime != null && DateTime.Now <= endTime)
 			{
-				te.ExecuteTask(obj.TaskId, obj.GoodUrl); }
+				te.ExecuteTask(obj.TaskId, obj.GoodUrl);
+                var task_s = parsermanager.Get(obj.TaskId);
+                task_s.Status = (Common.Enum.Status.Coming);
+                parsermanager.Update(task_s);
+            }
 			else
 			{
 				var task_s = parsermanager.Get(obj.TaskId);

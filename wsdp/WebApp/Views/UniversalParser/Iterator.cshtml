@@ -21,13 +21,18 @@
                 <div class="input-group">
                     @Html.TextBoxFor(m => m.Url, new { @class = "form-control", @placeholder = "Enter link..." })
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"> @Resources.Resource.Download</button>
+                        <button class="btn btn-default" type="submit" onclick="showProgressBar();"> @Resources.Resource.Download</button>
                     </span>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col-sm-12" id="iframe">
                         <iframe id="iframe1"src="@(ViewBag.Path)" style="width:100%; height:600px;"></iframe>
+                        <div class="progress" id="progress_bar">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +117,7 @@
                     <div class="row">
 
                         <div class="col-sm-offset-10">
-                            <button type="submit" class="btn btn-default">Next</button>
+                            <button type="submit" class="btn btn-default" onclick="showProgressBar();">Next</button>
                         </div>
 
                     </div>
@@ -127,11 +132,17 @@
 @Scripts.Render("~/Scripts/IteratorPage")
 <script>
     $(document).ready(function () {
+
+        $("#progress_bar").hide();
         $("#iframe1").hide();
         var pathIsExist = '@ViewBag.Path';
         if (pathIsExist != "") {
             $("#iframe1").show();
         }
     });
+
+    function showProgressBar() {
+        $("#progress_bar").show();
+    }
 </script>
 
