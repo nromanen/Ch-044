@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="col-sm-9">
-                            @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control", @placeholder = "www.some.url/page{}.html" })
+                            @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control urlmask", @placeholder = "www.some.url/page{}.html" })
                         </div>
 
                     </div>
@@ -132,15 +132,6 @@
         if (pathIsExist != "") {
             $("#iframe1").show();
         }
-
-        var iframe = $("#iframe");
-
-        var iframeDoc = iframe.contents();
-
-        var smth = $(iframeDoc).click(function (event) {
-            alert(this);
-        })
-
     });
 </script>
 

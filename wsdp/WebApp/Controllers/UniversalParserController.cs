@@ -152,7 +152,7 @@ namespace WebApp.Controllers {
 				}
 			}
 			var arrayOfLinks  = urlList.ToArray();
-			for (var i = 0; i < arrayOfLinks.Length - 60; i++) {
+			for (var i = 0; i < arrayOfLinks.Length; i++) {
 				if (!String.IsNullOrWhiteSpace(arrayOfLinks[i])) {
 					Guid result = downloadManager.DownloadFromPath(arrayOfLinks[i]);
 					localPathToSite = "/WebSites/" + result + ".html";
