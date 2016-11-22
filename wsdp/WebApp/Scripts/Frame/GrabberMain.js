@@ -1,3 +1,7 @@
+var current = 0;
+var ListItems = JSON.parse($('#items').attr('data-list-items'));
+var length = ListItems.length;
+
 function getPathTo(element) {
 	if (element.id !== '') {
 		if (element.id == undefined) return "";
@@ -20,28 +24,12 @@ function getPathTo(element) {
 	}
 }
 $(document).ready(function () {
+	CheckButtons();
 	setTimeout(function () {
 		EstablishingEvents();
 		console.log("EV");
 	}, 10000);
-	$(".list-inline-item:nth-child(3)").addClass("active");
-	var current = 0;
-	var ListItems = JSON.parse($('#items').attr('data-list-items'));
-	var length = ListItems.length;
-
-	$('#Next').click(function () {
-		if (current != length - 1) {
-			current++;
-			$('#iframe1').attr('src', ListItems[current]);
-		};
-	});
-
-	$('#Previous').click(function () {
-		if (current = !0) {
-			current--;
-			$('#iframe1').attr('src', ListItems[current]);
-		};
-	});
+	
 });
 
 function EstablishingEvents() {
@@ -86,4 +74,45 @@ function EstablishingEvents() {
 		//Add new id
 		$(this).attr('id', 'clicked');
 	});
+	$(".list-inline-item:nth-child(3)").addClass("active");
+	
+
+	$('#Next').unbind().click(function () {
+		if (current != length - 1) {
+			current++;
+		};
+		$('#iframe1').attr('src', ListItems[current]);
+		CheckButtons();
+		setTimeout(function () {
+			EstablishingEvents();
+			console.log("EV");
+		}, 10000);
+
+	});
+
+	$('#Previous').unbind().click(function () {
+		if (current != 0) {
+			current--;
+		};
+		$('#iframe1').attr('src', ListItems[current]);
+		CheckButtons();
+		setTimeout(function () {
+			EstablishingEvents();
+			console.log("EV");
+		}, 10000);
+
+	});
+
+};
+function CheckButtons() {
+	if (current == length - 1) {
+		$('#Next').attr('disabled', true);
+	}
+	else {
+		$('#Next').attr('disabled', false);
+	}
+	if (current == 0) {
+		$('#Previous').attr('disabled', true);
+	}
+	else { $('#Previous').attr('disabled', false); }
 }
