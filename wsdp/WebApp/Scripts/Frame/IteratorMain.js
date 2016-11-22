@@ -48,9 +48,17 @@ function EstablishingEvents() {
 
  		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
 
- 		var path = getPathTo(target);
- 		var message = path;
- 		$("#clicked").val(getPathTo(event.target));
+ 		if ($("#clicked").hasClass("urlmask"))
+ 		{
+ 		    console.log(65555);
+ 		    $("#clicked").val(event.target.getAttribute("href"));
+            
+ 		}
+ 		else {
+ 		    var path = getPathTo(target);
+ 		    var message = path;
+ 		    $("#clicked").val(getPathTo(event.target));
+ 		}
  	});
 
 	$('input').click(function (event) {

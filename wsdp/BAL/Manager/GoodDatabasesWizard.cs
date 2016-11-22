@@ -26,10 +26,8 @@ namespace BAL.Manager
         public void AddItem(GoodDTO good)
         {
             var goodEntity = Mapper.Map<Good>(good);
-            //var serializer = new ExtendedXmlSerializer();
-            //goodEntity.XmlData = serializer.Serialize(good.PropertyValues);
-            goodManager.InsertGood(goodEntity);
-            elasticManager.AddItem(good);
+            var goodElastic = goodManager.Insert(goodEntity);
+            elasticManager.AddItem(goodElastic);
         }
 
 

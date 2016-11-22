@@ -15,10 +15,11 @@ namespace DAL.Interface
             string includeProperties = ""
         );
 
-        void Insert(TEntity entity);
+        TEntity Insert(TEntity entity);
 
         void Update(TEntity entityToUpdate);
 
         void SetStateModified(TEntity entity);
+     
     }
 }
