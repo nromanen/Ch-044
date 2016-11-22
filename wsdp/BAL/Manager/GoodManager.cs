@@ -5,6 +5,7 @@ using Model.DB;
 using Model.DTO;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace BAL.Manager
 {
@@ -36,5 +37,18 @@ namespace BAL.Manager
             }
             return goodList;
         }
+
+        /// <summary>
+        /// Insert good into database and return inserted item
+        /// </summary>
+        /// <param name="good"></param>
+        /// <returns></returns>
+        public GoodDTO Insert(Good good)
+        {
+            var goodDb = uOW.GoodRepo.Insert(good);
+            uOW.Save();
+            return Mapper.Map<GoodDTO>(goodDb);
+        }
+
     }
 }
