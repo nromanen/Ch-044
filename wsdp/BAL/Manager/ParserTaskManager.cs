@@ -10,146 +10,147 @@ using System.Linq;
 
 namespace BAL.Manager
 {
-    public class ParserTaskManager : BaseManager, IParserTaskManager
-    {
-        public ParserTaskManager(IUnitOfWork uOw) : base(uOw)
-        {
-        }
+	public class ParserTaskManager : BaseManager, IParserTaskManager
+	{
+		public ParserTaskManager(IUnitOfWork uOw) : base(uOw)
+		{
+		}
 
-        public ParserTaskDTO Get(int id)
-        {
+		public ParserTaskDTO Get(int id)
+		{
+
             var parser = uOW.ParserRepo.GetByID(id);
-            if (parser == null)
-                return null;
-            var result = Mapper.Map<ParserTaskDTO>(parser);
+			if (parser == null)
+				return null;
+			var result = Mapper.Map<ParserTaskDTO>(parser);
 
-            return result;
-        }
+			return result;
+		}
 
-        /// <summary>
-        /// Add new parsertask
-        /// </summary>
-        /// <param name="parsertask"></param>
-        /// <returns>id of new parser</returns>
-        public int Add(ParserTaskDTO parsertask)
-        {
-            if (parsertask == null) return -1;
+		/// <summary>
+		/// Add new parsertask
+		/// </summary>
+		/// <param name="parsertask"></param>
+		/// <returns>id of new parser</returns>
+		public int Add(ParserTaskDTO parsertask)
+		{
+			if (parsertask == null) return -1;
 
-            ParserTask parsertaskDb = Mapper.Map<ParserTask>(parsertask);
+			ParserTask parsertaskDb = Mapper.Map<ParserTask>(parsertask);
 
-            try
-            {
-                parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
-                parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
-                parsertaskDb.Status = Common.Enum.Status.NotFinished;
-                uOW.ParserRepo.Insert(parsertaskDb);
-                uOW.Save();
-                return parsertaskDb.Id;
-            }
-            catch(Exception ex)
-            {
-                logger.Error(ex.Message);
-                return -1;
-            }
+			try
+			{
+				parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
+				parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
+				parsertaskDb.Status = Common.Enum.Status.NotFinished;
+				uOW.ParserRepo.Insert(parsertaskDb);
+				uOW.Save();
+				return parsertaskDb.Id;
+			}
+			catch (Exception ex)
+			{
+				logger.Error(ex.Message);
+				return -1;
+			}
 
-        }
+		}
 
-        /// <summary>
-        /// Deletes parser task by id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool Delete(int id)
-        {
-            try
-            {
-                var parsertask = uOW.ParserRepo.GetByID(id);
-                if (parsertask == null)
-                {
-                    return false;
-                }
-                uOW.ParserRepo.Delete(parsertask);
-                uOW.Save();
-                return true;
-            }
-            catch(Exception ex)
-            {
-                logger.Error(ex.Message);
-            }
-            return false;
-        }
+		/// <summary>
+		/// Deletes parser task by id
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public bool Delete(int id)
+		{
+			try
+			{
+				var parsertask = uOW.ParserRepo.GetByID(id);
+				if (parsertask == null)
+				{
+					return false;
+				}
+				uOW.ParserRepo.Delete(parsertask);
+				uOW.Save();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				logger.Error(ex.Message);
+			}
+			return false;
+		}
 
-        /// <summary>
-        /// Update parser task
-        /// </summary>
-        /// <param name="parsertask"></param>
-        /// <returns>instance of new parser dto</returns>
-        public ParserTaskDTO Update(ParserTaskDTO parsertask)
-        {
-            var serializer = new ExtendedXmlSerializer();
+		/// <summary>
+		/// Update parser task
+		/// </summary>
+		/// <param name="parsertask"></param>
+		/// <returns>instance of new parser dto</returns>
+		public ParserTaskDTO Update(ParserTaskDTO parsertask)
+		{
+			var serializer = new ExtendedXmlSerializer();
 
-            var temp = uOW.ParserRepo.Get(p => p.Id == parsertask.Id).FirstOrDefault();
-            if (temp == null)
-            {
-                return null;
-            }
-            //temp vars for checking fillness additional settings
-            bool IsIteratorSettingsAreFilled = false;
-            bool IsGrabebrSettingsAreFilled = false;
+			var temp = uOW.ParserRepo.Get(p => p.Id == parsertask.Id).FirstOrDefault();
+			if (temp == null)
+			{
+				return null;
+			}
+			//temp vars for checking fillness additional settings
+			bool IsIteratorSettingsAreFilled = false;
+			bool IsGrabebrSettingsAreFilled = false;
 
-            
-            //Filling and checking additional settings
-            if (parsertask.GrabberSettings != null)
-            {
-                temp.GrabberSettings = serializer.Serialize(parsertask.GrabberSettings);
-                IsIteratorSettingsAreFilled = true;
-            }
-            if (parsertask.IteratorSettings != null)
-            {
-                temp.IteratorSettings = serializer.Serialize(parsertask.IteratorSettings);
-                IsGrabebrSettingsAreFilled = true;
-            }
 
-            if (IsGrabebrSettingsAreFilled && IsIteratorSettingsAreFilled)
-            {
-                if (parsertask.EndDate == null)
-                    temp.Status = Common.Enum.Status.Infinite;
-                else
-                    temp.Status = Common.Enum.Status.Finished;
-            }
-            else
-            {
-                temp.Status = Common.Enum.Status.NotFinished;
-            }
+			//Filling and checking additional settings
+			if (parsertask.GrabberSettings != null)
+			{
+				temp.GrabberSettings = serializer.Serialize(parsertask.GrabberSettings);
+				IsIteratorSettingsAreFilled = true;
+			}
+			if (parsertask.IteratorSettings != null)
+			{
+				temp.IteratorSettings = serializer.Serialize(parsertask.IteratorSettings);
+				IsGrabebrSettingsAreFilled = true;
+			}
 
-            temp.Priority = parsertask.Priority;
+			if (IsGrabebrSettingsAreFilled && IsIteratorSettingsAreFilled)
+			{
+				if (parsertask.EndDate == null)
+					temp.Status = Common.Enum.Status.Infinite;
+				else
+					temp.Status = Common.Enum.Status.Coming;
+			}
+			else
+			{
+				temp.Status = Common.Enum.Status.NotFinished;
+			}
 
-            temp.Description = parsertask.Description;
-            temp.EndDate = parsertask.EndDate;
+			temp.Priority = parsertask.Priority;
 
-            temp.CategoryId = parsertask.CategoryId;
-            temp.WebShopId = parsertask.WebShopId;
+			temp.Description = parsertask.Description;
+			temp.EndDate = parsertask.EndDate;
 
-            temp.Category = uOW.CategoryRepo.GetByID(temp.CategoryId);
-            temp.WebShop = uOW.WebShopRepo.GetByID(temp.WebShopId);
+			temp.CategoryId = parsertask.CategoryId;
+			temp.WebShopId = parsertask.WebShopId;
 
-            uOW.ParserRepo.SetStateModified(temp);
-            uOW.Save();
-            return Mapper.Map<ParserTaskDTO>(temp);
-        }
+			temp.Category = uOW.CategoryRepo.GetByID(temp.CategoryId);
+			temp.WebShop = uOW.WebShopRepo.GetByID(temp.WebShopId);
 
-        /// <summary>
-        /// Returns all parser tasks
-        /// </summary>
-        /// <returns></returns>
-        public List<ParserTaskDTO> GetAll()
-        {
-            List<ParserTaskDTO> resultList = new List<ParserTaskDTO>();
-            foreach (var parsertask in uOW.ParserRepo.All.ToList())
-            {
-                resultList.Add(Mapper.Map<ParserTaskDTO>(parsertask));
-            }
-            return resultList;
-        }
-    }
+			uOW.ParserRepo.SetStateModified(temp);
+			uOW.Save();
+			return Mapper.Map<ParserTaskDTO>(temp);
+		}
+
+		/// <summary>
+		/// Returns all parser tasks
+		/// </summary>
+		/// <returns></returns>
+		public List<ParserTaskDTO> GetAll()
+		{
+			List<ParserTaskDTO> resultList = new List<ParserTaskDTO>();
+			foreach (var parsertask in uOW.ParserRepo.All.ToList())
+			{
+				resultList.Add(Mapper.Map<ParserTaskDTO>(parsertask));
+			}
+			return resultList;
+		}
+	}
 }

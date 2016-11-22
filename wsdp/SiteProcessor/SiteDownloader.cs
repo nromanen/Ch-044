@@ -17,21 +17,21 @@ namespace SiteProcessor
     public class SiteDownloader
     {
         private const int CONTROL_PORT = 9051;
-        private const string PATH = @"D:\TORNET\Example\Tor\Tor\tor.exe";
+        private const string PATH = @"Tor\Tor\tor.exe";
 
         protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         static Client client = null;
 
-        public SiteDownloader()
+        public SiteDownloader(bool IsTor = true)
         {
-            if (client == null)
+            if (client == null && IsTor)
             {
                 ClientCreateParams createParameters = new ClientCreateParams();
                 createParameters.ConfigurationFile = "";
                 createParameters.ControlPassword = "";
                 createParameters.ControlPort = CONTROL_PORT;
                 createParameters.DefaultConfigurationFile = "";
-                createParameters.Path = PATH;
+                createParameters.Path = GetTorDirectory(PATH);
 
                 createParameters.SetConfig(ConfigurationNames.AvoidDiskWrites, true);
                 createParameters.SetConfig(ConfigurationNames.GeoIPFile, Path.Combine(Environment.CurrentDirectory, @"Tor\Data\Tor\geoip"));
@@ -105,6 +105,32 @@ namespace SiteProcessor
                 }
 
             }
+        }
+
+        public string GetPageSouceDirectly(string url)
+        {
+            using (IWebDriver driver = new PhantomJSDriver())
+            {
+                try
+                {
+                    driver.Navigate().GoToUrl(url);
+                    return driver.PageSource;
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.Message);
+                    return null;
+                }
+
+            }
+        }
+
+        private string GetTorDirectory(string path)
+        {
+            string parentDir = System.IO.Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            parentDir += @"\SiteProcessor";
+
+            return Path.Combine(parentDir, path);
         }
 
 

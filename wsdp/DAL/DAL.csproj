@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,7 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elastic\ElasticContext.cs" />
+    <Compile Include="Elastic\ElasticRepository.cs" />
     <Compile Include="Elastic\ElasticUnitOfWork.cs" />
+    <Compile Include="Elastic\Interface\IElasticRepository.cs" />
+    <Compile Include="Elastic\Interface\IElasticUnitOfWork.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\IGenericRepository.cs" />
     <Compile Include="Interface\IUnitOfWork.cs" />

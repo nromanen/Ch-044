@@ -4,22 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nest;
+using System.Configuration;
+
 
 namespace DAL.Elastic
 {
     public class ElasticContext
     {
-        public ElasticContext(string connection)
+        public ElasticClient Client { get; set; }
+        public ElasticContext(string connection, string dataindex)
         {
-            var dataindex = connection;
-            var uri = new Uri("http://localhost:9200/");
+            string path = ConfigurationManager.ConnectionStrings[connection].ConnectionString;
+            var uri = new Uri(path);
             var settings = new ConnectionSettings(uri);
             settings.DefaultIndex(dataindex);
-            var client = new ElasticClient(settings);
-            var responce = client.IndexExists(dataindex);
-            if(!responce.Exists) client.CreateIndex(dataindex);
+            Client = new ElasticClient(settings);
+            var responce = Client.IndexExists(dataindex);
+            //Check the database existing in elastic server
+            if(!responce.Exists) Client.CreateIndex(dataindex);
         }
 
-        public ElasticContext() : this("WSDPProducts") { }
+        public ElasticContext() : this("ElasticConnection", "wsdpgoods") { }
     }
 }

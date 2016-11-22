@@ -12,13 +12,14 @@ namespace WebApp.Controllers
 	public class HomeController : BaseController
 	{
 		private ICategoryManager categoryManager;
-
+        private IPropertyManager propertyManager;
 		private IGoodManager goodManager;
 
-		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager)
+		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager,IPropertyManager propertyManager)
 		{
 			this.categoryManager = categoryManager;
 			this.goodManager = goodManager;
+            this.propertyManager = propertyManager;
 		}
 
 		public ActionResult Index()
@@ -26,23 +27,12 @@ namespace WebApp.Controllers
 		    
 			var goods = goodManager.GetAll();
 			var categories = categoryManager.GetAll();
-			var goods_list = new List<GoodViewDTO>();
-			foreach (var good in goods)
-			{
-				var good_temp = new GoodViewDTO();
-				var xml_root = categories.Where(i => i.Id == good.Category_Id).Select(i => i.Name).FirstOrDefault();
-				XmlSerializer xmlSerializer = new XmlSerializer(typeof(GoodViewDTO), new XmlRootAttribute(xml_root));
-				StringReader rdr = new StringReader(good.XmlData);
-				good_temp = (GoodViewDTO)xmlSerializer.Deserialize(rdr);
-				good_temp.CategoryName = xml_root;
-				goods_list.Add(good_temp);
-			}
-			var cat_goods = goods_list.Select(i => i.CategoryName).Distinct().ToList();
+            var goods_list = goodManager.GetAll();
+            
 			var Custom_model = new IndexViewDTO()
 			{
-				GoodCollection = goods_list,
 				CategoryList = categories,
-				GoodList = goods
+                GoodList = goods_list
 			};
 			ModelState.Clear();
 			return View(Custom_model);

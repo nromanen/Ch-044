@@ -54,6 +54,10 @@
                 {
                     <span class="label label-success">Finished</span>
                 }
+                @if (parsertask.Status == Common.Enum.Status.InQuery)
+                {
+                    <span class="label label-default">In Query</span>
+                }
                 <br />
                 <span class="label label-default">@parsertask.Priority.ToString()</span>
             </div>
@@ -73,7 +77,7 @@
 
                     @if (parsertask.IteratorSettings != null)
                     {
-                        <span class="text-muted"><a href="@parsertask.IteratorSettings.Url">@parsertask.IteratorSettings.Url</a></span>
+                        <small class="text-muted"><a href="@parsertask.IteratorSettings.Url">@parsertask.IteratorSettings.Url</a></small>
                     }
                     else
                     {

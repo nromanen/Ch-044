@@ -9,9 +9,7 @@ namespace Model.DTO
 {
     public class IndexViewDTO
     {
-		public List<GoodViewDTO> GoodCollection;
-		public List<Good> GoodList;
+		public List<GoodDTO> GoodList;
 		public List<CategoryDTO> CategoryList;
-
 	}
 }

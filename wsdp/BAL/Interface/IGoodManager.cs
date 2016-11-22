@@ -1,11 +1,13 @@
 ﻿using Model.DB;
+using Model.DTO;
 using System.Collections.Generic;
 
 namespace BAL.Interface
 {
     public interface IGoodManager
     {
+        void InsertGood(GoodDTO good);
         void InsertGood(Good good);
-        List<Good> GetAll();
+        List<GoodDTO> GetAll();
     }
 }

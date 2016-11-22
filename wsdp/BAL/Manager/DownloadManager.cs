@@ -28,6 +28,7 @@ namespace BAL.Manager
                     client.Encoding = encoding;
                     htmlSource = client.DownloadString(url);
                 }
+				guid = Guid.NewGuid();
                 this.ReplaceHrefs(htmlSource, url);
             }
             catch (Exception ex)

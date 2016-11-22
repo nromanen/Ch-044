@@ -10,18 +10,22 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskExecuting.Interface;
 using TaskExecuting.Manager;
+using TaskExecuting.Scheduler;
 
 namespace TaskExecuting
 {
-    class Program
-    {
+	class Program
+	{
 
-        static void Main(string[] args)
-        {
-            TaskExecuter te = new TaskExecuter();
+		static void Main(string[] args)
+		{
+            TaskExecutingScheduler.Start();
 
-            te.ExecuteTask(3, "http://www.foxtrot.com.ua/ru/shop/noutbuki_hp_15-ay080ur-x8p85ea.html");
-            Console.ReadLine();
-        }
-    }
+            //TaskExecuter te = new TaskExecuter();
+
+            //te.ExecuteTask(3, "http://www.foxtrot.com.ua/ru/shop/noutbuki_hp_15-ay080ur-x8p85ea.html");
+
+			Console.ReadLine();
+		}
+	}
 }

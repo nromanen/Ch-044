@@ -16,11 +16,11 @@
 /*! NOTE: If you're already including a window.matchMedia polyfill via Modernizr or otherwise, you don't need this part */
 window.matchMedia = window.matchMedia || (function(doc, undefined){
   var bool,
-      docElem  = doc.documentElement,
-      refNode  = docElem.firstElementChild || docElem.firstChild,
-      // fakeBody required for <FF4 when executed in <head>
-      fakeBody = doc.createElement('body'),
-      div      = doc.createElement('div');
+	  docElem  = doc.documentElement,
+	  refNode  = docElem.firstElementChild || docElem.firstChild,
+	  // fakeBody required for <FF4 when executed in <head>
+	  fakeBody = doc.createElement('body'),
+	  div      = doc.createElement('div');
 
   div.id = 'mq-test-1';
   div.style.cssText = "position:absolute;top:-100em";
@@ -28,13 +28,13 @@ window.matchMedia = window.matchMedia || (function(doc, undefined){
   fakeBody.appendChild(div);
 
   return function(q){
-    div.innerHTML = '&shy;<style media="'+q+'"> #mq-test-1 { width: 42px; }</style>';
+	div.innerHTML = '&shy;<style media="'+q+'"> #mq-test-1 { width: 42px; }</style>';
 
-    docElem.insertBefore(fakeBody, refNode);
-    bool = div.offsetWidth == 42;
-    docElem.removeChild(fakeBody);
+	docElem.insertBefore(fakeBody, refNode);
+	bool = div.offsetWidth == 42;
+	docElem.removeChild(fakeBody);
 
-    return { matches: bool, media: q };
+	return { matches: bool, media: q };
   };
 })(document);
 
@@ -272,11 +272,11 @@ window.matchMedia = window.matchMedia || (function(doc, undefined){
 				head.insertBefore( ss, lastLink.nextSibling );
 
 				if ( ss.styleSheet ){
-		        	ss.styleSheet.cssText = css;
-		        }
-		        else {
+					ss.styleSheet.cssText = css;
+				}
+				else {
 					ss.appendChild( doc.createTextNode( css ) );
-		        }
+				}
 
 				//push to appendedEls to track for later removal
 				appendedEls.push( ss );

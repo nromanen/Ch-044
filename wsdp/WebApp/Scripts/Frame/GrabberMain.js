@@ -24,6 +24,24 @@ $(document).ready(function () {
 		EstablishingEvents();
 		console.log("EV");
 	}, 10000);
+	$(".list-inline-item:nth-child(3)").addClass("active");
+	var current = 0;
+	var ListItems = JSON.parse($('#items').attr('data-list-items'));
+	var length = ListItems.length;
+
+	$('#Next').click(function () {
+		if (current != length - 1) {
+			current++;
+			$('#iframe1').attr('src', ListItems[current]);
+		};
+	});
+
+	$('#Previous').click(function () {
+		if (current = !0) {
+			current--;
+			$('#iframe1').attr('src', ListItems[current]);
+		};
+	});
 });
 
 function EstablishingEvents() {
@@ -33,25 +51,25 @@ function EstablishingEvents() {
 		event.preventDefault();
 	});
 	$(iframe)
- 	.mouseover(function (event) {
- 		$(event.target).addClass('outline-element');
- 	})
- 	.mouseout(function (event) {
- 		$(event.target).removeClass('outline-element');
- 	})
+	.mouseover(function (event) {
+		$(event.target).addClass('outline-element');
+	})
+	.mouseout(function (event) {
+		$(event.target).removeClass('outline-element');
+	})
 	.click(function (event) {
 		$(event.target).toggleClass('outline-element-clicked');
 	})
- 	.click(function (event) {
- 		if (event === undefined) event = window.event;                     // IE hack
- 		var target = 'target' in event ? event.target : event.srcElement; // another IE hack
+	.click(function (event) {
+		if (event === undefined) event = window.event;                     // IE hack
+		var target = 'target' in event ? event.target : event.srcElement; // another IE hack
 
- 		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
+		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
 
- 		var path = getPathTo(target);
- 		var message = path;
- 		$("#clicked").val(getPathTo(event.target));
- 	});
+		var path = getPathTo(target);
+		var message = path;
+		$("#clicked").val(getPathTo(event.target));
+	});
 
 	$('input').click(function (event) {
 		//delete all Id`s
