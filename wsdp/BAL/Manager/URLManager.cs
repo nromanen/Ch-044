@@ -17,7 +17,7 @@ namespace BAL.Manager
             int to = model.To;
 
             string xpath = model.GoodsIteratorXpath;
-            string url = model.Url;
+            string url = model.UrlMask;
 
             var allUrls = new List<string>();
             for (int i = from; i < to; i++)
