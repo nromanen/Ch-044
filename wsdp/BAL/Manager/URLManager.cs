@@ -11,6 +11,11 @@ namespace BAL.Manager
 {
     public class URLManager : IURLManager
     {
+        /// <summary>
+        /// get all urls from page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public List<string> GetAllUrls(IteratorSettingsDTO model)
         {
             int from = model.From;
@@ -26,7 +31,12 @@ namespace BAL.Manager
             }
             return allUrls;
         }
-
+        /// <summary>
+        /// get urls from one page
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="xpath"></param>
+        /// <returns></returns>
         public List<string> GetUrlsFromOnePage(string url, string xpath)
         {
             HtmlWeb web = new HtmlWeb();

@@ -17,6 +17,11 @@ namespace BAL.Manager
         {
         }
 
+        /// <summary>
+        /// Download page from url
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public Guid DownloadFromPath(string url)
         {
             try
@@ -39,7 +44,10 @@ namespace BAL.Manager
 
             return guid;
         }
-
+        /// <summary>
+        /// write to file html source
+        /// </summary>
+        /// <param name="source"></param>
         public void WriteToFile(string source)
         {
             try
@@ -61,7 +69,12 @@ namespace BAL.Manager
             }
 
         }
-
+        /// <summary>
+        /// method for replacingnot full links
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public string ReplaceHrefs(string source, string url)
         {
             try
