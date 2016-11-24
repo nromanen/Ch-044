@@ -6,7 +6,7 @@ namespace DAL
     public class MainContext : DbContext
     {
         public MainContext()
-            : base("Wsdp")
+            : base("NOSConnection")
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
