@@ -21,7 +21,7 @@
                             </div>
                             <div>
                                 <label for="password">@Resources.Resource.Password:</label>
-                                @Html.TextBoxFor(model => model.User.Password, "", new { placeholder = @Resources.Resource.EnterNewPassword, @class = "form-control user-pass" })
+                                @Html.TextBoxFor(model => model.User.Password, "", new { placeholder = @Resources.Resource.EnterNewPassword, @class = "form-control user-pass",@type = "password" })
                                 @Html.ValidationMessageFor(model => model.User.Password, "", new { @class = "text-danger" })
                             </div>
                             <div>

@@ -22,12 +22,12 @@ namespace TaskExecuting.Manager
 	public class TaskExecuter : ITaskExecuter
 	{
 		private UnitOfWork uOw = null;
-        private ElasticUnitOfWork elasticuOw = null;
+		private ElasticUnitOfWork elasticuOw = null;
 		private ParserTaskManager parsermanager = null;
-        private GoodDatabasesWizard goodwizardManager = null;
+		private GoodDatabasesWizard goodwizardManager = null;
 		private PropertyManager propmanager = null;
-        private ElasticManager elasticManager = null;
-        private GoodManager goodManager = null;
+		private ElasticManager elasticManager = null;
+		private GoodManager goodManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
 		/// <summary>
@@ -36,12 +36,12 @@ namespace TaskExecuting.Manager
 		public TaskExecuter()
 		{
 			uOw = new UnitOfWork();
-            //elasticuOw = new ElasticUnitOfWork();
+			//elasticuOw = new ElasticUnitOfWork();
 			parsermanager = new ParserTaskManager(uOw);
 			propmanager = new PropertyManager(uOw);
-            goodManager = new GoodManager(uOw);
-            //elasticManager = new ElasticManager(elasticuOw);
-            //goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
+			goodManager = new GoodManager(uOw);
+			//elasticManager = new ElasticManager(elasticuOw);
+			//goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
 			AutoMapperConfig.Configure();
 		}
 
@@ -91,12 +91,12 @@ namespace TaskExecuting.Manager
 			{
 				HtmlNode value = null;
 				PropertyDTO property = propmanager.Get(propitem.Id);
-                var htmlvalue = "";
+				var htmlvalue = "";
 				try
 				{
 					value = doc.DocumentNode.SelectSingleNode(propitem.Value);
-                    htmlvalue = value.InnerHtml;
-                }
+					htmlvalue = value.InnerHtml;
+				}
 				catch (Exception ex)
 				{
 					logger.Error(ex.Message);
@@ -120,7 +120,7 @@ namespace TaskExecuting.Manager
 			}
 			
 			resultGood.PropertyValues = propertyValues;
-            goodManager.InsertGood(resultGood);
+			goodManager.InsertGood(resultGood);
 			return resultGood;
 		}
 	}

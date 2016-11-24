@@ -12,36 +12,36 @@ namespace WebApp.Controllers
 	public class HomeController : BaseController
 	{
 		private ICategoryManager categoryManager;
-        private IWebShopManager shopManager;
-        private IPropertyManager propertyManager;
+		private IWebShopManager shopManager;
+		private IPropertyManager propertyManager;
 		private IGoodManager goodManager;
 
 		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager,IPropertyManager propertyManager,IWebShopManager shopManager)
 		{
 			this.categoryManager = categoryManager;
 			this.goodManager = goodManager;
-            this.propertyManager = propertyManager;
-            this.shopManager = shopManager;
-        }
+			this.propertyManager = propertyManager;
+			this.shopManager = shopManager;
+		}
 
 		public ActionResult Index()
 		{
-		    
+			
 			var goods = goodManager.GetAll();
 			var categories = categoryManager.GetAll();
-            var goods_list = goodManager.GetAll();
+			var goods_list = goodManager.GetAll();
 
-            foreach (var item in goods_list)
-            {
-                item.Category = categoryManager.Get(item.Category_Id);
+			foreach (var item in goods_list)
+			{
+				item.Category = categoryManager.Get(item.Category_Id);
 
-                item.WebShop = shopManager.GetById(item.WebShop_Id);
-            }
-            
+				item.WebShop = shopManager.GetById(item.WebShop_Id);
+			}
+			
 			var Custom_model = new IndexViewDTO()
 			{
 				CategoryList = categories,
-                GoodList = goods_list
+				GoodList = goods_list
 			};
 			ModelState.Clear();
 			return View(Custom_model);
