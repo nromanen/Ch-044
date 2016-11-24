@@ -91,10 +91,12 @@ namespace TaskExecuting.Manager
 			{
 				HtmlNode value = null;
 				PropertyDTO property = propmanager.Get(propitem.Id);
+                var htmlvalue = "";
 				try
 				{
 					value = doc.DocumentNode.SelectSingleNode(propitem.Value);
-				}
+                    htmlvalue = value.InnerHtml;
+                }
 				catch (Exception ex)
 				{
 					logger.Error(ex.Message);
@@ -104,13 +106,13 @@ namespace TaskExecuting.Manager
 				switch (property.Type)
 				{
 					case PropertyType.Integer:
-						propertyValues.DictIntProperties.Add(propitem.Id, Convert.ToInt32(value.InnerHtml));
+						propertyValues.DictIntProperties.Add(propitem.Id, Convert.ToInt32(htmlvalue));
 						break;
 					case PropertyType.Double:
-						propertyValues.DictDoubleProperties.Add(propitem.Id, Convert.ToDouble(value.InnerHtml));
+						propertyValues.DictDoubleProperties.Add(propitem.Id, Convert.ToDouble(htmlvalue));
 						break;
 					case PropertyType.String:
-						propertyValues.DictStringProperties.Add(propitem.Id, value.InnerHtml);
+						propertyValues.DictStringProperties.Add(propitem.Id, htmlvalue);
 						break;
 					default:
 						break;

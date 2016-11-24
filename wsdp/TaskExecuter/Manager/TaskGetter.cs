@@ -32,14 +32,18 @@ namespace TaskExecuting.Manager
 				{
 					Console.WriteLine("Queue is empty!There is no Tasks!");
 				}
+                else
+                {
+                    // convert the message back from byte[] to a string
+                    var message = Encoding.UTF8.GetString(data.Body);
+                    // ack the message, ie. confirm that we have processed it
+                    // otherwise it will be requeued a bit later
+                    channel.BasicAck(data.DeliveryTag, false);
+                    var task = JsonConvert.DeserializeObject<TaskExecuterModel>(message);
+                    return task;
+                }
+                return null;
 
-				// convert the message back from byte[] to a string
-				var message = Encoding.UTF8.GetString(data.Body);
-				// ack the message, ie. confirm that we have processed it
-				// otherwise it will be requeued a bit later
-				channel.BasicAck(data.DeliveryTag, false);
-				var task = JsonConvert.DeserializeObject<TaskExecuterModel>(message);
-				return task;
 			}
 		}
 	}

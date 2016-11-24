@@ -14,7 +14,7 @@
     }
 
     img{
-        min-height:600px !important;
+        max-height:600px !important;
 
 
     }
@@ -65,7 +65,7 @@
 
 		</aside>
 		<div class="row">
-			<div class="col-sm-9 adv">
+			<div class="col-sm-9">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
@@ -142,26 +142,25 @@
                     <div class="col-xs-4">
                         @foreach (var item in good.PropertyValues.DictStringProperties)
 	                    {
-		                    <h4 class="text-success">
-                                @item.Value <span class="text-muted"> # @item.Key</span>
-                            </h4>
+		                    <span class="text-success">
+                                @item.Value
+                            </span>
+                            <br />
+                            <br />
 	                    }
                     </div>
-                    <div class="col-xs-4">
-                        @foreach (var item in good.PropertyValues.DictIntProperties)
-                        {
-                            <h4 class="text-success">
-                                @item.Value <span class="text-muted"> # @item.Key</span>
-                            </h4>
-                        }
+                    <div class="col-xs-2">
+                        <b class="text-success">Shop:</b>
+                        <br />
+                        <b class="text-muted">@good.WebShop.Name</b>
+                    </div>
+                    <div class="col-xs-2">
+                        <b class="text-success">Category:</b>
+                        <br />
+                        <b class="text-muted">@good.Category.Name</b>
                     </div>
                     <div class="col-xs-4">
-                        @foreach (var item in good.PropertyValues.DictDoubleProperties)
-                        {
-                            <h4 class="text-success">
-                                @item.Value <span class="text-muted"> # @item.Key</span>
-                            </h4>
-                        }
+                        
                     </div>
                 </div>
             }
