@@ -23,5 +23,8 @@ namespace Model.DB
 
 		[Required]
 		public string XmlData { get; set; }
+
+        [Required]
+        public bool Status { get; set; }
 	}
 }
