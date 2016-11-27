@@ -45,7 +45,7 @@ namespace WebApp.Scheduler
 					taskList.Add(taskExecute);
 				}
 
-                break;
+				break;
 			}
 
 			foreach (var mess in taskList)
@@ -78,9 +78,9 @@ namespace WebApp.Scheduler
 			var ids_update = taskList.Select(i => i.TaskId).Distinct();
 			foreach (var id in ids_update)
 			{
-			    var obj=parserManager.Get(id);
-			    obj.Status = Common.Enum.Status.InQuery;
-			    parserManager.Update(obj);
+				var obj=parserManager.Get(id);
+				obj.Status = Common.Enum.Status.InQuery;
+				parserManager.Update(obj);
 			}
 		}
 	}

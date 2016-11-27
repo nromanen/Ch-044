@@ -6,19 +6,42 @@ namespace DAL.Migrations
 	using System.Data.Entity.Migrations;
 	using Common.Enum;
 	internal sealed class Configuration : DbMigrationsConfiguration<DAL.MainContext>
-    {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
+	{
+		public Configuration()
+		{
+			AutomaticMigrationsEnabled = false;
+		}
 
-        protected override void Seed(DAL.MainContext context)
-        {
+		protected override void Seed(DAL.MainContext context)
+		{
 			//  This method will be called after migrating to the latest version.
 			Role role = new Role() { Id = 1, Name = "Administrator", Description = "Application administrator" };
 			Role role_user = new Role() { Id = 2, Name = "User", Description = "Application user" };
-			User user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
-			User user2 = new User() { Id = 2, Email = "user@admin.admin", UserName = "user", Password = "qwerty", Role = role };
+			var  user = new User() { Id = 1, Email = "admin@admin.admin", UserName = "admin", Password = "password", Role = role };
+			var  user2 = new User() { Id = 2, Email = "user@admin.admin", UserName = "user", Password = "qwert22y", Role = role };
+			var  user3 = new User() { Id = 3, Email = "user221@gmail.com", UserName = "user32", Password = "qwertyww33", Role = role_user };
+			var  user4 = new User() { Id = 4, Email = "user113@hotmail.com", UserName = "user44", Password = "qwertywwwqw", Role = role_user };
+			var  user5 = new User() { Id = 5, Email = "user22314@mail.ru", UserName = "user55", Password = "qwerty1423", Role = role_user };
+			var  user6 = new User() { Id = 6, Email = "qwert@gmail.com", UserName = "user2231", Password = "qwertyqw123e11", Role = role_user };
+			var  user7 = new User() { Id = 7, Email = "asdfg@outlook.com", UserName = "user4443", Password = "qw223rty", Role = role_user };
+			var  user8 = new User() { Id = 8, Email = "qwerwtyt@gmail.com", UserName = "uoow123r", Password = "q22323werty", Role = role_user };
+			var  user9 = new User() { Id = 9, Email = "useqwer@mail.ru", UserName = "userqwer", Password = "qqwerewerty", Role = role_user };
+			var  user10 = new User() { Id = 10, Email = "useqqqr@gmail.com", UserName = "uwwq123r", Password = "q1123qwe", Role = role_user };
+			var  user11 = new User() { Id = 11, Email = "qwerwss23342@gmail.ru", UserName = "ollw123e", Password = "11111231", Role = role_user };
+			var user12 = new User() { Id = 12, Email = "user12@gmail.com", UserName = "qwretr2123", Password = "222233rty", Role = role_user };
+			var  user13 = new User() { Id = 13, Email = "uqweqweer@mail.ru", UserName = "uqqqqq123", Password = "123123431", Role = role_user };
+			var  user14 = new User() { Id = 14, Email = "qwretr@gmail.com", UserName = "qwer123t", Password = "222222432", Role = role_user };
+			var  user15 = new User() { Id = 15, Email = "weeerr@qwert.admin", UserName = "uqweew2ser123", Password = "33531322", Role = role_user };
+			var  user16 = new User() { Id = 16, Email = "wweew@homemail.com", UserName = "userino", Password = "q32523y", Role = role_user };
+			var  user17 = new User() { Id = 17, Email = "user@admin.admin", UserName = "user123", Password = "qwert5y", Role = role_user };
+			var user18 = new User() { Id = 18, Email = "us123eqqqr@gmail.com", UserName = "oooow", Password = "q11263qwe", Role = role_user };
+			var user19 = new User() { Id = 19, Email = "qooow3342@gmail.ru", UserName = "111ollwe", Password = "111711", Role = role_user };
+			var user20 = new User() { Id = 20, Email = "uwwwwe2@gmail.com", UserName = "qwret2223r2", Password = "222823rty", Role = role_user };
+			var user21 = new User() { Id = 21, Email = "uqweq23weer@mail.ru", UserName = "uqq123qqq", Password = "1231231", Role = role_user };
+			var user22 = new User() { Id = 22, Email = "qwret223r@gmail.com", UserName = "qwer11t", Password = "2222222", Role = role_user };
+			var user23 = new User() { Id = 23, Email = "weee11rr@qwert.admin", UserName = "uqwe222ew2ser", Password = "334443", Role = role_user };
+			var user24 = new User() { Id = 24, Email = "wwe11123ew@homemail.com", UserName = "userin333o", Password = "q3223y", Role = role_user };
+			var user25 = new User() { Id = 25, Email = "us223er@admin.admin", UserName = "user44444", Password = "qwertqwey", Role = role_user };
 
 			Category categorySmartPhonesAndMobilePhones = new Category() {
 				Name = "SmartPhonesAndMobilePhones",
@@ -136,18 +159,41 @@ namespace DAL.Migrations
 			};
 
 
-            context.Roles.AddOrUpdate(role_user);
-            context.Users.AddOrUpdate(user);
-            context.Users.AddOrUpdate(user2);
-            context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
-            context.Categories.AddOrUpdate(categoryForHouse);
-            context.Categories.AddOrUpdate(categoryComputers);
-            context.Categories.AddOrUpdate(categorySmartphones);
-            context.Categories.AddOrUpdate(categoryMobilephones);
-            context.Categories.AddOrUpdate(categoryTv);
-            context.Categories.AddOrUpdate(categoryFridges);
-            context.Categories.AddOrUpdate(categoryMicrowaves);
-            context.Categories.AddOrUpdate(categoryLaptops);
+			context.Roles.AddOrUpdate(role_user);
+			context.Users.AddOrUpdate(user);
+			context.Users.AddOrUpdate(user2);
+			context.Users.AddOrUpdate(user3);
+			context.Users.AddOrUpdate(user4);
+			context.Users.AddOrUpdate(user5);
+			context.Users.AddOrUpdate(user6);
+			context.Users.AddOrUpdate(user7);
+			context.Users.AddOrUpdate(user8);
+			context.Users.AddOrUpdate(user9);
+			context.Users.AddOrUpdate(user10);
+			context.Users.AddOrUpdate(user11);
+			context.Users.AddOrUpdate(user12);
+			context.Users.AddOrUpdate(user13);
+			context.Users.AddOrUpdate(user14);
+			context.Users.AddOrUpdate(user15);
+			context.Users.AddOrUpdate(user16);
+			context.Users.AddOrUpdate(user17);
+			context.Users.AddOrUpdate(user18);
+			context.Users.AddOrUpdate(user19);
+			context.Users.AddOrUpdate(user20);
+			context.Users.AddOrUpdate(user21);
+			context.Users.AddOrUpdate(user22);
+			context.Users.AddOrUpdate(user23);
+			context.Users.AddOrUpdate(user24);
+			context.Users.AddOrUpdate(user25);
+			context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
+			context.Categories.AddOrUpdate(categoryForHouse);
+			context.Categories.AddOrUpdate(categoryComputers);
+			context.Categories.AddOrUpdate(categorySmartphones);
+			context.Categories.AddOrUpdate(categoryMobilephones);
+			context.Categories.AddOrUpdate(categoryTv);
+			context.Categories.AddOrUpdate(categoryFridges);
+			context.Categories.AddOrUpdate(categoryMicrowaves);
+			context.Categories.AddOrUpdate(categoryLaptops);
 			context.WebShops.AddOrUpdate(webShop1);
 			context.WebShops.AddOrUpdate(webShop2);
 			context.Properties.AddOrUpdate(prop1);
@@ -158,5 +204,5 @@ namespace DAL.Migrations
 			context.ParserTasks.AddOrUpdate(task);
 			context.ParserTasks.AddOrUpdate(task2);
 		}
-    }
+	}
 }
