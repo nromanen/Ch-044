@@ -3,6 +3,7 @@
 	ViewBag.Title = "Grabber";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="container-fluid">
 
 	<div class="row">
@@ -26,7 +27,25 @@
 		<div class="col-sm-12 col-md-6">
 			<form class="form-horizontal" action="/UniversalParser/Grabber" method="post">
 				<input type="hidden" name="id" value="@Model.Id" />
+				<div class="form-group">
+					@Html.Label("Name", new { @class = "col-sm-2 control-label" })
+					<div class="col-sm-10">
 
+						@Html.TextBoxFor(t => Model.Name, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+					</div>
+				</div>
+				<div class="form-group">
+					@Html.Label("Price", new { @class = "col-sm-2 control-label" })
+					<div class="col-sm-10">
+						@Html.TextBoxFor(t => Model.Price, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+					</div>
+				</div>
+				<div class="form-group">
+					@Html.Label("ImgLink", new { @class = "col-sm-2 control-label" })
+					<div class="col-sm-10">
+						@Html.TextBoxFor(t => Model.ImgLink, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+					</div>
+				</div>
 				@for (int index = 0; index < Model.PropertyItems.Count; index++) {
 					<div class="form-group">
 						@Html.Label(Model.PropertyItems[index].Name, new { @class = "col-sm-2 control-label" })
@@ -35,9 +54,9 @@
 						<div class="col-sm-10">
 							@Html.TextBoxFor(t => Model.PropertyItems[index].Value, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
 						</div>
-
 					</div>
 				}
+
 				<div class="form-group">
 					<div class="col-sm-offset-10">
 						<button type="submit" class="btn btn-default">Done</button>
@@ -52,25 +71,5 @@
 </div>
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/Scripts/GrabberJs")
-<script>
-	$(document).ready(function () {
-		$(".list-inline-item:nth-child(3)").addClass("active");
-		var current = 0;
-		var ListItems = JSON.parse($('#items').attr('data-list-items'));
-		var length = ListItems.length;
 
-		$('#Next').click(function () {
-			if (current < length) {
-				current++;
-				$('#iframe1').attr('src', ListItems[current]);
-			}
-		});
-		$('#Previous').click(function () {
-			if (current > 0) {
-				current--;
-				$('#iframe1').attr('src', ListItems[current]);
-			}
-		});
-	});
-</script>
 

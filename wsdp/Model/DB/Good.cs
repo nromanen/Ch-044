@@ -9,6 +9,16 @@ namespace Model.DB
 		[Key]
 		public int Id { get; set; }
 
+		[Required]
+		public string Name { get; set; }
+
+		public decimal? Price { get; set; }
+		[Required]
+		public string ImgLink { get; set; }
+
+		[Required]
+		public string UrlLink { get; set; }
+
 		[ForeignKey("Category_Id")]
 		public virtual Category Category { get; set; }
 

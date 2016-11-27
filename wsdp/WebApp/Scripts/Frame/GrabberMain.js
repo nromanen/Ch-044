@@ -35,9 +35,7 @@ $(document).ready(function () {
 function EstablishingEvents() {
 	var iframe = document.getElementById("iframe1");
 	iframe = iframe.contentWindow.document;
-	$(iframe).select("a").click(function (event) {
-		event.preventDefault();
-	});
+
 	$(iframe)
 	.mouseover(function (event) {
 		$(event.target).addClass('outline-element');
@@ -48,17 +46,12 @@ function EstablishingEvents() {
 	.click(function (event) {
 		$(event.target).toggleClass('outline-element-clicked');
 	})
-	.click(function (event) {
-		if (event === undefined) event = window.event;                     // IE hack
-		var target = 'target' in event ? event.target : event.srcElement; // another IE hack
-
-		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
-
-		var path = getPathTo(target);
-		var message = path;
-		$("#clicked").val(getPathTo(event.target));
-	});
-
+	.mouseover(function (event) {
+    	if (event.shiftKey) {
+    		$("#clicked").val(getPathTo(event.target));
+    	}
+    }
+);
 	$('input').click(function (event) {
 		//delete all Id`s
 		$('#clicked').attr('id', null);

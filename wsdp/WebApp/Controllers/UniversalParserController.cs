@@ -152,7 +152,7 @@ namespace WebApp.Controllers {
 				}
 			}
 			var arrayOfLinks  = urlList.ToArray();
-			for (var i = 0; i < arrayOfLinks.Length; i++) {
+			for (var i = 0; i < arrayOfLinks.Length-30; i++) {
 				if (!String.IsNullOrWhiteSpace(arrayOfLinks[i])) {
 					Guid result = downloadManager.DownloadFromPath(arrayOfLinks[i]);
 					localPathToSite = "/WebSites/" + result + ".html";
@@ -172,7 +172,7 @@ namespace WebApp.Controllers {
 			_task.GrabberSettings = grabber;
 
 			parserTaskManager.Update(_task);
-			return RedirectToAction("Settings", "UniversalParser");
+			return RedirectToAction("Index", "UniversalParser");
 		}
 	}
 }

@@ -42,25 +42,18 @@ function EstablishingEvents() {
 	.click(function (event) {
 		$(event.target).toggleClass('outline-element-clicked');
 	})
- 	.click(function (event) {
- 		if (event === undefined) event = window.event;                     // IE hack
- 		var target = 'target' in event ? event.target : event.srcElement; // another IE hack
-
- 		var root = document.compatMode === 'CSS1Compat' ? document.documentElement : document.body;
-
- 		if ($("#clicked").hasClass("urlmask"))
- 		{
- 		    console.log(65555);
- 		    $("#clicked").val(event.target.getAttribute("href"));
-            
- 		}
- 		else {
- 		    var path = getPathTo(target);
- 		    var message = path;
- 		    $("#clicked").val(getPathTo(event.target));
- 		}
- 	});
-
+	.mouseover(function (event) {
+		if (event.shiftKey) {
+			if ($("#clicked").hasClass("urlmask")) {
+				console.log(65555);
+				$("#clicked").val(event.target.getAttribute("href"));
+	
+			}
+			else {
+			$("#clicked").val(getPathTo(event.target));
+			}
+		}
+	});
 	$('input').click(function (event) {
 		//delete all Id`s
 		$('#clicked').attr('id', null);

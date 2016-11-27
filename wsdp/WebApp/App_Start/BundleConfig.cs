@@ -83,6 +83,8 @@ namespace WebApp
 			bundles.Add(new StyleBundle("~/Content/styles").Include(
 				"~/Content/style.css"));
 
+			bundles.Add(new StyleBundle("~/Frame/styles").Include(
+				"~/Content/Frame/highlight.css"));
 
 			bundles.Add(new StyleBundle("~/Content/bootstrap-select").Include(
 				"~/Content/bootstrap-select.min.css"));
