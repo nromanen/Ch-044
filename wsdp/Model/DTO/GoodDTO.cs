@@ -10,7 +10,13 @@ namespace Model.DTO
     {
         public int Id { get; set; }
 
-        public virtual CategoryDTO Category { get; set; }
+		public string Name { get; set; }
+
+		public string Price { get; set; }
+
+		public string ImgLink { get; set; }
+
+		public virtual CategoryDTO Category { get; set; }
 
         public int Category_Id { get; set; }
 
