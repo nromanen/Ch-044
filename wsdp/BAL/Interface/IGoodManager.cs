@@ -9,6 +9,6 @@ namespace BAL.Interface
         void InsertGood(GoodDTO good);
         void InsertGood(Good good);
         List<GoodDTO> GetAll();
-        GoodDTO Insert(Good good);
+        GoodDTO Insert(GoodDTO good);
     }
 }
