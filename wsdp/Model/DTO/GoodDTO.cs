@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model.DTO
 {
-    public class GoodDTO
-    {
-        public int Id { get; set; }
+	public class GoodDTO
+	{
+		public int Id { get; set; }
 
 		public string Name { get; set; }
 
 		public decimal? Price { get; set; }
+		public decimal? OldPrice { get; set; }
 
 		public string ImgLink { get; set; }
 
@@ -20,12 +21,12 @@ namespace Model.DTO
 
 		public virtual CategoryDTO Category { get; set; }
 
-        public int Category_Id { get; set; }
+		public int Category_Id { get; set; }
 
-        public virtual WebShopDTO WebShop { get; set; }
+		public virtual WebShopDTO WebShop { get; set; }
 
-        public int WebShop_Id { get; set; }
+		public int WebShop_Id { get; set; }
 
-        public PropertyValuesDTO PropertyValues { get; set; }
-    }
+		public PropertyValuesDTO PropertyValues { get; set; }
+	}
 }

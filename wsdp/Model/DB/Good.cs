@@ -19,22 +19,25 @@ namespace Model.DB
 		[Required]
 		public string UrlLink { get; set; }
 
+		public decimal? OldPrice { get; set; }
+
 		[ForeignKey("Category_Id")]
 		public virtual Category Category { get; set; }
 
 		[Required]
 		public int Category_Id { get; set; }
 
-        [ForeignKey("WebShop_Id")]
-        public virtual WebShop WebShop { get; set; }
+		[ForeignKey("WebShop_Id")]
+		public virtual WebShop WebShop { get; set; }
 
-        [Required]
-        public int WebShop_Id { get; set; }
+		[Required]
+		public int WebShop_Id { get; set; }
 
 		[Required]
 		public string XmlData { get; set; }
 
-        [Required]
-        public bool Status { get; set; }
+		[Required]
+		public bool Status { get; set; }
+
 	}
 }
