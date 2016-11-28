@@ -1,4 +1,5 @@
 ﻿using BAL.Interface;
+using DAL.Interface;
 using HtmlAgilityPack;
 using Model.DTO;
 using System;
@@ -9,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace BAL.Manager
 {
-    public class URLManager : IURLManager
+    public class URLManager : BaseManager, IURLManager
     {
+        public URLManager(IUnitOfWork uOw)
+            : base(uOw)
+		{
+		}
         /// <summary>
         /// get all urls from page
         /// </summary>
@@ -64,6 +69,43 @@ namespace BAL.Manager
                 }
             }
             return newLinkList;
+        }
+
+        /// <summary>
+        /// Get all names of goods from parsertask
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public List<string> GetAllNamesOfGoods(IteratorSettingsDTO model)
+        {
+            int from = model.From;
+            int to = model.To;
+
+            string xpath = model.GoodsIteratorXpath;
+            string url = model.UrlMask;
+
+            var allNames = new List<string>();
+            for (int i = from; i <= to; i++)
+            {
+                allNames.AddRange(GetNamesFromOnePage(url.Replace("{n}", i.ToString()), xpath));
+            }
+            return allNames;
+        }
+
+        /// <summary>
+        /// Gets names of goods from one page
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="xpath"></param>
+        /// <returns></returns>
+        private List<string> GetNamesFromOnePage(string url, string xpath)
+        {
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc = web.Load(url);
+
+            var names = doc.DocumentNode.SelectNodes(xpath).Select(s => s.InnerHtml).ToList();
+
+            return names;
         }
     }
 }

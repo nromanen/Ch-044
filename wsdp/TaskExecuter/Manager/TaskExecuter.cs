@@ -28,6 +28,7 @@ namespace TaskExecuting.Manager
 		private PropertyManager propmanager = null;
 		private ElasticManager elasticManager = null;
 		private GoodManager goodManager = null;
+        private URLManager urlManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
 		/// <summary>
@@ -40,6 +41,7 @@ namespace TaskExecuting.Manager
 			parsermanager = new ParserTaskManager(uOw);
 			propmanager = new PropertyManager(uOw);
 			goodManager = new GoodManager(uOw);
+            urlManager = new URLManager(uOw);
 			//elasticManager = new ElasticManager(elasticuOw);
 			//goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
 			AutoMapperConfig.Configure();
@@ -81,6 +83,9 @@ namespace TaskExecuting.Manager
 
 			resultGood.WebShop_Id = parsertask.WebShopId;
 			resultGood.Category_Id = parsertask.CategoryId;
+            resultGood.Name = grabbersettings.Name;
+            resultGood.ImgLink = grabbersettings.ImgLink;
+            resultGood.UrlLink = url;
 
 			PropertyValuesDTO propertyValues = new PropertyValuesDTO();
 			propertyValues.DictDoubleProperties = new Dictionary<int, double>();
@@ -123,5 +128,23 @@ namespace TaskExecuting.Manager
 			goodManager.InsertGood(resultGood);
 			return resultGood;
 		}
+
+
+        public void CheckGoods(int categoryid, int parsertaskid)
+        {
+            var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid);
+            var parserTask = parsermanager.Get(parsertaskid);
+            var goodsFromShop = urlManager.GetAllNamesOfGoods(parserTask.IteratorSettings);
+
+            foreach (var good in goods)
+            {
+                if (goodsFromShop.IndexOf(good.Name) == -1)
+                {
+
+                }
+                
+            }
+
+        }
 	}
 }

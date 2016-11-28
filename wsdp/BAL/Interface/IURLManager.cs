@@ -11,5 +11,6 @@ namespace BAL.Interface
     {
         List<string> GetAllUrls(IteratorSettingsDTO model);
         List<string> GetUrlsFromOnePage(string url, string xpath);
+        List<string> GetAllNamesOfGoods(IteratorSettingsDTO model);
     }
 }

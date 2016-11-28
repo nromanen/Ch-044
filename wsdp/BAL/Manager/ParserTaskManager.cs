@@ -16,6 +16,11 @@ namespace BAL.Manager
 		{
 		}
 
+        /// <summary>
+        /// get parser task by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 		public ParserTaskDTO Get(int id)
 		{
 
