@@ -32,6 +32,7 @@ namespace BAL.Manager
             var goodList = new List<GoodDTO>();
             foreach (var good in uOW.GoodRepo.All.ToList())
             {
+                if(good.Status == false) continue;
                 var good_temp = uOW.GoodRepo.GetByID(good.Id);
                 goodList.Add(Mapper.Map<GoodDTO>(good_temp));
             }
@@ -50,6 +51,42 @@ namespace BAL.Manager
             var res = uOW.GoodRepo.Insert(goodDb);
             uOW.Save();
             return Mapper.Map<GoodDTO>(res);
+        }
+
+        /// <summary>
+        /// Delete good into database
+        /// </summary>
+        /// <param name="good"></param>
+        public void Delete(GoodDTO good)
+        {
+            if(good == null) return;
+            var goodDb = uOW.GoodRepo.GetByID(good.Id);
+            if(goodDb == null) return;
+            goodDb.Status = false;
+            uOW.Save();
+        }
+        /// <summary>
+        /// Update good into database
+        /// </summary>
+        /// <param name="good"></param>
+        public void Update(GoodDTO good)
+        {
+            if(good == null) return;
+            var goodDb = uOW.GoodRepo.GetByID(good.Id);
+            if (goodDb == null) return;
+
+            var uGood = Mapper.Map<Good>(good);
+
+            goodDb.Name = uGood.Name;
+            goodDb.Category_Id = uGood.Category_Id;
+            goodDb.WebShop_Id = uGood.WebShop_Id;
+            goodDb.ImgLink = uGood.ImgLink;
+            goodDb.UrlLink = uGood.UrlLink;
+            goodDb.XmlData = uGood.XmlData;
+            goodDb.Price = uGood.Price;
+            goodDb.Status = uGood.Status;
+
+            uOW.Save();
         }
 
         

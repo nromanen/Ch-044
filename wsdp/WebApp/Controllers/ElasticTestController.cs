@@ -44,7 +44,10 @@ namespace WebApp.Controllers
             {
                 Category_Id = 1,
                 PropertyValues = property,
-                WebShop_Id = 1
+                WebShop_Id = 1,
+                Name = "product",
+                ImgLink = "https://msdn.microsoft.com/en-us/library/hh156528.aspx",
+                UrlLink = "https://msdn.microsoft.com/en-us/library/hh156528.aspx"
             };
             Wizard.AddItem(good1);
 
