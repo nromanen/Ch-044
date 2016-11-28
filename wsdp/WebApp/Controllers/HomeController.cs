@@ -17,7 +17,7 @@ namespace WebApp.Controllers
 		private IGoodManager goodManager;
 
 		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager,IPropertyManager propertyManager,IWebShopManager shopManager)
-		{
+		{	
 			this.categoryManager = categoryManager;
 			this.goodManager = goodManager;
 			this.propertyManager = propertyManager;
@@ -26,7 +26,6 @@ namespace WebApp.Controllers
 
 		public ActionResult Index()
 		{
-			
 			var goods = goodManager.GetAll();
 			var categories = categoryManager.GetAll();
 			var goods_list = goodManager.GetAll();

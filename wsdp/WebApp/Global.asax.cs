@@ -73,6 +73,7 @@ namespace WebApp
 				container.Register<IParserTaskManager, ParserTaskManager>();
 				container.Register<IGoodManager, GoodManager>();
 				container.Register<IURLManager, URLManager>();
+				container.Register<IHtmlValidator, HtmlValidator>();
 				container.Verify();
 				DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
 			}
