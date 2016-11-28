@@ -12,9 +12,11 @@ namespace Model.DTO
 
 		public string Name { get; set; }
 
-		public string Price { get; set; }
+		public decimal? Price { get; set; }
 
 		public string ImgLink { get; set; }
+
+		public string UrlLink { get; set; }
 
 		public virtual CategoryDTO Category { get; set; }
 
