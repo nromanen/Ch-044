@@ -25,8 +25,7 @@ namespace BAL.Manager
 
         public void AddItem(GoodDTO good)
         {
-            var goodEntity = Mapper.Map<Good>(good);
-            var goodElastic = goodManager.Insert(goodEntity);
+            var goodElastic = goodManager.Insert(good);
             elasticManager.AddItem(goodElastic);
         }
 

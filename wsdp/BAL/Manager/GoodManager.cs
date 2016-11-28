@@ -43,12 +43,18 @@ namespace BAL.Manager
         /// </summary>
         /// <param name="good"></param>
         /// <returns></returns>
-        public GoodDTO Insert(Good good)
+        public GoodDTO Insert(GoodDTO good)
         {
-            var goodDb = uOW.GoodRepo.Insert(good);
+            var goodDb = Mapper.Map<Good>(good);
+            goodDb.Status = true;
+            var res = uOW.GoodRepo.Insert(goodDb);
             uOW.Save();
-            return Mapper.Map<GoodDTO>(goodDb);
+            return Mapper.Map<GoodDTO>(res);
         }
+
+        
+
+       
 
     }
 }
