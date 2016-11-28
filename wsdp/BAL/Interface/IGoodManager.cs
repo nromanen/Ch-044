@@ -10,5 +10,7 @@ namespace BAL.Interface
         void InsertGood(Good good);
         List<GoodDTO> GetAll();
         GoodDTO Insert(GoodDTO good);
+        void Delete(GoodDTO good);
+        void Update(GoodDTO good);
     }
 }
