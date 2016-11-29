@@ -48,7 +48,7 @@ namespace WebApp
 			try
 			{
 				var container = new Container();
-				container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+
 				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
 				container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
 				container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Scoped);
