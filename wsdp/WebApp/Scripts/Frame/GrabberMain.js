@@ -24,6 +24,10 @@ function getPathTo(element) {
 	}
 }
 $(document).ready(function () {
+
+    $(".body-content").removeClass("container");
+    $(".body-content").addClass("container-fluid");
+
 	CheckButtons();
 	setTimeout(function () {
 		EstablishingEvents();

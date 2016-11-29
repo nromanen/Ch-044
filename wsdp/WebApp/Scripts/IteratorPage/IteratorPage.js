@@ -1,7 +1,7 @@
 ﻿$(function () {
     $(".list-inline-item:nth-child(2)").addClass("active");
 
-    enableXpathSearch();
+    enableUrlSearch();
 
     $('.button2').click(function () {
         enableUrlSearch();

@@ -20,6 +20,10 @@ function getPathTo(element) {
 	}
 }
 $(document).ready(function () {
+
+    $(".body-content").removeClass("container");
+    $(".body-content").addClass("container-fluid");
+
 	setTimeout(function () {
 		EstablishingEvents();
 		console.log("EV");
@@ -55,14 +59,6 @@ function EstablishingEvents() {
 		}
 	});
 	$('input').click(function (event) {
-		//delete all Id`s
-		$('#clicked').attr('id', null);
-
-		//Add new id
-		$(this).attr('id', 'clicked');
-	});
-
-	$('textarea').click(function (event) {
 		//delete all Id`s
 		$('#clicked').attr('id', null);
 
