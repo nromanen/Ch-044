@@ -27,3 +27,15 @@ function enableXpathSearch() {
     $("#To").attr("disabled", "disabled");
 
 };
+
+function AddField() {
+    var input = document.createElement("input");
+    input.setAttribute("class", "form-control");
+    input.setAttribute("placeholder", "xpath1, xpath2...");
+    input.setAttribute("style", "margin-top:10px;");
+    input.setAttribute("name", "xpathes");
+
+    document.getElementById("fields").appendChild(input);
+
+    EstablishingEvents();
+}

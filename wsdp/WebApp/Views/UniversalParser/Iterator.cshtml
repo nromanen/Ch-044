@@ -55,14 +55,17 @@
                         <div class="form-group">
 
                             @Html.Label(Resources.Resource.ItemIterator)
-                            @Html.TextBoxFor(m => m.GoodsIteratorXpath, new { @class = "form-control", @placeholder = "xpath1, xpath2..." })
+                            <div id="fields">
+                                <input type="text" class="form-control" id="GoodsIteratorXpath" name="xpathes" placeholder="xpath1, xpath2..." />
+                            </div>
 
+                            <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;"onclick="AddField();">Add field</button>
                         </div>
                     </div>
 
                     <div class="row" style="padding-top:50px;">
 
-                        @Html.RadioButton("VariantOfPath", "XPath Pagination", new { @class = "button1"})@Resources.Resource.XPathPagination
+                        @Html.RadioButton("VariantOfPath", "XPath Pagination", new { @class = "button1" })@Resources.Resource.XPathPagination
 
                         <div class="form-group">
                             <div class="col-sm-12">
@@ -81,7 +84,7 @@
                         @Html.RadioButton("VariantOfPath", "Page URL Iterator", new { @class = "button2", @checked = "checked" })@Resources.Resource.PageURLIterator
 
                         <div class="form-group">
-
+                            
                             @Html.Label(Resources.Resource.URLMask)
                             @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control urlmask", @placeholder = "www.some.url/page={n}" })
 
