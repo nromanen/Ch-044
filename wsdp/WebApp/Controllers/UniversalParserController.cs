@@ -143,14 +143,10 @@ namespace WebApp.Controllers
         //POST:UniversalParser/IteratorConfigurations
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public ActionResult IteratorConfigurations(int? id, IteratorSettingsDTO model, List<string> xpathes)
+        public ActionResult IteratorConfigurations(int? id, IteratorSettingsDTO model)
         {
-            string _xpathes = string.Join(";", xpathes.ToArray());
-
             var _task = parserTaskManager.Get(id.Value);
             _task.IteratorSettings = model;
-            _task.IteratorSettings.GoodsIteratorXpath = _xpathes;
-
             parserTaskManager.Update(_task);
 
             return RedirectToAction("Grabber", new { id = id.Value });
@@ -185,7 +181,7 @@ namespace WebApp.Controllers
                 }
             }
             var arrayOfLinks = urlList.ToArray();
-            for (var i = 0; i < arrayOfLinks.Length - 30; i++)
+            for (var i = 0; i < arrayOfLinks.Length; i++)
             {
                 if (!String.IsNullOrWhiteSpace(arrayOfLinks[i]))
                 {

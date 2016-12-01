@@ -53,13 +53,21 @@
                     <div class="row">
 
                         <div class="form-group">
+                            <label for="sel1">Download Method</label>
+                            <select class="form-control" id="sel1" name="DownloadMethod">
+                                <option value="0">Direct</option>
+                                <option value="1">Tor</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
 
                             @Html.Label(Resources.Resource.ItemIterator)
                             <div id="fields">
-                                <input type="text" class="form-control" id="GoodsIteratorXpath" name="xpathes" placeholder="xpath1, xpath2..." />
+                                <input type="text" class="form-control" id="GoodsIteratorXpath" name="GoodsIteratorXpathes" placeholder="xpath1, xpath2..." />
                             </div>
 
-                            <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;"onclick="AddField();">Add field</button>
+                            <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
                         </div>
                     </div>
 
@@ -84,7 +92,7 @@
                         @Html.RadioButton("VariantOfPath", "Page URL Iterator", new { @class = "button2", @checked = "checked" })@Resources.Resource.PageURLIterator
 
                         <div class="form-group">
-                            
+
                             @Html.Label(Resources.Resource.URLMask)
                             @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control urlmask", @placeholder = "www.some.url/page={n}" })
 

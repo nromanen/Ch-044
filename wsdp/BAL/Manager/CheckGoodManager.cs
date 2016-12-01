@@ -44,13 +44,13 @@ namespace BAL.Manager
             int from = model.From;
             int to = model.To;
 
-            string xpath = model.GoodsIteratorXpath;
+            //string xpath = model.GoodsIteratorXpathes;
             string url = model.UrlMask;
 
             var allNames = new List<string>();
             for (int i = from; i <= to; i++)
             {
-                allNames.AddRange(GetNamesFromOnePage(url.Replace("{n}", i.ToString()), xpath));
+               // allNames.AddRange(GetNamesFromOnePage(url.Replace("{n}", i.ToString()), xpath));
             }
             return allNames;
         }
