@@ -20,6 +20,7 @@ namespace Model.DB
 		public string UrlLink { get; set; }
 
 		public decimal? OldPrice { get; set; }
+		public decimal? NewPrice { get; set; }
 
 		[ForeignKey("Category_Id")]
 		public virtual Category Category { get; set; }

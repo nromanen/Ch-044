@@ -85,10 +85,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elastic\CRUD.cs" />
     <Compile Include="Elastic\ElasticContext.cs" />
-    <Compile Include="Elastic\ElasticRepository.cs" />
+    <Compile Include="Elastic\ElasticGoodRepository.cs" />
     <Compile Include="Elastic\ElasticUnitOfWork.cs" />
-    <Compile Include="Elastic\Interface\IElasticRepository.cs" />
+    <Compile Include="Elastic\Interface\IElasticGoodRepository.cs" />
     <Compile Include="Elastic\Interface\IElasticUnitOfWork.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\IGenericRepository.cs" />
@@ -182,6 +183,10 @@
     <Compile Include="Migrations\201611281546466_OldPrice_add.Designer.cs">
       <DependentUpon>201611281546466_OldPrice_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611290703052_Add_NewPrice.cs" />
+    <Compile Include="Migrations\201611290703052_Add_NewPrice.Designer.cs">
+      <DependentUpon>201611290703052_Add_NewPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -258,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611281546466_OldPrice_add.resx">
       <DependentUpon>201611281546466_OldPrice_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611290703052_Add_NewPrice.resx">
+      <DependentUpon>201611290703052_Add_NewPrice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -14,8 +14,8 @@ namespace BAL.Manager
     {
         public URLManager(IUnitOfWork uOw)
             : base(uOw)
-		{
-		}
+        {
+        }
         /// <summary>
         /// get all urls from page
         /// </summary>
@@ -23,16 +23,40 @@ namespace BAL.Manager
         /// <returns></returns>
         public List<string> GetAllUrls(IteratorSettingsDTO model)
         {
-            int from = model.From;
-            int to = model.To;
-
-            string xpath = model.GoodsIteratorXpath;
-            string url = model.UrlMask;
-
             var allUrls = new List<string>();
-            for (int i = from; i <= to; i++)
+            try
             {
-                allUrls.AddRange(GetUrlsFromOnePage(url.Replace("{n}", i.ToString()), xpath));
+                int from = model.From;
+                int to = model.To;
+
+                string xpathes = model.GoodsIteratorXpath;
+                var xpathList = xpathes.Split(';').ToList();
+
+                string url = model.UrlMask;
+
+
+                foreach (var xpath in xpathList)
+                {
+                    List<string> urlFromOnePage = new List<string>();
+                    for (int i = from; i <= to; i++)
+                    {
+                        urlFromOnePage = GetUrlsFromOnePage(url.Replace("{n}", i.ToString()), xpath);
+                        if (urlFromOnePage.Count != 0)
+                        {
+                            allUrls.AddRange(urlFromOnePage);
+                            break;
+                        }
+                        break;
+                    }
+                    if (urlFromOnePage.Count != 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
             }
             return allUrls;
         }
@@ -46,66 +70,37 @@ namespace BAL.Manager
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
-
-            var links = doc.DocumentNode.SelectNodes(xpath + "/@href").Select(t => t.Attributes.SingleOrDefault(d => d.Name == "href").Value).ToList();
             var newLinkList = new List<string>();
 
-            foreach (var link in links)
+            try
             {
-                if (!link.Equals("#"))
+                var links = doc.DocumentNode.SelectNodes(xpath + "/@href").Select(t => t.Attributes.SingleOrDefault(d => d.Name == "href").Value).ToList();
+                foreach (var link in links)
                 {
-                    if (!link.Contains("http"))
+                    if (!link.Equals("#"))
                     {
-                        string[] vals = url.Split('/');
-                        var siteName = "http://" + vals[2];
-                        var newLink = siteName + link;
+                        if (!link.Contains("http"))
+                        {
+                            string[] vals = url.Split('/');
+                            var siteName = "http://" + vals[2];
+                            var newLink = siteName + link;
 
-                        newLinkList.Add(newLink);
-                    }
-                    else
-                    {
-                        newLinkList.Add(link);
+                            newLinkList.Add(newLink);
+                        }
+                        else
+                        {
+                            newLinkList.Add(link);
+                        }
                     }
                 }
             }
-            return newLinkList;
-        }
-
-        /// <summary>
-        /// Get all names of goods from parsertask
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public List<string> GetAllNamesOfGoods(IteratorSettingsDTO model)
-        {
-            int from = model.From;
-            int to = model.To;
-
-            string xpath = model.GoodsIteratorXpath;
-            string url = model.UrlMask;
-
-            var allNames = new List<string>();
-            for (int i = from; i <= to; i++)
+            catch (Exception ex)
             {
-                allNames.AddRange(GetNamesFromOnePage(url.Replace("{n}", i.ToString()), xpath));
+                logger.Error(ex.Message);
+                return newLinkList;
             }
-            return allNames;
-        }
 
-        /// <summary>
-        /// Gets names of goods from one page
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="xpath"></param>
-        /// <returns></returns>
-        private List<string> GetNamesFromOnePage(string url, string xpath)
-        {
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load(url);
-
-            var names = doc.DocumentNode.SelectNodes(xpath).Select(s => s.InnerHtml).ToList();
-
-            return names;
+            return newLinkList;
         }
     }
 }

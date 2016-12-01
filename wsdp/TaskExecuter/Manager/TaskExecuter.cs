@@ -128,23 +128,5 @@ namespace TaskExecuting.Manager
 			goodManager.InsertGood(resultGood);
 			return resultGood;
 		}
-
-
-        public void CheckGoods(int categoryid, int parsertaskid)
-        {
-            var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid);
-            var parserTask = parsermanager.Get(parsertaskid);
-            var goodsFromShop = urlManager.GetAllNamesOfGoods(parserTask.IteratorSettings);
-
-            foreach (var good in goods)
-            {
-                if (goodsFromShop.IndexOf(good.Name) == -1)
-                {
-
-                }
-                
-            }
-
-        }
 	}
 }
