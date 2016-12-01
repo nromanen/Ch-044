@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Elastic.Interface;
-using DAL.Interface;
 
 namespace DAL.Elastic
 {
@@ -12,18 +11,23 @@ namespace DAL.Elastic
     {
         private ElasticContext context;
 
-        private IElasticRepository repository;
+        private IElasticGoodRepository repository;
 
         public ElasticUnitOfWork()
         {
             context = new ElasticContext();
-            repository = new ElasticRepository(context);
+            repository = new ElasticGoodRepository(context);
 
         }
 
-        public IElasticRepository Repository
+        public IElasticGoodRepository Repository
         {
-            get { return repository ?? (repository = new ElasticRepository(context)); }
+            get { return repository ?? (repository = new ElasticGoodRepository(context)); }
+        }
+
+        public int Save()
+        {
+            return context.Save();
         }
     }
 }

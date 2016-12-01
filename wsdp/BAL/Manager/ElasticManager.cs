@@ -17,9 +17,6 @@ namespace BAL.Manager
             this.elasticUOW = elasticUOW;
         }
 
-        public void AddItem(object obj)
-        {
-            elasticUOW.Repository.Insert(obj);
-        }
+        
     }
 }
