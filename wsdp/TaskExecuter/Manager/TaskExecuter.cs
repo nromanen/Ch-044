@@ -29,7 +29,9 @@ namespace TaskExecuting.Manager
 		private ElasticManager elasticManager = null;
 		private GoodManager goodManager = null;
         private URLManager urlManager = null;
+        private HtmlValidator htmlValidator = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
+
 
 		/// <summary>
 		/// Initializating managers and uOw
@@ -42,6 +44,7 @@ namespace TaskExecuting.Manager
 			propmanager = new PropertyManager(uOw);
 			goodManager = new GoodManager(uOw);
             urlManager = new URLManager(uOw);
+            htmlValidator = new HtmlValidator(); 
 			//elasticManager = new ElasticManager(elasticuOw);
 			//goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
 			AutoMapperConfig.Configure();
@@ -56,13 +59,26 @@ namespace TaskExecuting.Manager
 		public GoodDTO ExecuteTask(int parsertaskid, string url)
 		{
 			//downloading page source using tor+phantomjs
-
+            ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
 			HtmlDocument doc = null;
 			string pageSource = "";
 			try
 			{
 				SiteDownloader sw = new SiteDownloader();
-				pageSource = sw.GetPageSouce(url);
+
+                switch (parsertask.IteratorSettings.DownloadMethod)
+                {
+                    case DownloadMethod.Direct:
+                        pageSource = sw.GetPageSouceDirectly(url);
+                        break;
+                    case DownloadMethod.Tor:
+                        pageSource = sw.GetPageSouce(url);
+                        break;
+                    default:
+                        break;
+                }
+
+                pageSource = htmlValidator.CheckHtml(pageSource);
 
 				doc = new HtmlDocument();
 				doc.LoadHtml(pageSource);
@@ -76,15 +92,101 @@ namespace TaskExecuting.Manager
 
 
 			//gets configuration from parsertask id
-			ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
+			
 			GrabberSettingsDTO grabbersettings = parsertask.GrabberSettings;
 
 			GoodDTO resultGood = new GoodDTO();
 
 			resultGood.WebShop_Id = parsertask.WebShopId;
 			resultGood.Category_Id = parsertask.CategoryId;
-            resultGood.Name = grabbersettings.Name;
-            resultGood.ImgLink = grabbersettings.ImgLink;
+            ///////////////////////////////////
+            try
+            {
+                foreach (var name in grabbersettings.Name)
+                {
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(name);
+                    if (value != null)
+                    {
+                        resultGood.Name = value.InnerHtml;
+                        break;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+            /////////////////////////////////////
+            try
+            {
+                foreach (var price in grabbersettings.Price)
+                {
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(price);
+                    if (value != null)
+                    {
+                        resultGood.Price = Convert.ToDecimal(value.InnerHtml);
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            //////////////////////////////////////
+            try
+            {
+                foreach (var price in grabbersettings.OldPrice)
+                {
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(price);
+                    if (value != null)
+                    {
+                        resultGood.OldPrice = Convert.ToDecimal(value.InnerHtml);
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            ////////////////////////////////////
+            try
+            {
+                foreach (var price in grabbersettings.OldPrice)
+                {
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(price);
+                    if (value != null)
+                    {
+                        resultGood.OldPrice = Convert.ToDecimal(value.InnerHtml);
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            //////////////////////////////
+            try
+            {
+                foreach (var imglink in grabbersettings.ImgLink)
+                {
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(imglink);
+                    if (value != null)
+                    {
+                        resultGood.OldPrice = value.InnerHtml;
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //resultGood.Name = grabbersettings.Name;
+            //resultGood.ImgLink = grabbersettings.ImgLink;
             resultGood.UrlLink = url;
 
 			PropertyValuesDTO propertyValues = new PropertyValuesDTO();
