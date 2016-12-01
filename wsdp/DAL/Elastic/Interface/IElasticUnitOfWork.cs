@@ -8,6 +8,6 @@ namespace DAL.Elastic.Interface
 {
     public interface IElasticUnitOfWork
     {
-        IElasticRepository Repository { get; }
+        IElasticGoodRepository Repository { get; }
     }
 }

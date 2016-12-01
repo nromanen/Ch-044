@@ -36,6 +36,49 @@ $(document).ready(function () {
 
 });
 
+function NextAjax()
+{
+	$.ajax({
+		type: "POST",
+		url: '../Next',
+		data: ({ current: current}),
+		success: function (data) {
+			$('#iframe1').attr('src', data);
+			$("#progress_bar").hide();
+			CheckButtons();
+			setTimeout(function () {
+				EstablishingEvents();
+				console.log("EV");
+			}, 10000);
+		},
+		error: function () {
+			alert('Error occured');
+			$("#progress_bar").hide();
+		}
+	});
+}
+
+function PreviousAjax() {
+	$.ajax({
+		type: "POST",
+		url: '../Previous',
+		data: ({ current: current }),
+		success: function (data) {
+			$('#iframe1').attr('src', data);
+			$("#progress_bar").addClass("hidden");
+			CheckButtons();
+			setTimeout(function () {
+				EstablishingEvents();
+				console.log("EV");
+			}, 10000);
+		},
+		error: function () {
+			alert('Error occured');
+			$("#progress_bar").addClass("hidden");
+		}
+	});
+}
+
 function EstablishingEvents() {
     var iframe = document.getElementById("iframe1");
     iframe = iframe.contentWindow.document;
@@ -78,7 +121,9 @@ function EstablishingEvents() {
         if (current != length - 1) {
             current++;
         };
-        $('#iframe1').attr('src', ListItems[current]);
+		$("#progress_bar").removeClass("hidden");
+		NextAjax();
+		
         CheckButtons();
         setTimeout(function () {
             EstablishingEvents();
@@ -91,7 +136,7 @@ function EstablishingEvents() {
         if (current != 0) {
             current--;
         };
-        $('#iframe1').attr('src', ListItems[current]);
+		PreviousAjax();
         CheckButtons();
         setTimeout(function () {
             EstablishingEvents();
