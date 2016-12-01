@@ -19,7 +19,7 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
-            TaskExecutingScheduler.Start();
+            //TaskExecutingScheduler.Start();
 
             //TaskExecuter te = new TaskExecuter();
 

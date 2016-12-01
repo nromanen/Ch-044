@@ -131,7 +131,7 @@ namespace TaskExecuting.Manager
                         break;
                     }
                 }
-                resultGood.Price = Convert.ToDecimal(price);
+                resultGood.Price = Convert.ToDecimal(this.RemoveAllFigures(price));
             }
             catch (Exception ex)
             {
@@ -150,7 +150,7 @@ namespace TaskExecuting.Manager
                         break;
                     }
                 }
-                resultGood.OldPrice = Convert.ToDecimal(oldPrice);
+                resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllFigures(oldPrice));
             }
             catch (Exception ex)
             {
@@ -235,7 +235,11 @@ namespace TaskExecuting.Manager
 			return resultGood;
 		}
 
-
+        private string RemoveAllFigures(string value)
+        {
+            char[] arr = value.ToArray().Where(c => char.IsDigit(c) || c == '.').Select(c => c).ToArray();
+            return new string(arr);
+        }
 
 	}
 }
