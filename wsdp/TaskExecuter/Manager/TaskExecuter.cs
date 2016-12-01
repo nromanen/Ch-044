@@ -131,7 +131,11 @@ namespace TaskExecuting.Manager
                         break;
                     }
                 }
-                resultGood.Price = Convert.ToDecimal(this.RemoveAllFigures(price));
+                if (price!="")
+                {
+                    resultGood.Price = Convert.ToDecimal(this.RemoveAllFigures(price));
+                }
+                
             }
             catch (Exception ex)
             {
@@ -150,7 +154,11 @@ namespace TaskExecuting.Manager
                         break;
                     }
                 }
-                resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllFigures(oldPrice));
+                if (oldPrice != "")
+                {
+                    resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllFigures(oldPrice));
+                }
+                
             }
             catch (Exception ex)
             {
@@ -162,10 +170,10 @@ namespace TaskExecuting.Manager
                 var imagelink = "";
                 foreach (var imglink in grabbersettings.ImgLink)
                 {
-                    HtmlNode value = doc.DocumentNode.SelectSingleNode(imglink);
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(imglink + "/@src");
                     if (value != null)
                     {
-                        imagelink = value.InnerHtml;
+                        imagelink = value.Attributes["src"].Value;
                         break;
                     }
                 }
@@ -229,7 +237,7 @@ namespace TaskExecuting.Manager
                 }
 
 			}
-			
+            resultGood.Status = true;
 			resultGood.PropertyValues = propertyValues;
 			goodManager.InsertGood(resultGood);
 			return resultGood;
