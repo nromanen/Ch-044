@@ -24,7 +24,7 @@ namespace WebApp.Scheduler
 		{
 			uOw = new UnitOfWork();
 			parserManager = new ParserTaskManager(uOw);
-			urlManager = new URLManager();
+			urlManager = new URLManager(uOw);
 		}
 		/// <summary>
 		/// Publishing messeges to rabbitmq queue
