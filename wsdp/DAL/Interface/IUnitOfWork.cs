@@ -14,6 +14,6 @@ namespace DAL.Interface
 
         void Dispose();
 
-        void Save();
+        int Save();
     }
 }
