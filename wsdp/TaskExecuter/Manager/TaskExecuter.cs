@@ -78,7 +78,7 @@ namespace TaskExecuting.Manager
                         break;
                 }
 
-                pageSource = htmlValidator.CheckHtml(pageSource);
+                //pageSource = htmlValidator.CheckHtml(pageSource);
 
 				doc = new HtmlDocument();
 				doc.LoadHtml(pageSource);
@@ -147,7 +147,7 @@ namespace TaskExecuting.Manager
                 var oldPrice = "";
                 foreach (var price in grabbersettings.OldPrice)
                 {
-                    HtmlNode value = doc.DocumentNode.SelectSingleNode(price);
+                    HtmlNode value = doc.DocumentNode.SelectNodes(price).FirstOrDefault();
                     if (value != null)
                     {
                         oldPrice = value.InnerHtml;
