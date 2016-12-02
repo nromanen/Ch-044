@@ -29,17 +29,16 @@ namespace BAL.Manager
         }
         public void Insert(GoodDTO good)
         {
-            //configure good for sql database
             var goodDb = Mapper.Map<Good>(good);
             goodDb.Status = true;
             var res = sqlUnitOfWork.GoodRepo.Insert(goodDb);
-
-            //elastic manipulation
-            elasticUnitOfWork.Repository.Insert(good);
-
+           
             try
             {
                 if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
+                var elasticGood = Mapper.Map<GoodDTO>(res);
+                //elastic manipulation
+                elasticUnitOfWork.Repository.Insert(elasticGood);
                 elasticUnitOfWork.Save();
             }
             catch (Exception ex)
@@ -55,10 +54,11 @@ namespace BAL.Manager
             if (goodDb == null) return false;
             goodDb.Status = false;
 
-            elasticUnitOfWork.Repository.Delete(good);
-
             try
             {
+                var elasticGood = Mapper.Map<GoodDTO>(goodDb);
+                elasticUnitOfWork.Repository.Delete(elasticGood);
+           
                 if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
                 elasticUnitOfWork.Save();
             }
@@ -84,11 +84,11 @@ namespace BAL.Manager
             goodDb.XmlData = uGood.XmlData;
             goodDb.Price = uGood.Price;
             goodDb.Status = uGood.Status;
-
-            elasticUnitOfWork.Repository.Update(good);
-
             try
             {
+                var elasticGood = Mapper.Map<GoodDTO>(goodDb);
+                elasticUnitOfWork.Repository.Update(elasticGood);
+
                 if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
                 elasticUnitOfWork.Save();
             }
