@@ -27,23 +27,33 @@ namespace BAL.Manager
             this.elasticUnitOfWork = elasticUnitOfWork;
             this.sqlUnitOfWork = sqlUnitOfWork;
         }
-        public void Insert(GoodDTO good)
+
+        public void InsertOrUpdate(GoodDTO good)
         {
             var goodDb = Mapper.Map<Good>(good);
             goodDb.Status = true;
-            var res = sqlUnitOfWork.GoodRepo.Insert(goodDb);
-           
-            try
+            var request = sqlUnitOfWork.GoodRepo.All.FirstOrDefault(x => x.UrlLink == goodDb.UrlLink);
+            if (request != null)
             {
-                if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
-                var elasticGood = Mapper.Map<GoodDTO>(res);
-                //elastic manipulation
-                elasticUnitOfWork.Repository.Insert(elasticGood);
-                elasticUnitOfWork.Save();
+                good.Id = request.Id;
+                Update(good);
             }
-            catch (Exception ex)
+            else
             {
-                Logger.Error(ex.Message);
+                var res = sqlUnitOfWork.GoodRepo.Insert(goodDb);
+
+                try
+                {
+                    if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
+                    var elasticGood = Mapper.Map<GoodDTO>(res);
+                    //elastic manipulation
+                    elasticUnitOfWork.Repository.Insert(elasticGood);
+                    elasticUnitOfWork.Save();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex.Message);
+                }
             }
         }
 

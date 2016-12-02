@@ -39,18 +39,18 @@ namespace WebApp.Controllers
 
             var good = new GoodDTO()
             {
-                WebShop_Id = 1,
-                Category_Id = 1,
+                WebShop_Id = 3,
+                Category_Id = 20,
                 ImgLink = "https://www.elastic.co",
-                UrlLink = "https://www.elastic.co",
-                Name = "Product",
+                UrlLink = "https://www.elastic1111.co",
+                Name = "Prsdfdsafdewdsf",
                 NewPrice = 1200,
                 OldPrice = 12000,
                 Price = 12,
                 PropertyValues = propetry
             };
 
-            Wizard.Insert(good);
+            Wizard.InsertOrUpdate(good);
 
             return View();
         }
