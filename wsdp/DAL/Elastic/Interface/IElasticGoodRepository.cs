@@ -9,7 +9,8 @@ namespace DAL.Elastic.Interface
 {
     public interface IElasticGoodRepository
     {
-        IList<GoodDTO> GetByUrlId(GoodDTO item);
+        GoodDTO GetByUrlId(string url);
+        IList<GoodDTO> GetAll(); 
         void Update(GoodDTO item);
         void Delete(GoodDTO item);
         void Insert(GoodDTO item);

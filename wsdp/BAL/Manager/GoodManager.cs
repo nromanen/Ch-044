@@ -32,7 +32,7 @@ namespace BAL.Manager
             var goodList = new List<GoodDTO>();
             foreach (var good in uOW.GoodRepo.All.ToList())
             {
-                if(good.Status == false) continue;
+                if (good.Status == false) continue;
                 var good_temp = uOW.GoodRepo.GetByID(good.Id);
                 goodList.Add(Mapper.Map<GoodDTO>(good_temp));
             }

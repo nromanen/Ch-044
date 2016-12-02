@@ -9,5 +9,6 @@ namespace DAL.Elastic.Interface
     public interface IElasticUnitOfWork
     {
         IElasticGoodRepository Repository { get; }
+        int Save();
     }
 }
