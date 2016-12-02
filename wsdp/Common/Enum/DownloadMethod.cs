@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Elastic.Interface
+namespace Common.Enum
 {
-    public interface IElasticRepository
+    public enum DownloadMethod
     {
-        void Insert(object item);
-    }
+        Direct=0,
+        Tor=1
+    };
 }

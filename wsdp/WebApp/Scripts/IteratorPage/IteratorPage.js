@@ -1,7 +1,7 @@
 ﻿$(function () {
     $(".list-inline-item:nth-child(2)").addClass("active");
 
-    enableXpathSearch();
+    enableUrlSearch();
 
     $('.button2').click(function () {
         enableUrlSearch();
@@ -27,3 +27,17 @@ function enableXpathSearch() {
     $("#To").attr("disabled", "disabled");
 
 };
+
+function AddField(btn) {
+    var name = $(btn).closest(".form-group").find('input').attr('name');
+
+    var input = document.createElement("input");
+    input.setAttribute("class", "form-control");
+    input.setAttribute("placeholder", "xpath1, xpath2...");
+    input.setAttribute("style", "margin-top:10px;");
+    input.setAttribute("name", name);
+
+    document.getElementById("fields").appendChild(input);
+
+    EstablishingEvents();
+}

@@ -3,11 +3,11 @@
 namespace Model.DTO {
 	public class GrabberSettingsDTO {
 		public int Id { get; set; }
-		public string Name { get; set; }
-		public string Price { get; set; }
-		public string OldPrice { get; set; }
-		public string NewPrice { get; set; }
-		public string ImgLink { get; set; }
+		public List<string> Name { get; set; }
+		public List<string> Price { get; set; }
+		public List<string> OldPrice { get; set; }
+		public List<string> NewPrice { get; set; }
+		public List<string> ImgLink { get; set; }
 		public List<GrabberPropertyItemDTO> PropertyItems { get; set; }
 		public string urlJsonData { get; set; }
 

@@ -8,6 +8,6 @@ namespace BAL.Interface
 {
     public interface IElasticManager
     {
-        void AddItem(object obj);
+    
     }
 }

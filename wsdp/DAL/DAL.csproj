@@ -85,10 +85,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elastic\CRUD.cs" />
     <Compile Include="Elastic\ElasticContext.cs" />
-    <Compile Include="Elastic\ElasticRepository.cs" />
+    <Compile Include="Elastic\ElasticGoodRepository.cs" />
     <Compile Include="Elastic\ElasticUnitOfWork.cs" />
-    <Compile Include="Elastic\Interface\IElasticRepository.cs" />
+    <Compile Include="Elastic\Interface\IElasticGoodRepository.cs" />
     <Compile Include="Elastic\Interface\IElasticUnitOfWork.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Interface\IGenericRepository.cs" />

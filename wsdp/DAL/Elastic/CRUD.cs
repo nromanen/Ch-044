@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Elastic.Interface
+namespace DAL.Elastic
 {
-    public interface IElasticUnitOfWork
+    public enum CRUD
     {
-        IElasticGoodRepository Repository { get; }
+        Insert,
+        Update,
+        Remove,
+        HardRemove
     }
 }

@@ -123,7 +123,6 @@ namespace WebApp.Controllers {
 		public ActionResult IteratorConfigurations(int? id, IteratorSettingsDTO model) {
 			var _task = parserTaskManager.Get(id.Value);
 			_task.IteratorSettings = model;
-
 			parserTaskManager.Update(_task);
 
 			return RedirectToAction("Grabber", new { id = id.Value });
@@ -137,6 +136,7 @@ namespace WebApp.Controllers {
 			var grabber = new GrabberSettingsDTO();
 			var urlList = new List<string>();
 			string localPathToSite;
+			int index = 0;
 			if (id != null) {
 				task = parserTaskManager.Get(id.Value);
 
@@ -152,19 +152,46 @@ namespace WebApp.Controllers {
 				}
 			}
 			var arrayOfLinks  = urlList.ToArray();
-			for (var i = 0; i < arrayOfLinks.Length-30; i++) {
-				if (!String.IsNullOrWhiteSpace(arrayOfLinks[i])) {
-					Guid result = downloadManager.DownloadFromPath(arrayOfLinks[i]);
+			for (index = 0; index < 2; index++) {
+				if (!String.IsNullOrWhiteSpace(arrayOfLinks[index])) {
+					Guid result = downloadManager.DownloadFromPath(arrayOfLinks[index]);
 					localPathToSite = "/WebSites/" + result + ".html";
-					arrayOfLinks[i] = localPathToSite;
+					arrayOfLinks[index] = localPathToSite;
 				}
 			}
 			grabber.urlJsonData = JsonConvert.SerializeObject(arrayOfLinks);
-
-			TempData["FirstPage"] = arrayOfLinks[0];
-			TempData["src"] = arrayOfLinks;
+			Session["Length"] = arrayOfLinks.Length;
+			TempData["CurrentPage"] = arrayOfLinks[0];
+			TempData["NextPage"] = arrayOfLinks[1];
+			TempData["AllSrc"] = arrayOfLinks;
 			return View(grabber);
 		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public string Next(int current) {
+			string localPathToSite;
+			var arrayOfLinks = TempData.Peek("AllSrc") as string[];
+			var length = arrayOfLinks.Length;
+
+			if (current < length-1) {
+				
+					if (!String.IsNullOrWhiteSpace(arrayOfLinks[current+1]) && arrayOfLinks[current+1].Contains("http")) {
+						Guid result = downloadManager.DownloadFromPath(arrayOfLinks[current+1]);
+						localPathToSite = "/WebSites/" + result + ".html";
+						arrayOfLinks[current+1] = localPathToSite;
+					}
+			}
+			TempData["AllSrc"] = arrayOfLinks;
+			return arrayOfLinks[current];
+		}
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public string Previous(int current) {
+			var arrayOfLinks = TempData.Peek("AllSrc") as string[];
+			return arrayOfLinks[current];
+		}
+
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public ActionResult Grabber(int? id, GrabberSettingsDTO grabber) {

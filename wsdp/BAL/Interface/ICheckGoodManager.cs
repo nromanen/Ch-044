@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Elastic.Interface
+namespace BAL.Interface
 {
-    public interface IElasticUnitOfWork
+    interface ICheckGoodManager
     {
-        IElasticGoodRepository Repository { get; }
+        void CheckGoodsFromOneCategory(int categoryid, int parsertaskid);
     }
 }

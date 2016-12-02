@@ -23,11 +23,7 @@ namespace BAL.Manager
             this.goodManager = goodManager;
         }
 
-        public void AddItem(GoodDTO good)
-        {
-            var goodElastic = goodManager.Insert(good);
-            elasticManager.AddItem(goodElastic);
-        }
+      
 
 
 
