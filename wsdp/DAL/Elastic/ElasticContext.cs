@@ -80,9 +80,21 @@ namespace DAL.Elastic
 
         public IList<GoodDTO> GetByIdUrl(string url)
         {
-            return client.Search<GoodDTO>(q => q.Query(t => t.Term(x => x
-                                                                    .Field("_id")
-                                                                    .Value(url)))).Hits.Select(x=>x.Source).ToList();
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("_id")
+                .Value(url))))
+                .Hits
+                .Select(x=>x.Source)
+                .ToList();
+        }
+
+        public IList<GoodDTO> GetAll()
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.MatchAll()))
+                .Hits
+                .Select(x=>x.Source)
+                .ToList();
         } 
         private void Insert(GoodDTO item)
         {

@@ -10,6 +10,10 @@ namespace BAL.Interface
 {
     public interface IGoodDatabasesWizard
     {
+        void Insert(GoodDTO good);
+        bool Delete(GoodDTO good);
+        void Update(GoodDTO good);
+
 
     }
 }

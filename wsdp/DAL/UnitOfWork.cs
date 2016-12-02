@@ -102,14 +102,15 @@ namespace DAL
 
 		#endregion Repositories Getters
 
-		public void Save()
+		public int Save()
 		{
 			try
 			{
-				context.SaveChanges();
+				return context.SaveChanges();
 			}
 			catch (DbEntityValidationException ex)
 			{
+			    return 0;
 			}
 		}
 

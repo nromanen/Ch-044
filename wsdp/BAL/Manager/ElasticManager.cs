@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BAL.Interface;
 using DAL.Elastic.Interface;
+using Model.DTO;
 
 namespace BAL.Manager
 {
@@ -17,6 +18,32 @@ namespace BAL.Manager
             this.elasticUOW = elasticUOW;
         }
 
-        
+        public void Insert(GoodDTO good)
+        {
+            elasticUOW.Repository.Insert(good);
+            elasticUOW.Save();
+        }
+
+        public void Delete(GoodDTO good)
+        {
+            elasticUOW.Repository.Delete(good);
+            elasticUOW.Save();
+        }
+
+        public void Update(GoodDTO good)
+        {
+            elasticUOW.Repository.Update(good);
+            elasticUOW.Save();
+        }
+
+        public GoodDTO GetByUrl(string url)
+        {
+            return elasticUOW.Repository.GetByUrlId(url);
+        }
+
+        public IList<GoodDTO> GetAll()
+        {
+            return elasticUOW.Repository.GetAll();
+        }
     }
 }
