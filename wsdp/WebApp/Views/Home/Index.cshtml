@@ -166,7 +166,7 @@
                                 <br />
                                 <b class="text-muted">@good.Category.Name</b>
                             </div>
-                            @if (@good.OldPrice == null || @good.NewPrice == null)
+                            @if (@good.OldPrice == null)
                             {
                                 <div class="col-xs-2">
                                     <b class="text-success">Price:</b>
@@ -179,8 +179,9 @@
                                 <div class="col-xs-2">
                                     <b class="text-success">Price:</b>
                                     <br />
-                                    <b class="text-muted ">@good.OldPrice</b>
-                                    <b class="text-muted">@good.NewPrice</b>
+                                    <b class="text-muted"><del><small>@good.OldPrice</small></del></b>
+                                    <br />
+                                    <b class="text-danger">@good.Price</b>
                                 </div>
                             }
                             <div class="col-xs-2">
