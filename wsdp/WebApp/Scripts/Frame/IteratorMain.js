@@ -21,8 +21,8 @@ function getPathTo(element) {
 }
 $(document).ready(function () {
 
-    $(".body-content").removeClass("container");
-    $(".body-content").addClass("container-fluid");
+	$(".body-content").removeClass("container");
+	$(".body-content").addClass("container-fluid");
 
 	setTimeout(function () {
 		EstablishingEvents();
@@ -32,29 +32,23 @@ $(document).ready(function () {
 
 function EstablishingEvents() {
 	var iframe = document.getElementById("iframe1");
+
 	iframe = iframe.contentWindow.document;
-	$(iframe).select("a").click(function (event) {
-		event.preventDefault();
-	});
+
 	$(iframe)
- 	.mouseover(function (event) {
- 		$(event.target).addClass('outline-element');
- 	})
- 	.mouseout(function (event) {
- 		$(event.target).removeClass('outline-element');
- 	})
-	.click(function (event) {
-		$(event.target).toggleClass('outline-element-clicked');
-	})
+   .mouseout(function (event) {
+   	event.target.style.border = "";
+   })
 	.mouseover(function (event) {
 		if (event.shiftKey) {
 			if ($("#clicked").hasClass("urlmask")) {
-				console.log(65555);
+				event.target.style.border = "2px red solid";
 				$("#clicked").val(event.target.getAttribute("href"));
-	
+
 			}
 			else {
-			$("#clicked").val(getPathTo(event.target));
+				event.target.style.border = "2px red solid";
+				$("#clicked").val(getPathTo(event.target));
 			}
 		}
 	});
