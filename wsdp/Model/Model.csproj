@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\Category.cs" />
+    <Compile Include="DB\ExecutingInfo.cs" />
     <Compile Include="DB\Good.cs" />
     <Compile Include="DB\Property.cs" />
     <Compile Include="DB\Role.cs" />
