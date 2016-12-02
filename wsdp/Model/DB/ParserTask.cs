@@ -28,5 +28,7 @@ namespace Model.DB
         public string IteratorSettings { get; set; }
 
         public string GrabberSettings { get; set; }
+
+        public DateTime LastChange { get; set; }
     }
 }

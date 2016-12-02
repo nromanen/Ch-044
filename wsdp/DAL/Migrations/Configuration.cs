@@ -147,62 +147,63 @@ namespace DAL.Migrations
 				Priority = Priority.Low,
 				Status = Status.NotFinished,
 				WebShop = webShop1,
-				EndDate = DateTime.Now
-			};
+				EndDate = DateTime.Now,
+                LastChange = DateTime.Now
+            };
 			ParserTask task2 = new ParserTask() {
 				Category = categorySmartphones,
 				Description = "Smth",
 				Priority = Priority.Middle,
 				Status = Status.NotFinished,
 				WebShop = webShop2,
-				EndDate = DateTime.Now
+				EndDate = DateTime.Now,
+                LastChange = DateTime.Now
 			};
 
-
-			context.Roles.AddOrUpdate(role_user);
-			context.Users.AddOrUpdate(user);
-			context.Users.AddOrUpdate(user2);
-			context.Users.AddOrUpdate(user3);
-			context.Users.AddOrUpdate(user4);
-			context.Users.AddOrUpdate(user5);
-			context.Users.AddOrUpdate(user6);
-			context.Users.AddOrUpdate(user7);
-			context.Users.AddOrUpdate(user8);
-			context.Users.AddOrUpdate(user9);
-			context.Users.AddOrUpdate(user10);
-			context.Users.AddOrUpdate(user11);
-			context.Users.AddOrUpdate(user12);
-			context.Users.AddOrUpdate(user13);
-			context.Users.AddOrUpdate(user14);
-			context.Users.AddOrUpdate(user15);
-			context.Users.AddOrUpdate(user16);
-			context.Users.AddOrUpdate(user17);
-			context.Users.AddOrUpdate(user18);
-			context.Users.AddOrUpdate(user19);
-			context.Users.AddOrUpdate(user20);
-			context.Users.AddOrUpdate(user21);
-			context.Users.AddOrUpdate(user22);
-			context.Users.AddOrUpdate(user23);
-			context.Users.AddOrUpdate(user24);
-			context.Users.AddOrUpdate(user25);
-			context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
-			context.Categories.AddOrUpdate(categoryForHouse);
-			context.Categories.AddOrUpdate(categoryComputers);
-			context.Categories.AddOrUpdate(categorySmartphones);
-			context.Categories.AddOrUpdate(categoryMobilephones);
-			context.Categories.AddOrUpdate(categoryTv);
-			context.Categories.AddOrUpdate(categoryFridges);
-			context.Categories.AddOrUpdate(categoryMicrowaves);
-			context.Categories.AddOrUpdate(categoryLaptops);
-			context.WebShops.AddOrUpdate(webShop1);
-			context.WebShops.AddOrUpdate(webShop2);
-			context.Properties.AddOrUpdate(prop1);
-			context.Properties.AddOrUpdate(prop2);
-			context.Properties.AddOrUpdate(prop3);
-			context.Properties.AddOrUpdate(prop4);
-			context.Properties.AddOrUpdate(prop5);
-			context.ParserTasks.AddOrUpdate(task);
-			context.ParserTasks.AddOrUpdate(task2);
-		}
+            context.Roles.AddOrUpdate(role_user);
+            context.Users.AddOrUpdate(user);
+            context.Users.AddOrUpdate(user2);
+            context.Users.AddOrUpdate(user3);
+            context.Users.AddOrUpdate(user4);
+            context.Users.AddOrUpdate(user5);
+            context.Users.AddOrUpdate(user6);
+            context.Users.AddOrUpdate(user7);
+            context.Users.AddOrUpdate(user8);
+            context.Users.AddOrUpdate(user9);
+            context.Users.AddOrUpdate(user10);
+            context.Users.AddOrUpdate(user11);
+            context.Users.AddOrUpdate(user12);
+            context.Users.AddOrUpdate(user13);
+            context.Users.AddOrUpdate(user14);
+            context.Users.AddOrUpdate(user15);
+            context.Users.AddOrUpdate(user16);
+            context.Users.AddOrUpdate(user17);
+            context.Users.AddOrUpdate(user18);
+            context.Users.AddOrUpdate(user19);
+            context.Users.AddOrUpdate(user20);
+            context.Users.AddOrUpdate(user21);
+            context.Users.AddOrUpdate(user22);
+            context.Users.AddOrUpdate(user23);
+            context.Users.AddOrUpdate(user24);
+            context.Users.AddOrUpdate(user25);
+            context.Categories.AddOrUpdate(categorySmartPhonesAndMobilePhones);
+            context.Categories.AddOrUpdate(categoryForHouse);
+            context.Categories.AddOrUpdate(categoryComputers);
+            context.Categories.AddOrUpdate(categorySmartphones);
+            context.Categories.AddOrUpdate(categoryMobilephones);
+            context.Categories.AddOrUpdate(categoryTv);
+            context.Categories.AddOrUpdate(categoryFridges);
+            context.Categories.AddOrUpdate(categoryMicrowaves);
+            context.Categories.AddOrUpdate(categoryLaptops);
+            context.WebShops.AddOrUpdate(webShop1);
+            context.WebShops.AddOrUpdate(webShop2);
+            context.Properties.AddOrUpdate(prop1);
+            context.Properties.AddOrUpdate(prop2);
+            context.Properties.AddOrUpdate(prop3);
+            context.Properties.AddOrUpdate(prop4);
+            context.Properties.AddOrUpdate(prop5);
+            context.ParserTasks.AddOrUpdate(task);
+            context.ParserTasks.AddOrUpdate(task2);
+        }
 	}
 }
