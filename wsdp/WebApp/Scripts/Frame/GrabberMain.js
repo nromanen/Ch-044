@@ -84,19 +84,14 @@ function EstablishingEvents() {
     iframe = iframe.contentWindow.document;
 
     $(iframe)
-	.mouseover(function (event) {
-	    $(event.target).addClass('outline-element');
-	})
 	.mouseout(function (event) {
-	    $(event.target).removeClass('outline-element');
-	})
-	.click(function (event) {
-	    $(event.target).toggleClass('outline-element-clicked');
+		event.target.style.border = "";
 	})
 	.mouseover(function (event) {
-	    if (event.shiftKey) {
-	        $("#clicked").val(getPathTo(event.target));
-	    }
+		if (event.shiftKey) {
+			event.target.style.border = "2px red solid";
+			$("#clicked").val(getPathTo(event.target));
+		}
 	}
 );
     $('input').click(function (event) {
