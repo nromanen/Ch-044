@@ -29,11 +29,10 @@ namespace BAL.Manager
                 int from = model.From;
                 int to = model.To;
 
-                string xpathes = model.GoodsIteratorXpath;
-                var xpathList = xpathes.Split(';').ToList();
+
+                var xpathList = model.GoodsIteratorXpathes;
 
                 string url = model.UrlMask;
-
 
                 foreach (var xpath in xpathList)
                 {
