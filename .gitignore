@@ -273,3 +273,5 @@ wsdp/WebApp/WebSites/*
 wsdp/*/bin/*
 wsdp/*/obj/*
 wsdp/WebApp/App_Data/logs/*
+wsdp/WebApp/Web.config
+wsdp/WebApp/Web.config
