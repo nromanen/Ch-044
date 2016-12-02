@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201612021417160_AddLastChangeForParserTask.Designer.cs">
       <DependentUpon>201612021417160_AddLastChangeForParserTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612021639123_Added_PriceHistory.cs" />
+    <Compile Include="Migrations\201612021639123_Added_PriceHistory.Designer.cs">
+      <DependentUpon>201612021639123_Added_PriceHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612021417160_AddLastChangeForParserTask.resx">
       <DependentUpon>201612021417160_AddLastChangeForParserTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612021639123_Added_PriceHistory.resx">
+      <DependentUpon>201612021639123_Added_PriceHistory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
