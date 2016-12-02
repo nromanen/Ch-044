@@ -50,9 +50,11 @@
                             <div class="form-group">
 
                                 <div class="fields">
-
                                     @Html.LabelFor(t => Model.Name)
-                                    @Html.TextBoxFor(t => Model.Name, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                    @for (int i = 0; i < Model.Name.Count; i++)
+                                    {
+                                        @Html.TextBoxFor(t => Model.Name[i], new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                    }
 
                                 </div>
 
@@ -64,8 +66,10 @@
 
                                 <div class="fields">
                                     @Html.LabelFor(t => Model.Price)
-                                    @Html.TextBoxFor(t => Model.Price, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
-
+                                    @for (int i = 0; i < Model.Price.Count; i++)
+                                    {
+                                        @Html.TextBoxFor(t => Model.Price[i], new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                    }
                                 </div>
 
                                 <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
@@ -75,10 +79,11 @@
                             <div class="form-group">
 
                                 <div class="fields">
-
                                     @Html.LabelFor(t => Model.OldPrice)
-                                    @Html.TextBoxFor(t => Model.OldPrice, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
-
+                                    @for (int i = 0; i < Model.OldPrice.Count; i++)
+                                    {
+                                        @Html.TextBoxFor(t => Model.OldPrice[i], new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                    }
                                 </div>
 
                                 <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
@@ -89,8 +94,10 @@
                                 <div class="fields">
 
                                     @Html.LabelFor(t => Model.NewPrice)
-                                    @Html.TextBoxFor(t => Model.NewPrice, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
-
+                                    @for (int i = 0; i < Model.NewPrice.Count; i++)
+                                    {
+                                        @Html.TextBoxFor(t => Model.NewPrice[i], new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                    }
                                 </div>
 
                                 <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
@@ -102,8 +109,10 @@
                                 <div class="fields">
 
                                     @Html.LabelFor(t => Model.ImgLink)
-                                    @Html.TextBoxFor(t => Model.ImgLink, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
-
+                                    @for (int i = 0; i < Model.ImgLink.Count; i++)
+                                    {
+                                        @Html.TextBoxFor(t => Model.ImgLink[i], new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                    }
                                 </div>
 
                                 <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
@@ -118,7 +127,11 @@
                                         @Html.HiddenFor(t => Model.PropertyItems[index].Name)
                                         @Html.HiddenFor(t => Model.PropertyItems[index].Id)
 
-                                        @Html.TextBoxFor(t => Model.PropertyItems[index].Value, new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                        @for (int i = 0; i < Model.PropertyItems[index].Value.Count; i++)
+                                        {
+                                            @Html.TextBoxFor(t => Model.PropertyItems[index].Value[i], new { @class = "form-control", @placeholder = "Click here and get Xpath" })
+                                        }
+                                        
                                     </div>
 
                                     <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
