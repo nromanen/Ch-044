@@ -14,22 +14,31 @@ namespace BAL.Manager
     {
         private IGoodManager goodManager;
         private IParserTaskManager parserTaskManager;
-        public CheckGoodManager(IGoodManager goodManager, IParserTaskManager parserTaskManager)
+        private IGoodDatabasesWizard wizardManager;
+        
+        public CheckGoodManager(IGoodManager goodManager, IParserTaskManager parserTaskManager, IGoodDatabasesWizard wizardManager)
         {
             this.goodManager = goodManager;
             this.parserTaskManager = parserTaskManager;
         }
+
+        /// <summary>
+        /// Checks goods from db with goods in same category in web shop. 
+        /// </summary>
+        /// <param name="categoryid">category to check</param>
+        /// <param name="parsertaskid">parsertask with configuration</param>
         public void CheckGoodsFromOneCategory(int categoryid, int parsertaskid)
         {
-            var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid).Select(s => s.Name);
+            var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid);
             var parserTask = parserTaskManager.Get(parsertaskid);
             var goodsFromShop = this.GetAllNamesOfGoods(parserTask.IteratorSettings);
 
-            foreach (var goodName in goods)
+            foreach (var good in goods)
             {
-                if (goodsFromShop.IndexOf(goodName) == -1)
+                if (goodsFromShop.IndexOf(good.Name) == -1)
                 {
-                    //good wizard update status - TO DO
+                    good.Status = false;
+                    wizardManager.Update(good);
                 }
             }
         }

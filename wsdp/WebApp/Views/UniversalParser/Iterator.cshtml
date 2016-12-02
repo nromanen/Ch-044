@@ -64,7 +64,11 @@
 
                             @Html.Label(Resources.Resource.ItemIterator)
                             <div id="fields">
-                                <input type="text" class="form-control" id="GoodsIteratorXpath" name="GoodsIteratorXpathes" placeholder="xpath1, xpath2..." />
+                                @for (var i = 0; i < Model.GoodsIteratorXpathes.Count; i++)
+                                {
+                                    @Html.TextBoxFor(m => m.GoodsIteratorXpathes[i], new { @class = "form-control", @placeholder = "xpath1, xpath2..." })
+                                }
+
                             </div>
 
                             <button type="button" id="add_field" class="btn btn-primary btn-xs" style="margin-top:10px;" onclick="AddField(this);">Add field</button>
