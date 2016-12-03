@@ -195,6 +195,14 @@
     <Compile Include="Migrations\201612021639123_Added_PriceHistory.Designer.cs">
       <DependentUpon>201612021639123_Added_PriceHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612030931010_Fixed_pricehistory.cs" />
+    <Compile Include="Migrations\201612030931010_Fixed_pricehistory.Designer.cs">
+      <DependentUpon>201612030931010_Fixed_pricehistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030938088_Added_NameofGOod.cs" />
+    <Compile Include="Migrations\201612030938088_Added_NameofGOod.Designer.cs">
+      <DependentUpon>201612030938088_Added_NameofGOod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -280,6 +288,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612021639123_Added_PriceHistory.resx">
       <DependentUpon>201612021639123_Added_PriceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030931010_Fixed_pricehistory.resx">
+      <DependentUpon>201612030931010_Fixed_pricehistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030938088_Added_NameofGOod.resx">
+      <DependentUpon>201612030938088_Added_NameofGOod.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -5,16 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.DB
+namespace Model.DTO
 {
-	public class PriceHistory
+	public class PriceHistoryDTO
 	{
-		[Key]
 		public int Id { get; set; }
 		public string Url { get; set; }
 		public string Name { get; set; }
 		public DateTime Date { get; set; }
 		public decimal? Price { get; set; }
-
 	}
 }

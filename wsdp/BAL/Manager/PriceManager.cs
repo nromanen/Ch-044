@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.DB;
 using DAL.Interface;
+using Model.DTO;
+using AutoMapper;
 
 namespace BAL.Manager
 {
@@ -15,10 +17,16 @@ namespace BAL.Manager
 		{
 		}
 
-		public void Insert(PriceHistory price)
+		public void Insert(PriceHistoryDTO price)
 		{
-			uOW.PriceRepo.Insert(price);
-			uOW.Save();
+			var priceDb = Mapper.Map<PriceHistory>(price);
+			
+			var GoodPrices = uOW.PriceRepo.All.Where(x => x.Url == priceDb.Url && x.Price==price.Price);
+			if(GoodPrices==null)
+			{
+				uOW.PriceRepo.Insert(priceDb);
+				uOW.Save();
+			}
 		}
 	}
 }

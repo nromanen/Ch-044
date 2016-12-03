@@ -1,4 +1,5 @@
 ﻿using Model.DB;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BAL.Interface
 {
 	public interface IPriceManager
 	{
-		void Insert(PriceHistory price);
+		void Insert(PriceHistoryDTO price);
 	}
 }
