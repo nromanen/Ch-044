@@ -23,6 +23,8 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
 				"~/Scripts/WebShop/webshop.js")
 				);
+			bundles.Add(new ScriptBundle("~/bundles/PriceStat").Include("~/Scripts/PriceStat.js",
+				"~/Scripts/Chart.js"));
 
 			bundles.Add(new ScriptBundle("~/Scripts/IteratorPage").Include(
 				"~/Scripts/IteratorPage/IteratorPage.js",

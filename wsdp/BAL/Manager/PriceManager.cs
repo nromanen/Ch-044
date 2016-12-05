@@ -17,6 +17,16 @@ namespace BAL.Manager
 		{
 		}
 
+		public List<PriceHistoryDTO> GetAll()
+		{
+			var prices = new List<PriceHistoryDTO>();
+			foreach (var price in uOW.PriceRepo.All.ToList())
+			{
+				var priceq = uOW.PriceRepo.GetByID(price.Id);
+				prices.Add(Mapper.Map<PriceHistoryDTO>(priceq));
+			}
+			return prices;
+		}
 		public void Insert(PriceHistoryDTO price)
 		{
 			var priceDb = Mapper.Map<PriceHistory>(price);
