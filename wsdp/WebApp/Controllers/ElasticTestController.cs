@@ -44,7 +44,6 @@ namespace WebApp.Controllers
                 ImgLink = "https://www.elastic.co",
                 UrlLink = "https://www.elastic1111.co",
                 Name = "Prsdfdsafdewdsf",
-                NewPrice = 1200,
                 OldPrice = 12000,
                 Price = 12,
                 PropertyValues = propetry
