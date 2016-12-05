@@ -111,16 +111,35 @@ namespace WebApp.Controllers
 		[Authorize(Roles = "Administrator")]
 		public ActionResult EditUsers()
 		{
-			var Users = userManager.GetAll();
 			var Roles = roleManager.GetAll();
-			foreach (var item in Users)
-			{
-				item.Password = new string('*', item.Password.Length);
-			}
-			var CustomView = new UserViewDTO() { Users = Users, Roles = Roles };
+			var CustomView = new UserViewDTO() { Roles = Roles };
 			ModelState.Clear();
 			return View(CustomView);
 		}
+
+		[HttpPost]
+		public ActionResult LoadData()
+		{
+			var draw = Request.Form.GetValues("draw").FirstOrDefault();
+			var start = Request.Form.GetValues("start").FirstOrDefault();
+			var length = Request.Form.GetValues("length").FirstOrDefault();
+			int pageSize = length != null ? Convert.ToInt32(length) : 0;
+			int skip = start != null ? Convert.ToInt32(start) : 0;
+			int totalRecords = 0;
+			var v = (from a in userManager.GetAll() select a);
+			var userList = (from us in roleManager.GetAll() select us);
+			foreach (var item in v)
+			{
+				item.Password = new string('*', item.Password.Length);
+				item.RoleName = userList.Select(i=>i).Where(u=>u.Id==item.RoleId).Select(u=>u.Name).FirstOrDefault();
+			}
+
+
+			totalRecords = v.Count();
+			var data = v.Skip(skip).Take(pageSize).ToList();
+			return Json(new { draw = draw, recordsFiltered = totalRecords, recordsTotal = totalRecords, data = data }, JsonRequestBehavior.AllowGet);		
+		}
+
 		public SecureString ToSecureString(string Source)
 		{
 			if (string.IsNullOrWhiteSpace(Source))

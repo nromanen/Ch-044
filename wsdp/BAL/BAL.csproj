@@ -106,6 +106,7 @@
     <Compile Include="Interface\ICheckGoodManager.cs" />
     <Compile Include="Interface\IDownloadManager.cs" />
     <Compile Include="Interface\IElasticManager.cs" />
+    <Compile Include="Interface\IExecuteManager.cs" />
     <Compile Include="Interface\IFridgeManager.cs" />
     <Compile Include="Interface\IFridgeParseManager.cs" />
     <Compile Include="Interface\IGoodDatabasesWizard.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Interface\ILaptopManager.cs" />
     <Compile Include="Interface\ILaptopParseManager.cs" />
     <Compile Include="Interface\IParserTaskManager.cs" />
+    <Compile Include="Interface\IPriceManager.cs" />
     <Compile Include="Interface\IRoleManager.cs" />
     <Compile Include="Interface\ITapeRecorderManager.cs" />
     <Compile Include="Interface\ITapeRecorderParseManager.cs" />
@@ -130,12 +132,14 @@
     <Compile Include="Manager\CheckGoodManager.cs" />
     <Compile Include="Manager\DownloadManager.cs" />
     <Compile Include="Manager\ElasticManager.cs" />
+    <Compile Include="Manager\ExecuteManager.cs" />
     <Compile Include="Manager\FridgeManager.cs" />
     <Compile Include="Manager\GoodDatabasesWizard.cs" />
     <Compile Include="Manager\GoodManager.cs" />
     <Compile Include="Manager\HtmlValidator.cs" />
     <Compile Include="Manager\LaptopManager.cs" />
     <Compile Include="Manager\ParserTaskManager.cs" />
+    <Compile Include="Manager\PriceManager.cs" />
     <Compile Include="Manager\RoleManager.cs" />
     <Compile Include="Manager\SerializerForGrabber.cs" />
     <Compile Include="Manager\TapeRecorderManager.cs" />

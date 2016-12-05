@@ -19,6 +19,8 @@ namespace DAL
 		private IGenericRepository<WebShop> webShopRepo;
 		private IGenericRepository<Role> roleRepo;
 		private IGenericRepository<ParserTask> parserRepo;
+		private IGenericRepository<PriceHistory> priceRepo;
+		private IGenericRepository<ExecutingInfo> executeRepo;
 
 		#endregion Private Repositories
 
@@ -33,9 +35,19 @@ namespace DAL
 			propertyRepo = new GenericRepository<Property>(context);
 			webShopRepo = new GenericRepository<WebShop>(context);
 			parserRepo = new GenericRepository<ParserTask>(context);
+			priceRepo = new GenericRepository<PriceHistory>(context);
+			executeRepo = new GenericRepository<ExecutingInfo>(context);
 		}
 
 		#region Repositories Getters
+		public IGenericRepository<PriceHistory> PriceRepo
+		{
+			get
+			{
+				if (priceRepo == null) priceRepo = new GenericRepository<PriceHistory>(context);
+				return priceRepo;
+			}
+		}
 
 		public IGenericRepository<Role> RoleRepo
 		{
@@ -97,6 +109,14 @@ namespace DAL
 			{
 				if (parserRepo == null) parserRepo = new GenericRepository<ParserTask>(context);
 				return parserRepo;
+			}
+		}
+
+		public IGenericRepository<ExecutingInfo> ExecuteRepo {
+			get {
+				if (executeRepo == null)
+					executeRepo = new GenericRepository<ExecutingInfo>(context);
+				return executeRepo;
 			}
 		}
 

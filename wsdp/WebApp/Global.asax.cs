@@ -37,7 +37,7 @@ namespace WebApp
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			AutoMapperConfig.Configure();
-			JobScheduler.Start();
+			//JobScheduler.Start();
 		}
 
 		/// <summary>
@@ -48,8 +48,8 @@ namespace WebApp
 			try
 			{
 				var container = new Container();
-                container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
-                container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
+				container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+				container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
 				container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
 				container.Register<IElasticUnitOfWork, ElasticUnitOfWork>(Lifestyle.Scoped);
 				container.Register<IElasticManager, ElasticManager>();
@@ -74,6 +74,8 @@ namespace WebApp
 				container.Register<IGoodManager, GoodManager>();
 				container.Register<IURLManager, URLManager>();
 				container.Register<IHtmlValidator, HtmlValidator>();
+				container.Register<IPriceManager, PriceManager>();
+				container.Register<IExecuteManager, ExecuteManager>();
 				container.Verify();
 				DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
 			}
