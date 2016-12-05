@@ -31,8 +31,8 @@ namespace BAL.Manager
 		{
 			var priceDb = Mapper.Map<PriceHistory>(price);
 			
-			var GoodPrices = uOW.PriceRepo.All.Where(x => x.Url == priceDb.Url && x.Price==price.Price);
-			if(GoodPrices==null)
+			var GoodPrices = uOW.PriceRepo.All.Where(x => x.Url == priceDb.Url && x.Price==price.Price).ToList();
+			if(!GoodPrices.Any())
 			{
 				uOW.PriceRepo.Insert(priceDb);
 				uOW.Save();
