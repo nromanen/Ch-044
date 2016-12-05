@@ -12,6 +12,7 @@ namespace DAL.Interface
 		IGenericRepository<WebShop> WebShopRepo { get; }
 		IGenericRepository<ParserTask> ParserRepo { get; }
 		IGenericRepository<PriceHistory> PriceRepo { get; }
+		IGenericRepository<ExecutingInfo> ExecuteRepo { get; }
 
 		void Dispose();
 
