@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\Category.cs" />
+    <Compile Include="DB\ExecutingInfo.cs" />
     <Compile Include="DB\Good.cs" />
     <Compile Include="DB\PriceHistory.cs" />
     <Compile Include="DB\Property.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DB\User.cs" />
     <Compile Include="DB\WebShop.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\ExecutingInfoDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\GoodDTO.cs" />
     <Compile Include="DTO\GoodViewDTO.cs" />

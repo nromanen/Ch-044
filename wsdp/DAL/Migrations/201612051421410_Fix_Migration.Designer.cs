@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Added_NameofGOod : IMigrationMetadata
+    public sealed partial class Fix_Migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Added_NameofGOod));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Fix_Migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612030938088_Added_NameofGOod"; }
+            get { return "201612051421410_Fix_Migration"; }
         }
         
         string IMigrationMetadata.Source

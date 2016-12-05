@@ -191,17 +191,13 @@
     <Compile Include="Migrations\201612021417160_AddLastChangeForParserTask.Designer.cs">
       <DependentUpon>201612021417160_AddLastChangeForParserTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612021639123_Added_PriceHistory.cs" />
-    <Compile Include="Migrations\201612021639123_Added_PriceHistory.Designer.cs">
-      <DependentUpon>201612021639123_Added_PriceHistory.cs</DependentUpon>
+    <Compile Include="Migrations\201612051421410_Fix_Migration.cs" />
+    <Compile Include="Migrations\201612051421410_Fix_Migration.Designer.cs">
+      <DependentUpon>201612051421410_Fix_Migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612030931010_Fixed_pricehistory.cs" />
-    <Compile Include="Migrations\201612030931010_Fixed_pricehistory.Designer.cs">
-      <DependentUpon>201612030931010_Fixed_pricehistory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612030938088_Added_NameofGOod.cs" />
-    <Compile Include="Migrations\201612030938088_Added_NameofGOod.Designer.cs">
-      <DependentUpon>201612030938088_Added_NameofGOod.cs</DependentUpon>
+    <Compile Include="Migrations\201612051652539_Delete_NewPrice.cs" />
+    <Compile Include="Migrations\201612051652539_Delete_NewPrice.Designer.cs">
+      <DependentUpon>201612051652539_Delete_NewPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -286,14 +282,11 @@
     <EmbeddedResource Include="Migrations\201612021417160_AddLastChangeForParserTask.resx">
       <DependentUpon>201612021417160_AddLastChangeForParserTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612021639123_Added_PriceHistory.resx">
-      <DependentUpon>201612021639123_Added_PriceHistory.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612051421410_Fix_Migration.resx">
+      <DependentUpon>201612051421410_Fix_Migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612030931010_Fixed_pricehistory.resx">
-      <DependentUpon>201612030931010_Fixed_pricehistory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612030938088_Added_NameofGOod.resx">
-      <DependentUpon>201612030938088_Added_NameofGOod.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612051652539_Delete_NewPrice.resx">
+      <DependentUpon>201612051652539_Delete_NewPrice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

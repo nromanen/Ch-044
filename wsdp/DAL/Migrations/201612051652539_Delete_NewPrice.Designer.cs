@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Added_PriceHistory : IMigrationMetadata
+    public sealed partial class Delete_NewPrice : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Added_PriceHistory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Delete_NewPrice));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612021639123_Added_PriceHistory"; }
+            get { return "201612051652539_Delete_NewPrice"; }
         }
         
         string IMigrationMetadata.Source

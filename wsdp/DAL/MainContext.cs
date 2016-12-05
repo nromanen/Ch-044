@@ -25,6 +25,7 @@ namespace DAL
 		public DbSet<Property> Properties { get; set; }
 		public DbSet<ParserTask> ParserTasks { get; set; }
 		public DbSet<PriceHistory> PriceHistory { get; set; }
+		public DbSet<ExecutingInfo> ExecutingInfo { get; set; }
 
 	}
 }
