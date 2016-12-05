@@ -108,6 +108,8 @@ namespace BAL
                     t=>serializer.Serialize(t.PropertyValues)
                     )
                 );
+			CreateMap<PriceHistoryDTO, PriceHistory>();
+			CreateMap<PriceHistory, PriceHistoryDTO>();
 		}
     }
 }

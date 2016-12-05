@@ -74,6 +74,7 @@ namespace WebApp
 				container.Register<IGoodManager, GoodManager>();
 				container.Register<IURLManager, URLManager>();
 				container.Register<IHtmlValidator, HtmlValidator>();
+				container.Register<IPriceManager, PriceManager>();
 				container.Verify();
 				DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
 			}

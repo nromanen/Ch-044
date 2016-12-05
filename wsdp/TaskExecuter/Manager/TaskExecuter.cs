@@ -30,6 +30,7 @@ namespace TaskExecuting.Manager
 		private GoodManager goodManager = null;
 		private URLManager urlManager = null;
 		private HtmlValidator htmlValidator = null;
+		private PriceManager priceManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
 
@@ -233,13 +234,19 @@ namespace TaskExecuting.Manager
 				}
 				catch(Exception ex)
 				{
-
+					logger.Error(ex);
 				}
 
 			}
 			resultGood.Status = true;
 			resultGood.PropertyValues = propertyValues;
-			goodManager.InsertGood(resultGood);
+			goodwizardManager.InsertOrUpdate(resultGood);
+			var newPrice = new PriceHistoryDTO();
+			newPrice.Url = resultGood.UrlLink;
+			newPrice.Price = resultGood.Price;
+			newPrice.Date = DateTime.Now;
+			newPrice.Name = resultGood.Name;
+			priceManager.Insert(newPrice);
 			return resultGood;
 		}
 
