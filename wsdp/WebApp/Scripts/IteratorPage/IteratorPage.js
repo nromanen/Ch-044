@@ -36,8 +36,24 @@ function AddField(btn) {
     input.setAttribute("placeholder", "xpath1, xpath2...");
     input.setAttribute("style", "margin-top:10px;");
     input.setAttribute("name", name);
+    input.setAttribute("required", "required");
 
     document.getElementById("fields").appendChild(input);
 
     EstablishingEvents();
 }
+$(document).ready(function () {
+    
+
+    var inputs = $("#fields input");
+
+    for (var i = 0; i < inputs.length; i++)
+    {
+        var inp = inputs[i];
+        var name = inp.getAttribute("name");
+        var pos = name.indexOf("[");
+        name = name.substring(0, pos);
+
+        inp.setAttribute("name", name);
+    }
+});

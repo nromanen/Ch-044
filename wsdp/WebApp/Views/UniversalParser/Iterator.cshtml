@@ -43,7 +43,7 @@
 
 
 
-        @using (Html.BeginForm("IteratorConfigurations", "UniversalParser", FormMethod.Post, new { }))
+        @using (Html.BeginForm("IteratorConfigurations", "UniversalParser", FormMethod.Post, new { @id="iteratorConf"}))
             {
             <div class="col-md-4">
                 <input type="hidden" name="id" value="@ViewBag.Id" />
@@ -64,9 +64,17 @@
 
                             @Html.Label(Resources.Resource.ItemIterator)
                             <div id="fields">
-                                @for (var i = 0; i < Model.GoodsIteratorXpathes.Count; i++)
+
+                                @if (Model.GoodsIteratorXpathes.Count == 0)
                                 {
-                                    @Html.TextBoxFor(m => m.GoodsIteratorXpathes[i], new { @class = "form-control", @placeholder = "xpath1, xpath2..." })
+                                    @Html.TextBoxFor(m => m.GoodsIteratorXpathes[0], new { @class = "form-control", @placeholder = "xpath1, xpath2...", required = "required" })
+                                }
+                                else
+                                {
+                                    for (var i = 0; i < Model.GoodsIteratorXpathes.Count; i++)
+                                    {
+                                        @Html.TextBoxFor(m => m.GoodsIteratorXpathes[i], new { @class = "form-control", @placeholder = "xpath1, xpath2...", required = "required" })
+                                    }
                                 }
 
                             </div>
@@ -98,14 +106,14 @@
                         <div class="form-group">
 
                             @Html.Label(Resources.Resource.URLMask)
-                            @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control urlmask", @placeholder = "www.some.url/page={n}" })
+                            @Html.TextBoxFor(m => m.UrlMask, new { @class = "form-control urlmask", @placeholder = "www.some.url/page={n}", required = "required" })
 
 
                             @Html.Label(Resources.Resource.From)
-                            @Html.TextBoxFor(m => m.From, new { @class = "form-control", @placeholder = "1" })
+                            @Html.TextBoxFor(m => m.From, new { @class = "form-control", @placeholder = "1", required = "required" })
 
                             @Html.Label(Resources.Resource.To)
-                            @Html.TextBoxFor(m => m.To, new { @class = "form-control", @placeholder = "10" })
+                            @Html.TextBoxFor(m => m.To, new { @class = "form-control", @placeholder = "10", required = "required" })
 
                         </div>
                     </div>

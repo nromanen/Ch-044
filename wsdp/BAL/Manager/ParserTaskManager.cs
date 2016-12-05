@@ -48,6 +48,7 @@ namespace BAL.Manager
 				parsertaskDb.Category = uOW.CategoryRepo.GetByID(parsertaskDb.CategoryId);
 				parsertaskDb.WebShop = uOW.WebShopRepo.GetByID(parsertaskDb.WebShopId);
 				parsertaskDb.Status = Common.Enum.Status.NotFinished;
+                parsertaskDb.LastChange = DateTime.Now;
 				uOW.ParserRepo.Insert(parsertaskDb);
 				uOW.Save();
 				return parsertaskDb.Id;

@@ -86,6 +86,8 @@ namespace WebApp.Controllers {
 
 				if (task.IteratorSettings == null) {
 					task.IteratorSettings = new IteratorSettingsDTO();
+                    task.IteratorSettings.GoodsIteratorXpathes = new List<string>();
+                    task.IteratorSettings.GoodsIteratorXpathes.Add("");
 				}
 				if (iteratorViewModel.Url == null) {
 					iteratorViewModel.Url = URL;
@@ -142,10 +144,12 @@ namespace WebApp.Controllers {
 
 				if (task.GrabberSettings != null) {
 					grabber = task.GrabberSettings;
+                    
 				} else {
 					grabber.Id = id.Value;
-					task.Category = categoryManager.Get(task.CategoryId);
+                    task.Category = categoryManager.Get(task.CategoryId);
 					grabber.PropertyItems = Mapper.Map<List<GrabberPropertyItemDTO>>(task.Category.PropertiesList);
+                    
 				}
 				if(task.IteratorSettings != null) {
 					urlList = urlManager.GetAllUrls(task.IteratorSettings);
