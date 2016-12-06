@@ -97,6 +97,7 @@
     <Compile Include="DTO\PhoneDTO.cs" />
     <Compile Include="DTO\PropertyDTO.cs" />
     <Compile Include="DTO\PropertyViewDTO.cs" />
+    <Compile Include="DTO\TaskInfoDTO.cs" />
     <Compile Include="DTO\TVDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\UserViewDTO.cs" />

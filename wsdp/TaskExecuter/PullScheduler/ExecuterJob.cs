@@ -2,15 +2,11 @@
 using DAL;
 using Quartz;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskExecuting.Manager;
 
 namespace TaskExecuting.Scheduler
 {
-	public class ExecuterJob : IJob
+    public class ExecuterJob : IJob
 	{
 		private UnitOfWork uOw = null;
 		private ParserTaskManager parsermanager = null;

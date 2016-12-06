@@ -428,6 +428,7 @@
     <Content Include="Views\ElasticTest\Index.cshtml" />
     <Content Include="Views\ElasticTest\Add.cshtml" />
     <Content Include="Views\Home\PriceStat.cshtml" />
+    <Content Include="Views\UniversalParser\ExecutingTasks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -463,6 +464,10 @@
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{8ed9bf2d-1ddb-46f0-8d3a-4c967d5f9cf7}</Project>
       <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecuter\TaskExecuting.csproj">
+      <Project>{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}</Project>
+      <Name>TaskExecuting</Name>
     </ProjectReference>
     <ProjectReference Include="..\UnitTests\UnitTests.csproj">
       <Project>{d61e2271-fa26-4f5a-bb03-41891a9cbf3e}</Project>
