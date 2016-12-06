@@ -24,10 +24,9 @@ namespace TaskExecuting.Scheduler
         private static void CreateFactory()
         {
             int countOfThreads = Convert.ToInt32(ConfigurationManager.AppSettings["QuartzCountOfThreads"]);
-
             NameValueCollection properties = new NameValueCollection();
-            properties["quartz.threadPool.threadCount"] = "1";
 
+            properties["quartz.threadPool.threadCount"] = countOfThreads.ToString();
             factory = new StdSchedulerFactory(properties);
         }
 
@@ -78,7 +77,7 @@ namespace TaskExecuting.Scheduler
 			ITrigger trigger = TriggerBuilder.Create()
 				.StartNow()
 					.WithSimpleSchedule(x => x
-						.WithIntervalInSeconds(1)
+						.WithIntervalInSeconds(100)
 						.RepeatForever())
 				.Build();
 

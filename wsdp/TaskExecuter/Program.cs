@@ -22,9 +22,7 @@ namespace TaskExecuting
 		{
             PushJobScheduler.Start();
 
-            TaskExecutingScheduler.SetCountOfThreadsAndRestart(2);
-
-            TaskExecutingScheduler.SetCountOfThreadsAndRestart(2);
+            TaskExecutingScheduler.Start();
 
             //TaskExecuter te = new TaskExecuter();
 

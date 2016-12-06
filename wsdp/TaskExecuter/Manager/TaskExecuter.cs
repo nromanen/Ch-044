@@ -178,12 +178,20 @@ namespace TaskExecuting.Manager
 						imagelink = value.Attributes["src"].Value;
 						break;
 					}
+                    if (imagelink == "")
+                    {
+                        resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
+                    }
+                    else
+                    {
+                        resultGood.ImgLink = imagelink;
+                    }
 				}
-				resultGood.ImgLink = imagelink;
+				
 			}
 			catch (Exception ex)
 			{
-
+                resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
 			}
 
 			resultGood.UrlLink = url;
