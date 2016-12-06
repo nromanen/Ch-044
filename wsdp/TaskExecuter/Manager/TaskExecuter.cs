@@ -45,9 +45,10 @@ namespace TaskExecuting.Manager
 			propmanager = new PropertyManager(uOw);
 			goodManager = new GoodManager(uOw);
 			urlManager = new URLManager(uOw);
-			htmlValidator = new HtmlValidator(); 
+			htmlValidator = new HtmlValidator();
+			priceManager = new PriceManager(uOw);
 			//elasticManager = new ElasticManager(elasticuOw);
-			//goodwizardManager = new GoodDatabasesWizard(elasticManager,goodManager);
+			//goodwizardManager = new GoodDatabasesWizard(elasticuOw,uOw);
 			AutoMapperConfig.Configure();
 		}
 
@@ -240,7 +241,7 @@ namespace TaskExecuting.Manager
 			}
 			resultGood.Status = true;
 			resultGood.PropertyValues = propertyValues;
-			goodwizardManager.InsertOrUpdate(resultGood);
+			goodManager.Insert(resultGood);
 			var newPrice = new PriceHistoryDTO();
 			newPrice.Url = resultGood.UrlLink;
 			newPrice.Price = resultGood.Price;

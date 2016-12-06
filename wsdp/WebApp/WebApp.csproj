@@ -48,6 +48,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BAL\bin\Debug\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
       <Private>True</Private>
@@ -325,8 +329,10 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Frame\IteratorMain.js" />
     <Content Include="Scripts\IteratorPage\IteratorPage.js" />
+    <Content Include="Scripts\PriceStat.js" />
     <Content Include="Scripts\Properties\bootstrap-combobox.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
@@ -421,6 +427,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\ElasticTest\Index.cshtml" />
     <Content Include="Views\ElasticTest\Add.cshtml" />
+    <Content Include="Views\Home\PriceStat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

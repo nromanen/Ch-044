@@ -10,6 +10,7 @@ namespace BAL.Interface
 {
 	public interface IPriceManager
 	{
+		List<PriceHistoryDTO> GetAll();
 		void Insert(PriceHistoryDTO price);
 	}
 }
