@@ -18,5 +18,7 @@ namespace Model.DTO {
 		public string GoodUrl { get; set; }
 
 		public string ErrorMessage { get; set; }
+
+		public DateTime Date { get; set; }
 	}
 }
