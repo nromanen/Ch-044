@@ -94,8 +94,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Manager\TaskExecuter.cs" />
-    <Compile Include="Scheduler\ExecuterJob.cs" />
-    <Compile Include="Scheduler\TaskExecutingScheduler.cs" />
+    <Compile Include="PullScheduler\ExecuterJob.cs" />
+    <Compile Include="PullScheduler\TaskExecutingScheduler.cs" />
+    <Compile Include="PushScheduler\PushJobScheduler.cs" />
+    <Compile Include="PushScheduler\PushJob.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

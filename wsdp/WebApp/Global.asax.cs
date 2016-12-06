@@ -19,7 +19,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using DAL.Elastic;
 using DAL.Elastic.Interface;
-using WebApp.Scheduler;
+
 
 namespace WebApp
 {
@@ -37,7 +37,6 @@ namespace WebApp
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			AutoMapperConfig.Configure();
-			//JobScheduler.Start();
 		}
 
 		/// <summary>
