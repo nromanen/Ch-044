@@ -115,6 +115,7 @@
     <Compile Include="Interface\ILaptopManager.cs" />
     <Compile Include="Interface\ILaptopParseManager.cs" />
     <Compile Include="Interface\IParserTaskManager.cs" />
+    <Compile Include="Interface\IPreviewManager.cs" />
     <Compile Include="Interface\IPriceManager.cs" />
     <Compile Include="Interface\IRoleManager.cs" />
     <Compile Include="Interface\ITapeRecorderManager.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Manager\HtmlValidator.cs" />
     <Compile Include="Manager\LaptopManager.cs" />
     <Compile Include="Manager\ParserTaskManager.cs" />
+    <Compile Include="Manager\PreviewManager.cs" />
     <Compile Include="Manager\PriceManager.cs" />
     <Compile Include="Manager\RoleManager.cs" />
     <Compile Include="Manager\SerializerForGrabber.cs" />
