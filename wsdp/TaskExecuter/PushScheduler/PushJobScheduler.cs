@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApp.Scheduler
+namespace TaskExecuting.PushScheduler
 {
-	public class JobScheduler
+	public class PushJobScheduler
 	{
 		public static void Start()
 		{
 			IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
 			scheduler.Start();
 
-			IJobDetail job = JobBuilder.Create<ParserJob>().Build();
+			IJobDetail job = JobBuilder.Create<PushJob>().Build();
 
 			ITrigger trigger = TriggerBuilder.Create()
 				.StartNow()

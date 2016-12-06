@@ -13,14 +13,14 @@ using BAL.Manager;
 using WebApp.Models;
 using Model.DB;
 
-namespace WebApp.Scheduler
+namespace TaskExecuting.PushScheduler
 {
-	public class ParserJob : IJob
+	public class PushJob : IJob
 	{
 		private UnitOfWork uOw = null;
 		private ParserTaskManager parserManager = null;
 		private URLManager urlManager = null;
-		public ParserJob()
+		public PushJob()
 		{
 			uOw = new UnitOfWork();
 			parserManager = new ParserTaskManager(uOw);
