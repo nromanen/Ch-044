@@ -6,7 +6,6 @@ namespace Model.DTO {
 		public List<string> Name { get; set; }
 		public List<string> Price { get; set; }
 		public List<string> OldPrice { get; set; }
-		public List<string> NewPrice { get; set; }
 		public List<string> ImgLink { get; set; }
 		public List<GrabberPropertyItemDTO> PropertyItems { get; set; }
 		public string urlJsonData { get; set; }

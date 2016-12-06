@@ -16,7 +16,6 @@ namespace Model.DTO
         public bool Status { get; set; }
 		public decimal? Price { get; set; }
 		public decimal? OldPrice { get; set; }
-		public decimal? NewPrice { get; set; }
 
 		public string ImgLink { get; set; }
 

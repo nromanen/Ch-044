@@ -24,7 +24,7 @@ function getPathTo(element) {
     }
 }
 $(document).ready(function () {
-
+    InputSettings();
     $(".body-content").removeClass("container");
     $(".body-content").addClass("container-fluid");
 
@@ -162,8 +162,22 @@ function AddField(btn) {
     input.setAttribute("placeholder", "Click here and get Xpath");
     input.setAttribute("style", "margin-top:10px;");
     input.setAttribute("name", name);
+    input.setAttribute("required", "required");
 
     $(btn).closest(".form-group").children(".fields").append(input);
 
     EstablishingEvents();
+};
+
+function InputSettings() {
+    var inputs = $(".fields input:last");
+
+    for (var i = 0; i < inputs.length; i++) {
+        var inp = inputs[i];
+        var name = inp.getAttribute("name");
+        var pos = name.lastIndexOf("[");
+        name = name.substring(0, pos);
+
+        inp.setAttribute("name", name);
+    }
 };

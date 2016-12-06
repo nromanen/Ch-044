@@ -19,7 +19,9 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
-            TaskExecutingScheduler.Start();
+            TaskExecutingScheduler.SetCountOfThreadsAndRestart(2);
+
+            TaskExecutingScheduler.SetCountOfThreadsAndRestart(2);
 
             //TaskExecuter te = new TaskExecuter();
 
