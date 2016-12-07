@@ -17,13 +17,15 @@ namespace WebApp.Controllers {
 		private IWebShopManager shopManager;
 		private IParserTaskManager parserTaskManager;
         private IURLManager urlManager;
+        private IExecuteManager taskinfoManager;
 
-		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager) {
+		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager,IExecuteManager taskinfoManager) {
 			this.downloadManager = downloadManager;
 			this.categoryManager = categoryManager;
 			this.shopManager = shopManager;
 			this.parserTaskManager = parsertaskManager;
             this.urlManager = urlManager;
+            this.taskinfoManager = taskinfoManager;
 		}
 		// GET: Index - list of all parser tasks
 		[Authorize(Roles = "Administrator")]
@@ -211,11 +213,19 @@ namespace WebApp.Controllers {
         [HttpGet]
         public ActionResult ExecutingTasks()
         {
-            TaskInformation ti = new TaskInformation();
+            List<ExecutingInfoDTO> taskinfoes = taskinfoManager.GetAll().Where(c => c.Status == Common.Enum.ExecuteStatus.Executing).ToList();
 
-            var tasks = ti.GetTasks();
+            return View(taskinfoes);
+        }
 
-            return View(tasks);
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult GetExecutingInfo()
+        {
+            List<ExecutingInfoDTO> taskinfoes = taskinfoManager.GetAll().Where(c => c.Status == Common.Enum.ExecuteStatus.Executing).ToList();
+
+            return Json(new { success = true, taskinfoes = taskinfoes.ToArray() },
+             JsonRequestBehavior.AllowGet);
         }
         
 	}

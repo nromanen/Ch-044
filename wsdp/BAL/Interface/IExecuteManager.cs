@@ -8,7 +8,7 @@ using Model.DTO;
 
 namespace BAL.Interface {
 	public interface IExecuteManager {
-		void Insert(ExecutingInfoDTO info);
+		int Insert(ExecutingInfoDTO info);
 
 		void Update(ExecutingInfoDTO info);
 

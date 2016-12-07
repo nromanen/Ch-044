@@ -50,6 +50,9 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 				"~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/executing_tasks").Include(
+                    "~/Scripts/ExecutingTasks/dynamic_update.js"));
+
 			
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap-select").Include(

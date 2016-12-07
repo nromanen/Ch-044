@@ -330,6 +330,7 @@
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.min.js" />
     <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\ExecutingTasks\dynamic_update.js" />
     <Content Include="Scripts\Frame\IteratorMain.js" />
     <Content Include="Scripts\IteratorPage\IteratorPage.js" />
     <Content Include="Scripts\PriceStat.js" />

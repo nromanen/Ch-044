@@ -20,6 +20,11 @@ namespace TaskExecuting.LogStorage
             return ExecutingTasks;
         }
 
+        public void SetList(List<TaskInfoDTO> list)
+        {
+            ExecutingTasks = list;
+        }
+
         internal void AddExecutingTask(TaskInfoDTO taskinfo)
         {
             if (ExecutingTasks == null)

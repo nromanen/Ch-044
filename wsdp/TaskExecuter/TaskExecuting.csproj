@@ -113,7 +113,6 @@
     <ProjectReference Include="..\BAL\BAL.csproj">
       <Project>{08810ae4-eafe-4d1c-baa0-e082817f290f}</Project>
       <Name>BAL</Name>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{f2d491d6-8d33-40b0-a19c-804134a6ec07}</Project>

@@ -1,4 +1,4 @@
-﻿@model List<Model.DTO.TaskInfoDTO>
+﻿@model List<Model.DTO.ExecutingInfoDTO>
 @{
     ViewBag.Title = "ExecutingTasks";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,17 +17,26 @@
         </div>
     </div>
 
-    @foreach (var task in Model)
-    {
-        <div class="row">
-            <div class="col-xs-2">
-                <b>@task.ParserTaskId</b>
+    <div id="executinginfoes">
+        @foreach (var task in Model)
+        {
+            <div class="row">
+                <div class="col-xs-2">
+                    <b>@task.ParserTaskId</b>
+                </div>
+                <div class="col-xs-8">
+                    <span class="text-muted">@task.GoodUrl</span>
+                </div>
+                <div class="col-xs-2">
+                    <span class="text-muted">@task.Date</span>
+                </div>
             </div>
-            <div class="col-xs-10">
-                <span class="text-muted">@task.Url</span>
-            </div>
-        </div>
-    }
+        }
+    </div>
+
 </div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/executing_tasks")
 
 

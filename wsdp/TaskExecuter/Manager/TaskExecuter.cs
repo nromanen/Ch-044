@@ -27,6 +27,7 @@ namespace TaskExecuting.Manager
 		private URLManager urlManager = null;
 		private HtmlValidator htmlValidator = null;
 		private PriceManager priceManager = null;
+        private ExecuteManager taskinfoManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
 
@@ -45,6 +46,7 @@ namespace TaskExecuting.Manager
 			priceManager = new PriceManager(uOw);
 			//elasticManager = new ElasticManager(elasticuOw);
 			//goodwizardManager = new GoodDatabasesWizard(elasticuOw,uOw);
+            taskinfoManager = new ExecuteManager(uOw);
 			AutoMapperConfig.Configure();
 		}
 
@@ -61,14 +63,15 @@ namespace TaskExecuting.Manager
 			HtmlDocument doc = null;
 
             //adding to local log storage
-            TaskInformation ti = new TaskInformation();
-            ti.AddExecutingTask(new TaskInfoDTO()
+            ExecutingInfoDTO taskinfo = new ExecutingInfoDTO()
             {
-                ParserTaskId = parsertaskid,
-                Url = url
-            });
+                GoodUrl = url,
+                Status = ExecuteStatus.Executing,
+                Date = DateTime.Now,
+                ParserTaskId = parsertaskid
+            };
 
-
+            taskinfo.Id = taskinfoManager.Insert(taskinfo);
 
             //getting page souce due to method
 			string pageSource = "";
@@ -265,7 +268,7 @@ namespace TaskExecuting.Manager
 			priceManager.Insert(newPrice);
 
             //deleting from local log storage
-            //ti.DeleteExecutingTaskByUrl(url);
+            taskinfoManager.Delete(taskinfo);
             return resultGood;
 		}
 

@@ -17,6 +17,7 @@ namespace TaskExecuting.Scheduler
 		}
 		public void Execute(IJobExecutionContext context)
 		{
+           
 			TaskExecuter te = new TaskExecuter();
 			TaskGetter tg = new TaskGetter();
 
