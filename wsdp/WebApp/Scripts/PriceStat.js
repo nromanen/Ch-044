@@ -38,8 +38,8 @@
 			};
 
 			var ctx = $("#priceStat").get(0).getContext('2d');
-			ctx.canvas.height = 300;  // setting height of canvas
-			ctx.canvas.width = 500; // setting width of canvas
+			ctx.canvas.height = 400;  // setting height of canvas
+			ctx.canvas.width = 800; // setting width of canvas
 			var lineChart = new Chart(ctx).Line(data, {
 				bezierCurve: false
 			});

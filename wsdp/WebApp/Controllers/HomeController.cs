@@ -81,13 +81,22 @@ namespace WebApp.Controllers
 			var lst_dataItem_1 = new List<decimal?>();
 			var labels_q = priceManager.GetAll().Where(i => i.Url == url_one && i.Date.Year.ToString() == year).Select(i => i.Date).
 			OrderBy(x => x.Month).ThenBy(x=>x.Day).
-			Select(m => m.Date.ToString("dd.MM.yyyy")).Distinct().ToList();	
+			Select(m => m.Date.ToString("dd/MM/yyyy")).Distinct().ToList();	
 			var price_lst = priceManager.GetAll().Where(i => i.Url == url_one && i.Date.Year.ToString() == year).Select(i => i.Price).ToList();
-			if(price_lst.Count==1 && labels_q.Count==1)
+			if (price_lst.Count == 1 && labels_q.Count == 1)
 			{
+				var dd_n = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day).ToString("dd/MM/yyyy");
+				var curr_p = price_lst[0];
+				lst_dataItem_1.Add(curr_p);
+				labels.AddRange(labels_q);
+				labels.Add(dd_n);
+				lst_dataItem_1.AddRange(price_lst);
 			}
-			lst_dataItem_1.AddRange(price_lst);
-			labels.AddRange(labels_q);
+			else
+			{
+				lst_dataItem_1.AddRange(price_lst);
+				labels.AddRange(labels_q);
+			}
 			iData.Add(labels);
 			iData.Add(lst_dataItem_1);
 
