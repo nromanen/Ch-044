@@ -27,6 +27,7 @@ namespace TaskExecuting.Manager
 		private URLManager urlManager = null;
 		private HtmlValidator htmlValidator = null;
 		private PriceManager priceManager = null;
+        private ExecuteManager executeManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
 
 
@@ -43,6 +44,7 @@ namespace TaskExecuting.Manager
 			urlManager = new URLManager(uOw);
 			htmlValidator = new HtmlValidator();
 			priceManager = new PriceManager(uOw);
+            executeManager = new ExecuteManager(uOw);
 			//elasticManager = new ElasticManager(elasticuOw);
 			//goodwizardManager = new GoodDatabasesWizard(elasticuOw,uOw);
 			AutoMapperConfig.Configure();
