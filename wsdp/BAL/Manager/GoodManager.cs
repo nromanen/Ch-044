@@ -14,6 +14,7 @@ namespace BAL.Manager
         public GoodManager(IUnitOfWork uOW) : base(uOW)
         {
         }
+        
 
         public void InsertGood(GoodDTO good)
         {
@@ -46,6 +47,7 @@ namespace BAL.Manager
         /// <returns></returns>
         public GoodDTO Insert(GoodDTO good)
         {
+            if (good.ImgLink == null) good.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
             var goodDb = Mapper.Map<Good>(good);
             goodDb.Status = true;
             var res = uOW.GoodRepo.Insert(goodDb);

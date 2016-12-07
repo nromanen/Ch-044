@@ -30,6 +30,7 @@ namespace BAL.Manager
 
         public void InsertOrUpdate(GoodDTO good)
         {
+            if (good.ImgLink == null) good.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
             var goodDb = Mapper.Map<Good>(good);
             goodDb.Status = true;
             var request = sqlUnitOfWork.GoodRepo.All.FirstOrDefault(x => x.UrlLink == goodDb.UrlLink);
@@ -106,6 +107,22 @@ namespace BAL.Manager
             {
                 Logger.Error(ex.Message);
             }
+        }
+
+        public GoodDTO Get(int id, bool IsElastic = false)
+        {
+            GoodDTO result = null;
+            if (!IsElastic)
+            {
+                var good = sqlUnitOfWork.GoodRepo.GetByID(id);
+                if (good == null) return null;
+                result = Mapper.Map<GoodDTO>(good);
+
+                result.Category = Mapper.Map<CategoryDTO>(sqlUnitOfWork.CategoryRepo.GetByID(result.Category_Id));
+
+                result.WebShop = Mapper.Map<WebShopDTO>(sqlUnitOfWork.WebShopRepo.GetByID(result.WebShop_Id));                
+            }
+            return result;
         }
     }
 }

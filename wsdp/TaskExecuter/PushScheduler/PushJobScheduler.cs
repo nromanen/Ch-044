@@ -13,7 +13,7 @@ namespace TaskExecuting.PushScheduler
 			ITrigger trigger = TriggerBuilder.Create()
 				.StartNow()
 					.WithSimpleSchedule(x => x
-						.WithIntervalInSeconds(10)
+						.WithIntervalInSeconds(100)
 						.RepeatForever())
 				.Build();
 

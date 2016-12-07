@@ -1,0 +1,117 @@
+﻿@model Model.DTO.GoodViewModelDTO
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/PhoneStylesheet")
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="" style="color:#555; text-align:center; padding-bottom:25px; border-bottom:1px dashed #CCC;">
+                <h2>@Model.Good.Name</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="material-design-block vcenter" style="min-height:482px;">
+                <div class="" style="margin:0 auto;">
+                    <p>
+                        <img src="@Model.Good.ImgLink" alt="" class="img-responsive" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="material-design-block pre-scrollable" style="max-height:483px;">
+                <h4><span class="glyphicon glyphicon-book"></span>[Description]</h4>
+                <p>
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row material-design-block">
+        <div class="">
+            <div class="col-xs-12 table-responsive pre-scrollable">
+                <h4><span class="glyphicon glyphicon-cog"></span>[Characterisctics]</h4>
+                <table class="table table-striped table-hover">
+                    <tbody>
+                        @{
+                            foreach (var nameCh in Model.Good.PropertyValues.DictStringProperties)
+                            {
+                                <tr>
+                                    <td style="width:50%;">
+                                        <b>
+                                            @nameCh.Key
+                                        </b>
+                                    </td>
+                                    <td>
+                                        @nameCh.Value
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row material-design-block add-information-phone" style="font-size:18px;">
+        @*<div class="">
+                <div class="col-xs-6 col-sm-2">
+                    <b>Shop</b>: @Model.W
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <b>Producer</b>: @Model.Producer.Name
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <b>Price</b>: @Model.Price
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a class="btn btn-success" href="@Model.Link">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Redirect to shop
+                    </a>
+                </div>
+            </div>*@
+
+        <div>
+            <h2 class="text-center">All Offers</h2>
+
+            @foreach (var offer in Model.SimilarOffers)
+            {
+                <div class="row">
+                    <div class="col-xs-6 col-sm-2">
+                        <b>Shop</b>: @*@offer.WebShop.Name*@
+                    </div>
+                    <div class="col-xs-6 col-sm-4">
+                        <b>Discount</b>: @{
+                            if (offer.OldPrice != null)
+                            {
+                                <b class="text-danger"> YES </b>
+                            }
+                            else
+                            {
+                                <b class="text-danger"> NO </b>
+                            }
+
+                        }
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <b>Price</b>: @offer.Price
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a class="btn btn-success" href="@offer.UrlLink">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            Redirect to shop
+                        </a>
+                    </div>
+                </div>
+                            }
+        </div>
+    </div>
+</div>

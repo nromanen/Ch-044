@@ -83,6 +83,7 @@
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\GoodDTO.cs" />
     <Compile Include="DTO\GoodViewDTO.cs" />
+    <Compile Include="DTO\GoodViewModelDTO.cs" />
     <Compile Include="DTO\GrabberSettingsDTO.cs" />
     <Compile Include="DTO\GraberPropertyItemDTO.cs" />
     <Compile Include="DTO\IndexViewDTO.cs" />

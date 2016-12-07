@@ -20,9 +20,11 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
-            PushJobScheduler.Start();
 
             TaskExecutingScheduler.Start();
+
+            PushJobScheduler.Start();
+
 
             //TaskExecuter te = new TaskExecuter();
 
