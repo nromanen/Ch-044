@@ -45,5 +45,15 @@ namespace BAL.Manager
         {
             return elasticUOW.Repository.GetAll();
         }
+
+        public IList<GoodDTO> Get(string value)
+        {
+            return elasticUOW.Repository.Get(value);
+        }
+
+        public IList<GoodDTO> GetByName(string name)
+        {
+            return elasticUOW.Repository.GetByName(name);
+        } 
     }
 }
