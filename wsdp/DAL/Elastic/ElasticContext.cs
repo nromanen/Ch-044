@@ -102,7 +102,7 @@ namespace DAL.Elastic
         public IList<GoodDTO> GetByNameHard(string name)
         {
             return client
-                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("name").Value(name))))
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("Name").Value(name))))
                 .Hits
                 .Select(x => x.Source)
                 .ToList();
