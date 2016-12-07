@@ -12,61 +12,61 @@ namespace TaskExecuting.Scheduler
 {
 	public class TaskExecutingScheduler
 	{
-        private static ISchedulerFactory factory;
-        private static IScheduler scheduler;
+		private static ISchedulerFactory factory;
+		private static IScheduler scheduler;
 
-        static TaskExecutingScheduler()
-        {
-            CreateFactory();
-            CreateScheduler();
-        }
+		static TaskExecutingScheduler()
+		{
+			CreateFactory();
+			CreateScheduler();
+		}
 
-        private static void CreateFactory()
-        {
-            int countOfThreads = Convert.ToInt32(ConfigurationManager.AppSettings["QuartzCountOfThreads"]);
+		private static void CreateFactory()
+		{
+			int countOfThreads = Convert.ToInt32(ConfigurationManager.AppSettings["QuartzCountOfThreads"]);
 
-            NameValueCollection properties = new NameValueCollection();
-            properties["quartz.threadPool.threadCount"] = "1";
+			NameValueCollection properties = new NameValueCollection();
+			properties["quartz.threadPool.threadCount"] = "1";
 
-            factory = new StdSchedulerFactory(properties);
-        }
+			factory = new StdSchedulerFactory(properties);
+		}
 
-        private static void CreateScheduler()
-        {
-            scheduler = factory.GetScheduler();
-        }
+		private static void CreateScheduler()
+		{
+			scheduler = factory.GetScheduler();
+		}
 
-        public static void SetCountOfThreadsAndRestart(int count)
-        {
-            //ConfigurationManager.AppSettings.Set("QuartzCountOfThreads", count.ToString());
-            //ConfigurationManager.AppSettings.Add("QuartzCountOfThreads",count.ToString());
-            try
-            {
-                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var settings = configFile.AppSettings.Settings;
-                if (settings["QuartzCountOfThreads"] == null)
-                {
-                    settings.Add("QuartzCountOfThreads", count.ToString());
-                }
-                else
-                {
-                    settings["QuartzCountOfThreads"].Value = count.ToString();
-                }
-                configFile.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection("appSettings");
-            }
-            catch (ConfigurationErrorsException)
-            {
-                Console.WriteLine("Error writing app settings");
-            }
+		public static void SetCountOfThreadsAndRestart(int count)
+		{
+			//ConfigurationManager.AppSettings.Set("QuartzCountOfThreads", count.ToString());
+			//ConfigurationManager.AppSettings.Add("QuartzCountOfThreads",count.ToString());
+			try
+			{
+				var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+				var settings = configFile.AppSettings.Settings;
+				if (settings["QuartzCountOfThreads"] == null)
+				{
+					settings.Add("QuartzCountOfThreads", count.ToString());
+				}
+				else
+				{
+					settings["QuartzCountOfThreads"].Value = count.ToString();
+				}
+				configFile.Save(ConfigurationSaveMode.Modified);
+				ConfigurationManager.RefreshSection("appSettings");
+			}
+			catch (ConfigurationErrorsException)
+			{
+				Console.WriteLine("Error writing app settings");
+			}
 
-            scheduler.Shutdown();
+			scheduler.Shutdown();
 
-            CreateFactory();
-            CreateScheduler();
+			CreateFactory();
+			CreateScheduler();
 
-            Start();
-        }
+			Start();
+		}
 
 
 		public static void Start()
