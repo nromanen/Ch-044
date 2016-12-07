@@ -1,25 +1,21 @@
 ﻿using BAL;
-using BAL.Interface;
 using BAL.Manager;
 using DAL;
-using Common;
 using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskExecuting.Interface;
 using Common.Enum;
 using SiteProcessor;
 using HtmlAgilityPack;
 using log4net;
-using System.IO;
 using DAL.Elastic;
+using TaskExecuting.LogStorage;
 
 namespace TaskExecuting.Manager
 {
-	public class TaskExecuter : ITaskExecuter
+    public class TaskExecuter : ITaskExecuter
 	{
 		private UnitOfWork uOw = null;
 		private ElasticUnitOfWork elasticuOw = null;
@@ -63,6 +59,18 @@ namespace TaskExecuting.Manager
 			//downloading page source using tor+phantomjs
 			ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
 			HtmlDocument doc = null;
+
+            //adding to local log storage
+            TaskInformation ti = new TaskInformation();
+            ti.AddExecutingTask(new TaskInfoDTO()
+            {
+                ParserTaskId = parsertaskid,
+                Url = url
+            });
+
+
+
+            //getting page souce due to method
 			string pageSource = "";
 			try
 			{
@@ -80,7 +88,7 @@ namespace TaskExecuting.Manager
 						break;
 				}
 
-				//pageSource = htmlValidator.CheckHtml(pageSource);
+				pageSource = htmlValidator.CheckHtml(pageSource);
 
 				doc = new HtmlDocument();
 				doc.LoadHtml(pageSource);
@@ -135,7 +143,7 @@ namespace TaskExecuting.Manager
 				}
 				if (price!="")
 				{
-					resultGood.Price = Convert.ToDecimal(this.RemoveAllFigures(price));
+					resultGood.Price = Convert.ToDecimal(this.RemoveAllLetters(price));
 				}
 				
 			}
@@ -158,7 +166,7 @@ namespace TaskExecuting.Manager
 				}
 				if (oldPrice != "")
 				{
-					resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllFigures(oldPrice));
+					resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllLetters(oldPrice));
 				}
 				
 			}
@@ -178,16 +186,23 @@ namespace TaskExecuting.Manager
 						imagelink = value.Attributes["src"].Value;
 						break;
 					}
+                    if (imagelink == "")
+                    {
+                        resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
+                    }
+                    else
+                    {
+                        resultGood.ImgLink = imagelink;
+                    }
 				}
-				resultGood.ImgLink = imagelink;
+				
 			}
 			catch (Exception ex)
 			{
-
+                resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
 			}
 
 			resultGood.UrlLink = url;
-
 			PropertyValuesDTO propertyValues = new PropertyValuesDTO();
 			propertyValues.DictDoubleProperties = new Dictionary<int, double>();
 			propertyValues.DictIntProperties = new Dictionary<int, int>();
@@ -248,10 +263,19 @@ namespace TaskExecuting.Manager
 			newPrice.Date = DateTime.Now;
 			newPrice.Name = resultGood.Name;
 			priceManager.Insert(newPrice);
-			return resultGood;
+
+            //deleting from local log storage
+            //ti.DeleteExecutingTaskByUrl(url);
+            return resultGood;
 		}
 
-		private string RemoveAllFigures(string value)
+
+        /// <summary>
+        /// Remove from strings all letters. Maken for correct parsing decimal values
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+		private string RemoveAllLetters(string value)
 		{
 			char[] arr = value.ToArray().Where(c => char.IsDigit(c) || c == '.').Select(c => c).ToArray();
 			return new string(arr);

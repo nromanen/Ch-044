@@ -23,5 +23,8 @@ namespace Model.DB {
 		public string GoodUrl { get; set; }
 
 		public string ErrorMessage { get; set; }
+
+		[Required]
+		public DateTime Date { get; set; }
 	}
 }

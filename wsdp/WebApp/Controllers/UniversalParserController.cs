@@ -7,6 +7,7 @@ using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
 using Newtonsoft.Json;
+using TaskExecuting.LogStorage;
 
 namespace WebApp.Controllers {
 	[Authorize]
@@ -205,5 +206,17 @@ namespace WebApp.Controllers {
 			parserTaskManager.Update(_task);
 			return RedirectToAction("Index", "UniversalParser");
 		}
+
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult ExecutingTasks()
+        {
+            TaskInformation ti = new TaskInformation();
+
+            var tasks = ti.GetTasks();
+
+            return View(tasks);
+        }
+        
 	}
 }

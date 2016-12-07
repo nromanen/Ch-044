@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Model.DTO.ExecutingInfoDTO>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    [Status]
+                </th>
+                <th>
+                    [Date]
+                </th>
+                <th>
+                    [Parser task]
+                </th>
+                <th>
+                    [Good url]
+                </th>
+                <th>
+                    [Error info]
+                </th>
+            </tr>
+
+            </thead>
+            <tbody>
+            
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @item.Date
+                    </td>
+                    <td>
+                        @item.ParserTaskId
+                    </td>
+                    <td>
+                        @item.GoodUrl
+                    </td>
+                    <td>
+                        @item.ErrorMessage
+                    </td>
+                </tr>
+            }
+
+            </tbody>      
+        </table>
+    </div>
+</div>
+

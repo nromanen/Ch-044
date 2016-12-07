@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskExecuting.Interface;
 using TaskExecuting.Manager;
+using TaskExecuting.PushScheduler;
 using TaskExecuting.Scheduler;
 
 namespace TaskExecuting
@@ -19,9 +20,9 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
-            TaskExecutingScheduler.SetCountOfThreadsAndRestart(2);
+            PushJobScheduler.Start();
 
-            TaskExecutingScheduler.SetCountOfThreadsAndRestart(2);
+            TaskExecutingScheduler.Start();
 
             //TaskExecuter te = new TaskExecuter();
 

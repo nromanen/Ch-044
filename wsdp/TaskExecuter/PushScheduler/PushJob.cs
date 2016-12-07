@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Quartz;
 using RabbitMQ.Client;
 using System.Text;
-using Model.DTO;
 using System.Web.Script.Serialization;
-using BAL.Interface;
 using DAL;
 using BAL.Manager;
-using WebApp.Models;
-using Model.DB;
+using TaskExecuting.Models;
 
-namespace WebApp.Scheduler
+namespace TaskExecuting.PushScheduler
 {
-	public class ParserJob : IJob
+    public class PushJob : IJob
 	{
 		private UnitOfWork uOw = null;
 		private ParserTaskManager parserManager = null;
 		private URLManager urlManager = null;
-		public ParserJob()
+		public PushJob()
 		{
 			uOw = new UnitOfWork();
 			parserManager = new ParserTaskManager(uOw);
