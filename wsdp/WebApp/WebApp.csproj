@@ -280,6 +280,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ElasticTestController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExecutingInfoController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -429,6 +430,7 @@
     <Content Include="Views\ElasticTest\Add.cshtml" />
     <Content Include="Views\Home\PriceStat.cshtml" />
     <Content Include="Views\UniversalParser\ExecutingTasks.cshtml" />
+    <Content Include="Views\ExecutingInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
