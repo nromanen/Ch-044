@@ -14,6 +14,7 @@ namespace BAL.Interface
         void Update(GoodDTO good);
         void Delete(GoodDTO good);
         void Insert(GoodDTO good);
-
+        IList<GoodDTO> GetByName(string name);
+        IList<GoodDTO> Get(string value);
     }
 }

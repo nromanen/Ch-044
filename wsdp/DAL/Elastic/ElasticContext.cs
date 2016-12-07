@@ -78,6 +78,8 @@ namespace DAL.Elastic
             return count;
         }
 
+        #region select queries
+
         public IList<GoodDTO> GetByIdUrl(string url)
         {
             return client
@@ -95,7 +97,27 @@ namespace DAL.Elastic
                 .Hits
                 .Select(x=>x.Source)
                 .ToList();
+        }
+
+        public IList<GoodDTO> GetByNameHard(string name)
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("name").Value(name))))
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
+        }
+
+        public IList<GoodDTO> Get(string value)
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("value"))))
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
         } 
+
+        #endregion
         private void Insert(GoodDTO item)
         {
             client.Index(item);
@@ -136,6 +158,7 @@ namespace DAL.Elastic
             }
         }
 
+        
 
     }
 }

@@ -17,7 +17,7 @@ namespace DAL.Elastic
         {
             this.context = context;
         }
-        
+
         public void Insert(GoodDTO item)
         {
             context.AddOperation(item, CRUD.Insert);
@@ -25,12 +25,12 @@ namespace DAL.Elastic
 
         public void Delete(GoodDTO item)
         {
-            context.AddOperation(item,CRUD.Remove);
+            context.AddOperation(item, CRUD.Remove);
         }
 
         public void Update(GoodDTO item)
         {
-            context.AddOperation(item,CRUD.Update);
+            context.AddOperation(item, CRUD.Update);
         }
 
         public GoodDTO GetByUrlId(string url)
@@ -42,6 +42,19 @@ namespace DAL.Elastic
         {
             return context.GetAll();
         }
+
+        public IList<GoodDTO> GetByName(string name)
+        {
+            return context.GetByNameHard(name);
+        }
+
+        public IList<GoodDTO> Get(string value)
+        {
+            return context.Get(value);
+        }
+
+
+
 
     }
 }
