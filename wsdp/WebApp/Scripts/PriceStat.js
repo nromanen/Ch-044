@@ -1,7 +1,7 @@
-﻿$(document).ready(function () {
-	$("#btn_line_chart").on('click', function () {
-		var mb_one = $("#ddl_one").val();
-		var getYear = $("#ddlYear").val();
+﻿function DrawChart (url) {
+    var mb_one = url;
+	    var currentDate = new Date();
+	    var getYear = currentDate.getFullYear();
  
 		var jsonData = JSON.stringify({
 			url_one: mb_one,
@@ -27,19 +27,19 @@
 				labels: aLabels,
 				datasets: [{
 					label: "My dataset",
-					fillColor: "rgba(220,220,220,0.2)",
-					strokeColor: "rgba(220,220,220,1)",
-					pointColor: "rgba(220,220,220,1)",
+					fillColor: "rgba(228,247,243,0.2)",
+					strokeColor: "rgba(228,247,243,1)",
+					pointColor: "rgba(228,247,243,1)",
 					pointStrokeColor: "#fff",
 					pointHighlightFill: "#fff",
-					pointHighlightStroke: "rgba(220,220,220,1)",
+					pointHighlightStroke: "rgba(228,247,243,1)",
 					data: aDatasets1
 				}]
 			};
 
 			var ctx = $("#priceStat").get(0).getContext('2d');
-			ctx.canvas.height = 400;  // setting height of canvas
-			ctx.canvas.width = 800; // setting width of canvas
+			ctx.canvas.height = 300;  // setting height of canvas
+			ctx.canvas.width = 300; // setting width of canvas
 			var lineChart = new Chart(ctx).Line(data, {
 				bezierCurve: false
 			});
@@ -47,6 +47,4 @@
 		function OnErrorCall_(repo) {
 			console.log("error");
 		}
-	});
-
-});
+	}
