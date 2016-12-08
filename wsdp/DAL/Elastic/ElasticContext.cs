@@ -120,7 +120,7 @@ namespace DAL.Elastic
         #endregion
         private void Insert(GoodDTO item)
         {
-            client.Index(item);
+            client.Index(item, i=>i.Refresh());
         }
 
         private bool Update(GoodDTO item)
@@ -129,7 +129,7 @@ namespace DAL.Elastic
             var list = GetByIdUrl(item.UrlLink);
 
             if (!list.Any()) return false;
-            client.Index(item, i => i.Id(item.UrlLink));
+            client.Index(item, i => i.Id(item.UrlLink).Refresh());
             return true;
         }
 
@@ -154,7 +154,7 @@ namespace DAL.Elastic
             if (!list.Any()) return;
             foreach (var good in list)
             {
-                client.Delete<GoodDTO>(good.UrlLink);
+                client.Delete<GoodDTO>(good.UrlLink,i=>i.Refresh());
             }
         }
 
