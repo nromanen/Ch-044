@@ -13,7 +13,7 @@ namespace Model.DB
 		public string Name { get; set; }
 
 		public decimal? Price { get; set; }
-		[Required]
+
 		public string ImgLink { get; set; }
 
 		[Required]

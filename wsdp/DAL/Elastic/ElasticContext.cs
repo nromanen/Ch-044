@@ -80,6 +80,15 @@ namespace DAL.Elastic
 
         #region select queries
 
+        public IList<GoodDTO> GetByCategoryId(string category)
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("Category_Id")
+                .Value(category))))
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
+        }
         public IList<GoodDTO> GetByIdUrl(string url)
         {
             return client

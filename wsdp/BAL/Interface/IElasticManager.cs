@@ -12,5 +12,6 @@ namespace BAL.Interface
         void Insert(GoodDTO good);
         IList<GoodDTO> GetByName(string name);
         IList<GoodDTO> Get(string value);
+        IList<GoodDTO> GetByCategoryId(string category);
     }
 }
