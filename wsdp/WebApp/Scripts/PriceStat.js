@@ -27,19 +27,19 @@
 				labels: aLabels,
 				datasets: [{
 					label: "My dataset",
-					fillColor: "rgba(228,247,243,0.2)",
-					strokeColor: "rgba(228,247,243,1)",
-					pointColor: "rgba(228,247,243,1)",
+					fillColor: "rgba(24,188,156,0.2)",
+					strokeColor: "rgba(24,188,156,1)",
+					pointColor: "rgba(24,188,156,1)",
 					pointStrokeColor: "#fff",
 					pointHighlightFill: "#fff",
-					pointHighlightStroke: "rgba(228,247,243,1)",
+					pointHighlightStroke: "rgba(24,188,156,1)",
 					data: aDatasets1
 				}]
 			};
 
 			var ctx = $("#priceStat").get(0).getContext('2d');
-			ctx.canvas.height = '300px';  // setting height of canvas
-			ctx.canvas.width = '300px'; // setting width of canvas
+			//ctx.canvas.height = '300px';  // setting height of canvas
+			//ctx.canvas.width = '300px'; // setting width of canvas
 			var lineChart = new Chart(ctx).Line(data, {
 				bezierCurve: true
 			});
