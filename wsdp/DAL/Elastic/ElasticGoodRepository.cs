@@ -33,6 +33,10 @@ namespace DAL.Elastic
             context.AddOperation(item, CRUD.Update);
         }
 
+        public IList<GoodDTO> GetByCategoryId(string category)
+        {
+            return context.GetByCategoryId(category);
+        }
         public GoodDTO GetByUrlId(string url)
         {
             return context.GetByIdUrl(url).FirstOrDefault();
