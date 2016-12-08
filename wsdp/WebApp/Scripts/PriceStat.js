@@ -38,10 +38,10 @@
 			};
 
 			var ctx = $("#priceStat").get(0).getContext('2d');
-			ctx.canvas.height = 300;  // setting height of canvas
-			ctx.canvas.width = 300; // setting width of canvas
+			ctx.canvas.height = '300px';  // setting height of canvas
+			ctx.canvas.width = '300px'; // setting width of canvas
 			var lineChart = new Chart(ctx).Line(data, {
-				bezierCurve: false
+				bezierCurve: true
 			});
 		}
 		function OnErrorCall_(repo) {

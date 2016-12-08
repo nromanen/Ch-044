@@ -29,7 +29,7 @@ namespace TaskExecuting.Manager
 		private PriceManager priceManager = null;
         private ExecuteManager taskinfoManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
-
+        static bool isStarted;
 
 		/// <summary>
 		/// Initializating managers and uOw
@@ -58,8 +58,13 @@ namespace TaskExecuting.Manager
 		/// <returns>New parsed GoodDTO</returns>
 		public GoodDTO ExecuteTask(int parsertaskid, string url)
 		{
-			//downloading page source using tor+phantomjs
-			ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
+            //clearing previous logs
+            if (!isStarted)
+                taskinfoManager.DeleteByStatus(ExecuteStatus.Executing);
+            else
+                isStarted = true;
+            //downloading page source using tor+phantomjs
+            ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
 			HtmlDocument doc = null;
 
             //adding to local log storage
@@ -73,7 +78,7 @@ namespace TaskExecuting.Manager
 
             taskinfo.Id = taskinfoManager.Insert(taskinfo);
 
-            //getting page souce due to method
+            //getting page source due to method
 			string pageSource = "";
 			try
 			{
@@ -108,6 +113,7 @@ namespace TaskExecuting.Manager
                     ErrorMessage = "Can't download url"
                 };
                 taskinfoManager.Insert(errorinfo);
+                taskinfoManager.Delete(taskinfo);
                 return null;
 			}
 
