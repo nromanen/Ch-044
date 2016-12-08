@@ -2,6 +2,7 @@
 using Model.DTO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 
@@ -51,7 +52,8 @@ namespace WebApp.Controllers
             if (upload != null)
             {
                 webShop.LogoPath = CreateImgName();
-                upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
+                var path = Path.Combine(GetLogoDirectory(), webShop.LogoPath);
+                upload.SaveAs(Server.MapPath(path));
             }
             WebShopManager.Insert(webShop);
             return RedirectToAction("Index");
@@ -108,7 +110,8 @@ namespace WebApp.Controllers
             if (upload != null)
             {
                 webShop.LogoPath = CreateImgName();
-                upload.SaveAs(Server.MapPath("/Content/WebShopsLogo/" + webShop.LogoPath));
+                var path = Path.Combine(GetLogoDirectory(), webShop.LogoPath);
+                upload.SaveAs(Server.MapPath(path));
             }
             WebShopManager.Update(webShop);
             return RedirectToAction("Index");
@@ -123,6 +126,15 @@ namespace WebApp.Controllers
             return String.Format("IMG_{0}_{1}.jpg",
                 DateTime.Now.ToString("yyyyMMddHHmmssfff"),
                 Guid.NewGuid());
+        }
+
+        private string GetLogoDirectory()
+        {
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "WebShopLogos");//"/App_Data/WebShopLogos/";
+            var info = new DirectoryInfo(path);
+            if(!info.Exists)
+            Directory.CreateDirectory(path);
+            return path;
         }
     }
 }
