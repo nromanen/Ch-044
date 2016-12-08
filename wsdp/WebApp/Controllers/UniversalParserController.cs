@@ -7,7 +7,6 @@ using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
 using Newtonsoft.Json;
-using TaskExecuting.LogStorage;
 
 namespace WebApp.Controllers {
 	[Authorize]

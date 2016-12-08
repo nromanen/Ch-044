@@ -11,7 +11,6 @@ using SiteProcessor;
 using HtmlAgilityPack;
 using log4net;
 using DAL.Elastic;
-using TaskExecuting.LogStorage;
 
 namespace TaskExecuting.Manager
 {
@@ -29,7 +28,7 @@ namespace TaskExecuting.Manager
 		private PriceManager priceManager = null;
         private ExecuteManager taskinfoManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
-        static bool isStarted;
+        static bool isStarted = false;
 
 		/// <summary>
 		/// Initializating managers and uOw
@@ -59,10 +58,10 @@ namespace TaskExecuting.Manager
 		public GoodDTO ExecuteTask(int parsertaskid, string url)
 		{
             //clearing previous logs
-            if (!isStarted)
-                taskinfoManager.DeleteByStatus(ExecuteStatus.Executing);
-            else
-                isStarted = true;
+            //if (!isStarted)
+            //    taskinfoManager.DeleteByStatus(ExecuteStatus.Executing);
+            //else
+            //    isStarted = true;
             //downloading page source using tor+phantomjs
             ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
 			HtmlDocument doc = null;
