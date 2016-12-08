@@ -203,6 +203,10 @@
     <Compile Include="Migrations\201612061436222_Add one field to table ExecutingInfo.Designer.cs">
       <DependentUpon>201612061436222_Add one field to table ExecutingInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612081415294_SetImgLinkAsNotRequired.cs" />
+    <Compile Include="Migrations\201612081415294_SetImgLinkAsNotRequired.Designer.cs">
+      <DependentUpon>201612081415294_SetImgLinkAsNotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -294,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612061436222_Add one field to table ExecutingInfo.resx">
       <DependentUpon>201612061436222_Add one field to table ExecutingInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612081415294_SetImgLinkAsNotRequired.resx">
+      <DependentUpon>201612081415294_SetImgLinkAsNotRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
