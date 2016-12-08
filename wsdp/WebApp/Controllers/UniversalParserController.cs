@@ -16,13 +16,15 @@ namespace WebApp.Controllers {
 		private IWebShopManager shopManager;
 		private IParserTaskManager parserTaskManager;
         private IURLManager urlManager;
+		private IPreviewManager previewManager;
 
-		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager) {
+		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager, IPreviewManager previewManager) {
 			this.downloadManager = downloadManager;
 			this.categoryManager = categoryManager;
 			this.shopManager = shopManager;
 			this.parserTaskManager = parsertaskManager;
             this.urlManager = urlManager;
+			this.previewManager = previewManager;
 		}
 		// GET: Index - list of all parser tasks
 		[Authorize(Roles = "Administrator")]
@@ -156,6 +158,7 @@ namespace WebApp.Controllers {
 				}
 			}
 			var arrayOfLinks  = urlList.ToArray();
+			var jsonArray = urlList.ToArray();
 			for (index = 0; index < 2; index++) {
 				if (!String.IsNullOrWhiteSpace(arrayOfLinks[index])) {
 					Guid result = downloadManager.DownloadFromPath(arrayOfLinks[index]);
@@ -163,7 +166,7 @@ namespace WebApp.Controllers {
 					arrayOfLinks[index] = localPathToSite;
 				}
 			}
-			grabber.urlJsonData = JsonConvert.SerializeObject(arrayOfLinks);
+			grabber.urlJsonData = JsonConvert.SerializeObject(jsonArray);
 			Session["Length"] = arrayOfLinks.Length;
 			TempData["CurrentPage"] = arrayOfLinks[0];
 			TempData["NextPage"] = arrayOfLinks[1];
@@ -204,6 +207,13 @@ namespace WebApp.Controllers {
 
 			parserTaskManager.Update(_task);
 			return RedirectToAction("Index", "UniversalParser");
+		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public string GetPreview(string url, string xpath) {
+			var a = previewManager.GetPreviewForOneInput(url, xpath);
+			return a;
 		}
 	}
 }
