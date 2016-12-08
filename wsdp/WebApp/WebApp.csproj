@@ -435,6 +435,7 @@
     <Content Include="Views\UniversalParser\ExecutingTasks.cshtml" />
     <Content Include="Views\ExecutingInfo\Index.cshtml" />
     <Content Include="Views\Good\Index.cshtml" />
+    <Content Include="Views\Good\GetCategoryGood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -31,6 +31,10 @@ namespace WebApp.Controllers
 			return View();
 		}
 
+		/// <summary>
+		/// Edit Category
+		/// </summary>
+		/// <returns></returns>
 		[Authorize(Roles = "Administrator")]
 		public ActionResult EditCategories()
 		{
@@ -38,6 +42,12 @@ namespace WebApp.Controllers
 			ModelState.Clear();
 			return View(categories);
 		}
+		/// <summary>
+		/// Post for adding category.
+		/// </summary>
+		/// <param name="namecategory"></param>
+		/// <param name="parentcategory"></param>
+		/// <returns></returns>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public int AddCategory(string namecategory, int? parentcategory)
@@ -50,18 +60,33 @@ namespace WebApp.Controllers
 		{
 			categoryManager.Rename(id, namecategory);
 		}
+
+		/// <summary>
+		/// Post for removing category.
+		/// </summary>
+		/// <param name="id"></param>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void RemoveCategory(int id)
 		{
 			categoryManager.Delete(id);
 		}
+		/// <summary>
+		/// Post for change a parent of category.
+		/// </summary>
+		/// <param name="categoryid"></param>
+		/// <param name="parentid"></param>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void ChangeParent(int categoryid, int? parentid)
 		{
 			categoryManager.ChangeParent(categoryid, parentid ?? -1);
 		}
+		/// <summary>
+		/// Add Property.
+		/// </summary>
+		/// <param name="catid"></param>
+		/// <returns></returns>
 		[Authorize(Roles = "Administrator")]
 		public ActionResult AddProperty(int catid)
 		{
@@ -74,6 +99,12 @@ namespace WebApp.Controllers
 			ModelState.Clear();
 			return View(custom_model);
 		}
+		/// <summary>
+		/// Update Property.
+		/// </summary>
+		/// <param name="catid"></param>
+		/// <param name="propid"></param>
+		/// <returns></returns>
 		[Authorize(Roles = "Administrator")]
 		public ActionResult UpdateProperty(int catid, int propid)
 		{
@@ -87,6 +118,9 @@ namespace WebApp.Controllers
 			PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories, properties = properties, CategoryId = catid, PropertyId = propid };
 			return View(custom_model);
 		}
+		/// <summary>
+		/// Add Property
+		/// </summary>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void AddProperty(string Name, string Description, string Type, string Prefix, string Sufix, int Category_Id, string DefaultValue)
@@ -94,12 +128,19 @@ namespace WebApp.Controllers
 			propertyManager.Add(Name, Description, Type, Prefix, Sufix, Category_Id, DefaultValue);
 			Response.Redirect("EditCategories");
 		}
+		/// <summary>
+		/// Post for remove property.
+		/// </summary>
+		/// <param name="id"></param>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void RemoveProperty(int id)
 		{
 			propertyManager.Delete(id);
 		}
+		/// <summary>
+		/// Post for update property.
+		/// </summary>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void UpdateProperty(int Property_Id, string Name, string Description, string Type, string Prefix,
@@ -117,6 +158,10 @@ namespace WebApp.Controllers
 			return View(CustomView);
 		}
 
+		/// <summary>
+		/// Server side pagination for users table.
+		/// </summary>
+		/// <returns></returns>
 		[HttpPost]
 		public ActionResult LoadData()
 		{
@@ -152,12 +197,18 @@ namespace WebApp.Controllers
 				return Result;
 			}
 		}
+		/// <summary>
+		/// Update user.
+		/// </summary>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId)
 		{
 			userManager.UpdateUser(Id, UserName, Password, Email, RoleId);
 		}
+		/// <summary>
+		/// Change order number.
+		/// </summary>
 		[Authorize(Roles = "Administrator")]
 		[HttpPost]
 		public void ChangeOrderNo(int id, int orderno)
