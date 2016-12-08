@@ -130,7 +130,7 @@ namespace WebApp.Controllers
 
         private string GetLogoDirectory()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "WebShopLogos");//"/App_Data/WebShopLogos/";
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "WebShopLogos");
             var info = new DirectoryInfo(path);
             if(!info.Exists)
             Directory.CreateDirectory(path);
