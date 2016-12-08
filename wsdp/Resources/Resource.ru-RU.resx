@@ -405,4 +405,7 @@
   <data name="NotFoundMessage" xml:space="preserve">
     <value>Страница не найдена. Попробуйте позже.</value>
   </data>
+  <data name="CatMess" xml:space="preserve">
+    <value>В данной категории товары отстутсвуют.</value>
+  </data>
 </root>

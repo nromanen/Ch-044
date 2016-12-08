@@ -12,11 +12,17 @@ namespace WebApp.Controllers
 	{
 		private IGoodDatabasesWizard goodmanager = null;
 		private IElasticManager elasticmanager = null;
+		private IGoodManager goodManagerSQL = null;
+		private ICategoryManager categoryManager = null;
+		private IWebShopManager shopManager = null;
 
-		public GoodController(IGoodDatabasesWizard goodmanager, IElasticManager elasticmanager)
+		public GoodController(IGoodDatabasesWizard goodmanager, IElasticManager elasticmanager,IGoodManager goodManagerSQL,ICategoryManager categoryManager,IWebShopManager shopManager)
 		{
+			this.categoryManager = categoryManager;
+			this.goodManagerSQL = goodManagerSQL;
 			this.goodmanager = goodmanager;
 			this.elasticmanager = elasticmanager;
+			this.shopManager = shopManager;
 		}
 		// GET: Good
 		public ActionResult Index()
@@ -43,10 +49,17 @@ namespace WebApp.Controllers
 
 			return View(mainmodel);
 		}
-		public ActionResult GetCategoryGood(int c_Id)
+		public ActionResult GetCategoryGood(string c_Id)
 		{
+		//	var goodListCat=elasticmanager.GetByCategoryId(c_Id);
+			var goodListCat = goodManagerSQL.GetAll().Where(i => i.Category_Id == Convert.ToInt32(c_Id)).ToList();
+			foreach (var item in goodListCat)
+			{
+				item.Category = categoryManager.Get(item.Category_Id);
 
-			return View();
+				item.WebShop = shopManager.GetById(item.WebShop_Id);
+			}
+				return View(goodListCat);
 		}
 	}
 }

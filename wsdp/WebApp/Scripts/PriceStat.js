@@ -1,7 +1,8 @@
 ﻿$(document).ready(function () {
 	$("#btn_line_chart").on('click', function () {
 		var mb_one = $("#ddl_one").val();
-		var getYear = $("#ddlYear").val();
+		var currentdate = new Date();
+		var getYear = currentdate.getFullYear();
  
 		var jsonData = JSON.stringify({
 			url_one: mb_one,
@@ -27,12 +28,12 @@
 				labels: aLabels,
 				datasets: [{
 					label: "My dataset",
-					fillColor: "rgba(220,220,220,0.2)",
-					strokeColor: "rgba(220,220,220,1)",
-					pointColor: "rgba(220,220,220,1)",
+					fillColor: "rgba(0,255,0,0.2)",
+					strokeColor: "rgba(0,255,0,1)",
+					pointColor: "rgba(0,255,0,1)",
 					pointStrokeColor: "#fff",
 					pointHighlightFill: "#fff",
-					pointHighlightStroke: "rgba(220,220,220,1)",
+					pointHighlightStroke: "rgba(0,255,0,1)",
 					data: aDatasets1
 				}]
 			};

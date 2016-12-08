@@ -196,6 +196,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no good&apos;s in this category!.
+        /// </summary>
+        public static string CatMess {
+            get {
+                return ResourceManager.GetString("CatMess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Also, consider changing parent category of all children categories..
         /// </summary>
         public static string ChangingParentCategory {
