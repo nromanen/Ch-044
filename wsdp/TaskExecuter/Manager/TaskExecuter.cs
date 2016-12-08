@@ -91,7 +91,7 @@ namespace TaskExecuting.Manager
 						break;
 				}
 
-				pageSource = htmlValidator.CheckHtml(pageSource);
+				//pageSource = htmlValidator.CheckHtml(pageSource);
 
 				doc = new HtmlDocument();
 				doc.LoadHtml(pageSource);
@@ -135,7 +135,7 @@ namespace TaskExecuting.Manager
 						break;
 					}
 				}
-				resultGood.Name = name;
+				resultGood.Name = name.Trim();
 			}
 			catch(Exception ex)
 			{
@@ -220,10 +220,11 @@ namespace TaskExecuting.Manager
 				foreach (var imglink in grabbersettings.ImgLink)
 				{
                     xpathbuffer = imglink;
-					HtmlNode value = doc.DocumentNode.SelectSingleNode(imglink + "/@src");
+                    HtmlNode value = doc.DocumentNode.SelectNodes(imglink + "/@src").FirstOrDefault();
 					if (value != null)
 					{
 						imagelink = value.Attributes["src"].Value;
+                        resultGood.ImgLink = imagelink;
 						break;
 					}
                     if (imagelink == "" || imagelink == null)
@@ -271,7 +272,7 @@ namespace TaskExecuting.Manager
 					foreach (var item in propitem.Value)
 					{
                         xpathbuffer = item;
-                        value = doc.DocumentNode.SelectSingleNode(item);
+                        value = doc.DocumentNode.SelectNodes(item).FirstOrDefault();
 						if (value != null)
 						{
 							htmlvalue = value.InnerHtml;
