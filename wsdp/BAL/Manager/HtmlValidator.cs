@@ -25,10 +25,10 @@ namespace BAL.Manager
 				doc.DropFontTags = false;
 				doc.DropProprietaryAttributes = false;
 				doc.ForceOutput = true;
-                doc.DropEmptyElements = false;
-                doc.DropEmptyParagraphs = false;
-                doc.DropFontTags = false;
-                doc.DropProprietaryAttributes = false;
+				doc.DropEmptyElements = false;
+				doc.DropEmptyParagraphs = false;
+				doc.DropFontTags = false;
+				doc.DropProprietaryAttributes = false;
 				doc.Quiet = true;
 				doc.CleanAndRepair();
 				return doc.Save();

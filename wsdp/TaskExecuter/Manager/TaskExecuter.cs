@@ -15,48 +15,48 @@ using DAL.Elastic;
 namespace TaskExecuting.Manager
 {
     public class TaskExecuter : ITaskExecuter
-	{
-		private UnitOfWork uOw = null;
-		private ElasticUnitOfWork elasticuOw = null;
-		private ParserTaskManager parsermanager = null;
-		private GoodDatabasesWizard goodwizardManager = null;
-		private PropertyManager propmanager = null;
-		private ElasticManager elasticManager = null;
-		private GoodManager goodManager = null;
-		private URLManager urlManager = null;
-		private HtmlValidator htmlValidator = null;
-		private PriceManager priceManager = null;
+    {
+        private UnitOfWork uOw = null;
+        private ElasticUnitOfWork elasticuOw = null;
+        private ParserTaskManager parsermanager = null;
+        private GoodDatabasesWizard goodwizardManager = null;
+        private PropertyManager propmanager = null;
+        private ElasticManager elasticManager = null;
+        private GoodManager goodManager = null;
+        private URLManager urlManager = null;
+        private HtmlValidator htmlValidator = null;
+        private PriceManager priceManager = null;
         private ExecuteManager taskinfoManager = null;
-		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
+        protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
         static bool isStarted = false;
 
-		/// <summary>
-		/// Initializating managers and uOw
-		/// </summary>
-		public TaskExecuter()
-		{
-			uOw = new UnitOfWork();
-			elasticuOw = new ElasticUnitOfWork();
-			parsermanager = new ParserTaskManager(uOw);
-			propmanager = new PropertyManager(uOw);
-			goodManager = new GoodManager(uOw);
-			urlManager = new URLManager(uOw);
-			htmlValidator = new HtmlValidator();
-			priceManager = new PriceManager(uOw);
-			elasticManager = new ElasticManager(elasticuOw);
-			goodwizardManager = new GoodDatabasesWizard(elasticuOw,uOw);
+        /// <summary>
+        /// Initializating managers and uOw
+        /// </summary>
+        public TaskExecuter()
+        {
+            uOw = new UnitOfWork();
+            elasticuOw = new ElasticUnitOfWork();
+            parsermanager = new ParserTaskManager(uOw);
+            propmanager = new PropertyManager(uOw);
+            goodManager = new GoodManager(uOw);
+            urlManager = new URLManager(uOw);
+            htmlValidator = new HtmlValidator();
+            priceManager = new PriceManager(uOw);
+            elasticManager = new ElasticManager(elasticuOw);
+            goodwizardManager = new GoodDatabasesWizard(elasticuOw,uOw);
             taskinfoManager = new ExecuteManager(uOw);
-			AutoMapperConfig.Configure();
-		}
+            AutoMapperConfig.Configure();
+        }
 
-		/// <summary>
-		/// Parses input url by configuration from parser task
-		/// </summary>
-		/// <param name="parsertaskid">id of parser task</param>
-		/// <param name="url">url to parse</param>
-		/// <returns>New parsed GoodDTO</returns>
-		public GoodDTO ExecuteTask(int parsertaskid, string url)
-		{
+        /// <summary>
+        /// Parses input url by configuration from parser task
+        /// </summary>
+        /// <param name="parsertaskid">id of parser task</param>
+        /// <param name="url">url to parse</param>
+        /// <returns>New parsed GoodDTO</returns>
+        public GoodDTO ExecuteTask(int parsertaskid, string url)
+        {
             //clearing previous logs
             //if (!isStarted)
             //    taskinfoManager.DeleteByStatus(ExecuteStatus.Executing);
@@ -64,7 +64,7 @@ namespace TaskExecuting.Manager
             //    isStarted = true;
             //downloading page source using tor+phantomjs
             ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
-			HtmlDocument doc = null;
+            HtmlDocument doc = null;
 
             //adding to local log storage
             ExecutingInfoDTO taskinfo = new ExecutingInfoDTO()
@@ -78,31 +78,31 @@ namespace TaskExecuting.Manager
             taskinfo.Id = taskinfoManager.Insert(taskinfo);
 
             //getting page source due to method
-			string pageSource = "";
-			try
-			{
-				SiteDownloader sw = new SiteDownloader();
+            string pageSource = "";
+            try
+            {
+                SiteDownloader sw = new SiteDownloader();
 
-				switch (parsertask.IteratorSettings.DownloadMethod)
-				{
-					case DownloadMethod.Direct:
-						pageSource = sw.GetPageSouceDirectly(url);
-						break;
-					case DownloadMethod.Tor:
-						pageSource = sw.GetPageSouce(url);
-						break;
-					default:
-						break;
-				}
+                switch (parsertask.IteratorSettings.DownloadMethod)
+                {
+                    case DownloadMethod.Direct:
+                        pageSource = sw.GetPageSouceDirectly(url);
+                        break;
+                    case DownloadMethod.Tor:
+                        pageSource = sw.GetPageSouce(url);
+                        break;
+                    default:
+                        break;
+                }
 
-				//pageSource = htmlValidator.CheckHtml(pageSource);
+                pageSource = htmlValidator.CheckHtml(pageSource);
 
-				doc = new HtmlDocument();
-				doc.LoadHtml(pageSource);
+                doc = new HtmlDocument();
+                doc.LoadHtml(pageSource);
 
-			}
-			catch(Exception ex)
-			{
+            }
+            catch(Exception ex)
+            {
                 ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                 {
                     GoodUrl = url,
@@ -114,36 +114,36 @@ namespace TaskExecuting.Manager
                 taskinfoManager.Insert(errorinfo);
                 taskinfoManager.Delete(taskinfo);
                 return null;
-			}
+            }
 
 
-			//gets configuration from parsertask id
-			
-			GrabberSettingsDTO grabbersettings = parsertask.GrabberSettings;
+            //gets configuration from parsertask id
+            
+            GrabberSettingsDTO grabbersettings = parsertask.GrabberSettings;
 
-			GoodDTO resultGood = new GoodDTO();
+            GoodDTO resultGood = new GoodDTO();
 
-			resultGood.WebShop_Id = parsertask.WebShopId;
-			resultGood.Category_Id = parsertask.CategoryId;
+            resultGood.WebShop_Id = parsertask.WebShopId;
+            resultGood.Category_Id = parsertask.CategoryId;
             ///////////////////////////////////Parcing name by list of xpathes
             var xpathbuffer = "";
-			try
-			{
-				var name = "";
-				foreach (var nameprop in grabbersettings.Name)
-				{
+            try
+            {
+                var name = "";
+                foreach (var nameprop in grabbersettings.Name)
+                {
                     xpathbuffer = nameprop;
                     HtmlNode value = doc.DocumentNode.SelectSingleNode(nameprop);
-					if (value != null)
-					{
-						name = value.InnerHtml;
-						break;
-					}
-				}
-				resultGood.Name = name.Trim();
-			}
-			catch(Exception ex)
-			{
+                    if (value != null)
+                    {
+                        name = value.InnerHtml;
+                        break;
+                    }
+                }
+                resultGood.Name = name.Trim();
+            }
+            catch(Exception ex)
+            {
                 ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                 {
                     GoodUrl = url,
@@ -154,28 +154,28 @@ namespace TaskExecuting.Manager
                 };
                 taskinfoManager.Insert(errorinfo);
             }
-			/////////////////////////////////////Parcing price by list of xpathes
-			try
-			{
-				var price = "";
-				foreach (var priceprop in grabbersettings.Price)
-				{
+            /////////////////////////////////////Parcing price by list of xpathes
+            try
+            {
+                var price = "";
+                foreach (var priceprop in grabbersettings.Price)
+                {
                     xpathbuffer = priceprop;
-					HtmlNode value = doc.DocumentNode.SelectSingleNode(priceprop);
-					if (value != null)
-					{
-						price = value.InnerHtml;
-						break;
-					}
-				}
-				if (price!="")
-				{
-					resultGood.Price = Convert.ToDecimal(this.RemoveAllLetters(price));
-				}
-				
-			}
-			catch (Exception ex)
-			{
+                    HtmlNode value = doc.DocumentNode.SelectSingleNode(priceprop);
+                    if (value != null)
+                    {
+                        price = value.InnerHtml;
+                        break;
+                    }
+                }
+                if (price!="")
+                {
+                    resultGood.Price = Convert.ToDecimal(this.RemoveAllLetters(price));
+                }
+                
+            }
+            catch (Exception ex)
+            {
                 ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                 {
                     GoodUrl = url,
@@ -186,28 +186,28 @@ namespace TaskExecuting.Manager
                 };
                 taskinfoManager.Insert(errorinfo);
             }
-			//////////////////////////////////////Parcing old price by list of xpathes
-			try
-			{
-				var oldPrice = "";
-				foreach (var price in grabbersettings.OldPrice)
-				{
+            //////////////////////////////////////Parcing old price by list of xpathes
+            try
+            {
+                var oldPrice = "";
+                foreach (var price in grabbersettings.OldPrice)
+                {
                     xpathbuffer = price;
-					HtmlNode value = doc.DocumentNode.SelectNodes(price).FirstOrDefault();
-					if (value != null)
-					{
-						oldPrice = value.InnerHtml;
-						break;
-					}
-				}
-				if (oldPrice != "")
-				{
-					resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllLetters(oldPrice));
-				}
-				
-			}
-			catch (Exception ex)
-			{
+                    HtmlNode value = doc.DocumentNode.SelectNodes(price).FirstOrDefault();
+                    if (value != null)
+                    {
+                        oldPrice = value.InnerHtml;
+                        break;
+                    }
+                }
+                if (oldPrice != "")
+                {
+                    resultGood.OldPrice = Convert.ToDecimal(this.RemoveAllLetters(oldPrice));
+                }
+                
+            }
+            catch (Exception ex)
+            {
                 ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                 {
                     GoodUrl = url,
@@ -218,20 +218,20 @@ namespace TaskExecuting.Manager
                 };
                 taskinfoManager.Insert(errorinfo);
             }
-			//////////////////////////////Parcing image link by list of xpathes
-			try
-			{
-				var imagelink = "";
-				foreach (var imglink in grabbersettings.ImgLink)
-				{
+            //////////////////////////////Parcing image link by list of xpathes
+            try
+            {
+                var imagelink = "";
+                foreach (var imglink in grabbersettings.ImgLink)
+                {
                     xpathbuffer = imglink;
                     HtmlNode value = doc.DocumentNode.SelectNodes(imglink + "/@src").FirstOrDefault();
-					if (value != null)
-					{
-						imagelink = value.Attributes["src"].Value;
+                    if (value != null)
+                    {
+                        imagelink = value.Attributes["src"].Value;
                         resultGood.ImgLink = imagelink;
-						break;
-					}
+                        break;
+                    }
                     if (imagelink == "" || imagelink == null)
                     {
                         resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
@@ -244,11 +244,11 @@ namespace TaskExecuting.Manager
                     {
                         resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
                     }
-				}
-				
-			}
-			catch (Exception ex)
-			{
+                }
+                
+            }
+            catch (Exception ex)
+            {
                 resultGood.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
                 ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                 {
@@ -261,32 +261,32 @@ namespace TaskExecuting.Manager
                 taskinfoManager.Insert(errorinfo);
             }
 
-			resultGood.UrlLink = url;
-			PropertyValuesDTO propertyValues = new PropertyValuesDTO();
-			propertyValues.DictDoubleProperties = new Dictionary<int, double>();
-			propertyValues.DictIntProperties = new Dictionary<int, int>();
-			propertyValues.DictStringProperties = new Dictionary<int, string>();
+            resultGood.UrlLink = url;
+            PropertyValuesDTO propertyValues = new PropertyValuesDTO();
+            propertyValues.DictDoubleProperties = new Dictionary<int, double>();
+            propertyValues.DictIntProperties = new Dictionary<int, int>();
+            propertyValues.DictStringProperties = new Dictionary<int, string>();
 
-			foreach (var propitem in grabbersettings.PropertyItems)
-			{
-				HtmlNode value = null;
-				PropertyDTO property = propmanager.Get(propitem.Id);
-				var htmlvalue = "";
-				try
-				{
-					foreach (var item in propitem.Value)
-					{
+            foreach (var propitem in grabbersettings.PropertyItems)
+            {
+                HtmlNode value = null;
+                PropertyDTO property = propmanager.Get(propitem.Id);
+                var htmlvalue = "";
+                try
+                {
+                    foreach (var item in propitem.Value)
+                    {
                         xpathbuffer = item;
                         value = doc.DocumentNode.SelectNodes(item).FirstOrDefault();
-						if (value != null)
-						{
-							htmlvalue = value.InnerHtml;
-							break;
-						}
-					}
-				}
-				catch (Exception ex)
-				{
+                        if (value != null)
+                        {
+                            htmlvalue = value.InnerHtml;
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
                     ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                     {
                         GoodUrl = url,
@@ -298,26 +298,26 @@ namespace TaskExecuting.Manager
                     taskinfoManager.Insert(errorinfo);
                 }
 
-				try
-				{
-					switch (property.Type)
-					{
-						case PropertyType.Integer:
-							propertyValues.DictIntProperties.Add(propitem.Id, Convert.ToInt32(htmlvalue));
-							break;
-						case PropertyType.Double:
-							propertyValues.DictDoubleProperties.Add(propitem.Id, Convert.ToDouble(htmlvalue));
-							break;
-						case PropertyType.String:
-							propertyValues.DictStringProperties.Add(propitem.Id, htmlvalue);
-							break;
-						default:
-							break;
-					}
-				}
-				catch(Exception ex)
-				{
-					logger.Error(ex);
+                try
+                {
+                    switch (property.Type)
+                    {
+                        case PropertyType.Integer:
+                            propertyValues.DictIntProperties.Add(propitem.Id, Convert.ToInt32(htmlvalue));
+                            break;
+                        case PropertyType.Double:
+                            propertyValues.DictDoubleProperties.Add(propitem.Id, Convert.ToDouble(htmlvalue));
+                            break;
+                        case PropertyType.String:
+                            propertyValues.DictStringProperties.Add(propitem.Id, htmlvalue);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    logger.Error(ex);
                     ExecutingInfoDTO errorinfo = new ExecutingInfoDTO()
                     {
                         GoodUrl = url,
@@ -329,22 +329,22 @@ namespace TaskExecuting.Manager
                     taskinfoManager.Insert(errorinfo);
                 }
 
-			}
-			resultGood.Status = true;
-			resultGood.PropertyValues = propertyValues;
+            }
+            resultGood.Status = true;
+            resultGood.PropertyValues = propertyValues;
             goodwizardManager.InsertOrUpdate(resultGood);
             //goodManager.Insert(resultGood);
             var newPrice = new PriceHistoryDTO();
-			newPrice.Url = resultGood.UrlLink;
-			newPrice.Price = resultGood.Price;
-			newPrice.Date = DateTime.Now;
-			newPrice.Name = resultGood.Name;
-			priceManager.Insert(newPrice);
+            newPrice.Url = resultGood.UrlLink;
+            newPrice.Price = resultGood.Price;
+            newPrice.Date = DateTime.Now;
+            newPrice.Name = resultGood.Name;
+            priceManager.Insert(newPrice);
 
             //deleting from local log storage
             taskinfoManager.Delete(taskinfo);
             return resultGood;
-		}
+        }
 
 
         /// <summary>
@@ -352,11 +352,11 @@ namespace TaskExecuting.Manager
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-		private string RemoveAllLetters(string value)
-		{
-			char[] arr = value.ToArray().Where(c => char.IsDigit(c) || c == '.').Select(c => c).ToArray();
-			return new string(arr);
-		}
+        private string RemoveAllLetters(string value)
+        {
+            char[] arr = value.ToArray().Where(c => char.IsDigit(c) || c == '.').Select(c => c).ToArray();
+            return new string(arr);
+        }
 
-	}
+    }
 }
