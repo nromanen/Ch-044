@@ -36,6 +36,31 @@ $(document).ready(function () {
 
 });
 
+function GetAllXpath() {
+	var inputs = $(".inputfield");
+	console.log(inputs);
+	inputs.each(function () {
+		var url = ListItems[current];
+		var xpath = $(this).val();
+		console.log(xpath);
+		InsertaaAjax($(this), url, xpath);
+	});
+}
+function InsertaaAjax(input, url, xpath) {
+	$.ajax({
+		type: "POST",
+		url: '../GetPreview',
+		data: ({ url: url, xpath: xpath }),
+		success: function (data) {
+			console.log(data);
+			input.siblings("b").html(data);
+		},
+		error: function () {
+			alert('Error occured');
+		}
+	});
+}
+
 function NextAjax()
 {
 	$.ajax({
@@ -121,7 +146,8 @@ function EstablishingEvents() {
 		
         CheckButtons();
         setTimeout(function () {
-            EstablishingEvents();
+        	EstablishingEvents();
+        	$(".text-danger").html("");
             console.log("EV");
         }, 10000);
 
@@ -158,7 +184,7 @@ function AddField(btn) {
     var name = $(btn).closest(".form-group").find('input:last').attr('name');
 
     var input = document.createElement("input");
-    input.setAttribute("class", "form-control");
+    input.setAttribute("class", "form-control inputfield");
     input.setAttribute("placeholder", "Click here and get Xpath");
     input.setAttribute("style", "margin-top:10px;");
     input.setAttribute("name", name);
@@ -166,6 +192,11 @@ function AddField(btn) {
 
     $(btn).closest(".form-group").children(".fields").append(input);
 
+    var br = document.createElement("br");
+    var b = document.createElement("b");
+
+    $(btn).closest(".form-group").children(".fields").append(br);
+    $(btn).closest(".form-group").children(".fields").append(b);
     EstablishingEvents();
 };
 
