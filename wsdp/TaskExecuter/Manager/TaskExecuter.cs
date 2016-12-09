@@ -11,7 +11,6 @@ using SiteProcessor;
 using HtmlAgilityPack;
 using log4net;
 using DAL.Elastic;
-using TaskExecuting.LogStorage;
 
 namespace TaskExecuting.Manager
 {
@@ -29,7 +28,7 @@ namespace TaskExecuting.Manager
 		private PriceManager priceManager = null;
         private ExecuteManager taskinfoManager = null;
 		protected static readonly ILog logger = LogManager.GetLogger("RollingLogFileAppender");
-
+        static bool isStarted = false;
 
 		/// <summary>
 		/// Initializating managers and uOw
@@ -58,8 +57,13 @@ namespace TaskExecuting.Manager
 		/// <returns>New parsed GoodDTO</returns>
 		public GoodDTO ExecuteTask(int parsertaskid, string url)
 		{
-			//downloading page source using tor+phantomjs
-			ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
+            //clearing previous logs
+            //if (!isStarted)
+            //    taskinfoManager.DeleteByStatus(ExecuteStatus.Executing);
+            //else
+            //    isStarted = true;
+            //downloading page source using tor+phantomjs
+            ParserTaskDTO parsertask = parsermanager.Get(parsertaskid);
 			HtmlDocument doc = null;
 
             //adding to local log storage
@@ -73,7 +77,7 @@ namespace TaskExecuting.Manager
 
             taskinfo.Id = taskinfoManager.Insert(taskinfo);
 
-            //getting page souce due to method
+            //getting page source due to method
 			string pageSource = "";
 			try
 			{
@@ -91,7 +95,7 @@ namespace TaskExecuting.Manager
 						break;
 				}
 
-				pageSource = htmlValidator.CheckHtml(pageSource);
+				//pageSource = htmlValidator.CheckHtml(pageSource);
 
 				doc = new HtmlDocument();
 				doc.LoadHtml(pageSource);
@@ -108,6 +112,7 @@ namespace TaskExecuting.Manager
                     ErrorMessage = "Can't download url"
                 };
                 taskinfoManager.Insert(errorinfo);
+                taskinfoManager.Delete(taskinfo);
                 return null;
 			}
 
@@ -135,7 +140,7 @@ namespace TaskExecuting.Manager
 						break;
 					}
 				}
-				resultGood.Name = name;
+				resultGood.Name = name.Trim();
 			}
 			catch(Exception ex)
 			{
@@ -220,10 +225,11 @@ namespace TaskExecuting.Manager
 				foreach (var imglink in grabbersettings.ImgLink)
 				{
                     xpathbuffer = imglink;
-					HtmlNode value = doc.DocumentNode.SelectSingleNode(imglink + "/@src");
+                    HtmlNode value = doc.DocumentNode.SelectNodes(imglink + "/@src").FirstOrDefault();
 					if (value != null)
 					{
 						imagelink = value.Attributes["src"].Value;
+                        resultGood.ImgLink = imagelink;
 						break;
 					}
                     if (imagelink == "" || imagelink == null)
@@ -271,7 +277,7 @@ namespace TaskExecuting.Manager
 					foreach (var item in propitem.Value)
 					{
                         xpathbuffer = item;
-                        value = doc.DocumentNode.SelectSingleNode(item);
+                        value = doc.DocumentNode.SelectNodes(item).FirstOrDefault();
 						if (value != null)
 						{
 							htmlvalue = value.InnerHtml;

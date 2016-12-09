@@ -10,9 +10,8 @@ namespace BAL.Interface
 {
     public interface IGoodDatabasesWizard
     {
-        bool InsertOrUpdate(GoodDTO good);
+        void InsertOrUpdate(GoodDTO good);
         bool Delete(GoodDTO good);
-        bool Update(GoodDTO good);
-        GoodDTO Get(int id, bool isElastic = false);
+        void Update(GoodDTO good);
     }
 }

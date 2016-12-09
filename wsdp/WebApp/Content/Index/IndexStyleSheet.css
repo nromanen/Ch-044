@@ -161,10 +161,13 @@ html, body, div {
 }
 .g-name {
 	text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 79%;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 79%;
 }
 .g-images {
 	max-height: 227px;
+}
+.glyphicon-arrow-down:before {
+	 padding-right: 7px;
 }

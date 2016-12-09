@@ -148,7 +148,7 @@
 
                         <div class="media-body">
                             <div class="col-xs-4">
-                                <h4 class="text-success text-center">@good.Name</h4>
+                                <h4 class="text-success text-center"><a href="@Url.Action("ConcreteGood","Good",new {id = good.Id})">@good.Name</a></h4>
                                 @foreach (var item in good.PropertyValues.DictStringProperties)
                                 {
                                     <small class="text-muted">

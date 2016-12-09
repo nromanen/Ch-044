@@ -402,4 +402,7 @@
   <data name="NotFoundMessage" xml:space="preserve">
     <value>The page is not found. Try later.</value>
   </data>
+  <data name="CatMess" xml:space="preserve">
+    <value>There are no good's in this category!</value>
+  </data>
 </root>

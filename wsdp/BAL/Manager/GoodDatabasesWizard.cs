@@ -28,38 +28,35 @@ namespace BAL.Manager
             this.sqlUnitOfWork = sqlUnitOfWork;
         }
 
-        public bool InsertOrUpdate(GoodDTO good)
+        public void InsertOrUpdate(GoodDTO good)
         {
-            if (good == null) return false;
-            if (good.ImgLink == null)
-                good.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
+            if (good.ImgLink == null) good.ImgLink = @"http://www.kalahandi.info/wp-content/uploads/2016/05/sorry-image-not-available.png";
             var goodDb = Mapper.Map<Good>(good);
             goodDb.Status = true;
             var request = sqlUnitOfWork.GoodRepo.All.FirstOrDefault(x => x.UrlLink == goodDb.UrlLink);
             if (request != null)
             {
                 good.Id = request.Id;
-                return Update(good);
+                Update(good);
             }
-
-            var res = sqlUnitOfWork.GoodRepo.Insert(goodDb);
-
-            try
+            else
             {
-                if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
-                var elasticGood = Mapper.Map<GoodDTO>(res);
-                //elastic manipulation
-                elasticUnitOfWork.Repository.Insert(elasticGood);
-                elasticUnitOfWork.Save();
+                var res = sqlUnitOfWork.GoodRepo.Insert(goodDb);
+
+                try
+                {
+                    if (sqlUnitOfWork.Save() < 1) throw new Exception("Item isn't added into MS SQL Server");
+                    var elasticGood = Mapper.Map<GoodDTO>(res);
+                    //elastic manipulation
+                    elasticUnitOfWork.Repository.Insert(elasticGood);
+                    elasticUnitOfWork.Save();
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                Logger.Error(ex.Message);
-                return false;
-            }
-            return true;
         }
-
 
         public bool Delete(GoodDTO good)
         {
@@ -84,11 +81,11 @@ namespace BAL.Manager
             return true;
         }
 
-        public bool Update(GoodDTO good)
+        public void Update(GoodDTO good)
         {
-            if (good == null) return false;
+            if (good == null) return;
             var goodDb = sqlUnitOfWork.GoodRepo.GetByID(good.Id);
-            if (goodDb == null) return false;
+            if (goodDb == null) return;
             var uGood = Mapper.Map<Good>(good);
             goodDb.Name = uGood.Name;
             goodDb.Category_Id = uGood.Category_Id;
@@ -109,25 +106,7 @@ namespace BAL.Manager
             catch (Exception ex)
             {
                 Logger.Error(ex.Message);
-                return false;
             }
-            return true;
-        }
-
-        public GoodDTO Get(int id, bool isElastic = false)
-        {
-            GoodDTO result = null;
-            if (!isElastic)
-            {
-                var good = sqlUnitOfWork.GoodRepo.GetByID(id);
-                if (good == null) return null;
-                result = Mapper.Map<GoodDTO>(good);
-
-                result.Category = Mapper.Map<CategoryDTO>(sqlUnitOfWork.CategoryRepo.GetByID(result.Category_Id));
-
-                result.WebShop = Mapper.Map<WebShopDTO>(sqlUnitOfWork.WebShopRepo.GetByID(result.WebShop_Id));                
-            }
-            return result;
         }
     }
 }

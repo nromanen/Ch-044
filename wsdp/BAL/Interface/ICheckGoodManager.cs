@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BAL.Interface
 {
-    interface ICheckGoodManager
+    public interface ICheckGoodManager
     {
-        void CheckGoodsFromOneCategory(int categoryid, int parsertaskid);
+        List<GoodDTO> CheckGoodsFromOneCategory(int categoryid, int parsertaskid);
     }
 }
