@@ -13,9 +13,11 @@ namespace WebApp.Controllers
     public class ElasticTestController : BaseController
     {
         private IGoodDatabasesWizard Wizard { get; }
+        private IElasticManager Elastic { get; }
 
-        public ElasticTestController(IGoodDatabasesWizard wizard)
+        public ElasticTestController(IGoodDatabasesWizard wizard, IElasticManager elastic)
         {
+            Elastic = elastic;
             Wizard = wizard;
         }
 
@@ -23,7 +25,8 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
 
-            return View();
+            var item = Elastic.GetByWebShopId(1);
+            return View(item);
         }
 
         public ActionResult Add()
@@ -37,19 +40,19 @@ namespace WebApp.Controllers
 
             propetry.DictDoubleProperties.Add(2,2.333);
 
-            var good = new GoodDTO()
+            var good1 = new GoodDTO()
             {
-                WebShop_Id = 3,
+                WebShop_Id = 2,
                 Category_Id = 1,
-                ImgLink = "https://www.elastic.co",
-                UrlLink = "https://www.elastic1111.co",
-                Name = "Prsdfdsafdewdsf",
+                UrlLink = "https://www.elastic2333.co",
+                Name = "Okla",
                 OldPrice = 12000,
                 Price = 1,
                 PropertyValues = propetry
             };
-
-            Wizard.InsertOrUpdate(good);
+            
+            Wizard.InsertOrUpdate(good1);
+            
 
             return View();
         }

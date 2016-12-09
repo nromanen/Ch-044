@@ -51,14 +51,19 @@ namespace BAL.Manager
             return elasticUOW.Repository.Get(value);
         }
 
+        public IList<GoodDTO> GetByCategoryId(int id)
+        {
+            return elasticUOW.Repository.GetByCategoryId(id);
+        }
+
+        public IList<GoodDTO> GetByWebShopId(int id)
+        {
+            return elasticUOW.Repository.GetByWebShopId(id);
+        }
+
         public IList<GoodDTO> GetByName(string name)
         {
             return elasticUOW.Repository.GetByName(name);
-        }
-
-        public IList<GoodDTO> GetByCategoryId(string category)
-        {
-            return elasticUOW.Repository.GetByCategoryId(category);
         }
     }
 }
