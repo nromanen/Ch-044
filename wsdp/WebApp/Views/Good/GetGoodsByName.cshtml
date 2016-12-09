@@ -1,0 +1,64 @@
+﻿@model IList<Model.DTO.GoodDTO>
+@{
+    ViewBag.Title = "GetCategoryGood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/IndexStylesheet")
+@Styles.Render("~/Content/PhoneStylesheet")
+<div class="cf wrap container">
+    <div id="products" class="row list-group">
+        @foreach (var good in Model)
+        {
+            <div class="row material-design-block">
+                <div class="media">
+                    <div class="media-left">
+                        <a class="pull-left">
+                            <img class="media-object" src="@good.ImgLink" alt="" style="">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="col-xs-4">
+                            <h4 class="text-success text-center">@good.Name</h4>
+                            @foreach (var item in good.PropertyValues.DictStringProperties)
+                            {
+                                <small class="text-muted">
+                                    @item.Value
+                                </small>
+                            }
+                        </div>
+                        <div class="col-xs-2">
+                            <b class="text-success">Shop:</b>
+                            <br />
+                            <b class="text-muted">@good.WebShop.Name</b>
+                        </div>
+                        <div class="col-xs-2">
+                            <b class="text-success">Category:</b>
+                            <br />
+                            <b class="text-muted cat-name">@good.Category.Name</b>
+                        </div>
+                        @if (@good.OldPrice == null)
+                        {
+                            <div class="col-xs-2">
+                                <b class="text-success">Price:</b>
+                                <br />
+                                <b class="text-muted">@good.Price</b>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-xs-2">
+                                <b class="text-success">Price:</b>
+                                <br />
+                                <b class="text-muted"><del><small>@good.OldPrice</small></del></b>
+                                <br />
+                                <b class="text-danger">@good.Price</b>
+                            </div>
+                        }
+                        <div class="col-xs-2">
+                            <a class="btn btn-success" href="@good.UrlLink">To Shop</a>
+                        </div>
+                    </div>
+                </div>
+            </div>}
+    </div>
+</div>

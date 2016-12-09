@@ -22,6 +22,7 @@ namespace WebApp.Controllers
 		private IPropertyManager propertyManager;
 		private IGoodManager goodManager;
 		private IPriceManager priceManager;
+	 
 
 		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager, IPropertyManager propertyManager, IWebShopManager shopManager, IPriceManager priceManager)
 		{
@@ -108,6 +109,8 @@ namespace WebApp.Controllers
 
 			return Json(iData);
 		}
+
+        
 
 	}
 }

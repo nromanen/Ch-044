@@ -132,8 +132,9 @@ namespace DAL.Elastic
 
         public IList<GoodDTO> Get(string value)
         {
+            var sValue = value.ToLower();
             return client
-                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("value"))))
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("name").Value(sValue))).Size(1000))
                 .Hits
                 .Select(x => x.Source)
                 .ToList();
