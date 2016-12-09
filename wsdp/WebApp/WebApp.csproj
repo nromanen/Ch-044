@@ -280,6 +280,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ElasticTestController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExecutingInfoController.cs" />
+    <Compile Include="Controllers\GoodController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -330,6 +332,7 @@
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.min.js" />
     <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\ExecutingTasks\dynamic_update.js" />
     <Content Include="Scripts\Frame\IteratorMain.js" />
     <Content Include="Scripts\IteratorPage\IteratorPage.js" />
     <Content Include="Scripts\PriceStat.js" />
@@ -344,6 +347,7 @@
     <Content Include="Content\bootstrap\bootstrap.css.map" />
     <Content Include="Content\bootstrap\bootstrap.min.css.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -428,6 +432,9 @@
     <Content Include="Views\ElasticTest\Index.cshtml" />
     <Content Include="Views\ElasticTest\Add.cshtml" />
     <Content Include="Views\Home\PriceStat.cshtml" />
+    <Content Include="Views\UniversalParser\ExecutingTasks.cshtml" />
+    <Content Include="Views\ExecutingInfo\Index.cshtml" />
+    <Content Include="Views\Good\ConcreteGood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -463,6 +470,10 @@
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{8ed9bf2d-1ddb-46f0-8d3a-4c967d5f9cf7}</Project>
       <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskExecuter\TaskExecuting.csproj">
+      <Project>{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}</Project>
+      <Name>TaskExecuting</Name>
     </ProjectReference>
     <ProjectReference Include="..\UnitTests\UnitTests.csproj">
       <Project>{d61e2271-fa26-4f5a-bb03-41891a9cbf3e}</Project>

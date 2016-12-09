@@ -78,6 +78,17 @@ namespace DAL.Elastic
             return count;
         }
 
+        #region select queries
+
+        public IList<GoodDTO> GetByCategoryId(string category)
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("Category_Id")
+                .Value(category))))
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
+        }
         public IList<GoodDTO> GetByIdUrl(string url)
         {
             return client
@@ -95,10 +106,30 @@ namespace DAL.Elastic
                 .Hits
                 .Select(x=>x.Source)
                 .ToList();
+        }
+
+        public IList<GoodDTO> GetByNameHard(string name)
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("Name").Value(name))))
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
+        }
+
+        public IList<GoodDTO> Get(string value)
+        {
+            return client
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("value"))))
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
         } 
+
+        #endregion
         private void Insert(GoodDTO item)
         {
-            client.Index(item);
+            client.Index(item, i=>i.Refresh());
         }
 
         private bool Update(GoodDTO item)
@@ -107,7 +138,7 @@ namespace DAL.Elastic
             var list = GetByIdUrl(item.UrlLink);
 
             if (!list.Any()) return false;
-            client.Index(item, i => i.Id(item.UrlLink));
+            client.Index(item, i => i.Id(item.UrlLink).Refresh());
             return true;
         }
 
@@ -132,10 +163,11 @@ namespace DAL.Elastic
             if (!list.Any()) return;
             foreach (var good in list)
             {
-                client.Delete<GoodDTO>(good.UrlLink);
+                client.Delete<GoodDTO>(good.UrlLink,i=>i.Refresh());
             }
         }
 
+        
 
     }
 }

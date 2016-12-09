@@ -17,6 +17,7 @@ namespace Model.DB {
 
 		[Required]
 		public int ParserTaskId { get; set; }
+
 		public virtual ParserTask ParserTask { get; set; }
 
 		[Required]

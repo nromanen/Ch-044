@@ -10,6 +10,7 @@ namespace Common.Enum {
 		Insert,
 		ErrorUpdate,
 		ErrorInsert,
-		ExecutingError
+		ExecutingError,
+        Executing
 	}
 }

@@ -45,11 +45,23 @@ namespace BAL.Manager {
 			return info != null ? Mapper.Map<ExecutingInfoDTO>(info) : null;
 		}
 
-		public void Insert(ExecutingInfoDTO info) {
-			if (info == null) return;
-			var ExInfo = Mapper.Map<ExecutingInfo>(info);
-			uOW.ExecuteRepo.Insert(ExInfo);
-			uOW.Save();
+		public int Insert(ExecutingInfoDTO info) {
+            lock (uOW)
+            {
+                if (info == null) return -1;
+                //var ExInfo = Mapper.Map<ExecutingInfo>(info);
+                var TaskToAdd = new ExecutingInfo()
+                {
+                    Date = info.Date,
+                    GoodUrl = info.GoodUrl,
+                    ParserTaskId = info.ParserTaskId,
+                    Status = info.Status
+                };
+
+                uOW.ExecuteRepo.Insert(TaskToAdd);
+                uOW.Save();
+                return TaskToAdd.Id;
+            }
 		}
 
 		public void Update(ExecutingInfoDTO info) {

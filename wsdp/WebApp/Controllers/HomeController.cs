@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
@@ -22,7 +23,7 @@ namespace WebApp.Controllers
 		private IGoodManager goodManager;
 		private IPriceManager priceManager;
 
-		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager,IPropertyManager propertyManager,IWebShopManager shopManager,IPriceManager priceManager)
+		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager, IPropertyManager propertyManager, IWebShopManager shopManager, IPriceManager priceManager)
 		{
 			this.priceManager = priceManager;
 			this.categoryManager = categoryManager;
@@ -43,7 +44,7 @@ namespace WebApp.Controllers
 
 				item.WebShop = shopManager.GetById(item.WebShop_Id);
 			}
-			
+
 			var Custom_model = new IndexViewDTO()
 			{
 				CategoryList = categories,
@@ -72,61 +73,35 @@ namespace WebApp.Controllers
 			return View();
 		}
 
-		[WebMethod]
-		public List<object> getLineChartData(string url_one, string url_two, string year)
+
+		public JsonResult getLineChartData(string url_one, string year)
 		{
-			List<object> iData = new List<object>();
-			List<string> labels = new List<string>();
-			var priceList = priceManager.GetAll();
-			string query1 = "Select distinct( DateName( month , DateAdd( month , DATEPART(MONTH,Date) , -1 ) )) as month_name, ";
-			query1 += " DATEPART(MONTH,Date) as month_number from PriceHistories  where DATEPART(YEAR,Date)='" + year + "'  ";
-			query1 += " order by month_number;";
-
-			DataTable dtLabels = commonFuntionGetData(query1);
-			foreach (DataRow drow in dtLabels.Rows)
+			var iData = new List<object>();
+			var labels = new List<string>();
+			var lst_dataItem_1 = new List<decimal?>();
+			var labels_q = priceManager.GetAll().Where(i => i.Url == url_one && i.Date.Year.ToString() == year).Select(i => i.Date).
+			OrderBy(x => x.Month).ThenBy(x=>x.Day).
+			Select(m => m.Date.ToString("dd/MM/yyyy")).Distinct().ToList();	
+			var price_lst = priceManager.GetAll().Where(i => i.Url == url_one && i.Date.Year.ToString() == year).Select(i => i.Price).ToList();
+			if (price_lst.Count == 1 && labels_q.Count == 1)
 			{
-				labels.Add(drow["month_name"].ToString());
+				var dd_n = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day).ToString("dd/MM/yyyy");
+				var curr_p = price_lst[0];
+				lst_dataItem_1.Add(curr_p);
+				labels.AddRange(labels_q);
+				labels.Add(dd_n);
+				lst_dataItem_1.AddRange(price_lst);
 			}
-
+			else
+			{
+				lst_dataItem_1.AddRange(price_lst);
+				labels.AddRange(labels_q);
+			}
 			iData.Add(labels);
-			string query_DataSet_1 = " select DATENAME(MONTH,DATEADD(MONTH,month(Date),-1 )) as month_name, month(Date) as month_number ,";
-			query_DataSet_1 += " Price as price_history  from PriceHistories ";
-			query_DataSet_1 += " where YEAR(Date)='" + year + "' and  Url='" + url_one + "'  ";
-			query_DataSet_1 += " group by   month(Date),Price ";
-			query_DataSet_1 += " order by  month_number,Price  ";
-
-			DataTable dtDataItemsSets_1 = commonFuntionGetData(query_DataSet_1);
-			var lst_dataItem_1 = new List<decimal>();
-			foreach (DataRow dr in dtDataItemsSets_1.Rows)
-			{
-				lst_dataItem_1.Add(Convert.ToDecimal(dr["price_history"].ToString()));
-			}
 			iData.Add(lst_dataItem_1);
 
-			string query_DataSet_2 = " select DATENAME(MONTH,DATEADD(MONTH,month(Date),-1 )) as month_name, month(Date) as month_number ,";
-			query_DataSet_2 += " Price as price_history  from PriceHistories ";
-			query_DataSet_2 += " where YEAR(Date)='" + year + "' and  Url='" + url_two + "'  ";
-			query_DataSet_2 += " group by   month(Date),Price ";
-			query_DataSet_2 += " order by  month_number,Price  ";
-
-			DataTable dtDataItemsSets_2 = commonFuntionGetData(query_DataSet_2);
-			var lst_dataItem_2 = new List<decimal>();
-			foreach (DataRow dr in dtDataItemsSets_2.Rows)
-			{
-				lst_dataItem_2.Add(Convert.ToDecimal(dr["price_history"].ToString()));
-			}
-			iData.Add(lst_dataItem_2);
-
-			return iData;
+			return Json(iData);
 		}
 
-		public DataTable commonFuntionGetData(string strQuery)
-		{
-			var cn = new SqlConnection(@"Data Source=СЛАВА-ПК\SQLEXPRESS_2014;Initial Catalog=MyShop;user id=admin;password=123");
-			SqlDataAdapter dap = new SqlDataAdapter(strQuery,cn);
-			DataSet ds = new DataSet();
-			dap.Fill(ds);
-			return ds.Tables[0];
-		}
 	}
 }

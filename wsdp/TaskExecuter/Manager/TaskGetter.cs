@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskExecuting.Interface;
 using System.Web.Script.Serialization;
-using WebApp.Models;
 //using System.Web.Helpers;
 using Newtonsoft.Json;
+using TaskExecuting.Models;
 
 namespace TaskExecuting.Manager
 {

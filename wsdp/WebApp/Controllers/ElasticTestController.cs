@@ -40,12 +40,12 @@ namespace WebApp.Controllers
             var good = new GoodDTO()
             {
                 WebShop_Id = 3,
-                Category_Id = 20,
+                Category_Id = 1,
                 ImgLink = "https://www.elastic.co",
                 UrlLink = "https://www.elastic1111.co",
                 Name = "Prsdfdsafdewdsf",
                 OldPrice = 12000,
-                Price = 12,
+                Price = 1,
                 PropertyValues = propetry
             };
 

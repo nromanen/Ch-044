@@ -13,7 +13,5 @@ namespace BAL.Interface
         void InsertOrUpdate(GoodDTO good);
         bool Delete(GoodDTO good);
         void Update(GoodDTO good);
-
-
     }
 }

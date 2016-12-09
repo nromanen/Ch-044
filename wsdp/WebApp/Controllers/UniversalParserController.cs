@@ -7,6 +7,7 @@ using System.Net;
 using System.Web.Mvc;
 using AutoMapper;
 using Newtonsoft.Json;
+using TaskExecuting.LogStorage;
 
 namespace WebApp.Controllers {
 	[Authorize]
@@ -17,14 +18,16 @@ namespace WebApp.Controllers {
 		private IParserTaskManager parserTaskManager;
         private IURLManager urlManager;
 		private IPreviewManager previewManager;
+        private IExecuteManager taskinfoManager;
 
-		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager, IPreviewManager previewManager) {
+		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager,IExecuteManager taskinfoManager) {
 			this.downloadManager = downloadManager;
 			this.categoryManager = categoryManager;
 			this.shopManager = shopManager;
 			this.parserTaskManager = parsertaskManager;
             this.urlManager = urlManager;
 			this.previewManager = previewManager;
+            this.taskinfoManager = taskinfoManager;
 		}
 		// GET: Index - list of all parser tasks
 		[Authorize(Roles = "Administrator")]
@@ -215,5 +218,25 @@ namespace WebApp.Controllers {
 			var a = previewManager.GetPreviewForOneInput(url, xpath);
 			return a;
 		}
+
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult ExecutingTasks()
+        {
+            List<ExecutingInfoDTO> taskinfoes = taskinfoManager.GetAll().Where(c => c.Status == Common.Enum.ExecuteStatus.Executing).ToList();
+
+            return View(taskinfoes);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult GetExecutingInfo()
+        {
+            List<ExecutingInfoDTO> taskinfoes = taskinfoManager.GetAll().Where(c => c.Status == Common.Enum.ExecuteStatus.Executing).ToList();
+
+            return Json(new { success = true, taskinfoes = taskinfoes.ToArray() },
+             JsonRequestBehavior.AllowGet);
+        }
+        
 	}
 }

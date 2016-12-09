@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Model.DTO;
 
 namespace BAL.Interface
@@ -14,6 +10,8 @@ namespace BAL.Interface
         void Update(GoodDTO good);
         void Delete(GoodDTO good);
         void Insert(GoodDTO good);
-
+        IList<GoodDTO> GetByName(string name);
+        IList<GoodDTO> Get(string value);
+        IList<GoodDTO> GetByCategoryId(string category);
     }
 }

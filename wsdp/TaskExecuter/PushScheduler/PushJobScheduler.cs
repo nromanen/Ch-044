@@ -1,17 +1,11 @@
 ﻿using Quartz;
-using Quartz.Impl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace TaskExecuting.PushScheduler
 {
-	public class PushJobScheduler
+    public class PushJobScheduler : BasicScheduler
 	{
 		public static void Start()
 		{
-			IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
 			scheduler.Start();
 
 			IJobDetail job = JobBuilder.Create<PushJob>().Build();
