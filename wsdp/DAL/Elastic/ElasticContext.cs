@@ -80,29 +80,40 @@ namespace DAL.Elastic
 
         #region select queries
 
-        public IList<GoodDTO> GetByCategoryId(string category)
+        public IList<GoodDTO> GetByCategoryId(int id)
         {
-            return client
-                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("Category_Id")
-                .Value(category))))
+            var query = new TermQuery() { Field = "category_Id", Value = id };
+            var sd = new SearchDescriptor<GoodDTO>().Query(q => query).Size(600);
+            var responce = client.Search<GoodDTO>(x => sd);
+            return responce
                 .Hits
                 .Select(x => x.Source)
                 .ToList();
         }
-        public IList<GoodDTO> GetByIdUrl(string url)
+        public IList<GoodDTO> GetByWebShopId(int id)
+        {
+            var query = new TermQuery() { Field = "webShop_Id", Value = id };
+            var sd = new SearchDescriptor<GoodDTO>().Query(q => query).Size(600);
+            var responce = client.Search<GoodDTO>(x=>sd);
+            return responce
+                .Hits
+                .Select(x => x.Source)
+                .ToList();
+        }
+
+        public GoodDTO GetByIdUrl(string url)
         {
             return client
-                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("_id")
-                .Value(url))))
+                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("_id").Value(url))))
                 .Hits
                 .Select(x=>x.Source)
-                .ToList();
+                .FirstOrDefault();
         }
 
         public IList<GoodDTO> GetAll()
         {
             return client
-                .Search<GoodDTO>(q => q.Query(t => t.MatchAll()))
+                .Search<GoodDTO>(q => q.Query(t => t.MatchAll()).Size(1000))
                 .Hits
                 .Select(x=>x.Source)
                 .ToList();
@@ -110,8 +121,10 @@ namespace DAL.Elastic
 
         public IList<GoodDTO> GetByNameHard(string name)
         {
-            return client
-                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("Name").Value(name))))
+            var query = new TermQuery() { Field = "name", Value = name };
+            var sd = new SearchDescriptor<GoodDTO>().Query(q => query).Size(600);
+            var responce = client.Search<GoodDTO>(x => sd);
+            return responce
                 .Hits
                 .Select(x => x.Source)
                 .ToList();
@@ -135,9 +148,9 @@ namespace DAL.Elastic
         private bool Update(GoodDTO item)
         {
             if (item == null) return false;
-            var list = GetByIdUrl(item.UrlLink);
+            var good = GetByIdUrl(item.UrlLink);
 
-            if (!list.Any()) return false;
+            if (good == null) return false;
             client.Index(item, i => i.Id(item.UrlLink).Refresh());
             return true;
         }
@@ -145,26 +158,19 @@ namespace DAL.Elastic
         private void Remove(GoodDTO item)
         {
             if (item == null) return;
-            var list = GetByIdUrl(item.UrlLink);
-
-            if (!list.Any()) return;
-            foreach (var good in list)
-            {
-                good.Status = false;
-                Update(good);
-            }
+            var good = GetByIdUrl(item.UrlLink);
+            if (good == null) return;
+            good.Status = false;
+            Update(good);
         }
 
         private void HardRemove(GoodDTO item)
         {
             if (item == null) return;
-            var list = GetByIdUrl(item.UrlLink);
-
-            if (!list.Any()) return;
-            foreach (var good in list)
-            {
-                client.Delete<GoodDTO>(good.UrlLink,i=>i.Refresh());
-            }
+            var good = GetByIdUrl(item.UrlLink);
+            if (good == null) return;
+            client.Delete<GoodDTO>(good.UrlLink,i=>i.Refresh());
+            
         }
 
         

@@ -134,7 +134,7 @@ namespace WebApp.Controllers
             var info = new DirectoryInfo(path);
             if(!info.Exists)
             Directory.CreateDirectory(path);
-            return path;
+            return Path.Combine("App_Data", "WebShopLogos");
         }
     }
 }

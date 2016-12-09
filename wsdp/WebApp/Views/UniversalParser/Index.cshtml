@@ -1,149 +1,150 @@
 ﻿@model List<Model.DTO.ParserTaskDTO>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Styles.Render("~/Content/PhoneStylesheet")
 <link href="~/Content/ParserTaskIndex.css" rel="stylesheet" />
 <!--
-    Modal Window
+	Modal Window
 -->
 <div class="modal fade" tabindex="-1" role="dialog" id="ModalDelete">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">@Resources.Resource.Attention !</h4>
-            </div>
-            <div class="modal-body">
-                <p>Do you really want to delete this task ? </p>
-                <form action="UniversalParser/Remove" method="post">
-                    <div class="form-group">
-                        <small class="form-text text-muted">@Resources.Resource.BeAware ! <br /></small>
-                        <input type="hidden" name="id" value="" id="deletetaskid" />
-                    </div>
-                    <button type="submit" class="btn btn-danger">@Resources.Resource.Remove</button>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">@Resources.Resource.Attention !</h4>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete this task ? </p>
+				<form action="UniversalParser/Remove" method="post">
+					<div class="form-group">
+						<small class="form-text text-muted">@Resources.Resource.BeAware ! <br /></small>
+						<input type="hidden" name="id" value="" id="deletetaskid" />
+					</div>
+					<button type="submit" class="btn btn-danger">@Resources.Resource.Remove</button>
+				</form>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div class="container">
-    <div class="row">
-        <h2 class="col-xs-12">[Parser Tasks]</h2>
-    </div>
-    @foreach (var parsertask in Model)
-    {
-        <div class="row material-design-block">
-            <div class="col-md-2 col-xs-4">
-                <b>@parsertask.Description</b>
-                <br />
-                @if (parsertask.Status == Common.Enum.Status.NotFinished)
-                {
-                    <span class="label label-danger">Not Finished</span>
-                }
-                @if (parsertask.Status == Common.Enum.Status.Coming)
-                {
-                    <span class="label label-warning">Coming</span>
-                }
-                @if (parsertask.Status == Common.Enum.Status.Infinite)
-                {
-                    <span class="label label-primary">Infinite</span>
-                }
-                @if (parsertask.Status == Common.Enum.Status.Finished)
-                {
-                    <span class="label label-success">Finished</span>
-                }
-                @if (parsertask.Status == Common.Enum.Status.InQuery)
-                {
-                    <span class="label label-default">In Query</span>
-                }
-                <br />
-                <span class="label label-default">@parsertask.Priority.ToString()</span>
-            </div>
-            <div class="col-md-2 col-xs-3">
-                <b>Category:</b>
-                <br />
-                <b class="text-success">@parsertask.Category.Name  </b>
-            </div>
-            <div class="col-md-1 col-xs-3">
-                <b>Shop:</b>
-                <br />
-                <b class="text-success">@parsertask.WebShop.Name</b>
-            </div>
-            <div class="col-md-2 col-xs-2">
-                <b>URL:</b>
-                <br />
+	<div class="row">
+		<h2 class="col-xs-12">[Parser Tasks]</h2>
+	</div>
+	@foreach (var parsertask in Model) {
+		<div class="row material-design-block">
+			<div class="col-md-2 col-xs-4">
+				<b>@parsertask.Description</b>
+				<br />
+				@if (parsertask.Status == Common.Enum.Status.NotFinished) {
+					<span class="label label-danger">Not Finished</span>
+				}
+				@if (parsertask.Status == Common.Enum.Status.Coming) {
+					<span class="label label-warning">Coming</span>
+				}
+				@if (parsertask.Status == Common.Enum.Status.Infinite) {
+					<span class="label label-primary">Infinite</span>
+				}
+				@if (parsertask.Status == Common.Enum.Status.Finished) {
+					<span class="label label-success">Finished</span>
+				}
+				@if (parsertask.Status == Common.Enum.Status.InQuery) {
+					<span class="label label-default">In Query</span>
+				}
+				<br />
+				<span class="label label-default">@parsertask.Priority.ToString()</span>
+				<br />
+				@if (parsertask.IteratorSettings != null) {
+					<span class="label label-success">It.Filled</span>
+				}
+				else{
+				<span class="label label-danger">It.Not Filled</span>
+				}
+				<br />
+				@if (parsertask.GrabberSettings != null) {
+					<span class="label label-success">Gr.Filled</span>
+				} else {
+					<span class="label label-danger">Gr.Not Filled</span>
+				}
+			</div>
+			<div class="col-md-2 col-xs-3">
+				<b>Category:</b>
+				<br />
+				<b class="text-success">@parsertask.Category.Name  </b>
+			</div>
+			<div class="col-md-1 col-xs-3">
+				<b>Shop:</b>
+				<br />
+				<b class="text-success">@parsertask.WebShop.Name</b>
+			</div>
+			@*<div class="col-md-2 col-xs-2">
+				   <b>URL:</b>
+				   <br />
 
-                    @if (parsertask.IteratorSettings != null)
-                    {
-                        <small class="text-muted text-justify"><a href="@parsertask.IteratorSettings.Url">@parsertask.IteratorSettings.Url</a></small>
-                    }
-                    else
-                    {
-                        <span class="text-muted">None</span>
-                    }
-             </div>
-        <div class="col-md-2 col-xs-4">
-            <b>Date:</b>
-            <br />
-
-            @if (parsertask.EndDate == null)
-                {
-                <span class="text-muted">
-                    Infinite
-                </span>
-            }
-            else
-            {
-                <span class="text-muted">
-                    @parsertask.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")
-                </span>
-            }
-        </div>
-        <div class="col-md-1 col-xs-3">
-            <b>It.Settings :</b>
-            <br />
-            @if (parsertask.IteratorSettings == null)
-                {
-                <span class="text-danger">Not Filled</span>
-            }
-            else
-            {
-                <span class="text-success">Filled</span>
-            }
-        </div>
-        <div class="col-md-1 col-xs-3">
-            <b>Gr.Settings :</b>
-            <br />
-            @if (parsertask.GrabberSettings == null)
-                {
-                <span class="text-danger">Not Filled</span>
-            }
-            else
-            {
-                <span class="text-success">Filled</span>
-            }
-        </div>
-        <div class="col-md-1 col-xs-2">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background:none; border:none; color:#333;">
-                    <span class="glyphicon glyphicon-option-vertical"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="UniversalParser/Settings?id=@parsertask.Id">Update</a></li>
-                    <li><a href="#" onclick="SetDeleteTask(@parsertask.Id)" data-toggle="modal" data-target="#ModalDelete">Remove</a></li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-    }
+					   @if (parsertask.IteratorSettings != null)
+					   {
+						   <small class="text-muted text-justify"><a href="@parsertask.IteratorSettings.Url">@parsertask.IteratorSettings.Url</a></small>
+					   }
+					   else
+					   {
+						   <span class="text-muted">None</span>
+					   }
+				</div>*@
+			<div class="col-md-2 col-xs-4">
+				<b>Date:</b>
+				<br />
+				@if (parsertask.EndDate == null) {
+					<span class="text-muted">
+						Infinite
+					</span>
+				} else {
+					<span class="text-muted">
+						@parsertask.EndDate.GetValueOrDefault().ToString("yyyy-MM-dd")
+					</span>
+				}
+			</div>
+			@*<div class="col-md-1 col-xs-3">
+					<b>It.Settings :</b>
+					<br />
+					@if (parsertask.IteratorSettings == null)
+						{
+						<span class="text-danger">Not Filled</span>
+					}
+					else
+					{
+						<span class="text-success">Filled</span>
+					}
+				</div>*@
+			@*<div class="col-md-1 col-xs-3">
+					<b>Gr.Settings :</b>
+					<br />
+					@if (parsertask.GrabberSettings == null)
+						{
+						<span class="text-danger">Not Filled</span>
+					}
+					else
+					{
+						<span class="text-success">Filled</span>
+					}
+				</div>*@
+			<div class="col-md-1 col-xs-2">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background:none; border:none; color:#333;">
+						<span class="glyphicon glyphicon-option-vertical"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="UniversalParser/Settings?id=@parsertask.Id">Update</a></li>
+						<li><a href="#" onclick="SetDeleteTask(@parsertask.Id)" data-toggle="modal" data-target="#ModalDelete">Remove</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	}
 </div>
-
 @Scripts.Render("~/bundle/jquery")
 <script>
-    function SetDeleteTask(id) {
-        $("#deletetaskid").val(id);
-    }
+	function SetDeleteTask(id) {
+		$("#deletetaskid").val(id);
+	}
 </script>

@@ -13,9 +13,13 @@ namespace WebApp.Controllers
 		private IGoodManager goodmanager = null;
 		private IElasticManager elasticmanager = null;
 		private IPropertyManager propertymanager = null;
+	    private ICategoryManager categoryManager = null;
+	    private IWebShopManager webShopManager = null;
 
-		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager)
+		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager, ICategoryManager categoryManager, IWebShopManager webShopManager)
 		{
+		    this.webShopManager = webShopManager;
+		    this.categoryManager = categoryManager;
 			this.goodmanager = goodmanager;
 			this.elasticmanager = elasticmanager;
 			this.propertymanager = propertymanager;
@@ -53,17 +57,17 @@ namespace WebApp.Controllers
 
 			return View(mainmodel);
 		}
-		public ActionResult GetCategoryGood(string c_Id)
+		public ActionResult GetCategoryGood(int c_Id)
 		{
-			//	var goodListCat=elasticmanager.GetByCategoryId(c_Id);
-			var goodListCat = goodmanager.GetAll().Where(i => i.Category_Id == Convert.ToInt32(c_Id)).ToList();
-			//foreach (var item in goodListCat)
-			//{
-			//	item.Category = categoryManager.Get(item.Category_Id);
+			var goodListCat=elasticmanager.GetByCategoryId(c_Id);
+            
+            foreach (var item in goodListCat)
+            {
+                item.Category = categoryManager.Get(item.Category_Id);
 
-			//	item.WebShop = shopManager.GetById(item.WebShop_Id);
-			//}
-			return View(goodListCat);
+                item.WebShop = webShopManager.GetById(item.WebShop_Id);
+            }
+            return View(goodListCat);
 		}
 	}
 }

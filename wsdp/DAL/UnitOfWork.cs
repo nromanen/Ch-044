@@ -122,6 +122,10 @@ namespace DAL
 
 		#endregion Repositories Getters
 
+	    public void UpdateContext()
+	    {
+	        context = new MainContext();
+	    }
 		public int Save()
 		{
 			try

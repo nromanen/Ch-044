@@ -16,6 +16,7 @@ namespace DAL.Elastic.Interface
         void Insert(GoodDTO item);
         IList<GoodDTO> GetByName(string name);
         IList<GoodDTO> Get(string value);
-        IList<GoodDTO> GetByCategoryId(string category);
+        IList<GoodDTO> GetByCategoryId(int id);
+        IList<GoodDTO> GetByWebShopId(int id);
     }
 }
