@@ -91,7 +91,6 @@
     <Compile Include="BasicScheduler.cs" />
     <Compile Include="Interface\ITaskExecuter.cs" />
     <Compile Include="Interface\ITaskGetter.cs" />
-    <Compile Include="LogStorage\TaskInformation.cs" />
     <Compile Include="Manager\TaskGetter.cs" />
     <Compile Include="Models\TaskExecuterModel.cs" />
     <Compile Include="Program.cs" />

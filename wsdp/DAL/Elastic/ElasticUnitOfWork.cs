@@ -24,7 +24,7 @@ namespace DAL.Elastic
         {
             get { return repository ?? (repository = new ElasticGoodRepository(context)); }
         }
-
+       
         public int Save()
         {
             return context.Save();

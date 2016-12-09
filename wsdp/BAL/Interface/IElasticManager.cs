@@ -12,6 +12,7 @@ namespace BAL.Interface
         void Insert(GoodDTO good);
         IList<GoodDTO> GetByName(string name);
         IList<GoodDTO> Get(string value);
-        IList<GoodDTO> GetByCategoryId(string category);
+        IList<GoodDTO> GetByCategoryId(int id);
+        IList<GoodDTO> GetByWebShopId(int id);
     }
 }

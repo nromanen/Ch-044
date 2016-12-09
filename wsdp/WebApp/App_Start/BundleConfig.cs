@@ -97,7 +97,11 @@ namespace WebApp
 			bundles.Add(new StyleBundle("~/Content/Categories").Include(
 				"~/Content/Categories/jquery.treemenu.css",
 				"~/Content/Categories/EditCategoriesStylesheet.css"));
-		}
+
+            bundles.Add(new StyleBundle("~/Content/ConcreteGoodStylesheet").Include(
+                "~/Content/Good/ConcreteGoodStylesheet.css"
+                ));
+        }
 
 	}
 }

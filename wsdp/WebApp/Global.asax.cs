@@ -77,6 +77,7 @@ namespace WebApp
 				container.Register<IPriceManager, PriceManager>();
 				container.Register<IExecuteManager, ExecuteManager>();
 				container.Register<IPreviewManager, PreviewManager>();
+                container.Register<ICheckGoodManager, CheckGoodManager>();
 				container.Verify();
 				DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
 			}
