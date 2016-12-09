@@ -436,6 +436,7 @@
     <Content Include="Views\ExecutingInfo\Index.cshtml" />
     <Content Include="Views\Good\Index.cshtml" />
     <Content Include="Views\Good\GetCategoryGood.cshtml" />
+    <Content Include="Views\Good\ConcreteGood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,7 @@
 ﻿function DrawChart (url) {
-    var mb_one = url;
-	    var currentDate = new Date();
-	    var getYear = currentDate.getFullYear();
+	var mb_one = url;
+		var currentDate = new Date();
+		var getYear = currentDate.getFullYear();
  
 		var jsonData = JSON.stringify({
 			url_one: mb_one,
@@ -26,7 +26,7 @@
 			var data = {
 				labels: aLabels,
 				datasets: [{
-					label: "My dataset",
+					label: "Price dataset",
 					fillColor: "rgba(228,247,243,0.2)",
 					strokeColor: "rgba(228,247,243,1)",
 					pointColor: "rgba(228,247,243,1)",
@@ -39,9 +39,10 @@
 
 			var ctx = $("#priceStat").get(0).getContext('2d');
 			ctx.canvas.height = 300;  // setting height of canvas
-			ctx.canvas.width = 300; // setting width of canvas
-			var lineChart = new Chart(ctx).Line(data, {
-				bezierCurve: false
+			ctx.canvas.width = 600; // setting width of canvas
+			var chart = new Chart(ctx);
+			var lineChart = chart.Line(data, {
+				bezierCurve: true
 			});
 		}
 		function OnErrorCall_(repo) {
