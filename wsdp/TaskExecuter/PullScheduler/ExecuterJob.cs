@@ -22,7 +22,7 @@ namespace TaskExecuting.Scheduler
 			TaskGetter tg = new TaskGetter();
 
 			var obj = tg.GetTask();
-            //uOw.UpdateContext();
+            uOw.UpdateContext();
 
 			if (obj == null)
 			{
