@@ -20,7 +20,7 @@ namespace WebApp.Controllers {
 		private IPreviewManager previewManager;
         private IExecuteManager taskinfoManager;
 
-		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager,IExecuteManager taskinfoManager) {
+		public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager,IExecuteManager taskinfoManager, IPreviewManager previewManager) {
 			this.downloadManager = downloadManager;
 			this.categoryManager = categoryManager;
 			this.shopManager = shopManager;
