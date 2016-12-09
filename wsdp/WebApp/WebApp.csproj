@@ -305,6 +305,7 @@
     <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\bootstrap.flaty.min.css" />
     <Content Include="Content\Errors\404.jpg" />
+    <Content Include="Content\Good\ConcreteGoodStylesheet.css" />
     <Content Include="Content\Properties\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
@@ -437,6 +438,7 @@
     <Content Include="Views\Good\Index.cshtml" />
     <Content Include="Views\Good\GetCategoryGood.cshtml" />
     <Content Include="Views\Good\ConcreteGood.cshtml" />
+    <Content Include="Views\Admin\CheckExistGoods.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

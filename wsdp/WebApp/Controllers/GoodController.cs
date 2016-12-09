@@ -10,17 +10,15 @@ namespace WebApp.Controllers
 {
 	public class GoodController : BaseController
 	{
-		private IElasticManager elasticmanager = null;
 		private IGoodManager goodmanager = null;
-		private ICategoryManager categoryManager = null;
-		private IWebShopManager shopManager = null;
+		private IElasticManager elasticmanager = null;
+		private IPropertyManager propertymanager = null;
 
-		public GoodController(IElasticManager elasticmanager,IGoodManager goodmanager,ICategoryManager categoryManager,IWebShopManager shopManager)
+		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager)
 		{
-			this.categoryManager = categoryManager;
 			this.goodmanager = goodmanager;
 			this.elasticmanager = elasticmanager;
-			this.shopManager = shopManager;
+			this.propertymanager = propertymanager;
 		}
 		// GET: Good
 		public ActionResult ConcreteGood(int id)
@@ -34,6 +32,14 @@ namespace WebApp.Controllers
 			List<GoodDTO> alloffers = new List<GoodDTO>();
 			List<GoodDTO> similaroffers = new List<GoodDTO>();
 
+			Dictionary<string, string> properties = new Dictionary<string, string>();
+
+			foreach (var item in good.PropertyValues.DictStringProperties)
+			{
+				string propertyname = propertymanager.Get(item.Key).Name;
+				properties.Add(propertyname, item.Value);
+			}
+
 			similaroffers = elasticmanager.Get(good.Name).ToList();
 
 			decimal minprice = (decimal)(similaroffers.Select(c => c.Price).Min() ?? good.Price);
@@ -43,21 +49,21 @@ namespace WebApp.Controllers
 			mainmodel.SimilarOffers = similaroffers;
 			mainmodel.MinPrice = minprice;
 			mainmodel.MaxPrice = maxprice;
+			mainmodel.Properties = properties;
 
 			return View(mainmodel);
 		}
-
 		public ActionResult GetCategoryGood(string c_Id)
 		{
-		//	var goodListCat=elasticmanager.GetByCategoryId(c_Id);
+			//	var goodListCat=elasticmanager.GetByCategoryId(c_Id);
 			var goodListCat = goodmanager.GetAll().Where(i => i.Category_Id == Convert.ToInt32(c_Id)).ToList();
-			foreach (var item in goodListCat)
-			{
-				item.Category = categoryManager.Get(item.Category_Id);
+			//foreach (var item in goodListCat)
+			//{
+			//	item.Category = categoryManager.Get(item.Category_Id);
 
-				item.WebShop = shopManager.GetById(item.WebShop_Id);
-			}
-				return View(goodListCat);
+			//	item.WebShop = shopManager.GetById(item.WebShop_Id);
+			//}
+			return View(goodListCat);
 		}
 	}
 }

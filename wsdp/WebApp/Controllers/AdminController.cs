@@ -16,14 +16,16 @@ namespace WebApp.Controllers
 		private IPropertyManager propertyManager;
 		private IUserManager userManager;
 		private IRoleManager roleManager;
+        private ICheckGoodManager checkergoodManager;
 
-		public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager)
+		public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager, ICheckGoodManager checkergoodManager)
 		{
 			this.categoryManager = categoryManager;
 			this.propertyManager = propertyManager;
 			this.userManager = userManager;
 			this.roleManager = roleManager;
-		}
+            this.checkergoodManager = checkergoodManager;
+        }
 
 		// GET: Admin
 		public ActionResult Index()
@@ -216,5 +218,18 @@ namespace WebApp.Controllers
 			categoryManager.ChangeOrderNo(id, orderno);
 		}
 
-	}
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult CheckExistGoods()
+        {
+            List<CategoryDTO> categories = categoryManager.GetAll();
+            return View(categories);
+        }
+
+        public ActionResult CheckGoodsAndUpdate(string url, int category_id)
+        {
+            List<GoodDTO> deletedGoods = null;
+            return View();
+        }
+    }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BAL.Manager
 {
-    class CheckGoodManager : ICheckGoodManager
+    public class CheckGoodManager : ICheckGoodManager
     {
         private IGoodManager goodManager;
         private IParserTaskManager parserTaskManager;
@@ -20,6 +20,7 @@ namespace BAL.Manager
         {
             this.goodManager = goodManager;
             this.parserTaskManager = parserTaskManager;
+            this.wizardManager = wizardManager;
         }
 
         /// <summary>
@@ -27,8 +28,9 @@ namespace BAL.Manager
         /// </summary>
         /// <param name="categoryid">category to check</param>
         /// <param name="parsertaskid">parsertask with configuration</param>
-        public void CheckGoodsFromOneCategory(int categoryid, int parsertaskid)
+        public List<GoodDTO> CheckGoodsFromOneCategory(int categoryid, int parsertaskid)
         {
+            var resultList = new List<GoodDTO>();
             var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid);
             var parserTask = parserTaskManager.Get(parsertaskid);
             var goodsFromShop = this.GetAllNamesOfGoods(parserTask.IteratorSettings);
@@ -39,8 +41,11 @@ namespace BAL.Manager
                 {
                     good.Status = false;
                     wizardManager.Update(good);
+                    resultList.Add(good);
                 }
             }
+
+            return resultList;
         }
 
         /// <summary>

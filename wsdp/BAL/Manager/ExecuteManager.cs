@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BAL.Interface;
+using Common.Enum;
 using DAL.Interface;
 using Model.DB;
 using Model.DTO;
@@ -32,7 +33,16 @@ namespace BAL.Manager {
 			uOW.Save();
 		}
 
-		public IEnumerable<ExecutingInfoDTO> GetAll() {
+        public void DeleteByStatus(ExecuteStatus status)
+        {
+            foreach (var item in uOW.ExecuteRepo.All.Where(c => c.Status == ExecuteStatus.Executing).ToList())
+            {
+                uOW.ExecuteRepo.Delete(item);
+            }
+            uOW.Save();
+        }
+
+        public IEnumerable<ExecutingInfoDTO> GetAll() {
 			List<ExecutingInfoDTO> executingsInfo = new List<ExecutingInfoDTO>();
 			foreach (var info in uOW.ExecuteRepo.All.ToList()) {
 				executingsInfo.Add(Mapper.Map<ExecutingInfoDTO>(info));
