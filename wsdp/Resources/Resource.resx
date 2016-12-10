@@ -405,4 +405,7 @@
   <data name="CatMess" xml:space="preserve">
     <value>There are no good's in this category!</value>
   </data>
+  <data name="CategoryNotFound" xml:space="preserve">
+    <value>Category is empty,try again later.</value>
+  </data>
 </root>

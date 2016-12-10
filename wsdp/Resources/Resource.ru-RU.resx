@@ -408,4 +408,7 @@
   <data name="CatMess" xml:space="preserve">
     <value>В данной категории товары отстутсвуют.</value>
   </data>
+  <data name="CategoryNotFound" xml:space="preserve">
+    <value>В даной категории нету товаров,попробуйте позже.</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace WebApp.Controllers
@@ -13,13 +14,13 @@ namespace WebApp.Controllers
 		private IGoodManager goodmanager = null;
 		private IElasticManager elasticmanager = null;
 		private IPropertyManager propertymanager = null;
-	    private ICategoryManager categoryManager = null;
-	    private IWebShopManager webShopManager = null;
+		private ICategoryManager categoryManager = null;
+		private IWebShopManager webShopManager = null;
 
 		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager, ICategoryManager categoryManager, IWebShopManager webShopManager)
 		{
-		    this.webShopManager = webShopManager;
-		    this.categoryManager = categoryManager;
+			this.webShopManager = webShopManager;
+			this.categoryManager = categoryManager;
 			this.goodmanager = goodmanager;
 			this.elasticmanager = elasticmanager;
 			this.propertymanager = propertymanager;
@@ -60,14 +61,40 @@ namespace WebApp.Controllers
 		public ActionResult GetCategoryGood(int c_Id)
 		{
 			var goodListCat=elasticmanager.GetByCategoryId(c_Id);
-            
-            foreach (var item in goodListCat)
-            {
-                item.Category = categoryManager.Get(item.Category_Id);
+			
+			foreach (var item in goodListCat)
+			{
+				item.Category = categoryManager.Get(item.Category_Id);
 
-                item.WebShop = webShopManager.GetById(item.WebShop_Id);
-            }
-            return View(goodListCat);
+				item.WebShop = webShopManager.GetById(item.WebShop_Id);
+			}
+			if (!goodListCat.Any())
+			{
+				return View("../Error/CategoryNotFound");
+			}
+			else
+			{
+				return View(goodListCat);
+			}
 		}
+
+	    public ActionResult EmptyList()
+	    {
+	        return View();
+	    }
+
+	    public ActionResult GetGoodsByName(string name)
+        {
+            if (name == null) return HttpNotFound();
+	      
+	        var goodList = elasticmanager.Get(name);
+	        if (goodList.Count == 0) return RedirectToAction("EmptyList");
+	        foreach (var item in goodList)
+	        {
+	            item.WebShop = webShopManager.GetById(item.WebShop_Id);
+	            item.Category = categoryManager.Get(item.Category_Id);
+	        }
+            return View(goodList);
+	    }
 	}
 }
