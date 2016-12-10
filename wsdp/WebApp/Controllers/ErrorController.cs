@@ -26,5 +26,9 @@ namespace WebApp.Controllers
             Response.StatusCode = 500;
             return View();
         }
+		public ActionResult CategoryNotFound()
+		{
+			return View();
+		}
     }
 }

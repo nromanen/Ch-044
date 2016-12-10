@@ -439,6 +439,7 @@
     <Content Include="Views\Good\GetCategoryGood.cshtml" />
     <Content Include="Views\Good\ConcreteGood.cshtml" />
     <Content Include="Views\Admin\CheckExistGoods.cshtml" />
+    <Content Include="Views\Error\CategoryNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
