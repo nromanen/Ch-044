@@ -57,9 +57,8 @@
 				<br />
 				@if (parsertask.IteratorSettings != null) {
 					<span class="label label-success">It.Filled</span>
-				}
-				else{
-				<span class="label label-danger">It.Not Filled</span>
+				} else {
+					<span class="label label-danger">It.Not Filled</span>
 				}
 				<br />
 				@if (parsertask.GrabberSettings != null) {
@@ -73,24 +72,11 @@
 				<br />
 				<b class="text-success">@parsertask.Category.Name  </b>
 			</div>
-			<div class="col-md-1 col-xs-3">
+			<div class="col-md-2 col-xs-3">
 				<b>Shop:</b>
 				<br />
 				<b class="text-success">@parsertask.WebShop.Name</b>
 			</div>
-			@*<div class="col-md-2 col-xs-2">
-				   <b>URL:</b>
-				   <br />
-
-					   @if (parsertask.IteratorSettings != null)
-					   {
-						   <small class="text-muted text-justify"><a href="@parsertask.IteratorSettings.Url">@parsertask.IteratorSettings.Url</a></small>
-					   }
-					   else
-					   {
-						   <span class="text-muted">None</span>
-					   }
-				</div>*@
 			<div class="col-md-2 col-xs-4">
 				<b>Date:</b>
 				<br />
@@ -104,30 +90,19 @@
 					</span>
 				}
 			</div>
-			@*<div class="col-md-1 col-xs-3">
-					<b>It.Settings :</b>
-					<br />
-					@if (parsertask.IteratorSettings == null)
-						{
-						<span class="text-danger">Not Filled</span>
-					}
-					else
-					{
-						<span class="text-success">Filled</span>
-					}
-				</div>*@
-			@*<div class="col-md-1 col-xs-3">
-					<b>Gr.Settings :</b>
-					<br />
-					@if (parsertask.GrabberSettings == null)
-						{
-						<span class="text-danger">Not Filled</span>
-					}
-					else
-					{
-						<span class="text-success">Filled</span>
-					}
-				</div>*@
+			<div class="col-md-2 col-xs-4">
+				<b>ExecuteInfoCount:</b>
+				<br />
+				@if (parsertask.ExecuteInfoCount == 0) {
+					<span class="text-muted">
+						<b class="text-center">0</b>
+					</span>
+				} else {
+					<span class="text-muted text-center">
+						<b><a href="/UniversalParser/GetInfoByTask/@parsertask.Id">@parsertask.ExecuteInfoCount</a></b>
+					</span>
+				}
+			</div>
 			<div class="col-md-1 col-xs-2">
 				<div class="dropdown">
 					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background:none; border:none; color:#333;">

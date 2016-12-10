@@ -23,5 +23,7 @@ namespace Model.DTO
         public IteratorSettingsDTO IteratorSettings { get; set; }
 
         public GrabberSettingsDTO GrabberSettings { get; set; }
+
+		public int ExecuteInfoCount { get; set; }
     }
 }

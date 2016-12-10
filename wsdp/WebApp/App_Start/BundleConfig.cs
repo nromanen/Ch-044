@@ -20,6 +20,10 @@ namespace WebApp
 				"~/Scripts/Users/userConfig.js")
 				);
 
+			bundles.Add(new ScriptBundle("~/bundles/ExecutingInfo").Include(
+			"~/Scripts/TaskExecutingInfo/ExecutingInfo.js")
+				);
+
 			bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
 				"~/Scripts/WebShop/webshop.js")
 				);

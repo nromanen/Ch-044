@@ -33,8 +33,18 @@ namespace WebApp.Controllers {
 		[HttpGet]
 		public ActionResult Index() {
 			List<ParserTaskDTO> parsertasks = parserTaskManager.GetAll();
+			foreach (var item in parsertasks) {
+				item.ExecuteInfoCount = taskinfoManager.GetAll().Where(t => t.ParserTaskId == item.Id).Count();
+			}
 
 			return View(parsertasks);
+		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpGet]
+		public ActionResult GetInfoByTask(int id) {
+			List<ExecutingInfoDTO> executingInfos = taskinfoManager.GetAll().Where(t => t.ParserTaskId == id).ToList();
+			return View(executingInfos);
 		}
 
 		// GET: Settings
