@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace WebApp.Controllers
@@ -76,5 +77,24 @@ namespace WebApp.Controllers
 				return View(goodListCat);
 			}
 		}
+
+	    public ActionResult EmptyList()
+	    {
+	        return View();
+	    }
+
+	    public ActionResult GetGoodsByName(string name)
+        {
+            if (name == null) return HttpNotFound();
+	      
+	        var goodList = elasticmanager.Get(name);
+	        if (goodList.Count == 0) return RedirectToAction("EmptyList");
+	        foreach (var item in goodList)
+	        {
+	            item.WebShop = webShopManager.GetById(item.WebShop_Id);
+	            item.Category = categoryManager.Get(item.Category_Id);
+	        }
+            return View(goodList);
+	    }
 	}
 }

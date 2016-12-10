@@ -10,7 +10,7 @@
 <style>
 	body
 	{
-		background-image: url(@Url.Content("~/Content/bg.jpg"));
+        background-image: url(@Url.Content("~/Content/bg.jpg"));
 	}
 
 	img{
@@ -42,10 +42,10 @@
 					<b>Поиск</b>
 				</label>
 				<div class="s-form-box">
-					<form action="/sr/" method="get" class="open-pup">
+					<form action="/Good/GetGoodsByName" method="get" class="open-pup">
 						<input type="submit" value="Поиск" class="but abs" id="doSearch">
 						<div class="s-inp">
-							<input id="searchbox" name="q" type="text" class="search-txt ui-autocomplete-input" data-default="Что вы хотите купить?" value="Что вы хотите купить?" onfocus="javascript:if (this.value == 'Что вы хотите купить?')this.value = ''" onblur="javascript:if (this.value == '')this.value = 'Что вы хотите купить?'" autocomplete="off">
+							<input id="searchbox" name="name" type="text" class="search-txt ui-autocomplete-input" data-default="Что вы хотите купить?" value="Что вы хотите купить?" onfocus="javascript:if (this.value == 'Что вы хотите купить?')this.value = ''" onblur="javascript:if (this.value == '')this.value = 'Что вы хотите купить?'" autocomplete="off">
 						</div>
 					</form>
 				</div>
