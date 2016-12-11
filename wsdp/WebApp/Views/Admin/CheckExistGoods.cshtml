@@ -85,6 +85,7 @@
         $.getJSON("CheckGoodsAndUpdate", ({category_id: category_id, parsertask_id: parsertask_id }), function (data) {
             console.log(data);
             var goods = data.deletedgoods;
+            $("#goods").html();
             $("#goods").append($("<h2 col-xs-push-2>Next goods were updated</h2>"));
             for (var i = 0; i < goods.length; i++) {
                 $("#goods").append(CreateGoodNode(goods[i].Name, goods[i].UrlLink));
