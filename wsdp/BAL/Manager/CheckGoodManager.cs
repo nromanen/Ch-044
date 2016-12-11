@@ -15,12 +15,14 @@ namespace BAL.Manager
         private IGoodManager goodManager;
         private IParserTaskManager parserTaskManager;
         private IGoodDatabasesWizard wizardManager;
+        private IURLManager urlManager;
         
-        public CheckGoodManager(IGoodManager goodManager, IParserTaskManager parserTaskManager, IGoodDatabasesWizard wizardManager)
+        public CheckGoodManager(IGoodManager goodManager, IParserTaskManager parserTaskManager, IGoodDatabasesWizard wizardManager, IURLManager urlManager)
         {
             this.goodManager = goodManager;
             this.parserTaskManager = parserTaskManager;
             this.wizardManager = wizardManager;
+            this.urlManager = urlManager;
         }
 
         /// <summary>
@@ -31,13 +33,18 @@ namespace BAL.Manager
         public List<GoodDTO> CheckGoodsFromOneCategory(int categoryid, int parsertaskid)
         {
             var resultList = new List<GoodDTO>();
-            var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid);
+            var goods = goodManager.GetAll().Where(c => c.Category_Id == categoryid).Select(c => c).ToList();
             var parserTask = parserTaskManager.Get(parsertaskid);
-            var goodsFromShop = this.GetAllNamesOfGoods(parserTask.IteratorSettings);
+            var goodsFromShop = this.GetAllNamesOfGoods(parserTask);
+
+
 
             foreach (var good in goods)
             {
-                if (goodsFromShop.IndexOf(good.Name) == -1)
+                good.Name = good.Name.Trim();
+                good.Name = good.Name.Replace(Environment.NewLine, " ");
+                good.Name = good.Name.Replace("\"", "&quot;");
+                if (goodsFromShop.Find(s => s == good.UrlLink) == null)
                 {
                     good.Status = false;
                     wizardManager.Update(good);
@@ -53,36 +60,36 @@ namespace BAL.Manager
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        private List<string> GetAllNamesOfGoods(IteratorSettingsDTO model)
+        private List<string> GetAllNamesOfGoods(ParserTaskDTO model)
         {
-            int from = model.From;
-            int to = model.To;
 
-            //string xpath = model.GoodsIteratorXpathes;
-            string url = model.UrlMask;
+            var links = urlManager.GetAllUrls(model.IteratorSettings);
 
-            var allNames = new List<string>();
-            for (int i = from; i <= to; i++)
-            {
-               // allNames.AddRange(GetNamesFromOnePage(url.Replace("{n}", i.ToString()), xpath));
-            }
-            return allNames;
+            return links;
         }
 
         /// <summary>
-        /// Gets names of goods from one page
+        /// Gets name of good from one page
         /// </summary>
         /// <param name="url"></param>
         /// <param name="xpath"></param>
         /// <returns></returns>
-        private List<string> GetNamesFromOnePage(string url, string xpath)
+        private string GetNameFromOnePage(string url, List<string> xpathes)
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(url);
-
-            var names = doc.DocumentNode.SelectNodes(xpath).Select(s => s.InnerHtml).ToList();
-
-            return names;
+            string name = "";
+            foreach (var xpath in xpathes)
+            {
+                var node = doc.DocumentNode.SelectSingleNode(xpath);
+                if (node !=null)
+                {
+                    name = node.InnerHtml.Trim();
+                    break;
+                }
+                
+            }
+            return name;
         }
     }
 }
