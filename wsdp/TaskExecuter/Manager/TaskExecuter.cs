@@ -95,7 +95,7 @@ namespace TaskExecuting.Manager
                         break;
                 }
 
-                pageSource = htmlValidator.CheckHtml(pageSource);
+                //pageSource = htmlValidator.CheckHtml(pageSource);
 
                 doc = new HtmlDocument();
                 doc.LoadHtml(pageSource);

@@ -241,7 +241,7 @@ namespace WebApp.Controllers {
         [HttpGet]
         public ActionResult GetExecutingInfo()
         {
-            List<ExecutingInfoDTO> taskinfoes = taskinfoManager.GetAll().Where(c => c.Status == Common.Enum.ExecuteStatus.Executing).ToList();
+            List<ExecutingInfoDTO> taskinfoes = taskinfoManager.GetAll().Where(c => c.Status == Common.Enum.ExecuteStatus.Executing && (DateTime.Now - c.Date < TimeSpan.FromMinutes(5))).ToList();
 
             return Json(new { success = true, taskinfoes = taskinfoes.ToArray() },
              JsonRequestBehavior.AllowGet);

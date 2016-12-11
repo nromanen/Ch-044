@@ -1,4 +1,4 @@
-﻿﻿@model List<Model.DTO.CategoryDTO>
+﻿﻿@model Model.DTO.CheckGoodDTO
 @{
     ViewBag.Title = "Settings";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,16 +19,23 @@
                     <br />
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Url:</label>
+                    <label class="control-label col-sm-2" for="category">ParserTask:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="url" placeholder="Enter Url" required>
+                        <select class="form-control selectpickerparsertasks" id="parsertask" name="ParserTaskID" data-live-search="true" required>
+                            @foreach (var parserask in Model.ParserTasks)
+                            {
+                                <option data-tokes="@parserask.Description" value="@parserask.Id">
+                                    @parserask.Description
+                                </option>
+                            }
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="category">@Resources.Resource.Category:</label>
                     <div class="col-sm-10">
                         <select class="form-control selectpickercategory" id="category" name="CategoryId" data-live-search="true" required>
-                            @foreach (var category in Model)
+                            @foreach (var category in Model.Categories)
                             {
                                 <option data-tokes="@category.Name" value="@category.Id">
                                     @category.Name
@@ -39,12 +46,16 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">Check Goods</button>
+                        <a onclick="CheckGoods();"  class="btn btn-success">Check Goods</a>
                     </div>
                 </div>
             </form>
 
         </div>
+    </div>
+
+    <div id="goods">
+
     </div>
 </div>
 
@@ -56,27 +67,45 @@
         size: 6
     });
 
+    $('.selectpickerparsertasks').selectpicker({
+        style: 'btn-success',
+        size: 6
+    });
+
     function CheckGoods()
     {
-        var url = $("#url").val();
+        var parsertask_id = $("#parsertask").val();
         var category_id = $("#category").val();
-
-
+        console.log(parsertask_id);
+        CheckGoodsAjax(parsertask_id, category_id);
     }
 
-    function CheckGoodsAjax(url, category_id)
+    function CheckGoodsAjax(parsertask_id, category_id)
     {
-        $.ajax({
-            type: "POST",
-            url: 'CheckGoodsAndUpdate',
-            data: ({ url: url, category_id: category_id }),
-            success: function (data) {
-                console.log(data);
-                addNode.attr("data-id", data);
-            },
-            error: function () {
-                alert('Error occured');
+        $.getJSON("CheckGoodsAndUpdate", ({category_id: category_id, parsertask_id: parsertask_id }), function (data) {
+            console.log(data);
+            var goods = data.deletedgoods;
+            $("#goods").append($("<h2 col-xs-push-2>Next goods were updated</h2>"));
+            for (var i = 0; i < goods.length; i++) {
+                $("#goods").append(CreateGoodNode(goods[i].Name, goods[i].UrlLink));
             }
         });
+        //$.ajax({
+        //    type: "GET",
+        //    url: 'CheckGoodsAndUpdate',
+        //    data: ({ parsertask_id: parsertask_id, category_id: category_id }),
+        //    success: function (data) {
+        //        var goods = data.deletedgoods;
+        //        for (var i = 0; i < goods.length; i++) {
+        //            $("#goods").append(CreateGoodNode(goods[i].Name, goods[i].UrlLink));
+        //        }
+        //    },
+        //    datatype: "json"
+        //});
+    }
+
+    function CreateGoodNode(name, url)
+    {
+        return $('<div class="row"><div class="col-xs-4 col-xs-push-2"><b>' + name + '</b></div><div class="col-xs-6 col-xs-push-2"><span class="text-muted">' + url + '</span></div></div>');
     }
 </script>

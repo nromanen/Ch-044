@@ -45,7 +45,14 @@ namespace WebApp.Controllers
 				properties.Add(propertyname, item.Value);
 			}
 
-			similaroffers = elasticmanager.Get(good.Name).ToList();
+			similaroffers = elasticmanager.Get(good.Name.Split(' ')[1]).ToList();
+            alloffers = elasticmanager.GetByName(good.Name).ToList();
+
+            foreach (var simgood in similaroffers)
+            {
+                simgood.Category = categoryManager.Get(simgood.Category_Id);
+                simgood.WebShop = webShopManager.GetById(simgood.WebShop_Id);
+            }
 
 			decimal minprice = (decimal)(similaroffers.Select(c => c.Price).Min() ?? good.Price);
 			decimal maxprice = (decimal)(similaroffers.Select(c => c.Price).Max() ?? good.Price);

@@ -36,7 +36,13 @@
                 </p>
             </div>
             <div class="material-design-block" style="max-height:483px;">
-                <h4 class="text-success"><span class="glyphicon glyphicon-usd"></span>  Price: <b> @Model.Good.Price </b></h4>
+                <h4 class="text-success">
+                    <span class="glyphicon glyphicon-usd"></span>  Price: <b> @Model.Good.Price </b>
+                    @if (Model.Good.OldPrice != null)
+                    {
+                        <del><b class="text-danger">@Model.Good.OldPrice</b></del>
+                    }
+                </h4>
                 <h4 class="text-muted"> Shop: @Model.Good.WebShop.Name</h4>
                 <img src="@Model.Good.WebShop.LogoPath" alt="" class="img-responsive img-thumbnail"/>
                 <br />
