@@ -2,7 +2,7 @@
 
 <div class="root-cat float-left">
 	<div class="cat-name float-left">
-		<a href="#" class="unclickable g_statistic"><b>@Model.Name</b></a>
+		<a href="/Good/GetCategoryGood/?c_Id=@Model.Id" class="unclickable g_cat" onclick="goto_cat()"><b>@Model.Name</b></a>
 	</div>
 	@if (Model.HasChildrenCategories)
 	{

@@ -14,6 +14,8 @@ namespace Model.DTO
 
         public List<GoodDTO> SimilarOffers { get; set;}
 
+        public Dictionary<string, string> Properties { get; set; }
+
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
     }

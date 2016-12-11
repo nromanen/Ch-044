@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Model.DTO
 {
-    [ElasticsearchType(IdProperty = "UrlLink")]
-    public class GoodDTO
+	[ElasticsearchType(IdProperty = "UrlLink")]
+	public class GoodDTO
 	{
 		public int Id { get; set; }
 
 		public string Name { get; set; }
-        public bool Status { get; set; }
+		public bool Status { get; set; }
 		public decimal? Price { get; set; }
 		public decimal? OldPrice { get; set; }
 

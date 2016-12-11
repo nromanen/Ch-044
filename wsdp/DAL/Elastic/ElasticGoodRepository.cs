@@ -32,10 +32,12 @@ namespace DAL.Elastic
         {
             context.AddOperation(item, CRUD.Update);
         }
-
+       
         public GoodDTO GetByUrlId(string url)
         {
-            return context.GetByIdUrl(url).FirstOrDefault();
+            return context
+                .GetByIdUrl(url);
+
         }
 
         public IList<GoodDTO> GetAll()
@@ -53,8 +55,14 @@ namespace DAL.Elastic
             return context.Get(value);
         }
 
+        public IList<GoodDTO> GetByCategoryId(int id)
+        {
+            return context.GetByCategoryId(id);
+        }
 
-
-
+        public IList<GoodDTO> GetByWebShopId(int id)
+        {
+            return context.GetByWebShopId(id);
+        }
     }
 }

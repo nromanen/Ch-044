@@ -27,5 +27,5 @@ namespace DAL
 		public DbSet<PriceHistory> PriceHistory { get; set; }
 		public DbSet<ExecutingInfo> ExecutingInfo { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
-	}
+    }
 }

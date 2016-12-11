@@ -22,6 +22,7 @@ namespace WebApp.Controllers
 		private IPropertyManager propertyManager;
 		private IGoodManager goodManager;
 		private IPriceManager priceManager;
+	 
 
 		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager, IPropertyManager propertyManager, IWebShopManager shopManager, IPriceManager priceManager)
 		{
@@ -74,6 +75,12 @@ namespace WebApp.Controllers
 		}
 
 
+		/// <summary>
+		/// Get data from PriceHistory table of database.
+		/// </summary>
+		/// <param name="url_one"></param>
+		/// <param name="year"></param>
+		/// <returns></returns>
 		public JsonResult getLineChartData(string url_one, string year)
 		{
 			var iData = new List<object>();
@@ -102,6 +109,8 @@ namespace WebApp.Controllers
 
 			return Json(iData);
 		}
+
+        
 
 	}
 }

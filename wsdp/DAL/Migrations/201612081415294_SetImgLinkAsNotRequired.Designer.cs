@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddAppSettings : IMigrationMetadata
+    public sealed partial class SetImgLinkAsNotRequired : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAppSettings));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SetImgLinkAsNotRequired));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612091520057_AddAppSettings"; }
+            get { return "201612081415294_SetImgLinkAsNotRequired"; }
         }
         
         string IMigrationMetadata.Source

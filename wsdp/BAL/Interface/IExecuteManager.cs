@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.DB;
 using Model.DTO;
+using Common.Enum;
 
 namespace BAL.Interface {
 	public interface IExecuteManager {
@@ -19,5 +20,7 @@ namespace BAL.Interface {
 		void Delete(ExecutingInfoDTO info);
 
 		void DeleteAll();
+
+        void DeleteByStatus(ExecuteStatus status);
 	}
 }

@@ -20,6 +20,10 @@ namespace WebApp
 				"~/Scripts/Users/userConfig.js")
 				);
 
+			bundles.Add(new ScriptBundle("~/bundles/ExecutingInfo").Include(
+			"~/Scripts/TaskExecutingInfo/ExecutingInfo.js")
+				);
+
 			bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
 				"~/Scripts/WebShop/webshop.js")
 				);
@@ -97,7 +101,11 @@ namespace WebApp
 			bundles.Add(new StyleBundle("~/Content/Categories").Include(
 				"~/Content/Categories/jquery.treemenu.css",
 				"~/Content/Categories/EditCategoriesStylesheet.css"));
-		}
+
+            bundles.Add(new StyleBundle("~/Content/ConcreteGoodStylesheet").Include(
+                "~/Content/Good/ConcreteGoodStylesheet.css"
+                ));
+        }
 
 	}
 }

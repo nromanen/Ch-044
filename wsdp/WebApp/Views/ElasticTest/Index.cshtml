@@ -1,1 +1,10 @@
-﻿<h1>@Html.ActionLink("Test", "Add")</h1>
+﻿@model IEnumerable<Model.DTO.GoodDTO>
+<h1>@Html.ActionLink("Test", "Add")</h1>
+
+
+<h2>Good:</h2>
+@foreach (var item in Model)
+{
+    <p>@item.Id/@item.Name/@item.Category_Id/@item.WebShop_Id</p>
+ 
+}

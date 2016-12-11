@@ -141,24 +141,24 @@ namespace DAL.Migrations
 				Path = "http://foxtrot.com.ua",
 				Status = true
 			};
-			//ParserTask task = new ParserTask() {
-			//	Category = categorySmartphones,
-			//	Description = "Smth",
-			//	Priority = Priority.Low,
-			//	Status = Status.NotFinished,
-			//	WebShop = webShop1,
-			//	EndDate = DateTime.Now,
-   //             LastChange = DateTime.Now
-   //         };
-			//ParserTask task2 = new ParserTask() {
-			//	Category = categorySmartphones,
-			//	Description = "Smth",
-			//	Priority = Priority.Middle,
-			//	Status = Status.NotFinished,
-			//	WebShop = webShop2,
-			//	EndDate = DateTime.Now,
-   //             LastChange = DateTime.Now
-			//};
+            //ParserTask task = new ParserTask() {
+            //	Category = categorySmartphones,
+            //	Description = "Smth",
+            //	Priority = Priority.Low,
+            //	Status = Status.NotFinished,
+            //	WebShop = webShop1,
+            //	EndDate = DateTime.Now,
+            //             LastChange = DateTime.Now
+            //         };
+            //ParserTask task2 = new ParserTask() {
+            //	Category = categorySmartphones,
+            //	Description = "Smth",
+            //	Priority = Priority.Middle,
+            //	Status = Status.NotFinished,
+            //	WebShop = webShop2,
+            //	EndDate = DateTime.Now,
+            //             LastChange = DateTime.Now
+            //};
 
             context.Roles.AddOrUpdate(role_user);
             context.Users.AddOrUpdate(user);

@@ -203,9 +203,13 @@
     <Compile Include="Migrations\201612061436222_Add one field to table ExecutingInfo.Designer.cs">
       <DependentUpon>201612061436222_Add one field to table ExecutingInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612091520057_AddAppSettings.cs" />
-    <Compile Include="Migrations\201612091520057_AddAppSettings.Designer.cs">
-      <DependentUpon>201612091520057_AddAppSettings.cs</DependentUpon>
+    <Compile Include="Migrations\201612081415294_SetImgLinkAsNotRequired.cs" />
+    <Compile Include="Migrations\201612081415294_SetImgLinkAsNotRequired.Designer.cs">
+      <DependentUpon>201612081415294_SetImgLinkAsNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612111428055_AddAppSettings.cs" />
+    <Compile Include="Migrations\201612111428055_AddAppSettings.Designer.cs">
+      <DependentUpon>201612111428055_AddAppSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -299,8 +303,11 @@
     <EmbeddedResource Include="Migrations\201612061436222_Add one field to table ExecutingInfo.resx">
       <DependentUpon>201612061436222_Add one field to table ExecutingInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612091520057_AddAppSettings.resx">
-      <DependentUpon>201612091520057_AddAppSettings.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612081415294_SetImgLinkAsNotRequired.resx">
+      <DependentUpon>201612081415294_SetImgLinkAsNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612111428055_AddAppSettings.resx">
+      <DependentUpon>201612111428055_AddAppSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

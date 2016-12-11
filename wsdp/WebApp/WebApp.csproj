@@ -280,7 +280,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ElasticTestController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\ExecutingInfoController.cs" />
     <Compile Include="Controllers\GoodController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
     <Compile Include="Controllers\FridgeController.cs" />
@@ -305,6 +304,7 @@
     <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\bootstrap.flaty.min.css" />
     <Content Include="Content\Errors\404.jpg" />
+    <Content Include="Content\Good\ConcreteGoodStylesheet.css" />
     <Content Include="Content\Properties\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
@@ -352,6 +352,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\TaskExecutingInfo\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\TaskExecutingInfo\ExecutingInfo.js" />
+    <Content Include="Scripts\TaskExecutingInfo\jquery.dataTables.min.js" />
     <Content Include="Scripts\Users\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\Categories\editcategories.js" />
     <Content Include="Scripts\Properties\EditProperties.js" />
@@ -433,12 +436,15 @@
     <Content Include="Views\ElasticTest\Add.cshtml" />
     <Content Include="Views\Home\PriceStat.cshtml" />
     <Content Include="Views\UniversalParser\ExecutingTasks.cshtml" />
-    <Content Include="Views\ExecutingInfo\Index.cshtml" />
     <Content Include="Views\Good\Index.cshtml" />
+    <Content Include="Views\Good\GetCategoryGood.cshtml" />
+    <Content Include="Views\Good\ConcreteGood.cshtml" />
+    <Content Include="Views\Admin\CheckExistGoods.cshtml" />
+    <Content Include="Views\UniversalParser\GetInfoByTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\WebShopsLogos\" />
+    <Folder Include="WebSites\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

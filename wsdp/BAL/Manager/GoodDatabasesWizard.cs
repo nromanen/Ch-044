@@ -108,21 +108,5 @@ namespace BAL.Manager
                 Logger.Error(ex.Message);
             }
         }
-
-        public GoodDTO Get(int id, bool IsElastic = false)
-        {
-            GoodDTO result = null;
-            if (!IsElastic)
-            {
-                var good = sqlUnitOfWork.GoodRepo.GetByID(id);
-                if (good == null) return null;
-                result = Mapper.Map<GoodDTO>(good);
-
-                result.Category = Mapper.Map<CategoryDTO>(sqlUnitOfWork.CategoryRepo.GetByID(result.Category_Id));
-
-                result.WebShop = Mapper.Map<WebShopDTO>(sqlUnitOfWork.WebShopRepo.GetByID(result.WebShop_Id));                
-            }
-            return result;
-        }
     }
 }
