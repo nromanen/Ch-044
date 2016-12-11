@@ -20,17 +20,17 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
+            var taskExecutingScheduler = new TaskExecutingScheduler();
+            taskExecutingScheduler.Start();
 
-            TaskExecutingScheduler.Start();
-
-            PushJobScheduler.Start();
-
+            var pushJobScheduler = new PushJobScheduler();
+            pushJobScheduler.Start();
 
             //TaskExecuter te = new TaskExecuter();
 
             //te.ExecuteTask(3, "http://www.foxtrot.com.ua/ru/shop/noutbuki_hp_15-ay080ur-x8p85ea.html");
 
-			Console.ReadLine();
+            Console.ReadLine();
 		}
 	}
 }

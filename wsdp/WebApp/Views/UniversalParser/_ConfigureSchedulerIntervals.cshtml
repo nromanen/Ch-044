@@ -1,0 +1,52 @@
+﻿
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Configure Intervals For Scheduler</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+
+                    <div class="col-md-12">
+
+                        <div class="col-md-6">
+                            <label class="text-center">Choose interval to push</label>
+                            <select class="form-control" name="push" id="push">
+                                <option value="1">1 sec</option>
+                                <option value="10">10 sec</option>
+                                <option value="60">1 min</option>
+                                <option value="600">10 min</option>
+                                <option value="3600">1 hour</option>
+                                <option value="43200">1 day</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="text-center">Choose interval to pull</label>
+
+                            <select class="form-control" name="pull" id="pull">
+                                <option value="1">1 sec</option>
+                                <option value="10">10 sec</option>
+                                <option value="60">1 min</option>
+                                <option value="600">10 min</option>
+                                <option value="3600">1 hour</option>
+                                <option value="43200">1 day</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="ConfigureIntervals();">Done</button>
+            </div>
+        </div>
+
+    </div>
+</div>

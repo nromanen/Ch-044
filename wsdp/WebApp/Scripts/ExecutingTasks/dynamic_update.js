@@ -39,3 +39,19 @@ function CreateExecutingNode(parsertaskid, url, date)
 {
     return $('<div class="row"><div class="col-xs-2"><b>' + parsertaskid + '</b></div><div class="col-xs-8"><span class="text-muted">' + url + '</span></div><div class="col-xs-2"><span class="text-muted">' + date + '</span></div></div>');
 }
+function ConfigureIntervals() {
+    var pull = $("#pull").val();
+    var push = $("#push").val();
+
+    $.ajax({
+        type:"POST",
+        url: "/UniversalParser/ConfigureIntervals",
+        data: { "pull": pull, "push": push },
+        success: function () {
+            alert("Data was changed");
+        },
+        error: function(){
+            alert("Smth wrong");
+    }
+    });
+}

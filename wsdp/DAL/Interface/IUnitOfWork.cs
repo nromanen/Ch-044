@@ -13,8 +13,10 @@ namespace DAL.Interface
 		IGenericRepository<ParserTask> ParserRepo { get; }
 		IGenericRepository<PriceHistory> PriceRepo { get; }
 		IGenericRepository<ExecutingInfo> ExecuteRepo { get; }
+        IGenericRepository<AppSetting> AppSettingRepo { get; }
 
-		void Dispose();
+
+        void Dispose();
 
 		int Save();
 	}

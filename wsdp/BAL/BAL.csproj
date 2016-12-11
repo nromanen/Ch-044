@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
+    <Compile Include="Interface\IAppSettingsManager.cs" />
     <Compile Include="Interface\ICategoryManager.cs" />
     <Compile Include="Interface\ICheckGoodManager.cs" />
     <Compile Include="Interface\IDownloadManager.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Interface\IURLManager.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Interface\IWebShopRepository.cs" />
+    <Compile Include="Manager\AppSettingsManager.cs" />
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\CheckGoodManager.cs" />

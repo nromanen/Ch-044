@@ -21,6 +21,7 @@ namespace DAL
 		private IGenericRepository<ParserTask> parserRepo;
 		private IGenericRepository<PriceHistory> priceRepo;
 		private IGenericRepository<ExecutingInfo> executeRepo;
+        private IGenericRepository<AppSetting> appSettingsRepo;
 
 		#endregion Private Repositories
 
@@ -37,6 +38,7 @@ namespace DAL
 			parserRepo = new GenericRepository<ParserTask>(context);
 			priceRepo = new GenericRepository<PriceHistory>(context);
 			executeRepo = new GenericRepository<ExecutingInfo>(context);
+            appSettingsRepo = new GenericRepository<AppSetting>(context);
 		}
 
 		#region Repositories Getters
@@ -119,6 +121,16 @@ namespace DAL
 				return executeRepo;
 			}
 		}
+
+        public IGenericRepository<AppSetting> AppSettingRepo
+        {
+            get
+            {
+                if (appSettingsRepo == null)
+                    appSettingsRepo = new GenericRepository<AppSetting>(context);
+                return appSettingsRepo;
+            }
+        }
 
 		#endregion Repositories Getters
 

@@ -119,6 +119,8 @@ namespace BAL {
 				p => p.ParserTask,
 				m => m.Ignore()
 				);
+
+            CreateMap<AppSettingsDTO, AppSetting>();
 		}
 	}
 }

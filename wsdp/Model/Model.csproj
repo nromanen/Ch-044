@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\AppSettings.cs" />
     <Compile Include="DB\Category.cs" />
     <Compile Include="DB\ExecutingInfo.cs" />
     <Compile Include="DB\Good.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DB\ParserTask.cs" />
     <Compile Include="DB\User.cs" />
     <Compile Include="DB\WebShop.cs" />
+    <Compile Include="DTO\AppSettingsDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ExecutingInfoDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
