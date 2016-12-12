@@ -280,14 +280,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ElasticTestController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\GoodController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
-    <Compile Include="Controllers\FridgeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LaptopController.cs" />
-    <Compile Include="Controllers\PhoneController.cs" />
-    <Compile Include="Controllers\TapeRecorderController.cs" />
-    <Compile Include="Controllers\TVController.cs" />
     <Compile Include="Controllers\WebShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -314,19 +308,15 @@
     <Content Include="Content\Categories\EditCategoriesStylesheet.css" />
     <Content Include="Content\Properties\EditPropertiesStylesheet.css" />
     <Content Include="Content\Users\EditUsersStylesheet.css" />
-    <Content Include="Content\Frame\highlight.css" />
-    <Content Include="Content\Fridge\FridgeIndex.css" />
     <Content Include="Content\Index\IndexStyleSheet.css" />
     <Content Include="Content\Categories\jquery.treemenu.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ParserTaskIndex.css" />
     <Content Include="Content\sidebar-style.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\TV\TVstylesheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Phone\Site.css" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\Bootstrap-select\bootstrap-select.js" />
@@ -396,26 +386,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Phone\Index.cshtml" />
-    <Content Include="Views\Phone\ConcretePhone.cshtml" />
-    <Content Include="Views\Fridge\Index.cshtml" />
-    <Content Include="Views\Fridge\ConcreteFridge.cshtml" />
-    <Content Include="Views\Laptop\Index.cshtml" />
-    <Content Include="Views\Laptop\OneLaptop.cshtml" />
     <Content Include="Views\Admin\EditCategories.cshtml" />
     <Content Include="Views\Admin\FlexibleListCategories.cshtml" />
-    <Content Include="Views\TV\GetTV.cshtml" />
     <Content Include="Views\WebShop\Create.cshtml" />
     <Content Include="Views\WebShop\Index.cshtml" />
-    <Content Include="Views\TV\Index.cshtml" />
     <Content Include="Views\UniversalParser\Settings.cshtml" />
-    <Content Include="Views\TapeRecorder\All.cshtml" />
-    <Content Include="Views\TapeRecorder\GetTapeRecorder.cshtml" />
     <Content Include="Views\Admin\AddProperty.cshtml" />
     <Content Include="Views\Admin\UpdateProperty.cshtml" />
     <Content Include="Views\WebShop\Delete.cshtml" />
     <Content Include="Views\WebShop\Edit.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\UniversalParser\HeaderPartialView.cshtml" />
     <Content Include="Views\UniversalParser\Iterator.cshtml" />
     <Content Include="Views\UniversalParser\Grabber.cshtml" />
@@ -446,6 +425,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\WebShopsLogos\" />
     <Folder Include="WebSites\" />
   </ItemGroup>
   <ItemGroup>

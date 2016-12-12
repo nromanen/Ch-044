@@ -35,7 +35,7 @@ namespace BAL.Manager
 				{
 					client.Encoding = encoding;
 					htmlSource = client.DownloadString(url);
-					htmlSource= htmlValidator.CheckHtml(htmlSource);
+					//htmlSource= htmlValidator.CheckHtml(htmlSource);
 				}
 				guid = Guid.NewGuid();
 				this.ReplaceHrefs(htmlSource, url);

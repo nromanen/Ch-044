@@ -80,20 +80,8 @@ namespace WebApp
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 				"~/Content/bootstrap.flaty.min.css"));
 
-			bundles.Add(new StyleBundle("~/Content/PhoneStylesheet").Include(
-				"~/Content/Phone/site.css"));
-
-			bundles.Add(new StyleBundle("~/Content/FridgeStylesheet").Include(
-				"~/Content/Fridge/FridgeIndex.css"));
-
-			bundles.Add(new StyleBundle("~/Content/TVStylesheet").Include(
-				"~/Content/TV/TVstylesheet.css"));
-
 			bundles.Add(new StyleBundle("~/Content/styles").Include(
 				"~/Content/style.css"));
-
-			bundles.Add(new StyleBundle("~/Frame/styles").Include(
-				"~/Content/Frame/highlight.css"));
 
 			bundles.Add(new StyleBundle("~/Content/bootstrap-select").Include(
 				"~/Content/bootstrap-select.min.css"));

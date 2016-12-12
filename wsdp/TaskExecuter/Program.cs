@@ -20,6 +20,7 @@ namespace TaskExecuting
 
 		static void Main(string[] args)
 		{
+            AutoMapperConfig.Configure();
             var taskExecutingScheduler = new TaskExecutingScheduler();
             taskExecutingScheduler.Start();
 

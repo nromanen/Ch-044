@@ -56,16 +56,6 @@ namespace WebApp
                 container.Register<IGoodDatabasesWizard, GoodDatabasesWizard>();
                 container.Register<IUserManager, UserManager>();
 				container.Register<ICategoryManager, CategoryManager>();
-				container.Register<IPhoneManager, PhoneManager>();
-				container.Register<IPhoneParseManager, PhoneParseManager>();
-				container.Register<IFridgeManager, FridgeManager>();
-				container.Register<IFridgeParseManager, FridgeParseManager>();
-				container.Register<ITVManager, TVManager>();
-				container.Register<ITVParseManager, TVParseManager>();
-				container.Register<ILaptopParseManager, LaptopParseManager>();
-				container.Register<ILaptopManager, LaptopManager>();
-				container.Register<ITapeRecorderParseManager, TapeRecorderParseManager>();
-				container.Register<ITapeRecorderManager, TapeRecorderManager>();
 				container.Register<IPropertyManager, PropertyManager>();
 				container.Register<IWebShopManager, WebShopManager>();
 				container.Register<IDownloadManager, DownloadManager>();
@@ -79,6 +69,7 @@ namespace WebApp
 				container.Register<IPreviewManager, PreviewManager>();
                 container.Register<IAppSettingsManager, AppSettingsManager>();
                 container.Register<ICheckGoodManager, CheckGoodManager>();
+                container.Register<IDeleteFilesManager, DeleteFilesManager>();
 				container.Verify();
 				DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
 			}

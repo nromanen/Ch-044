@@ -19,8 +19,9 @@ namespace WebApp.Controllers {
 		private IPreviewManager previewManager;
         private IExecuteManager taskinfoManager;
         private IAppSettingsManager appSettingsManager;
+        private IDeleteFilesManager deleteFilesManager;
 
-        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager,IExecuteManager taskinfoManager, IPreviewManager previewManager, IAppSettingsManager appSettingsManager) {
+        public UniversalParserController(IDownloadManager downloadManager, ICategoryManager categoryManager, IWebShopManager shopManager, IParserTaskManager parsertaskManager, IURLManager urlManager,IExecuteManager taskinfoManager, IPreviewManager previewManager, IAppSettingsManager appSettingsManager, IDeleteFilesManager deleteFilesManager) {
 			this.downloadManager = downloadManager;
 			this.categoryManager = categoryManager;
 			this.shopManager = shopManager;
@@ -29,6 +30,7 @@ namespace WebApp.Controllers {
 			this.previewManager = previewManager;
             this.taskinfoManager = taskinfoManager;
             this.appSettingsManager = appSettingsManager;
+            this.deleteFilesManager = deleteFilesManager;
 		}
 		// GET: Index - list of all parser tasks
 		[Authorize(Roles = "Administrator")]
@@ -220,6 +222,7 @@ namespace WebApp.Controllers {
 			_task.GrabberSettings = grabber;
 
 			parserTaskManager.Update(_task);
+            deleteFilesManager.DeleteFiles();
 			return RedirectToAction("Index", "UniversalParser");
 		}
 

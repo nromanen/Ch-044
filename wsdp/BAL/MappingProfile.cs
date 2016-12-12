@@ -2,7 +2,6 @@
 using ExtendedXmlSerialization;
 using Model.DB;
 using Model.DTO;
-using Model.Product;
 using System.Collections.Generic;
 using BAL.Manager;
 
@@ -26,22 +25,6 @@ namespace BAL {
 				.ForMember(p => p.Id, m => m.MapFrom(t => t.Id))
 				.ForMember(p => p.Name, m => m.MapFrom(t => t.Name))
 				.ForMember(p => p.Description, m => m.MapFrom(t => t.Description));
-
-			CreateMap<TV, TVDTO>()
-				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImageLink));
-
-			CreateMap<ConcreteGood, PhoneSimpleDTO>()
-				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.Good.ImgUrl))
-				.ForMember(p => p.Name, m => m.MapFrom(t => t.Good.Name));
-
-			CreateMap<Category, CategoryDTO>()
-				.ForMember(p => p.ChildrenCategory,
-					m => m.MapFrom(t => new List<CategoryDTO>()));
-
-			CreateMap<Fridge, FridgeDTO>();
-
-			CreateMap<TapeRecorder, TapeRecorderDTO>()
-				.ForMember(p => p.ImgUrl, m => m.MapFrom(t => t.ImgPath));
 
 			CreateMap<Property, PropertyDTO>();
 
