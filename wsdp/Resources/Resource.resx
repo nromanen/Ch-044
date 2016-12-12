@@ -408,4 +408,7 @@
   <data name="CategoryNotFound" xml:space="preserve">
     <value>Category is empty,try again later.</value>
   </data>
+  <data name="GoodsNotFounded" xml:space="preserve">
+    <value>Nothing to by founded by your request</value>
+  </data>
 </root>

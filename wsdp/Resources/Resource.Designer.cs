@@ -439,6 +439,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nothing to by founded by your request.
+        /// </summary>
+        public static string GoodsNotFounded {
+            get {
+                return ResourceManager.GetString("GoodsNotFounded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GO TO SHOP.
         /// </summary>
         public static string GoToShop {

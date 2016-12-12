@@ -11,7 +11,8 @@ namespace BAL.Interface
         void Delete(GoodDTO good);
         void Insert(GoodDTO good);
         IList<GoodDTO> GetByName(string name);
-        IList<GoodDTO> Get(string value);
+        IList<GoodDTO> GetExact(string value);
+        IList<GoodDTO> GetSimilar(string value);
         IList<GoodDTO> GetByCategoryId(int id);
         IList<GoodDTO> GetByWebShopId(int id);
     }

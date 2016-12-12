@@ -46,11 +46,14 @@ namespace BAL.Manager
             return elasticUOW.Repository.GetAll();
         }
 
-        public IList<GoodDTO> Get(string value)
+        public IList<GoodDTO> GetSimilar(string value)
         {
-            return elasticUOW.Repository.Get(value);
+            return elasticUOW.Repository.GetSimilar(value);
         }
-
+        public IList<GoodDTO> GetExact(string value)
+        {
+            return elasticUOW.Repository.GetExact(value);
+        }
         public IList<GoodDTO> GetByCategoryId(int id)
         {
             return elasticUOW.Repository.GetByCategoryId(id);

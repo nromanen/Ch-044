@@ -46,6 +46,7 @@ namespace TaskExecuting.Manager
             elasticManager = new ElasticManager(elasticuOw);
             goodwizardManager = new GoodDatabasesWizard(elasticuOw,uOw);
             taskinfoManager = new ExecuteManager(uOw);
+            
         }
 
         /// <summary>
