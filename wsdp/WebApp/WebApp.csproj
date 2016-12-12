@@ -443,6 +443,7 @@
     <Content Include="Views\UniversalParser\GetInfoByTask.cshtml" />
     <Content Include="Views\Good\EmptyList.cshtml" />
     <Content Include="Views\Good\GetGoodsByName.cshtml" />
+    <Content Include="Views\UniversalParser\_ConfigureSchedulerIntervals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
