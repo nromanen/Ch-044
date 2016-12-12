@@ -44,8 +44,8 @@ namespace WebApp.Controllers
 				string propertyname = propertymanager.Get(item.Key).Name;
 				properties.Add(propertyname, item.Value);
 			}
-
-			similaroffers = elasticmanager.Get(good.Name.Split(' ')[1]).ToList();
+            //similaroffers = elasticmanager.GetSimilar(good.Name.Split(' ')[1]).ToList();
+            similaroffers = elasticmanager.GetSimilar(good.Name).ToList();
             alloffers = elasticmanager.GetByName(good.Name).ToList();
 
             foreach (var simgood in similaroffers)
@@ -94,7 +94,7 @@ namespace WebApp.Controllers
         {
             if (name == null) return HttpNotFound();
 	      
-	        var goodList = elasticmanager.Get(name);
+	        var goodList = elasticmanager.GetExact(name);
 	        if (goodList.Count == 0) return RedirectToAction("EmptyList");
 	        foreach (var item in goodList)
 	        {

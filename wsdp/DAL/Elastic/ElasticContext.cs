@@ -130,15 +130,27 @@ namespace DAL.Elastic
                 .ToList();
         }
 
-        public IList<GoodDTO> Get(string value)
+        public IList<GoodDTO> GetExact(string value)
         {
             var sValue = value.ToLower();
-            return client
-                .Search<GoodDTO>(q => q.Query(t => t.Term(x => x.Field("name").Value(sValue))).Size(1000))
-                .Hits
-                .Select(x => x.Source)
-                .ToList();
-        } 
+
+            var searchResults = client.Search<GoodDTO>(s => s.From(0)
+                .Size(100)
+                .Query(q =>
+                    q.MatchPhrase(m => m.Field(p => p.Name).Query(sValue))));
+            return searchResults.Hits.Select(x => x.Source).ToList();
+        }
+
+        public IList<GoodDTO> GetSimilar(string value)
+        {
+            var sValue = value.ToLower();
+         
+            var searchResults = client.Search<GoodDTO>(s => s.From(0)
+                .Size(10)
+                .Query(q =>
+                    q.Match(m => m.Field(p => p.Name).Query(sValue))));
+            return searchResults.Hits.Select(x => x.Source).ToList();
+        }
 
         #endregion
         private void Insert(GoodDTO item)

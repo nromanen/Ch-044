@@ -48,11 +48,10 @@ namespace WebApp.Controllers
         public ActionResult Create(WebShopDTO webShop, HttpPostedFileBase upload)
         {
             if (!ModelState.IsValid) return View(webShop);
-
             if (upload != null)
             {
                 webShop.LogoPath = CreateImgName();
-                var path = Path.Combine(GetLogoDirectory(), webShop.LogoPath);
+                var path = Path.Combine("~", GetLogoDirectory(), webShop.LogoPath);
                 upload.SaveAs(Server.MapPath(path));
             }
             WebShopManager.Insert(webShop);
@@ -110,7 +109,7 @@ namespace WebApp.Controllers
             if (upload != null)
             {
                 webShop.LogoPath = CreateImgName();
-                var path = Path.Combine(GetLogoDirectory(), webShop.LogoPath);
+                var path = Path.Combine("~", GetLogoDirectory(), webShop.LogoPath);
                 upload.SaveAs(Server.MapPath(path));
             }
             WebShopManager.Update(webShop);
@@ -130,11 +129,11 @@ namespace WebApp.Controllers
 
         private string GetLogoDirectory()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "WebShopLogos");
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Content", "WebShopLogos");
             var info = new DirectoryInfo(path);
             if(!info.Exists)
             Directory.CreateDirectory(path);
-            return Path.Combine("App_Data", "WebShopLogos");
+            return Path.Combine("Content", "WebShopLogos");
         }
     }
 }

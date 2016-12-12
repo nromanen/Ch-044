@@ -50,9 +50,13 @@ namespace DAL.Elastic
             return context.GetByNameHard(name);
         }
 
-        public IList<GoodDTO> Get(string value)
+        public IList<GoodDTO> GetExact(string value)
         {
-            return context.Get(value);
+            return context.GetExact(value);
+        }
+        public IList<GoodDTO> GetSimilar(string value)
+        {
+            return context.GetSimilar(value);
         }
 
         public IList<GoodDTO> GetByCategoryId(int id)

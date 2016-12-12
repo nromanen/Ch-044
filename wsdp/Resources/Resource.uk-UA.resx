@@ -411,4 +411,7 @@
   <data name="CategoryNotFound" xml:space="preserve">
     <value>В даній категорії немає товарів,спробуйте пізніше.</value>
   </data>
+  <data name="GoodsNotFounded" xml:space="preserve">
+    <value>По вашому запиту нічого не знайдено.</value>
+  </data>
 </root>

@@ -25,7 +25,7 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
 
-            var item = Elastic.GetByWebShopId(1);
+            var item = Elastic.GetSimilar(@"Ноутбук HP 255 G5 (W4M53EA) Black Суперцена!!!&nbsp;");
             return View(item);
         }
 
