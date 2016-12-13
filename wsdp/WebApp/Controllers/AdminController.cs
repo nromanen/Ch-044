@@ -16,8 +16,8 @@ namespace WebApp.Controllers
 		private IPropertyManager propertyManager;
 		private IUserManager userManager;
 		private IRoleManager roleManager;
-        private ICheckGoodManager checkergoodManager;
-        private IParserTaskManager parserTaskManager;
+		private ICheckGoodManager checkergoodManager;
+		private IParserTaskManager parserTaskManager;
 
 		public AdminController(ICategoryManager categoryManager, IPropertyManager propertyManager, IUserManager userManager, IRoleManager roleManager, ICheckGoodManager checkergoodManager, IParserTaskManager parserTaskManager)
 		{
@@ -25,9 +25,9 @@ namespace WebApp.Controllers
 			this.propertyManager = propertyManager;
 			this.userManager = userManager;
 			this.roleManager = roleManager;
-            this.checkergoodManager = checkergoodManager;
-            this.parserTaskManager = parserTaskManager;
-        }
+			this.checkergoodManager = checkergoodManager;
+			this.parserTaskManager = parserTaskManager;
+		}
 
 		// GET: Admin
 		public ActionResult Index()
@@ -220,27 +220,27 @@ namespace WebApp.Controllers
 			categoryManager.ChangeOrderNo(id, orderno);
 		}
 
-        [Authorize(Roles = "Administrator")]
-        [HttpGet]
-        public ActionResult CheckExistGoods()
-        {
-            CheckGoodDTO checkgood = new CheckGoodDTO();
-            List<ParserTaskDTO> parsertasks = parserTaskManager.GetAll();
-            List<CategoryDTO> categories = categoryManager.GetAll();
+		[Authorize(Roles = "Administrator")]
+		[HttpGet]
+		public ActionResult CheckExistGoods()
+		{
+			CheckGoodDTO checkgood = new CheckGoodDTO();
+			List<ParserTaskDTO> parsertasks = parserTaskManager.GetAll();
+			List<CategoryDTO> categories = categoryManager.GetAll();
 
-            checkgood.Categories = categories;
-            checkgood.ParserTasks = parsertasks;
+			checkgood.Categories = categories;
+			checkgood.ParserTasks = parsertasks;
 
-            return View(checkgood);
-        }
+			return View(checkgood);
+		}
 
-        [Authorize(Roles = "Administrator")]
-        [HttpGet]
-        public ActionResult CheckGoodsAndUpdate(int category_id, int parsertask_id)
-        {
-            var deletedGoods = checkergoodManager.CheckGoodsFromOneCategory(category_id, parsertask_id).Select(c => new {Name = c.Name, UrlLink = c.UrlLink}).ToList();
-            return Json(new { success = true, deletedgoods = deletedGoods.ToArray() },
-                        JsonRequestBehavior.AllowGet);
-        }
-    }
+		[Authorize(Roles = "Administrator")]
+		[HttpGet]
+		public ActionResult CheckGoodsAndUpdate(int category_id, int parsertask_id)
+		{
+			var deletedGoods = checkergoodManager.CheckGoodsFromOneCategory(category_id, parsertask_id).Select(c => new {Name = c.Name, UrlLink = c.UrlLink}).ToList();
+			return Json(new { success = true, deletedgoods = deletedGoods.ToArray() },
+						JsonRequestBehavior.AllowGet);
+		}
+	}
 }

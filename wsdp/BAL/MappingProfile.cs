@@ -5,12 +5,15 @@ using Model.DTO;
 using System.Collections.Generic;
 using BAL.Manager;
 
-namespace BAL {
-	public class MappingProfile : Profile {
+namespace BAL
+{
+	public class MappingProfile : Profile
+	{
 		private ExtendedXmlSerializer serializer = new ExtendedXmlSerializer();
 		private SerializerForGrabber grabberSerializer = new SerializerForGrabber();
 
-		protected override void Configure() {
+		protected override void Configure()
+		{
 			base.Configure();
 
 			CreateMap<UserDTO, User>();
@@ -20,6 +23,10 @@ namespace BAL {
 			CreateMap<NetworkUserDTO, User>();
 			CreateMap<User, NetworkUserDTO>()
 				.ForMember(x => x.RoleName, y => y.MapFrom(t => t.Role.Name));
+
+
+			CreateMap<Category, CategoryDTO>()
+				.ForMember(p => p.ChildrenCategory, m => m.MapFrom(t => new List<CategoryDTO>()));
 
 			CreateMap<Role, RoleDTO>()
 				.ForMember(p => p.Id, m => m.MapFrom(t => t.Id))
@@ -103,7 +110,7 @@ namespace BAL {
 				m => m.Ignore()
 				);
 
-            CreateMap<AppSettingsDTO, AppSetting>();
+			CreateMap<AppSettingsDTO, AppSetting>();
 		}
 	}
 }

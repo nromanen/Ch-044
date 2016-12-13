@@ -280,6 +280,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ElasticTestController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GoodController.cs" />
     <Compile Include="Controllers\UniversalParserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WebShopController.cs" />
@@ -423,6 +424,7 @@
     <Content Include="Views\Good\EmptyList.cshtml" />
     <Content Include="Views\Good\GetGoodsByName.cshtml" />
     <Content Include="Views\UniversalParser\_ConfigureSchedulerIntervals.cshtml" />
+    <Content Include="Views\Error\CategoryNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
