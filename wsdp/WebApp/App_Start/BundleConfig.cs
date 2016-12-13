@@ -54,8 +54,8 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 				"~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/executing_tasks").Include(
-                    "~/Scripts/ExecutingTasks/dynamic_update.js"));
+			bundles.Add(new ScriptBundle("~/bundles/executing_tasks").Include(
+					"~/Scripts/ExecutingTasks/dynamic_update.js"));
 
 			
 
@@ -70,7 +70,8 @@ namespace WebApp
 				"~/Content/Users/EditUsersStylesheet.css"
 				));
 			bundles.Add(new StyleBundle("~/Content/IndexStylesheet").Include(
-				"~/Content/Index/IndexStyleSheet.css"
+				"~/Content/Index/IndexStyleSheet.css",
+				"~/Content/Index/Site.css"
 				));
 			bundles.Add(new StyleBundle("~/Content/EditPropertiesStylesheet").Include(
 				"~/Content/bootstrap/bootstrap.css",
@@ -90,10 +91,10 @@ namespace WebApp
 				"~/Content/Categories/jquery.treemenu.css",
 				"~/Content/Categories/EditCategoriesStylesheet.css"));
 
-            bundles.Add(new StyleBundle("~/Content/ConcreteGoodStylesheet").Include(
-                "~/Content/Good/ConcreteGoodStylesheet.css"
-                ));
-        }
+			bundles.Add(new StyleBundle("~/Content/ConcreteGoodStylesheet").Include(
+				"~/Content/Good/ConcreteGoodStylesheet.css"
+				));
+		}
 
 	}
 }

@@ -300,6 +300,7 @@
     <Content Include="Content\bootstrap.flaty.min.css" />
     <Content Include="Content\Errors\404.jpg" />
     <Content Include="Content\Good\ConcreteGoodStylesheet.css" />
+    <Content Include="Content\Index\Site.css" />
     <Content Include="Content\Properties\bootstrap-combobox.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />

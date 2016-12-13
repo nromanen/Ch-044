@@ -44,15 +44,15 @@ namespace WebApp.Controllers
 				string propertyname = propertymanager.Get(item.Key).Name;
 				properties.Add(propertyname, item.Value);
 			}
-            //similaroffers = elasticmanager.GetSimilar(good.Name.Split(' ')[1]).ToList();
-            similaroffers = elasticmanager.GetSimilar(good.Name).ToList();
-            alloffers = elasticmanager.GetByName(good.Name).ToList();
+			//similaroffers = elasticmanager.GetSimilar(good.Name.Split(' ')[1]).ToList();
+			similaroffers = elasticmanager.GetSimilar(good.Name).ToList();
+			alloffers = elasticmanager.GetByName(good.Name).ToList();
 
-            foreach (var simgood in similaroffers)
-            {
-                simgood.Category = categoryManager.Get(simgood.Category_Id);
-                simgood.WebShop = webShopManager.GetById(simgood.WebShop_Id);
-            }
+			foreach (var simgood in similaroffers)
+			{
+				simgood.Category = categoryManager.Get(simgood.Category_Id);
+				simgood.WebShop = webShopManager.GetById(simgood.WebShop_Id);
+			}
 
 			decimal minprice = (decimal)(similaroffers.Select(c => c.Price).Min() ?? good.Price);
 			decimal maxprice = (decimal)(similaroffers.Select(c => c.Price).Max() ?? good.Price);
@@ -85,23 +85,28 @@ namespace WebApp.Controllers
 			}
 		}
 
-	    public ActionResult EmptyList()
-	    {
-	        return View();
-	    }
+		public ActionResult EmptyList()
+		{
+			return View();
+		}
+		public ActionResult FollowGoodPrice(string url)
+		{
 
-	    public ActionResult GetGoodsByName(string name)
-        {
-            if (name == null) return HttpNotFound();
-	      
-	        var goodList = elasticmanager.GetExact(name);
-	        if (goodList.Count == 0) return RedirectToAction("EmptyList");
-	        foreach (var item in goodList)
-	        {
-	            item.WebShop = webShopManager.GetById(item.WebShop_Id);
-	            item.Category = categoryManager.Get(item.Category_Id);
-	        }
-            return View(goodList);
-	    }
+			return View();
+		}
+
+		public ActionResult GetGoodsByName(string name)
+		{
+			if (name == null) return HttpNotFound();
+		  
+			var goodList = elasticmanager.GetExact(name);
+			if (goodList.Count == 0) return RedirectToAction("EmptyList");
+			foreach (var item in goodList)
+			{
+				item.WebShop = webShopManager.GetById(item.WebShop_Id);
+				item.Category = categoryManager.Get(item.Category_Id);
+			}
+			return View(goodList);
+		}
 	}
 }
