@@ -73,6 +73,7 @@
     <Compile Include="DB\Category.cs" />
     <Compile Include="DB\ExecutingInfo.cs" />
     <Compile Include="DB\Good.cs" />
+    <Compile Include="DB\PriceFollower.cs" />
     <Compile Include="DB\PriceHistory.cs" />
     <Compile Include="DB\Property.cs" />
     <Compile Include="DB\Role.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="DTO\IteratorSettingsDTO.cs" />
     <Compile Include="DTO\NetworkUserDTO.cs" />
     <Compile Include="DTO\ParserTaskDTO.cs" />
+    <Compile Include="DTO\PriceFollowerDTO.cs" />
     <Compile Include="DTO\PriceHistoryDTO.cs" />
     <Compile Include="DTO\PropertyValuesDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />

@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201612111428055_AddAppSettings.Designer.cs">
       <DependentUpon>201612111428055_AddAppSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612131504265_Added_pricefollowers.cs" />
+    <Compile Include="Migrations\201612131504265_Added_pricefollowers.Designer.cs">
+      <DependentUpon>201612131504265_Added_pricefollowers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -308,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612111428055_AddAppSettings.resx">
       <DependentUpon>201612111428055_AddAppSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612131504265_Added_pricefollowers.resx">
+      <DependentUpon>201612131504265_Added_pricefollowers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

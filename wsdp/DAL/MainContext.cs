@@ -26,6 +26,7 @@ namespace DAL
 		public DbSet<ParserTask> ParserTasks { get; set; }
 		public DbSet<PriceHistory> PriceHistory { get; set; }
 		public DbSet<ExecutingInfo> ExecutingInfo { get; set; }
-        public DbSet<AppSetting> AppSettings { get; set; }
-    }
+		public DbSet<AppSetting> AppSettings { get; set; }
+		public DbSet<PriceFollower> PriceFollowers { get; set; }
+	}
 }

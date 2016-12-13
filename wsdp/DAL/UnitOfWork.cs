@@ -22,6 +22,7 @@ namespace DAL
 		private IGenericRepository<PriceHistory> priceRepo;
 		private IGenericRepository<ExecutingInfo> executeRepo;
         private IGenericRepository<AppSetting> appSettingsRepo;
+		private IGenericRepository<PriceFollower> priceFollowerRepo;
 
 		#endregion Private Repositories
 
@@ -39,6 +40,9 @@ namespace DAL
 			priceRepo = new GenericRepository<PriceHistory>(context);
 			executeRepo = new GenericRepository<ExecutingInfo>(context);
             appSettingsRepo = new GenericRepository<AppSetting>(context);
+			priceFollowerRepo = new GenericRepository<PriceFollower>(context);
+
+
 		}
 
 		#region Repositories Getters
@@ -132,9 +136,19 @@ namespace DAL
             }
         }
 
+		public IGenericRepository<PriceFollower> PriceFollowerRepo
+		{
+			get
+			{
+				if (priceFollowerRepo == null)
+					priceFollowerRepo = new GenericRepository<PriceFollower>(context);
+				return priceFollowerRepo;
+			}
+		}
+
 		#endregion Repositories Getters
 
-	    public void UpdateContext()
+		public void UpdateContext()
 	    {
 	        context = new MainContext();
 	    }
