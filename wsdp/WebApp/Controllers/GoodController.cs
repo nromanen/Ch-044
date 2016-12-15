@@ -103,7 +103,7 @@ namespace WebApp.Controllers
 		}
 
         [HttpPost]
-		public ActionResult FollowGoodPrice(string good_Id, string user_Id)
+		public void FollowGoodPrice(string good_Id, string user_Id)
 		{
 			if(Request.IsAuthenticated)
 			{ 
@@ -114,15 +114,19 @@ namespace WebApp.Controllers
                     User_Id = Convert.ToInt32(user_Id)
                 };
                 followPriceManager.Insert(model);
-
-                return View();
             }
             else
             {
-                return RedirectToAction("SignUp", "Account");
+                RedirectToAction("SignUp", "Account");
             }
 			
 			
+		}
+
+		[HttpPost]
+		public void DeleteGoodFollow(string good_Id, string user_Id)
+		{
+
 		}
 
 		public ActionResult GetGoodsByName(string name)

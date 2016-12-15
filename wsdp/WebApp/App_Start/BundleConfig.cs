@@ -95,7 +95,8 @@ namespace WebApp
 				"~/Content/Categories/EditCategoriesStylesheet.css"));
 
 			bundles.Add(new StyleBundle("~/Content/ConcreteGoodStylesheet").Include(
-				"~/Content/Good/ConcreteGoodStylesheet.css"
+				"~/Content/Good/ConcreteGoodStylesheet.css",
+				"~/Content/Index/Site.css"
 				));
 		}
 

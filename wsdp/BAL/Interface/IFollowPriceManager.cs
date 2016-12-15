@@ -12,5 +12,6 @@ namespace BAL.Interface
 	{
 		void Insert(PriceFollowerDTO model);
 		List<PriceFollowerDTO> GetAll();
+
 	}
 }
