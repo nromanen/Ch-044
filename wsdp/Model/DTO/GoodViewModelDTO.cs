@@ -18,5 +18,11 @@ namespace Model.DTO
 
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
-    }
+		public int? UserId { get; set; }
+
+		public string GetFollowText()
+		{
+			return Good.IsFollowed ? "Unfollow" : "Follow";
+		}
+	}
 }

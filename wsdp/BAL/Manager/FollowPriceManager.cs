@@ -34,7 +34,7 @@ namespace BAL.Manager
 		{
 			var item = Mapper.Map<PriceFollower>(model);
 
-			var followPrices = uOW.PriceFollowerRepo.All.Where(x => x.Url == model.Url && x.Email == model.Email).ToList();
+			var followPrices = uOW.PriceFollowerRepo.All.Where(x => x.Good_Id == model.Good_Id && x.User_Id == model.User_Id).ToList();
 			if (!followPrices.Any())
 			{
 				uOW.PriceFollowerRepo.Insert(item);

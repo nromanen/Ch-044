@@ -9,7 +9,7 @@ namespace Model.DTO
 	public class PriceFollowerDTO
 	{
 		public int id { get; set; }
-		public string Url { get; set; }
-		public string Email { get; set; }
+		public int Good_Id { get; set; }
+		public int User_Id { get; set; }
 	}
 }

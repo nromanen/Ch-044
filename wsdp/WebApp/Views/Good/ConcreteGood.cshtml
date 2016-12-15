@@ -46,7 +46,19 @@
 
 				<input type="hidden"  id="goodUrl" value="@Model.Good.UrlLink"/>
 
-					<a class="btn btn-success" onclick="Follow()" id="btn_follow">Follow Price</a>
+				@if (Model.Good.IsFollowed)
+				{
+
+					<a class="btn btn-success" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Unfollow()" id="btn_follow">@Model.GetFollowText()</a>
+				}
+				else if (User.Identity.IsAuthenticated)
+				{
+					<a class="btn btn-success" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Follow()" id="btn_follow">@Model.GetFollowText()</a>
+				}
+				else
+				{
+					<a class="btn btn-success" onclick="Register_follow()" id="btn_follow">@Model.GetFollowText()</a>
+				}
 
 				<h4 class="text-muted"> Shop: @Model.Good.WebShop.Name</h4>
 				<img src="@Model.Good.WebShop.LogoPath" alt="ShopLogo" class="img-responsive img-thumbnail" />
@@ -233,4 +245,5 @@
 		console.log('@Model.Good.UrlLink');
 		setTimeout(function () { DrawChart('@Model.Good.UrlLink'); }, 200);
 	}
+
 </script>

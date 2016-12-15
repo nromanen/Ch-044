@@ -471,10 +471,6 @@
       <Project>{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}</Project>
       <Name>TaskExecuting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UnitTests\UnitTests.csproj">
-      <Project>{d61e2271-fa26-4f5a-bb03-41891a9cbf3e}</Project>
-      <Name>UnitTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
