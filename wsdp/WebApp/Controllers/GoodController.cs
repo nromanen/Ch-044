@@ -34,8 +34,7 @@ namespace WebApp.Controllers
 		public ActionResult ConcreteGood(int id)
 		{
 			GoodViewModelDTO mainmodel = new GoodViewModelDTO();
-
-			GoodDTO good = goodmanager.Get(id);
+			GoodDTO good = goodmanager.Get(id,Convert.ToInt32(User.Identity.GetUserId()));
 
 			mainmodel.Good = good;
 
@@ -67,6 +66,14 @@ namespace WebApp.Controllers
 			mainmodel.MinPrice = minprice;
 			mainmodel.MaxPrice = maxprice;
 			mainmodel.Properties = properties;
+			if(User.Identity.IsAuthenticated)
+			{
+				mainmodel.UserId = Convert.ToInt32(User.Identity.GetUserId());
+			}
+			else
+			{
+				mainmodel.UserId = null;
+			}
 
 			return View(mainmodel);
 		}
@@ -96,17 +103,15 @@ namespace WebApp.Controllers
 		}
 
         [HttpPost]
-		public ActionResult FollowGoodPrice(string goodUrl, string email)
+		public ActionResult FollowGoodPrice(string good_Id, string user_Id)
 		{
 			if(Request.IsAuthenticated)
-			{
-				var userId=User.Identity.GetUserId();
-				email = userManager.GetEmail(Convert.ToInt32(userId));
+			{ 
 
                 var model = new PriceFollowerDTO()
                 {
-                    Email = email,
-                    Url = goodUrl
+                    Good_Id = Convert.ToInt32(good_Id),
+                    User_Id = Convert.ToInt32(user_Id)
                 };
                 followPriceManager.Insert(model);
 

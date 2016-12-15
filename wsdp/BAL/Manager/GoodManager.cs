@@ -91,7 +91,7 @@ namespace BAL.Manager
             uOW.Save();
         }
 
-        public GoodDTO Get(int id)
+        public GoodDTO Get(int id, int? userId)
         {
             GoodDTO result = null;
 
@@ -99,7 +99,13 @@ namespace BAL.Manager
             if (good == null) return null;
             result = Mapper.Map<GoodDTO>(good);
 
-            result.Category = Mapper.Map<CategoryDTO>(uOW.CategoryRepo.GetByID(good.Category_Id));
+			if (userId.HasValue) {
+				var user = uOW.UserRepo.GetByID(userId.Value);
+				var followed = uOW.PriceFollowerRepo.All.Any(x => x.Good_Id == id && x.User_Id == userId);
+				result.IsFollowed = followed;
+			}
+
+			result.Category = Mapper.Map<CategoryDTO>(uOW.CategoryRepo.GetByID(good.Category_Id));
             result.WebShop = Mapper.Map<WebShopDTO>(uOW.WebShopRepo.GetByID(good.WebShop_Id));
 
             return result;
