@@ -35,9 +35,12 @@ namespace WebApp
 				"~/Scripts/Frame/IteratorMain.js"
 				));
 
+			bundles.Add(new ScriptBundle("~/Scripts/PriceFollowers").Include(
+			"~/Scripts/PriceFollow/follow.js"));
+
 			bundles.Add(new ScriptBundle("~/Scripts/GrabberJs").Include(
 				"~/Scripts/Frame/GrabberMain.js"));
-			
+
 			bundles.Add(new ScriptBundle("~/Content/editcategories").Include(
 				"~/Scripts/Categories/editcategories.js",
 				"~/Scripts/Categories/jquery-sortable.js",
@@ -57,7 +60,7 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/executing_tasks").Include(
 					"~/Scripts/ExecutingTasks/dynamic_update.js"));
 
-			
+
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap-select").Include(
 				"~/Scripts/Bootstrap-select/bootstrap-select.min.js"));

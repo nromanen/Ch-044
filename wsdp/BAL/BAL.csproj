@@ -109,6 +109,7 @@
     <Compile Include="Interface\IDownloadManager.cs" />
     <Compile Include="Interface\IElasticManager.cs" />
     <Compile Include="Interface\IExecuteManager.cs" />
+    <Compile Include="Interface\IFollowPriceManager.cs" />
     <Compile Include="Interface\IGoodDatabasesWizard.cs" />
     <Compile Include="Interface\IGoodManager.cs" />
     <Compile Include="Interface\IHtmlValidator.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Manager\DownloadManager.cs" />
     <Compile Include="Manager\ElasticManager.cs" />
     <Compile Include="Manager\ExecuteManager.cs" />
+    <Compile Include="Manager\FollowPriceManager.cs" />
     <Compile Include="Manager\GoodDatabasesWizard.cs" />
     <Compile Include="Manager\GoodManager.cs" />
     <Compile Include="Manager\HtmlValidator.cs" />

@@ -35,6 +35,8 @@ namespace BAL
 
 			CreateMap<Property, PropertyDTO>();
 
+			CreateMap<PriceFollower, PriceFollowerDTO>();
+			CreateMap<PriceFollowerDTO, PriceFollower>();
 			CreateMap<WebShop, WebShopDTO>();
 			CreateMap<WebShopDTO, WebShop>();
 

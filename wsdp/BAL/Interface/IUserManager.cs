@@ -15,8 +15,8 @@ namespace BAL.Interface
 
         void Insert(UserDTO user);
         void Insert(NetworkUserDTO user);
-
-        bool EmailIsExist(string email);
+		string GetEmail(int Id);
+		bool EmailIsExist(string email);
         bool NetworkAccountExict(string networkAccountId, string network);
     }
 }

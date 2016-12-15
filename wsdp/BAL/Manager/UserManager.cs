@@ -57,6 +57,12 @@ namespace BAL.Manager
             return Mapper.Map<UserDTO>(user);
         }
 
+		public string GetEmail(int Id)
+		{
+			var email = uOW.UserRepo.GetByID(Id).Email;
+			return email;
+		}
+
         /// <summary>
         /// Get user from database by networkAccountId and network
         /// </summary>

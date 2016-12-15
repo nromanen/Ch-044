@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace WebApp.Controllers
 {
@@ -16,21 +17,24 @@ namespace WebApp.Controllers
 		private IPropertyManager propertymanager = null;
 		private ICategoryManager categoryManager = null;
 		private IWebShopManager webShopManager = null;
+		private IFollowPriceManager followPriceManager;
+		private IUserManager userManager;
 
-		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager, ICategoryManager categoryManager, IWebShopManager webShopManager)
+		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager, ICategoryManager categoryManager, IWebShopManager webShopManager, IFollowPriceManager followPriceManager,IUserManager userManager)
 		{
+			this.userManager = userManager;
 			this.webShopManager = webShopManager;
 			this.categoryManager = categoryManager;
 			this.goodmanager = goodmanager;
 			this.elasticmanager = elasticmanager;
 			this.propertymanager = propertymanager;
+			this.followPriceManager = followPriceManager;
 		}
 		// GET: Good
 		public ActionResult ConcreteGood(int id)
 		{
 			GoodViewModelDTO mainmodel = new GoodViewModelDTO();
-
-			GoodDTO good = goodmanager.Get(id);
+			GoodDTO good = goodmanager.Get(id,Convert.ToInt32(User.Identity.GetUserId()));
 
 			mainmodel.Good = good;
 
@@ -62,6 +66,14 @@ namespace WebApp.Controllers
 			mainmodel.MinPrice = minprice;
 			mainmodel.MaxPrice = maxprice;
 			mainmodel.Properties = properties;
+			if(User.Identity.IsAuthenticated)
+			{
+				mainmodel.UserId = Convert.ToInt32(User.Identity.GetUserId());
+			}
+			else
+			{
+				mainmodel.UserId = null;
+			}
 
 			return View(mainmodel);
 		}
@@ -89,10 +101,28 @@ namespace WebApp.Controllers
 		{
 			return View();
 		}
-		public ActionResult FollowGoodPrice(string url)
-		{
 
-			return View();
+        [HttpPost]
+		public ActionResult FollowGoodPrice(string good_Id, string user_Id)
+		{
+			if(Request.IsAuthenticated)
+			{ 
+
+                var model = new PriceFollowerDTO()
+                {
+                    Good_Id = Convert.ToInt32(good_Id),
+                    User_Id = Convert.ToInt32(user_Id)
+                };
+                followPriceManager.Insert(model);
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("SignUp", "Account");
+            }
+			
+			
 		}
 
 		public ActionResult GetGoodsByName(string name)

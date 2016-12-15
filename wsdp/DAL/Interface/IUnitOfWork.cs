@@ -14,6 +14,7 @@ namespace DAL.Interface
 		IGenericRepository<PriceHistory> PriceRepo { get; }
 		IGenericRepository<ExecutingInfo> ExecuteRepo { get; }
         IGenericRepository<AppSetting> AppSettingRepo { get; }
+		IGenericRepository<PriceFollower> PriceFollowerRepo { get; }
 
 
         void Dispose();
