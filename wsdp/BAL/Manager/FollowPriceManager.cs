@@ -9,6 +9,7 @@ using DAL.Interface;
 using Model.DTO;
 using AutoMapper;
 
+
 namespace BAL.Manager
 {
 	public class FollowPriceManager : BaseManager,IFollowPriceManager

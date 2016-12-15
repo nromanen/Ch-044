@@ -94,20 +94,30 @@ namespace WebApp.Controllers
 		{
 			return View();
 		}
+
+        [HttpPost]
 		public ActionResult FollowGoodPrice(string goodUrl, string email)
 		{
 			if(Request.IsAuthenticated)
 			{
 				var userId=User.Identity.GetUserId();
 				email = userManager.GetEmail(Convert.ToInt32(userId));
-			}
-			var model = new PriceFollowerDTO()
-			{
-				Email = email,
-				Url = goodUrl
-			};
-			followPriceManager.Insert(model);
-			return View();
+
+                var model = new PriceFollowerDTO()
+                {
+                    Email = email,
+                    Url = goodUrl
+                };
+                followPriceManager.Insert(model);
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("SignUp", "Account");
+            }
+			
+			
 		}
 
 		public ActionResult GetGoodsByName(string name)

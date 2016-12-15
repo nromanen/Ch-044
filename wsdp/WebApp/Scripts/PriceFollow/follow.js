@@ -12,7 +12,7 @@ function Follow()
 		url: "/Good/FollowGoodPrice",
 		data: { "email": email, "goodUrl": goodUrl },
 		success: function () {
-			
+		    alert('ok');
 		},
 		error: function () {
 			console.log("pizdec");
