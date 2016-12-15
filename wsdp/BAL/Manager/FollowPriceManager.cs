@@ -41,5 +41,12 @@ namespace BAL.Manager
 				uOW.Save();
 			}
 		}
+		public void Delete(int follow_Id)
+		{
+			var goodDb = uOW.PriceFollowerRepo.GetByID(follow_Id);
+			if (goodDb == null) return;
+			uOW.PriceFollowerRepo.Delete(goodDb);
+			uOW.Save();
+		}
 	}
 }

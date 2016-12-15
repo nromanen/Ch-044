@@ -126,6 +126,10 @@ namespace WebApp.Controllers
 		[HttpPost]
 		public void DeleteGoodFollow(string good_Id, string user_Id)
 		{
+			var del_id = followPriceManager.GetAll().
+				Where(i => i.Good_Id == Convert.ToInt32(good_Id) && i.User_Id == Convert.ToInt32(user_Id)).
+				Select(i => i.id).FirstOrDefault();
+			followPriceManager.Delete(del_id);
 
 		}
 

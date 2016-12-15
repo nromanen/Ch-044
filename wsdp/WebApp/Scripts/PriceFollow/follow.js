@@ -16,11 +16,11 @@ function Follow()
 			$("#btn_follow").attr("onclick", "Unfollow()");
 		},
 		error: function () {
-			console.log("pizdec");
+			console.log("error");
 		}
 	});
 }
-function Follow() {
+function Unfollow() {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
 
@@ -33,7 +33,7 @@ function Follow() {
 			$("#btn_follow").attr("onclick", "Follow()");
 		},
 		error: function () {
-			console.log("pizdec");
+			console.log("error");
 		}
 	});
 }

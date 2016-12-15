@@ -12,6 +12,6 @@ namespace BAL.Interface
 	{
 		void Insert(PriceFollowerDTO model);
 		List<PriceFollowerDTO> GetAll();
-
+		void Delete(int follow_Id);
 	}
 }
