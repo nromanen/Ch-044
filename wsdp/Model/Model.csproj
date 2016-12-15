@@ -83,6 +83,7 @@
     <Compile Include="DTO\AppSettingsDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\CheckGoodDTO.cs" />
+    <Compile Include="DTO\CompareGoodsDTO.cs" />
     <Compile Include="DTO\ExecutingInfoDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\GoodDTO.cs" />
