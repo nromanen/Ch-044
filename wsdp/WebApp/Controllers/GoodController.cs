@@ -146,5 +146,58 @@ namespace WebApp.Controllers
 			}
 			return View(goodList);
 		}
+
+        [HttpPost]
+        public void SetCompareGood(int id)
+        {
+            if (Request.Cookies.Get("firstCompareGood") == null)
+            {
+                HttpCookie firstcookie = new HttpCookie("firstCompareGood");
+                firstcookie.Value = id.ToString();
+                Response.Cookies.Add(firstcookie);
+            }
+            else
+            {
+                HttpCookie secondcookie = new HttpCookie("secondCompareGood");
+                secondcookie.Value = id.ToString();
+                Response.Cookies.Add(secondcookie);
+            }
+        }
+
+        public ActionResult CompareGoods()
+        {
+            //int firstGoodId = Convert.ToInt32(Request.Cookies.Get("firstCompareGood").Value);
+            //int secondGoodId = Convert.ToInt32(Request.Cookies.Get("secondCompareGood").Value);
+
+            int firstGoodId = 2;
+            int secondGoodId = 3;
+            GoodDTO firstGood = goodmanager.Get(firstGoodId);
+            GoodDTO secondGood = goodmanager.Get(secondGoodId);
+
+            Dictionary<string, string> firstProperties = new Dictionary<string, string>();
+            Dictionary<string, string> secondProperties = new Dictionary<string, string>();
+
+
+            foreach (var item in firstGood.PropertyValues.DictStringProperties)
+            {
+                string propertyname = propertymanager.Get(item.Key).Name;
+                firstProperties.Add(propertyname, item.Value);
+            }
+
+            foreach (var item in secondGood.PropertyValues.DictStringProperties)
+            {
+                string propertyname = propertymanager.Get(item.Key).Name;
+                secondProperties.Add(propertyname, item.Value);
+            }
+
+            CompareGoodsDTO info = new CompareGoodsDTO()
+            {
+                FirstGood = firstGood,
+                SecondGood = secondGood,
+                FirstProperties = firstProperties,
+                SecondProperties = secondProperties
+            };
+            return View(info);
+        }
 	}
 }
