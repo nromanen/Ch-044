@@ -34,7 +34,7 @@ namespace WebApp.Controllers
 		public ActionResult ConcreteGood(int id)
 		{
 			GoodViewModelDTO mainmodel = new GoodViewModelDTO();
-			GoodDTO good = goodmanager.Get(id,Convert.ToInt32(User.Identity.GetUserId()));
+			GoodDTO good = goodmanager.GetAndCheckUser(id,Convert.ToInt32(User.Identity.GetUserId()));
 
 			mainmodel.Good = good;
 

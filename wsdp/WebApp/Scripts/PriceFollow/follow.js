@@ -6,6 +6,7 @@ function Follow()
 {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
+	$("#btn_follow").addClass('active');
 
 	$.ajax({
 		type: "POST",
@@ -14,6 +15,7 @@ function Follow()
 		success: function () {
 			$("#btn_follow").text("Unfollow");
 			$("#btn_follow").attr("onclick", "Unfollow()");
+			$("#btn_follow").removeClass('active');
 		},
 		error: function () {
 			console.log("error");
@@ -23,6 +25,7 @@ function Follow()
 function Unfollow() {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
+	$("#btn_follow").addClass('active');
 
 	$.ajax({
 		type: "POST",
@@ -31,6 +34,7 @@ function Unfollow() {
 		success: function () {
 			$("#btn_follow").text("Follow");
 			$("#btn_follow").attr("onclick", "Follow()");
+			$("#btn_follow").removeClass('active');
 		},
 		error: function () {
 			console.log("error");

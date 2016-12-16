@@ -427,7 +427,6 @@
     <Content Include="Views\Good\GetGoodsByName.cshtml" />
     <Content Include="Views\UniversalParser\_ConfigureSchedulerIntervals.cshtml" />
     <Content Include="Views\Error\CategoryNotFound.cshtml" />
-    <Content Include="Views\Good\_EmailForFollowPrice.cshtml" />
     <Content Include="Views\Good\CompareGoods.cshtml" />
   </ItemGroup>
   <ItemGroup>
