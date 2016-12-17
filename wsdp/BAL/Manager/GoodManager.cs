@@ -98,11 +98,30 @@ namespace BAL.Manager
             var good = uOW.GoodRepo.GetByID(id);
             if (good == null) return null;
             result = Mapper.Map<GoodDTO>(good);
-
-            result.Category = Mapper.Map<CategoryDTO>(uOW.CategoryRepo.GetByID(good.Category_Id));
+			result.Category = Mapper.Map<CategoryDTO>(uOW.CategoryRepo.GetByID(good.Category_Id));
             result.WebShop = Mapper.Map<WebShopDTO>(uOW.WebShopRepo.GetByID(good.WebShop_Id));
 
             return result;
         }
-    }
+		public GoodDTO GetAndCheckUser(int id, int? userId)
+		{
+			GoodDTO result = null;
+
+			var good = uOW.GoodRepo.GetByID(id);
+			if (good == null) return null;
+			result = Mapper.Map<GoodDTO>(good);
+
+			if (userId.HasValue)
+			{
+				var user = uOW.UserRepo.GetByID(userId.Value);
+				var followed = uOW.PriceFollowerRepo.All.Any(x => x.Good_Id == id && x.User_Id == userId);
+				result.IsFollowed = followed;
+			}
+
+			result.Category = Mapper.Map<CategoryDTO>(uOW.CategoryRepo.GetByID(good.Category_Id));
+			result.WebShop = Mapper.Map<WebShopDTO>(uOW.WebShopRepo.GetByID(good.WebShop_Id));
+
+			return result;
+		}
+	}
 }

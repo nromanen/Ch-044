@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{08810AE4-EAFE-4D1C-BAA0-E082817F290F}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{E55AB93E-F921-402B-BAF4-508545B964DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{8ED9BF2D-1DDB-46F0-8D3A-4C967D5F9CF7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{D61E2271-FA26-4F5A-BB03-41891A9CBF3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{F2D491D6-8D33-40B0-A19C-804134A6EC07}"
 EndProject
@@ -23,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tor", "Tor\Tor.csproj", "{8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecuting", "TaskExecuter\TaskExecuting.csproj", "{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceFollowersService", "PriceFollowersService\PriceFollowersService.csproj", "{BA72952E-9B3C-48C5-8E1B-8EB2885F59AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSDP.Tests", "WSDP.Tests\WSDP.Tests.csproj", "{11E50E50-B337-4A6C-8BBA-A40B4A607BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{8ED9BF2D-1DDB-46F0-8D3A-4C967D5F9CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED9BF2D-1DDB-46F0-8D3A-4C967D5F9CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED9BF2D-1DDB-46F0-8D3A-4C967D5F9CF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D61E2271-FA26-4F5A-BB03-41891A9CBF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D61E2271-FA26-4F5A-BB03-41891A9CBF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D61E2271-FA26-4F5A-BB03-41891A9CBF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D61E2271-FA26-4F5A-BB03-41891A9CBF3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2D491D6-8D33-40B0-A19C-804134A6EC07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2D491D6-8D33-40B0-A19C-804134A6EC07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2D491D6-8D33-40B0-A19C-804134A6EC07}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -71,10 +65,10 @@ Global
 		{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA72952E-9B3C-48C5-8E1B-8EB2885F59AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA72952E-9B3C-48C5-8E1B-8EB2885F59AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA72952E-9B3C-48C5-8E1B-8EB2885F59AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA72952E-9B3C-48C5-8E1B-8EB2885F59AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E50E50-B337-4A6C-8BBA-A40B4A607BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E50E50-B337-4A6C-8BBA-A40B4A607BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E50E50-B337-4A6C-8BBA-A40B4A607BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E50E50-B337-4A6C-8BBA-A40B4A607BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

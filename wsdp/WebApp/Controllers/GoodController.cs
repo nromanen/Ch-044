@@ -34,8 +34,7 @@ namespace WebApp.Controllers
 		public ActionResult ConcreteGood(int id)
 		{
 			GoodViewModelDTO mainmodel = new GoodViewModelDTO();
-
-			GoodDTO good = goodmanager.Get(id);
+			GoodDTO good = goodmanager.GetAndCheckUser(id,Convert.ToInt32(User.Identity.GetUserId()));
 
 			mainmodel.Good = good;
 
@@ -67,6 +66,14 @@ namespace WebApp.Controllers
 			mainmodel.MinPrice = minprice;
 			mainmodel.MaxPrice = maxprice;
 			mainmodel.Properties = properties;
+			if(User.Identity.IsAuthenticated)
+			{
+				mainmodel.UserId = Convert.ToInt32(User.Identity.GetUserId());
+			}
+			else
+			{
+				mainmodel.UserId = null;
+			}
 
 			return View(mainmodel);
 		}
@@ -96,28 +103,34 @@ namespace WebApp.Controllers
 		}
 
         [HttpPost]
-		public ActionResult FollowGoodPrice(string goodUrl, string email)
+		public void FollowGoodPrice(string good_Id, string user_Id)
 		{
 			if(Request.IsAuthenticated)
-			{
-				var userId=User.Identity.GetUserId();
-				email = userManager.GetEmail(Convert.ToInt32(userId));
+			{ 
 
                 var model = new PriceFollowerDTO()
                 {
-                    Email = email,
-                    Url = goodUrl
+                    Good_Id = Convert.ToInt32(good_Id),
+                    User_Id = Convert.ToInt32(user_Id)
                 };
                 followPriceManager.Insert(model);
-
-                return View();
             }
             else
             {
-                return RedirectToAction("SignUp", "Account");
+                RedirectToAction("SignUp", "Account");
             }
 			
 			
+		}
+
+		[HttpPost]
+		public void DeleteGoodFollow(string good_Id, string user_Id)
+		{
+			var del_id = followPriceManager.GetAll().
+				Where(i => i.Good_Id == Convert.ToInt32(good_Id) && i.User_Id == Convert.ToInt32(user_Id)).
+				Select(i => i.id).FirstOrDefault();
+			followPriceManager.Delete(del_id);
+
 		}
 
 		public ActionResult GetGoodsByName(string name)
@@ -133,5 +146,58 @@ namespace WebApp.Controllers
 			}
 			return View(goodList);
 		}
+
+        [HttpPost]
+        public void SetCompareGood(int id)
+        {
+            if (Request.Cookies.Get("firstCompareGood") == null)
+            {
+                HttpCookie firstcookie = new HttpCookie("firstCompareGood");
+                firstcookie.Value = id.ToString();
+                Response.Cookies.Add(firstcookie);
+            }
+            else
+            {
+                HttpCookie secondcookie = new HttpCookie("secondCompareGood");
+                secondcookie.Value = id.ToString();
+                Response.Cookies.Add(secondcookie);
+            }
+        }
+
+        public ActionResult CompareGoods()
+        {
+            //int firstGoodId = Convert.ToInt32(Request.Cookies.Get("firstCompareGood").Value);
+            //int secondGoodId = Convert.ToInt32(Request.Cookies.Get("secondCompareGood").Value);
+
+            int firstGoodId = 2;
+            int secondGoodId = 3;
+            GoodDTO firstGood = goodmanager.Get(firstGoodId);
+            GoodDTO secondGood = goodmanager.Get(secondGoodId);
+
+            Dictionary<string, string> firstProperties = new Dictionary<string, string>();
+            Dictionary<string, string> secondProperties = new Dictionary<string, string>();
+
+
+            foreach (var item in firstGood.PropertyValues.DictStringProperties)
+            {
+                string propertyname = propertymanager.Get(item.Key).Name;
+                firstProperties.Add(propertyname, item.Value);
+            }
+
+            foreach (var item in secondGood.PropertyValues.DictStringProperties)
+            {
+                string propertyname = propertymanager.Get(item.Key).Name;
+                secondProperties.Add(propertyname, item.Value);
+            }
+
+            CompareGoodsDTO info = new CompareGoodsDTO()
+            {
+                FirstGood = firstGood,
+                SecondGood = secondGood,
+                FirstProperties = firstProperties,
+                SecondProperties = secondProperties
+            };
+            return View(info);
+        }
 	}
 }

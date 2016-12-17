@@ -13,5 +13,6 @@ namespace BAL.Interface
         void Delete(GoodDTO good);
         void Update(GoodDTO good);
         GoodDTO Get(int id);
+		GoodDTO GetAndCheckUser(int id, int? userId);
     }
 }

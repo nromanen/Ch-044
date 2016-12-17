@@ -28,6 +28,7 @@ namespace Model.DTO
 		public virtual WebShopDTO WebShop { get; set; }
 
 		public int WebShop_Id { get; set; }
+		public bool IsFollowed { get; set; }
 
 		public PropertyValuesDTO PropertyValues { get; set; }
 	}

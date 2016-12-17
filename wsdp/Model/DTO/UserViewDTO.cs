@@ -6,5 +6,5 @@ namespace Model.DTO
     {
         public List<UserDTO> Users;
         public List<RoleDTO> Roles;
-    }
+	}
 }

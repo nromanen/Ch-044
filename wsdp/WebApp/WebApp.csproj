@@ -427,7 +427,7 @@
     <Content Include="Views\Good\GetGoodsByName.cshtml" />
     <Content Include="Views\UniversalParser\_ConfigureSchedulerIntervals.cshtml" />
     <Content Include="Views\Error\CategoryNotFound.cshtml" />
-    <Content Include="Views\Good\_EmailForFollowPrice.cshtml" />
+    <Content Include="Views\Good\CompareGoods.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -469,10 +469,6 @@
     <ProjectReference Include="..\TaskExecuter\TaskExecuting.csproj">
       <Project>{E210278F-1CA8-445B-BE7D-AB8324F0F8C9}</Project>
       <Name>TaskExecuting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UnitTests\UnitTests.csproj">
-      <Project>{d61e2271-fa26-4f5a-bb03-41891a9cbf3e}</Project>
-      <Name>UnitTests</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

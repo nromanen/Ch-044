@@ -39,7 +39,7 @@
 
 			var ctx = $("#priceStat").get(0).getContext('2d');
 			var lineChart = new Chart(ctx).Line(data, {
-				bezierCurve: true
+				bezierCurve: false
 			});
 		}
 		function OnErrorCall_(repo) {
