@@ -153,6 +153,20 @@ namespace DAL.Migrations
                 UrlLink = "http://rozetka.com.ua/lenovo_110_17acl_80um002fra/p11781151/",
                 OldPrice = 9999
             };
+            PriceHistory priceHistory1 = new PriceHistory()
+            {
+                Name = "Lenovo ideapad",
+                Url = "http://rozetka.com.ua/lenovo_110_17acl_80um002fra/p11781151/",
+                Date = new DateTime(2016, 12, 1),
+                Price = 9999
+            };
+            PriceHistory priceHistory2 = new PriceHistory()
+            {
+                Name = "Lenovo ideapad",
+                Url = "http://rozetka.com.ua/lenovo_110_17acl_80um002fra/p11781151/",
+                Date = new DateTime(2016, 12, 2),
+                Price = 8888
+            };
             //ParserTask task = new ParserTask() {
             //	Category = categorySmartphones,
             //	Description = "Smth",
@@ -217,6 +231,8 @@ namespace DAL.Migrations
             //context.ParserTasks.AddOrUpdate(task);
             //context.ParserTasks.AddOrUpdate(task2);
             context.Goods.AddOrUpdate(good1);
+            context.PriceHistory.AddOrUpdate(priceHistory1);
+            context.PriceHistory.AddOrUpdate(priceHistory2);
         }
 	}
 }
