@@ -4,10 +4,11 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+@Scripts.Render("~/bundles/jquery")
 @Styles.Render("~/Content/ConcreteGoodStylesheet")
 @Scripts.Render("~/bundles/PriceStat")
 @Scripts.Render("~/Scripts/PriceFollowers")
+
 
 
 <div class="container">
@@ -49,11 +50,11 @@
 				@if (Model.Good.IsFollowed)
 				{
 
-					<a class="btn btn-success has-spinner" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Unfollow()" id="btn_follow"><span class="spinner"><img src="http://assets2.bostonlogic.com/images/spinner.gif" width="20" height="20"></span>@Model.GetFollowText()</a>
+					<a class="btn btn-danger" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Unfollow()" id="btn_follow"><span class="glyphicon glyphicon-refresh hidden glyphicon-refresh-animate"></span><span id="txt_butt">@Model.GetFollowText()</span></a>
 				}
 				else if (User.Identity.IsAuthenticated)
 				{
-					<a class="btn btn-success has-spinner" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Follow()" id="btn_follow"><span class="spinner"><img src="http://assets2.bostonlogic.com/images/spinner.gif" width="20" height="20"></span>@Model.GetFollowText()</a>
+					<a class="btn btn-success" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Follow()" id="btn_follow"><span class="glyphicon glyphicon-refresh hidden glyphicon-refresh-animate"></span><span id="txt_butt">@Model.GetFollowText()</span></a>
 				}
 				else
 				{
@@ -235,6 +236,7 @@
 <script>
 	$(document).ready(function () {
 		$("#charts").addClass("active");
+		$(".loader").hide();
 		$("#chart_d").on("click", function (event) {
 			DrawChart('@Model.Good.UrlLink');
 			$(this).off(event);

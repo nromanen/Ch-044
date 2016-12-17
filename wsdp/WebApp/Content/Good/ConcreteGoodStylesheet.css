@@ -158,23 +158,21 @@ margin-right: 7px;
     {
         margin: 0 10px;
     }
-.spinner {
-    opacity: 0;
-    display:none;
-    width: 20px;
-    height:10px;
-    -webkit-transition: opacity 0.25s, max-width 0.45s;
-    -moz-transition: opacity 0.25s, max-width 0.45s;
-    -o-transition: opacity 0.25s, max-width 0.45s;
-    transition: opacity 0.25s, max-width 0.45s;
-    /* Duration fixed since we animate additional hidden width */
+.glyphicon-refresh
+{
+	margin-right: 5px;
 }
-.has-spinner.active {
-    cursor:progress;
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
 }
-.has-spinner.active .spinner {
-    display:inline-block;
-    opacity: 1;
-    max-width: 50px;
-    /* More than it will ever come, notice that this affects on animation duration */
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
 }

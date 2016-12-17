@@ -1,4 +1,6 @@
-﻿
+﻿$(document).ready(function () {
+	$(".loader").hide();
+});
 function OpenModal() {
 	$("#EmailModal").show();
 }
@@ -6,39 +8,51 @@ function Follow()
 {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
-	$("#btn_follow").addClass('active');
-
 	$.ajax({
 		type: "POST",
 		url: "/Good/FollowGoodPrice",
 		data: { "good_Id": good_Id, "user_Id": user_Id },
+		beforeSend: function () {
+			$(".glyphicon-refresh").removeClass("hidden");
+		},
+		complete: function () {
+			$(".glyphicon-refresh").addClass("hidden");
+		},
 		success: function () {
-			$("#btn_follow").text("Unfollow");
+			$("#txt_butt").text("Unfollow");
 			$("#btn_follow").attr("onclick", "Unfollow()");
-			$("#btn_follow").removeClass('active');
+			$("#btn_follow").removeClass("btn-success");
+			$("#btn_follow").addClass("btn-danger");
+
 		},
 		error: function () {
 			console.log("error");
-		}
+		},
 	});
 }
 function Unfollow() {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
-	$("#btn_follow").addClass('active');
 
 	$.ajax({
 		type: "POST",
 		url: "/Good/DeleteGoodFollow",
 		data: { "good_Id": good_Id, "user_Id": user_Id },
+		beforeSend: function() {
+			$(".glyphicon-refresh").removeClass("hidden");
+		},
+		complete: function() {
+			$(".glyphicon-refresh").addClass("hidden");
+		},
 		success: function () {
-			$("#btn_follow").text("Follow");
+			$("#txt_butt").text("Follow");
 			$("#btn_follow").attr("onclick", "Follow()");
-			$("#btn_follow").removeClass('active');
+			$("#btn_follow").removeClass("btn-danger");
+			$("#btn_follow").addClass("btn-success");
 		},
 		error: function () {
 			console.log("error");
-		}
+		},
 	});
 }
 function Register_follow()
