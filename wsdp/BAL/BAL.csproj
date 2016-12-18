@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -108,6 +109,7 @@
     <Compile Include="Interface\IDeleteFilesManager.cs" />
     <Compile Include="Interface\IDownloadManager.cs" />
     <Compile Include="Interface\IElasticManager.cs" />
+    <Compile Include="Interface\IEmailService.cs" />
     <Compile Include="Interface\IExecuteManager.cs" />
     <Compile Include="Interface\IFollowPriceManager.cs" />
     <Compile Include="Interface\IGoodDatabasesWizard.cs" />
@@ -128,6 +130,7 @@
     <Compile Include="Manager\DeleteFilesManager.cs" />
     <Compile Include="Manager\DownloadManager.cs" />
     <Compile Include="Manager\ElasticManager.cs" />
+    <Compile Include="Manager\EmailService.cs" />
     <Compile Include="Manager\ExecuteManager.cs" />
     <Compile Include="Manager\FollowPriceManager.cs" />
     <Compile Include="Manager\GoodDatabasesWizard.cs" />

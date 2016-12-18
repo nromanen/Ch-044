@@ -8,7 +8,7 @@ using Model.DB;
 using DAL.Interface;
 using Model.DTO;
 using AutoMapper;
-
+using Common.Enum;
 
 namespace BAL.Manager
 {
@@ -33,7 +33,7 @@ namespace BAL.Manager
 		public void Insert(PriceFollowerDTO model)
 		{
 			var item = Mapper.Map<PriceFollower>(model);
-
+            item.Status = FollowStatus.NotSend;
 			var followPrices = uOW.PriceFollowerRepo.All.Where(x => x.Good_Id == model.Good_Id && x.User_Id == model.User_Id).ToList();
 			if (!followPrices.Any())
 			{
@@ -48,5 +48,11 @@ namespace BAL.Manager
 			uOW.PriceFollowerRepo.Delete(goodDb);
 			uOW.Save();
 		}
+        public void Update(PriceFollowerDTO model)
+        {
+            var item = Mapper.Map<PriceFollower>(model);
+            uOW.PriceFollowerRepo.Update(item);
+            uOW.Save();
+        }
 	}
 }

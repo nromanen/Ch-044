@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201612151448515_Changed_PriceFollow.Designer.cs">
       <DependentUpon>201612151448515_Changed_PriceFollow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612181033359_AddStatusForPriceFollowers.cs" />
+    <Compile Include="Migrations\201612181033359_AddStatusForPriceFollowers.Designer.cs">
+      <DependentUpon>201612181033359_AddStatusForPriceFollowers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612151448515_Changed_PriceFollow.resx">
       <DependentUpon>201612151448515_Changed_PriceFollow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181033359_AddStatusForPriceFollowers.resx">
+      <DependentUpon>201612181033359_AddStatusForPriceFollowers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

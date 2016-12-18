@@ -4,6 +4,7 @@ using Model.DTO;
 using Quartz;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,39 +16,56 @@ namespace PriceFollowersService.Scheduler
         private UnitOfWork uOw = null;
         private FollowPriceManager followPriceManager = null;
         private PriceManager priceManager = null;
+        private EmailService emailService = null;
         public JobScheduler()
         {
             uOw = new UnitOfWork();
             followPriceManager = new FollowPriceManager(uOw);
             priceManager = new PriceManager(uOw);
+            emailService = new EmailService(uOw);
         }
         public void Execute(IJobExecutionContext context)
         {
+            var email = ConfigurationManager.AppSettings["Email"];
+            var pass = ConfigurationManager.AppSettings["Password"];
+
             var priceList = priceManager.GetAll();
             var followedPricesList = followPriceManager.GetAll();
 
-
             foreach (var item in followedPricesList)
             {
-                var similarUrls = priceList.Where(u => u.Url == item.Url).OrderBy(d => d.Date).ToList();
-                if (similarUrls.Count > 1)
+                var good = uOw.GoodRepo.GetByID(item.Good_Id);
+                if (good !=null)
                 {
-                    var firstDate = similarUrls[0];
-                    var lastDate = similarUrls.Last();
-
-                    if (lastDate.Date > firstDate.Date && lastDate.Price < firstDate.Price)
+                    var similarItems = priceList.Where(u => u.Url == good.UrlLink).OrderBy(d => d.Date).ToList();
+                    if (similarItems.Count > 1)
                     {
-                        var price = lastDate.Price;
+                        var length = similarItems.Count;
+                        var lastItem = similarItems[length-1];
+                        var previous = similarItems[length-2];
 
-                        //manager.SendEmail(price, item.Email);
-                        Console.WriteLine("Sended.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("pizdec");
+                        if (lastItem.Date > previous.Date && lastItem.Price < previous.Price)
+                        {
+                            var price = lastItem.Price;
+                            var model = item;
+
+                            bool result = emailService.SendEmail(model, price, email, pass);
+                            if (result == true)
+                            {
+                                item.Status = Common.Enum.FollowStatus.Sended;
+                                followPriceManager.Update(item);
+
+                                Console.WriteLine($"Message about price fall for {good.Name} was sended.");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Message for {good.Name} wasn't sended.");
+                            }
+                        }
                     }
                 }
             }
+
         }
     }
 }

@@ -83,6 +83,10 @@
       <Project>{08810AE4-EAFE-4D1C-BAA0-E082817F290F}</Project>
       <Name>BAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{f2d491d6-8d33-40b0-a19c-804134a6ec07}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{03309A7A-8788-4DD2-9726-C36ADB85994F}</Project>
       <Name>DAL</Name>

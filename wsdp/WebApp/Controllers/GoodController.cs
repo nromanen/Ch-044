@@ -104,7 +104,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
 		public void FollowGoodPrice(string good_Id, string user_Id)
-		{
+		    {
 			if(Request.IsAuthenticated)
 			{ 
 
