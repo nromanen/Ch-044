@@ -61,7 +61,18 @@
 					<a class="btn btn-success" onclick="Register_follow()" id="btn_follow">@Model.GetFollowText()</a>
 				}
 
-				<h4 class="text-muted"> Shop: @Model.Good.WebShop.Name</h4>
+                @if (Model.IsComparing)
+                {
+                    <a class="btn btn-success" onclick="UnsetCompareGood(@Model.Good.Id, this);"><span class="glyphicon glyphicon-ok"></span>In Comparing</a>
+                }
+                else
+                {
+                    <a class="btn btn-success" onclick="SetCompareGood(@Model.Good.Id, this);"><span class="glyphicon glyphicon-stats"></span>Compare</a>
+                }
+                
+                
+				
+                <h4 class="text-muted"> Shop: @Model.Good.WebShop.Name</h4>
 				<img src="@Model.Good.WebShop.LogoPath" alt="ShopLogo" class="img-responsive img-thumbnail" />
 				<br />
 				<br />
@@ -247,6 +258,22 @@
 		console.log('@Model.Good.UrlLink');
 		setTimeout(function () { DrawChart('@Model.Good.UrlLink'); }, 200);
 	}
+
+    $(function () {
+
+
+    });
+
+    function SetCompareGood(id, node) {
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("SetCompareGood","Good")",
+            data: { id: id },
+            success: function () {
+                $(node).html("<span class='glyphicon glyphicon-ok'></span>In Comparing");
+            }
+        });
+    }
 
 
 </script>
