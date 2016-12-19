@@ -28,5 +28,6 @@ namespace DAL
 		public DbSet<ExecutingInfo> ExecutingInfo { get; set; }
 		public DbSet<AppSetting> AppSettings { get; set; }
 		public DbSet<PriceFollower> PriceFollowers { get; set; }
+		public DbSet<Comment> Comments { get; set; }
 	}
 }
