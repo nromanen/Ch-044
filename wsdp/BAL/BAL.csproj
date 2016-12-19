@@ -106,6 +106,7 @@
     <Compile Include="Interface\IAppSettingsManager.cs" />
     <Compile Include="Interface\ICategoryManager.cs" />
     <Compile Include="Interface\ICheckGoodManager.cs" />
+    <Compile Include="Interface\ICommentManager.cs" />
     <Compile Include="Interface\IDeleteFilesManager.cs" />
     <Compile Include="Interface\IDownloadManager.cs" />
     <Compile Include="Interface\IElasticManager.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\CategoryManager.cs" />
     <Compile Include="Manager\CheckGoodManager.cs" />
+    <Compile Include="Manager\CommentManager.cs" />
     <Compile Include="Manager\DeleteFilesManager.cs" />
     <Compile Include="Manager\DownloadManager.cs" />
     <Compile Include="Manager\ElasticManager.cs" />

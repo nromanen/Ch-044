@@ -23,6 +23,7 @@ namespace DAL
 		private IGenericRepository<ExecutingInfo> executeRepo;
         private IGenericRepository<AppSetting> appSettingsRepo;
 		private IGenericRepository<PriceFollower> priceFollowerRepo;
+		private IGenericRepository<Comment> commentRepo;
 
 		#endregion Private Repositories
 
@@ -41,6 +42,7 @@ namespace DAL
 			executeRepo = new GenericRepository<ExecutingInfo>(context);
             appSettingsRepo = new GenericRepository<AppSetting>(context);
 			priceFollowerRepo = new GenericRepository<PriceFollower>(context);
+			commentRepo = new GenericRepository<Comment>(context);
 
 
 		}
@@ -143,6 +145,14 @@ namespace DAL
 				if (priceFollowerRepo == null)
 					priceFollowerRepo = new GenericRepository<PriceFollower>(context);
 				return priceFollowerRepo;
+			}
+		}
+
+		public IGenericRepository<Comment> CommentRepo {
+			get {
+				if (commentRepo == null)
+					commentRepo = new GenericRepository<Comment>(context);
+				return commentRepo;
 			}
 		}
 
