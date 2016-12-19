@@ -231,9 +231,9 @@ namespace DAL.Migrations
             //context.ParserTasks.AddOrUpdate(task);
             //context.ParserTasks.AddOrUpdate(task2);
 
-            context.Goods.AddOrUpdate(good1);
-            context.PriceHistory.AddOrUpdate(priceHistory1);
-            context.PriceHistory.AddOrUpdate(priceHistory2);
+            //context.Goods.AddOrUpdate(good1);
+            //context.PriceHistory.AddOrUpdate(priceHistory1);
+            //context.PriceHistory.AddOrUpdate(priceHistory2);
         }
 	}
 }
