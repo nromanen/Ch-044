@@ -49,9 +49,13 @@ namespace BAL.Manager
 			uOW.Save();
 		}
         public void Update(PriceFollowerDTO model)
-        {
+        { 
+            var entity = uOW.PriceFollowerRepo.GetByID(model.id);
             var item = Mapper.Map<PriceFollower>(model);
-            uOW.PriceFollowerRepo.Update(item);
+
+            entity.Price = item.Price;
+            entity.Status = item.Status;
+
             uOW.Save();
         }
 	}

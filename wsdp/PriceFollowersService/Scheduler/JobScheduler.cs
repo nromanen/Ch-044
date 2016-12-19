@@ -41,7 +41,7 @@ namespace PriceFollowersService.Scheduler
 					if (lastprice < item.Price)
 					{
 						item.Price = lastprice;
-						followPriceManager.Update(item);
+						followPriceManager.Update(item);    
 						var model = item;
 
 						bool result = emailService.SendEmail(model, item.Price, email, pass);
