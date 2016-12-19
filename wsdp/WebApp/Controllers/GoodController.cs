@@ -113,15 +113,16 @@ namespace WebApp.Controllers
 		}
 
         [HttpPost]
-		public void FollowGoodPrice(string good_Id, string user_Id)
+		public void FollowGoodPrice(string good_Id, string user_Id,string price)
 		    {
 			if(Request.IsAuthenticated)
-			{ 
+			{
 
-                var model = new PriceFollowerDTO()
-                {
-                    Good_Id = Convert.ToInt32(good_Id),
-                    User_Id = Convert.ToInt32(user_Id)
+				var model = new PriceFollowerDTO()
+				{
+					Good_Id = Convert.ToInt32(good_Id),
+					User_Id = Convert.ToInt32(user_Id),
+					Price = Convert.ToDecimal(price)
                 };
                 followPriceManager.Insert(model);
             }

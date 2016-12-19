@@ -15,9 +15,10 @@ namespace DAL.Interface
 		IGenericRepository<ExecutingInfo> ExecuteRepo { get; }
         IGenericRepository<AppSetting> AppSettingRepo { get; }
 		IGenericRepository<PriceFollower> PriceFollowerRepo { get; }
+		IGenericRepository<Comment> CommentRepo { get; }
 
 
-        void Dispose();
+		void Dispose();
 
 		int Save();
 	}

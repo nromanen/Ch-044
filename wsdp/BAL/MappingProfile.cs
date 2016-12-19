@@ -112,6 +112,26 @@ namespace BAL
 				m => m.Ignore()
 				);
 
+			CreateMap<CommentDTO, Comment>()
+				.ForMember(
+				p => p.User,
+				m => m.Ignore()
+				)
+				.ForMember(
+				p => p.Good,
+				m => m.Ignore()
+				);
+
+			CreateMap<Comment, CommentDTO>()
+				.ForMember(
+				p => p.User,
+				m => m.Ignore()
+				)
+				.ForMember(
+				p => p.Good,
+				m => m.Ignore()
+				);
+
 			CreateMap<AppSettingsDTO, AppSetting>();
 		}
 	}

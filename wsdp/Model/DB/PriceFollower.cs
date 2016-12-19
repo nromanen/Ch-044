@@ -13,5 +13,6 @@ namespace Model.DB
 		public int Good_Id { get; set; }
 		public int User_Id { get; set; }
         public FollowStatus Status { get; set; }
+		public decimal? Price { get; set; }
 	}
 }
