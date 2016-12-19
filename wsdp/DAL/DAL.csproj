@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201612191418015_updated_doublePricetoDecimal.Designer.cs">
       <DependentUpon>201612191418015_updated_doublePricetoDecimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612191512529_Initializing_Table_Comment.cs" />
+    <Compile Include="Migrations\201612191512529_Initializing_Table_Comment.Designer.cs">
+      <DependentUpon>201612191512529_Initializing_Table_Comment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612191418015_updated_doublePricetoDecimal.resx">
       <DependentUpon>201612191418015_updated_doublePricetoDecimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612191512529_Initializing_Table_Comment.resx">
+      <DependentUpon>201612191512529_Initializing_Table_Comment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
