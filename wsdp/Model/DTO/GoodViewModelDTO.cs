@@ -24,5 +24,7 @@ namespace Model.DTO
 		{
 			return Good.IsFollowed ? "Unfollow" : "Follow";
 		}
+
+        public bool IsComparing { get; set; }
 	}
 }
