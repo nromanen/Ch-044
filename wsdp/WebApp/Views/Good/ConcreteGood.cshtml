@@ -38,7 +38,7 @@
 			</div>
 			<div class="material-design-block" style="max-height:483px;">
 				<h4 class="text-success">
-					<span class="glyphicon glyphicon-usd"></span>  Price: <b> @Model.Good.Price </b>
+					<span class="glyphicon glyphicon-usd"></span>  Price: <b id="current-price"> @Model.Good.Price </b>
 					@if (Model.Good.OldPrice != null)
 					{
 						<del><b class="text-danger">@Model.Good.OldPrice</b></del>
