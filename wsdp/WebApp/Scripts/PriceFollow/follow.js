@@ -8,10 +8,11 @@ function Follow()
 {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
+	var price = $("#current-price").text();
 	$.ajax({
 		type: "POST",
 		url: "/Good/FollowGoodPrice",
-		data: { "good_Id": good_Id, "user_Id": user_Id },
+		data: { "good_Id": good_Id, "user_Id": user_Id,"price":price},
 		beforeSend: function () {
 			$(".glyphicon-refresh").removeClass("hidden");
 		},
@@ -37,7 +38,7 @@ function Unfollow() {
 	$.ajax({
 		type: "POST",
 		url: "/Good/DeleteGoodFollow",
-		data: { "good_Id": good_Id, "user_Id": user_Id },
+		data: { "good_Id": good_Id, "user_Id": user_Id},
 		beforeSend: function() {
 			$(".glyphicon-refresh").removeClass("hidden");
 		},

@@ -24,13 +24,28 @@ namespace PriceFollowersService.Scheduler
             priceManager = new PriceManager(uOw);
             emailService = new EmailService(uOw);
         }
-        public void Execute(IJobExecutionContext context)
-        {
-            var email = ConfigurationManager.AppSettings["Email"];
-            var pass = ConfigurationManager.AppSettings["Password"];
+		public void Execute(IJobExecutionContext context)
+		{
+			var email = ConfigurationManager.AppSettings["Email"];
+			var pass = ConfigurationManager.AppSettings["Password"];
 
-            var priceList = priceManager.GetAll();
-            var followedPricesList = followPriceManager.GetAll();
+			var priceList = priceManager.GetAll();
+			var followedPricesList = followPriceManager.GetAll().Where(i=>i.Status== Common.Enum.FollowStatus.NotSend).ToList();
+			var updatedFollowPrices = followPriceManager.GetAll().Where(i => i.Status == Common.Enum.FollowStatus.Sended && i.Price != null).ToList();
+			foreach (var item in updatedFollowPrices)
+			{
+				var good = uOw.GoodRepo.GetByID(item.Good_Id);
+				if (good != null)
+				{
+					var lastprice = priceList.Where(u => u.Url == good.UrlLink).Select(i=>i.Price).Last();
+					if(lastprice<item.Price)
+					{
+						item.Status = Common.Enum.FollowStatus.NotSend;
+						item.Price = lastprice;
+						followedPricesList.Add(item);
+					}
+				}
+			}
 
             foreach (var item in followedPricesList)
             {
