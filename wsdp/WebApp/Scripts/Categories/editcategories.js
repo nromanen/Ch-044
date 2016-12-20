@@ -32,7 +32,7 @@ $(document).ready(function () {
     $(".update_prop").click(function (event) {
         event.preventDefault();
         var catid = $(".update_prop").parent().parent().parent().parent().parent().attr("data-id");
-        var propid = $(".update_prop").closest('li').data("property-id");
+        var propid = $(this).parent().parent().data("property-id");
         var url = 'UpdateProperty?catid=' + catid+'&propid='+propid;
         window.location.href = url;
     });
@@ -54,10 +54,18 @@ $(document).ready(function () {
 });
 
 //Deleting Property
+
+$(".delete_prop").click(function (event) {
+	delpropNode = $(this).parent().parent();
+	event.preventDefault();
+	var prop_id = delpropNode.data('property-id');
+	$("#prop_to_delete").val(prop_id);
+});
+
 function DeleteProp() {
-    var id = $('.property_item').attr('property-id');
+	var id = $("#prop_to_delete").val();
     $("#ModalPropertyDelete #delete_prop_close").click();
-    $(".property_item[property-id='" + id + "']").remove();
+    $(".property_item[data-property-id='" + id + "']").remove();
     $.post('RemoveProperty', { id: id }, function (data) {
     });
 }
