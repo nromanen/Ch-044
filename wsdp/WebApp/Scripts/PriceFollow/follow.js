@@ -1,9 +1,11 @@
 ﻿$(document).ready(function () {
 	$(".loader").hide();
 });
+//Opening modal window.
 function OpenModal() {
 	$("#EmailModal").show();
 }
+//Function for following good;
 function Follow()
 {
 	var good_Id = $("#btn_follow").data("good_id");
@@ -31,6 +33,7 @@ function Follow()
 		},
 	});
 }
+//function for Unfollowing good;
 function Unfollow() {
 	var good_Id = $("#btn_follow").data("good_id");
 	var user_Id = $("#btn_follow").data("user_id");
@@ -56,7 +59,8 @@ function Unfollow() {
 		},
 	});
 }
+//Redirect to login if user not authificated
 function Register_follow()
 {
-	window.location.href = '/Account/SignUp';
+	window.location.href = '/Account/Login';
 }

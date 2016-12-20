@@ -112,6 +112,12 @@ namespace WebApp.Controllers
 			return View();
 		}
 
+		/// <summary>
+		/// Post method for inserting follower to db.
+		/// </summary>
+		/// <param name="good_Id"></param>
+		/// <param name="user_Id"></param>
+		/// <param name="price"></param>
         [HttpPost]
 		public void FollowGoodPrice(string good_Id, string user_Id,string price)
 		    {
@@ -133,7 +139,11 @@ namespace WebApp.Controllers
 			
 			
 		}
-
+		/// <summary>
+		/// Method Post for unfollowing good and deleting from db.
+		/// </summary>
+		/// <param name="good_Id"></param>
+		/// <param name="user_Id"></param>
 		[HttpPost]
 		public void DeleteGoodFollow(string good_Id, string user_Id)
 		{

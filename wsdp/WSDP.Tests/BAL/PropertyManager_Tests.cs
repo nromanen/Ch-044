@@ -40,7 +40,6 @@ namespace WSDP.Tests.BAL {
 			var result = mngr.Get(2);
 			Assert.IsNotNull(result, "Null property returned");
 			Assert.AreEqual(stub.Name, result.Name);
-
 		}
 	}
 }

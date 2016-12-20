@@ -63,6 +63,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BAL\PropertyManager_Tests.cs" />
+    <Compile Include="BAL\URLManager_tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
