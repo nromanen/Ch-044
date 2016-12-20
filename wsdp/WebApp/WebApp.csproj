@@ -428,6 +428,7 @@
     <Content Include="Views\UniversalParser\_ConfigureSchedulerIntervals.cshtml" />
     <Content Include="Views\Error\CategoryNotFound.cshtml" />
     <Content Include="Views\Good\CompareGoods.cshtml" />
+    <Content Include="Views\Shared\_ComparePartial.cshtml" />
     <Content Include="Views\Good\ComparingCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>

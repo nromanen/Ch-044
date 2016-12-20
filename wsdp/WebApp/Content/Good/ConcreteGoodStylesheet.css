@@ -11,7 +11,6 @@
 }
 .panel>.panel-heading:after,.panel>.panel-heading:before{
 	position:absolute;
-	top:11px;left:-16px;
 	right:100%;
 	width:0;
 	height:0;
@@ -175,4 +174,16 @@ margin-right: 7px;
 @keyframes spin {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
+}
+
+.textcomment
+{
+
+    margin:0 10px 0 10px;
+    width:95%;
+}
+
+.btn-submit
+{
+    margin-left:10px;
 }

@@ -1,0 +1,19 @@
+﻿@{
+    var model = Session["ComparingGoods"] as Model.DTO.ListCompareGoodDTO;
+
+    var count = 0;
+
+    
+    if (model!=null && model.CompareGoods!=null)
+    {
+        foreach (var item in model.CompareGoods)
+        {
+            count += item.Value.Count;
+        }
+    }
+}
+
+@if (count!=0)
+{
+    <li><a href="@Url.Action("ComparingCategories","Good")"><span class="glyphicon glyphicon-stats"></span> <span class="badge">@count</span></a></li>
+}

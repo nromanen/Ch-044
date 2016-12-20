@@ -189,6 +189,27 @@ namespace WebApp.Controllers
             }
         }
 
+        [HttpPost]
+        public void UnsetCompareGood(int id)
+        {
+            GoodDTO good = goodmanager.Get(id);
+            int categoryId = good.Category_Id;
+
+            ListCompareGoodDTO compgoods = Session["ComparingGoods"] as ListCompareGoodDTO;
+
+            if (compgoods == null)
+            {
+                return;
+            }
+            else
+            {
+                compgoods.CompareGoods[categoryId].Remove(id);
+                Session["ComparingGoods"] = compgoods;
+                return;
+            }
+        }
+
+        [HttpGet]
         public ActionResult ComparingCategories()
         {
             ComparingCategoriesDTO model = new ComparingCategoriesDTO();
@@ -209,38 +230,34 @@ namespace WebApp.Controllers
 
         public ActionResult CompareGoods(int id)
         {
-            //int firstGoodId = Convert.ToInt32(Request.Cookies.Get("firstCompareGood").Value);
-            //int secondGoodId = Convert.ToInt32(Request.Cookies.Get("secondCompareGood").Value);
+            List<string> properties = new List<string>();
 
-            int firstGoodId = 2;
-            int secondGoodId = 3;
-            GoodDTO firstGood = goodmanager.Get(firstGoodId);
-            GoodDTO secondGood = goodmanager.Get(secondGoodId);
+            ListCompareGoodDTO goodsFromSession = Session["ComparingGoods"] as ListCompareGoodDTO;
 
-            Dictionary<string, string> firstProperties = new Dictionary<string, string>();
-            Dictionary<string, string> secondProperties = new Dictionary<string, string>();
+            List<int> goodsIds = goodsFromSession.CompareGoods[id].ToList();
 
+            List<GoodDTO> goods = new List<GoodDTO>();
 
-            foreach (var item in firstGood.PropertyValues.DictStringProperties)
+            foreach (var good_id in goodsIds)
             {
-                string propertyname = propertymanager.Get(item.Key).Name;
-                firstProperties.Add(propertyname, item.Value);
+                goods.Add(goodmanager.Get(good_id));
             }
 
-            foreach (var item in secondGood.PropertyValues.DictStringProperties)
+
+            foreach (var item in goods.First().PropertyValues.DictStringProperties)
             {
                 string propertyname = propertymanager.Get(item.Key).Name;
-                secondProperties.Add(propertyname, item.Value);
+                properties.Add(propertyname);
             }
 
-            CompareGoodsDTO info = new CompareGoodsDTO()
+
+            CompareGoodsDTO model = new CompareGoodsDTO()
             {
-                FirstGood = firstGood,
-                SecondGood = secondGood,
-                FirstProperties = firstProperties,
-                SecondProperties = secondProperties
+                Goods = goods,
+                Properties = properties
             };
-            return View(info);
+
+            return View(model);
         }
 	}
 }
