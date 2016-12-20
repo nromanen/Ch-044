@@ -26,5 +26,7 @@ namespace Model.DTO
 		}
 
         public bool IsComparing { get; set; }
+
+		public List<CommentDTO> Comments { get; set; }
 	}
 }

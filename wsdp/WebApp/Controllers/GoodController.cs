@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace WebApp.Controllers
 {
@@ -19,8 +20,9 @@ namespace WebApp.Controllers
 		private IWebShopManager webShopManager = null;
 		private IFollowPriceManager followPriceManager;
 		private IUserManager userManager;
+		private ICommentManager commentManager;
 
-		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager, ICategoryManager categoryManager, IWebShopManager webShopManager, IFollowPriceManager followPriceManager,IUserManager userManager)
+		public GoodController(IGoodManager goodmanager, IElasticManager elasticmanager, IPropertyManager propertymanager, ICategoryManager categoryManager, IWebShopManager webShopManager, IFollowPriceManager followPriceManager,IUserManager userManager, ICommentManager commentManager)
 		{
 			this.userManager = userManager;
 			this.webShopManager = webShopManager;
@@ -29,10 +31,12 @@ namespace WebApp.Controllers
 			this.elasticmanager = elasticmanager;
 			this.propertymanager = propertymanager;
 			this.followPriceManager = followPriceManager;
+			this.commentManager = commentManager;
 		}
 		// GET: Good
 		public ActionResult ConcreteGood(int id)
 		{
+			var comments = commentManager.GetAllCommentsByGoodId(id).ToList();
 			GoodViewModelDTO mainmodel = new GoodViewModelDTO();
 			GoodDTO good = goodmanager.GetAndCheckUser(id,Convert.ToInt32(User.Identity.GetUserId()));
 
@@ -84,6 +88,8 @@ namespace WebApp.Controllers
 			{
 				mainmodel.UserId = null;
 			}
+			
+			mainmodel.Comments = commentManager.CheckCommentsDependency(Convert.ToInt32(User.Identity.GetUserId()), id).ToList();
 
 			return View(mainmodel);
 		}
@@ -252,5 +258,39 @@ namespace WebApp.Controllers
             };
             return View(info);
         }
+
+		[Authorize(Roles = "Administrator, User")]
+		[HttpPost]
+		public string AddComment(string text, int goodId) {
+			var comment = new CommentDTO() {
+				GoodId = goodId,
+				UserId = Convert.ToInt32(User.Identity.GetUserId()),
+				Description = text,
+				Date = DateTime.Now
+			};
+			return commentManager.Insert(comment) == true ? JsonConvert.SerializeObject(comment) : null;
+		}
+
+		[Authorize(Roles = "Administrator, User")]
+		[HttpPost]
+		public bool DeleteComment(int commentId) {
+			var comment = commentManager.GetById(commentId);
+
+			if (Convert.ToInt32(User.Identity.GetUserId()) == comment.UserId) {
+				return commentManager.Delete(comment) == true ? true : false;
+			} else
+				return false;
+		}
+
+		[Authorize(Roles = "Administrator, User")]
+		[HttpPost]
+		public string UpdateComment(string text, int commentId) {
+			var comment = commentManager.GetById(commentId);
+			comment.Description = text;
+			if (Convert.ToInt32(User.Identity.GetUserId()) == comment.UserId) {
+				return commentManager.Update(comment) == true ? JsonConvert.SerializeObject(comment) : null;
+			} else
+				return null;
+		}
 	}
 }
