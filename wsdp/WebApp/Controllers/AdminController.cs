@@ -100,7 +100,6 @@ namespace WebApp.Controllers
 			foreach (var i in Enum.GetNames(typeof(PropertyType)))
 				enums.Add(i);
 			PropertyViewDTO custom_model = new PropertyViewDTO() { enums = enums, categories = categories, CategoryId = catid };
-			ModelState.Clear();
 			return View(custom_model);
 		}
 		/// <summary>

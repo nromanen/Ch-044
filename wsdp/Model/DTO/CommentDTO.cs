@@ -18,5 +18,7 @@ namespace Model.DTO {
 		public string Description { get; set; }
 
 		public DateTime Date { get; set; }
+
+		public bool CheckComment { get; set; }
 	}
 }

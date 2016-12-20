@@ -18,5 +18,9 @@ namespace BAL.Interface {
 		bool Delete(CommentDTO webShop);
 
 		bool DeleteAllByGoodId(int id);
+
+		IEnumerable<CommentDTO> GetAllCommentsByGoodId(int goodId);
+
+		IEnumerable<CommentDTO> CheckCommentsDependency(int userId, int goodId);
 	}
 }
