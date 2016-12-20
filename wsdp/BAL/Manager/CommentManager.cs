@@ -15,6 +15,18 @@ namespace BAL.Manager {
 		public CommentManager(IUnitOfWork uOW) : base(uOW) {
 		}
 
+		public IEnumerable<CommentDTO> CheckCommentsDependency(int userId, int goodId) {
+			List<CommentDTO> comments = new List<CommentDTO>();
+			foreach (var comment in uOW.CommentRepo.All.Where(t => t.GoodId == goodId).ToList()) {
+				comments.Add(Mapper.Map<CommentDTO>(comment));
+			}
+			foreach (var comment in comments) {
+				if (comment.UserId == userId)
+					comment.CheckComment = true;
+			}
+			return comments;
+		}
+
 		/// <summary>
 		/// Delete comment by id
 		/// </summary>
@@ -62,6 +74,14 @@ namespace BAL.Manager {
 		public IEnumerable<CommentDTO> GetAll() {
 			List<CommentDTO> comments = new List<CommentDTO>();
 			foreach (var comment in uOW.CommentRepo.All.ToList()) {
+				comments.Add(Mapper.Map<CommentDTO>(comment));
+			}
+			return comments;
+		}
+
+		public IEnumerable<CommentDTO> GetAllCommentsByGoodId(int goodId) {
+			List<CommentDTO> comments = new List<CommentDTO>();
+			foreach (var comment in uOW.CommentRepo.All.Where(t => t.GoodId == goodId).ToList()) {
 				comments.Add(Mapper.Map<CommentDTO>(comment));
 			}
 			return comments;

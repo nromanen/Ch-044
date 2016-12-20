@@ -36,6 +36,7 @@ namespace WebApp.Controllers
 		// GET: Good
 		public ActionResult ConcreteGood(int id)
 		{
+			var comments = commentManager.GetAllCommentsByGoodId(id).ToList();
 			GoodViewModelDTO mainmodel = new GoodViewModelDTO();
 			GoodDTO good = goodmanager.GetAndCheckUser(id,Convert.ToInt32(User.Identity.GetUserId()));
 
@@ -87,6 +88,8 @@ namespace WebApp.Controllers
 			{
 				mainmodel.UserId = null;
 			}
+			
+			mainmodel.Comments = commentManager.CheckCommentsDependency(Convert.ToInt32(User.Identity.GetUserId()), id).ToList();
 
 			return View(mainmodel);
 		}
