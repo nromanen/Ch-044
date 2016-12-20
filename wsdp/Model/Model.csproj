@@ -86,6 +86,7 @@
     <Compile Include="DTO\CheckGoodDTO.cs" />
     <Compile Include="DTO\CommentDTO.cs" />
     <Compile Include="DTO\CompareGoodsDTO.cs" />
+    <Compile Include="DTO\ComparingCategoriesDTO.cs" />
     <Compile Include="DTO\ExecutingInfoDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
     <Compile Include="DTO\GoodDTO.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="DTO\GraberPropertyItemDTO.cs" />
     <Compile Include="DTO\IndexViewDTO.cs" />
     <Compile Include="DTO\IteratorSettingsDTO.cs" />
+    <Compile Include="DTO\ListCompareGoodDTO.cs" />
     <Compile Include="DTO\NetworkUserDTO.cs" />
     <Compile Include="DTO\ParserTaskDTO.cs" />
     <Compile Include="DTO\PriceFollowerDTO.cs" />

@@ -41,6 +41,16 @@ namespace WebApp.Controllers
 
 			mainmodel.Good = good;
 
+            ListCompareGoodDTO compgoods = Session["ComparingGoods"] as ListCompareGoodDTO;
+            try
+            {
+                mainmodel.IsComparing = compgoods.CompareGoods[good.Category_Id].Contains(id);
+            }
+            catch
+            {
+                mainmodel.IsComparing = false;
+            }
+
 			List<GoodDTO> alloffers = new List<GoodDTO>();
 			List<GoodDTO> similaroffers = new List<GoodDTO>();
 
@@ -154,21 +164,53 @@ namespace WebApp.Controllers
         [HttpPost]
         public void SetCompareGood(int id)
         {
-            if (Request.Cookies.Get("firstCompareGood") == null)
+            GoodDTO good = goodmanager.Get(id);
+            int categoryId = good.Category_Id;
+
+            ListCompareGoodDTO compgoods = Session["ComparingGoods"] as ListCompareGoodDTO;
+
+            if (compgoods == null)
             {
-                HttpCookie firstcookie = new HttpCookie("firstCompareGood");
-                firstcookie.Value = id.ToString();
-                Response.Cookies.Add(firstcookie);
+                compgoods = new ListCompareGoodDTO();
+
+                if (!compgoods.CompareGoods.ContainsKey(categoryId))
+                {
+                    compgoods.CompareGoods.Add(categoryId, new List<int>());
+                }
+                compgoods.CompareGoods[categoryId].Add(id);
+                Session["ComparingGoods"] = compgoods;
+                return;
             }
             else
             {
-                HttpCookie secondcookie = new HttpCookie("secondCompareGood");
-                secondcookie.Value = id.ToString();
-                Response.Cookies.Add(secondcookie);
+                if (compgoods.CompareGoods[categoryId].Find(c => c == id) != -1)
+                {
+                    compgoods.CompareGoods[categoryId].Add(id);
+                    Session["ComparingGoods"] = compgoods;
+                    return; 
+                }
             }
         }
 
-        public ActionResult CompareGoods()
+        public ActionResult ComparingCategories()
+        {
+            ComparingCategoriesDTO model = new ComparingCategoriesDTO();
+            ListCompareGoodDTO goods = Session["ComparingGoods"] as ListCompareGoodDTO;
+            model.CategoriesGoods = new Dictionary<CategoryDTO, List<GoodDTO>>();
+            foreach (var key in goods.CompareGoods.Keys)
+            {
+                CategoryDTO category = categoryManager.Get(key);
+                model.CategoriesGoods.Add(category, new List<GoodDTO>());
+                foreach (var good_id in goods.CompareGoods[key])
+                {
+                    GoodDTO good = goodmanager.Get(good_id);
+                    model.CategoriesGoods[category].Add(good);
+                }
+            }
+            return View(model);
+        }
+
+        public ActionResult CompareGoods(int id)
         {
             //int firstGoodId = Convert.ToInt32(Request.Cookies.Get("firstCompareGood").Value);
             //int secondGoodId = Convert.ToInt32(Request.Cookies.Get("secondCompareGood").Value);
