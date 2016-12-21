@@ -6,7 +6,7 @@ namespace BAL.Interface
     public interface IUserManager
     {
         void UpdateUser(int Id, string UserName, string Password, string Email, int RoleId);
-
+        UserDTO GetById(int id);
         UserDTO GetByEmail(string email, string password);
         UserDTO GetByUserName(string userName, string password);
         NetworkUserDTO GetNetworkUser(string networkAccountId, string network);

@@ -31,6 +31,20 @@ namespace BAL.Manager
             }
             return users;
         }
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public UserDTO GetById(int id)
+        {
+            var user = uOW.UserRepo.GetByID(id);
+            if (user == null) return null;
+            var result = Mapper.Map<UserDTO>(user);
+
+            return result;
+        }
+
 
         /// <summary>
         /// Get user by email and password

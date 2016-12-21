@@ -327,6 +327,7 @@
     <Content Include="Scripts\ExecutingTasks\dynamic_update.js" />
     <Content Include="Scripts\Frame\IteratorMain.js" />
     <Content Include="Scripts\IteratorPage\IteratorPage.js" />
+    <Content Include="Scripts\jquery.timeago.js" />
     <Content Include="Scripts\PriceFollow\follow.js" />
     <Content Include="Scripts\PriceStat.js" />
     <Content Include="Scripts\Properties\bootstrap-combobox.js" />

@@ -46,6 +46,7 @@
 				</h4>
 
 				<input type="hidden"  id="goodUrl" value="@Model.Good.UrlLink"/>
+                <input type="hidden" id="goodId" value="@Model.Good.Id" />
 
 				@if (Model.Good.IsFollowed)
 				{
@@ -199,59 +200,47 @@
 			<div class="col-xs-0 col-md-3">
 
 			</div>
-			<div class="col-xs-12 col-md-6">
-
-
-
-				<div class="comment">
-					<div class="col-sm-2">
-						<div class="thumbnail">
-							<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-						</div><!-- /thumbnail -->
-					</div><!-- /col-sm-1 -->
-					<div class="col-sm-10">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<strong>User #1</strong> <span class="text-muted">commented 1 day ago</span>
-							</div>
-							<div class="panel-body">
-								amazing
-							</div><!-- /panel-body -->
-						</div><!-- /panel panel-default -->
-					</div><!-- /col-sm-5 -->
-				</div>
-				<div class="comment">
-					<div class="col-sm-2">
-						<div class="thumbnail">
-							<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-						</div><!-- /thumbnail -->
-					</div><!-- /col-sm-1 -->
-					<div class="col-sm-10">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<strong>User #2</strong> <span class="text-muted">commented 5 days ago</span>
-							</div>
-							<div class="panel-body">
-								incredible
-							</div><!-- /panel-body -->
-						</div><!-- /panel panel-default -->
-					</div><!-- /col-sm-5 -->
-				</div>
-                <div id="add-comment comment">
-                    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
-                        <div class="form-group" style="padding:">
+			<div class="col-xs-12 col-md-6" id="comments_list">
+                <div id="add-comment">
+                    <form class="form-horizontal" id="commentForm" role="form">
+                        <div class="form-group">
                             <label for="email" class="col-sm-2 control-label">Comment</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control textcomment" name="addComment" id="addComment" rows="5" style="max-width:1250px;"></textarea>
+                                <textarea class="form-control textcomment" name="addComment" id="addCommentArea" rows="5" style="max-width:1250px;" required maxlength="255"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10 col-xs-offset-2">
-                                <button class="btn btn-success btn-submit" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Submit</button>
+                                <a class="btn btn-success btn-submit" id="submitComment" onclick="InsertComment();"><span class="glyphicon glyphicon-send"></span> Submit</a>
                             </div>
                         </div>
                     </form>
                 </div>
+
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="comment">
+                        <div class="col-sm-2">
+                            <div class="thumbnail">
+                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                            </div><!-- /thumbnail -->
+                        </div><!-- /col-sm-1 -->
+                        <div class="col-sm-10">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <strong>@comment.User.UserName </strong> <span class="text-muted"> commented <time class="timeago" datetime="@comment.Date">-</time></span>
+                                    @if(@comment.CheckComment){
+                                        <span class="text-right text-muted">☻</span>
+                                    }
+                                </div>
+                                <div class="panel-body">
+                                    @comment.Description
+                                </div><!-- /panel-body -->
+                            </div><!-- /panel panel-default -->
+                        </div><!-- /col-sm-5 -->
+                    </div>
+                }
+
 			</div>
 			<div class="col-xs-0 col-md-3">
 
@@ -262,20 +251,23 @@
 </div>
 
 @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jquery-timeago")
 <script>
-	$(document).ready(function () {
-		$("#charts").addClass("active");
-		$(".loader").hide();
-		$("#chart_d").on("click", function (event) {
-			DrawChart('@Model.Good.UrlLink');
-			$(this).off(event);
-		});
-	});
+    $(document).ready(function () {
+        $("time.timeago").timeago();
+        $("#charts").addClass("active");
+        $(".loader").hide();
+        $("#chart_d").on("click", function (event) {
+            DrawChart('@Model.Good.UrlLink');
+            $(this).off(event);
+        });
 
-	function InvokeDrawing() {
-		console.log('@Model.Good.UrlLink');
-		setTimeout(function () { DrawChart('@Model.Good.UrlLink'); }, 200);
-	}
+    });
+
+    function InvokeDrawing() {
+        console.log('@Model.Good.UrlLink');
+        setTimeout(function () { DrawChart('@Model.Good.UrlLink'); }, 200);
+    }
 
 
     function SetCompareGood(id, node) {
@@ -294,8 +286,7 @@
         });
     }
 
-    function UnsetCompareGood(id, node)
-    {
+    function UnsetCompareGood(id, node) {
         $(node).html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> In Comparing');
 
         $.ajax({
@@ -309,6 +300,39 @@
             });
         }
     });
+    }
+
+    function InsertComment()
+    {
+        var text = $("#addCommentArea").val();
+        var good_id = $("#goodId").val();
+
+        if (text == "" || text == null)
+            return;
+
+        console.log(text);
+        console.log(good_id);
+
+        $("#addCommentArea").val("");
+
+        //$("#comments_list").prepend(CreateCommentNode('@User.Identity.Name', text, "commented right now" ));
+        CreateCommentNode('@User.Identity.Name', text, "commented right now").insertAfter("#add-comment");
+        InsertCommentAjax(text, good_id);
+    }
+
+    function InsertCommentAjax(text, goodId)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '/Good/AddComment',
+            data: { text: text, goodId: goodId },
+            success: function (data) {
+            }
+        });
+    }
+
+    function CreateCommentNode(userName, text, date) {
+        return $('<div class="comment"><div class="col-sm-2"><div class="thumbnail"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></div> </div><!-- /col-sm-1 --><div class="col-sm-10"><div class="panel panel-default"><div class="panel-heading"><strong>' + '@User.Identity.Name'+ '</strong> <span class="text-muted">' + date+ '</span><span class="text-right text-muted">☻</span></div><div class="panel-body">'+ text +'</div><!-- /panel-body --></div><!-- /panel panel-default --></div><!-- /col-sm-5 --></div>');
     }
 
 

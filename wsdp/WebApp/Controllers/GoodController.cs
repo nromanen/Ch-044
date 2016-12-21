@@ -91,6 +91,11 @@ namespace WebApp.Controllers
 			
 			mainmodel.Comments = commentManager.CheckCommentsDependency(Convert.ToInt32(User.Identity.GetUserId()), id).ToList();
 
+            foreach (var comment in mainmodel.Comments)
+            {
+                comment.User = userManager.GetById(comment.UserId);
+            }
+
 			return View(mainmodel);
 		}
 		public ActionResult GetCategoryGood(int c_Id)
@@ -276,7 +281,7 @@ namespace WebApp.Controllers
             return View(model);
         }
 
-		[Authorize(Roles = "Administrator, User")]
+        //[Authorize(Roles = "Administrator, User")]
 		[HttpPost]
 		public string AddComment(string text, int goodId) {
 			var comment = new CommentDTO() {

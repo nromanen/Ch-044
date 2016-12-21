@@ -17,7 +17,7 @@ namespace BAL.Manager {
 
 		public IEnumerable<CommentDTO> CheckCommentsDependency(int userId, int goodId) {
 			List<CommentDTO> comments = new List<CommentDTO>();
-			foreach (var comment in uOW.CommentRepo.All.Where(t => t.GoodId == goodId).ToList()) {
+			foreach (var comment in uOW.CommentRepo.All.Where(t => t.GoodId == goodId).OrderByDescending(c => c.Date).ToList()) {
 				comments.Add(Mapper.Map<CommentDTO>(comment));
 			}
 			foreach (var comment in comments) {
