@@ -1,10 +1,6 @@
 ﻿$(document).ready(function () {
 	$(".loader").hide();
 });
-//Opening modal window.
-function OpenModal() {
-	$("#EmailModal").show();
-}
 //Function for following good;
 function Follow()
 {

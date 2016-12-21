@@ -50,11 +50,13 @@ namespace BAL.Manager
                     var from = _email;
                     var to = user.Email;
                     MailMessage message = new MailMessage(from, to);
-                    string mailBody = "Hello. Did you now that the price of " + good.Name + " fell." +
-                  " Now the price is just " + good.Price + ". Follow this link for details:" + good.UrlLink;
+					string mailBody = "Hello " + user.UserName + ". Do you now that the price of " + good.Name + " fell." +
+				  " Now the price is just " + good.Price + ". Follow this link for details:" + good.UrlLink;
 
-                    message.Subject = "Sales on WSDP";
-                    message.Body = mailBody;
+					var htmlView = AlternateView.CreateAlternateViewFromString(mailBody+"<br/><br/><img src="+good.ImgLink+"> ", null, "text/html");
+					//Add image to HTML version
+					message.Subject = "Sales on WSDP";
+					message.AlternateViews.Add(htmlView);
                     message.IsBodyHtml = true;
 
                     client.Send(message);

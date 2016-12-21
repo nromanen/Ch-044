@@ -1,0 +1,26 @@
+﻿@model Model.DTO.GoodViewModelDTO
+
+@if (Model.Good.IsFollowed)
+{
+
+	<a class="btn btn-danger" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Unfollow()" id="btn_follow"><span class="glyphicon glyphicon-refresh hidden glyphicon-refresh-animate"></span><span id="txt_butt">@Model.GetFollowText()</span></a>
+}
+else if (User.Identity.IsAuthenticated)
+{
+	<a class="btn btn-success" data-good_id="@Model.Good.Id" data-user_id="@Model.UserId" onclick="Follow()" id="btn_follow"><span class="glyphicon glyphicon-refresh hidden glyphicon-refresh-animate"></span><span id="txt_butt">@Model.GetFollowText()</span></a>
+}
+else
+{
+	<a class="btn btn-success" onclick="Register_follow()" id="btn_follow">@Model.GetFollowText()</a>
+}
+
+@if (Model.IsComparing)
+{
+	<a class="btn btn-success" onclick="UnsetCompareGood(@Model.Good.Id, this);"><span class="glyphicon glyphicon-ok"></span>In Comparing</a>
+}
+else
+{
+	<a class="btn btn-success" onclick="SetCompareGood(@Model.Good.Id, this);"><span class="glyphicon glyphicon-stats"></span>Compare</a>
+}
+
+

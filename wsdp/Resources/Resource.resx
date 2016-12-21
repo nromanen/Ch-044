@@ -411,4 +411,10 @@
   <data name="GoodsNotFounded" xml:space="preserve">
     <value>Nothing to by founded by your request</value>
   </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Follow</value>
+  </data>
+  <data name="Unfollow" xml:space="preserve">
+    <value>Unfollow</value>
+  </data>
 </root>

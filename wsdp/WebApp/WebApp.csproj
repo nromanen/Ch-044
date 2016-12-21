@@ -431,6 +431,7 @@
     <Content Include="Views\Good\CompareGoods.cshtml" />
     <Content Include="Views\Shared\_ComparePartial.cshtml" />
     <Content Include="Views\Good\ComparingCategories.cshtml" />
+    <Content Include="Views\Good\FollowButtonPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

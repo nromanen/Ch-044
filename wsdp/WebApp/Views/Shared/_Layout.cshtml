@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - My ASP.NET Application</title>
+	<title>@ViewBag.Title - WSDP Application</title>
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
 
@@ -44,8 +44,6 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					@*<li><a href=@Url.Action("SignUp", "Account")><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href=@Url.Action("Login", "Account")><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
 					@Html.Partial("_LoginPartial")
                     @Html.Partial("_ComparePartial")
 				</ul>

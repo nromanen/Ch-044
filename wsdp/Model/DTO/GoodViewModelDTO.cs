@@ -22,7 +22,7 @@ namespace Model.DTO
 
 		public string GetFollowText()
 		{
-			return Good.IsFollowed ? "Unfollow" : "Follow";
+			return Good.IsFollowed ? Resources.Resource.Unfollow : Resources.Resource.Follow;
 		}
 
         public bool IsComparing { get; set; }
