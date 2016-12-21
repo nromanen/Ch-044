@@ -46,7 +46,10 @@
 				</h4>
 
 				<input type="hidden"  id="goodUrl" value="@Model.Good.UrlLink"/>
-				@Html.Partial("~/Views/Good/FollowButtonPartial.cshtml",Model)	
+
+
+				@Html.Partial("~/Views/Good/FollowButtonPartial.cshtml", Model)                
+				
                 <h4 class="text-muted"> Shop: @Model.Good.WebShop.Name</h4>
 				<img src="@Model.Good.WebShop.LogoPath" alt="ShopLogo" class="img-responsive img-thumbnail" />
 				<br />
@@ -175,6 +178,9 @@
 
 			</div>
 			<div class="col-xs-12 col-md-6">
+
+
+
 				<div class="comment">
 					<div class="col-sm-2">
 						<div class="thumbnail">
@@ -209,6 +215,21 @@
 						</div><!-- /panel panel-default -->
 					</div><!-- /col-sm-5 -->
 				</div>
+                <div id="add-comment comment">
+                    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+                        <div class="form-group" style="padding:">
+                            <label for="email" class="col-sm-2 control-label">Comment</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control textcomment" name="addComment" id="addComment" rows="5" style="max-width:1250px;"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-xs-offset-2">
+                                <button class="btn btn-success btn-submit" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 			</div>
 			<div class="col-xs-0 col-md-3">
 
@@ -234,20 +255,38 @@
 		setTimeout(function () { DrawChart('@Model.Good.UrlLink'); }, 200);
 	}
 
-    $(function () {
-
-
-    });
 
     function SetCompareGood(id, node) {
+        $(node).html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Compare');
+
         $.ajax({
             type: 'POST',
             url: "@Url.Action("SetCompareGood","Good")",
             data: { id: id },
             success: function () {
-                $(node).html("<span class='glyphicon glyphicon-ok'></span>In Comparing");
+                $(node).html("<span class='glyphicon glyphicon-ok'></span> In Comparing");
+                $(node).unbind().click(function () {
+                    UnsetCompareGood(id, node);
+                });
             }
         });
+    }
+
+    function UnsetCompareGood(id, node)
+    {
+        $(node).html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> In Comparing');
+
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("UnsetCompareGood","Good")",
+            data: { id: id },
+        success: function () {
+            $(node).html("<span class='glyphicon glyphicon-stats'></span> Compare");
+            $(node).unbind().click(function () {
+                SetCompareGood(id, node);
+            });
+        }
+    });
     }
 
 

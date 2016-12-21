@@ -50,11 +50,11 @@ namespace PriceFollowersService.Scheduler
 							item.Status = Common.Enum.FollowStatus.Sended;
 							followPriceManager.Update(item);
 
-							Console.WriteLine($"Message about price fall for {good.Name} was sended.");
+                            //Console.WriteLine($"Message about price fall for {good.Name} was sended.");
 						}
 						else
 						{
-							Console.WriteLine($"Message for {good.Name} wasn't sended.");
+                            //Console.WriteLine($"Message for {good.Name} wasn't sended.");
 
 						}
 					}

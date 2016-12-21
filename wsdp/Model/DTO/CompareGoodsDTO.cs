@@ -8,10 +8,8 @@ namespace Model.DTO
 {
     public class CompareGoodsDTO
     {
-        public GoodDTO FirstGood { get; set; }
-        public GoodDTO SecondGood { get; set; }
+        public List<GoodDTO> Goods { get; set; }
 
-        public Dictionary<string, string> FirstProperties { get; set; }
-        public Dictionary<string, string> SecondProperties { get; set; }
+        public List<string> Properties { get; set; }
     }
 }
