@@ -414,4 +414,10 @@
   <data name="GoodsNotFounded" xml:space="preserve">
     <value>По вашому запиту нічого не знайдено.</value>
   </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Слідкувати</value>
+  </data>
+  <data name="Unfollow" xml:space="preserve">
+    <value>Відписатись</value>
+  </data>
 </root>

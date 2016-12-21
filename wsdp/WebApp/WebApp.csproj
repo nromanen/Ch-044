@@ -429,6 +429,7 @@
     <Content Include="Views\Error\CategoryNotFound.cshtml" />
     <Content Include="Views\Good\CompareGoods.cshtml" />
     <Content Include="Views\Good\ComparingCategories.cshtml" />
+    <Content Include="Views\Good\FollowButtonPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
