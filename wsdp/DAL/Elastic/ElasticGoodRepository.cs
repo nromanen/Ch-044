@@ -50,9 +50,9 @@ namespace DAL.Elastic
             return context.GetByNameHard(name);
         }
 
-        public IList<GoodDTO> GetExact(string value)
+        public IList<GoodDTO> GetExact(string value, int size = 500)
         {
-            return context.GetExact(value);
+            return context.GetExact(value, size);
         }
         public IList<GoodDTO> GetSimilar(string value)
         {

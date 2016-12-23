@@ -50,9 +50,9 @@ namespace BAL.Manager
         {
             return elasticUOW.Repository.GetSimilar(value);
         }
-        public IList<GoodDTO> GetExact(string value)
+        public IList<GoodDTO> GetExact(string value, int size = 500)
         {
-            return elasticUOW.Repository.GetExact(value);
+            return elasticUOW.Repository.GetExact(value, size);
         }
         public IList<GoodDTO> GetByCategoryId(int id)
         {

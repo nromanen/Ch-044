@@ -130,12 +130,12 @@ namespace DAL.Elastic
                 .ToList();
         }
 
-        public IList<GoodDTO> GetExact(string value)
+        public IList<GoodDTO> GetExact(string value, int size = 500)
         {
             var sValue = value.ToLower();
 
             var searchResults = client.Search<GoodDTO>(s => s.From(0)
-                .Size(100)
+                .Size(size)
                 .Query(q =>
                     q.MatchPhrase(m => m.Field(p => p.Name).Query(sValue))));
             return searchResults.Hits.Select(x => x.Source).ToList();

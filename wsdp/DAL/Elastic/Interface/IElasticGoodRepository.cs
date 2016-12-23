@@ -15,7 +15,7 @@ namespace DAL.Elastic.Interface
         void Delete(GoodDTO item);
         void Insert(GoodDTO item);
         IList<GoodDTO> GetByName(string name);
-        IList<GoodDTO> GetExact(string value);
+        IList<GoodDTO> GetExact(string value, int size = 500);
         IList<GoodDTO> GetSimilar(string value);
         IList<GoodDTO> GetByCategoryId(int id);
         IList<GoodDTO> GetByWebShopId(int id);
