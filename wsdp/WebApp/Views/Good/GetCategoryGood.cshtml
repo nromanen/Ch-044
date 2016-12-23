@@ -1,4 +1,5 @@
-﻿@model IList<Model.DTO.GoodDTO>
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Model.DTO.GoodDTO>
 @{
 	ViewBag.Title = "GetCategoryGood";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,7 +22,9 @@
 
 					<div class="media-body">
 						<div class="col-xs-4">
-							<h4 class="text-success text-center">@good.Name</h4>
+							<h4 class="text-success text-center">
+								<a href="@Url.Action("ConcreteGood", "Good", new {id = good.Id})">@good.Name</a>
+							</h4>
 							@foreach (var item in good.PropertyValues.DictStringProperties)
 							{
 								<small class="text-muted">
@@ -64,6 +67,11 @@
 				</div>
 			</div>
 			}
+		<div class="col-lg-12 paging">
+			Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+			@Html.PagedListPager(Model, page => Url.Action("GetCategoryGood", new {@c_id=ViewBag.cat_id,@page=page }))
+		</div>
 	</div>
 	</div>
 

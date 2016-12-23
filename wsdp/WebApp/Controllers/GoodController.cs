@@ -8,6 +8,7 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
+using PagedList;
 
 namespace WebApp.Controllers
 {
@@ -98,9 +99,10 @@ namespace WebApp.Controllers
 
 			return View(mainmodel);
 		}
-		public ActionResult GetCategoryGood(int c_Id)
+		public ActionResult GetCategoryGood(int c_Id,int? page)
 		{
-			var goodListCat=elasticmanager.GetByCategoryId(c_Id);
+			//var goodListCat=elasticmanager.GetByCategoryId(c_Id);
+			var goodListCat = goodmanager.GetAll().Where(i => i.Category_Id == c_Id).ToList();
 			
 			foreach (var item in goodListCat)
 			{
@@ -114,7 +116,10 @@ namespace WebApp.Controllers
 			}
 			else
 			{
-				return View(goodListCat);
+				ViewBag.cat_id = c_Id;
+				int pageSize = 10;
+				int pageNumber = (page ?? 1);
+				return View(goodListCat.ToPagedList(pageNumber, pageSize));
 			}
 		}
 

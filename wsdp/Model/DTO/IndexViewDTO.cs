@@ -1,4 +1,5 @@
 ﻿using Model.DB;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Model.DTO
 {
     public class IndexViewDTO
     {
-		public List<GoodDTO> GoodList;
+		
+		public IPagedList<GoodDTO> GoodList;
 		public List<CategoryDTO> CategoryList;
 	}
 }
