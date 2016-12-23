@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using System.Web.Services;
 using System.Xml.Serialization;
 using WebApp.Models;
+using PagedList;
 
 namespace WebApp.Controllers
 {
@@ -35,8 +36,9 @@ namespace WebApp.Controllers
 		    this.elasticManager = elasticManager;
 		}
 
-		public ActionResult Index()
+		public ActionResult Index(int? page)
 		{
+			int pageSize = 7;
 			var goods = goodManager.GetAll();
 			var categories = categoryManager.GetAll();
 			var goods_list = goodManager.GetAll();
@@ -47,14 +49,15 @@ namespace WebApp.Controllers
 
 				item.WebShop = shopManager.GetById(item.WebShop_Id);
 			}
-
+			int pageNumber = (page ?? 1);
 			var Custom_model = new IndexViewDTO()
 			{
 				CategoryList = categories,
-				GoodList = goods_list
-			};
-			ModelState.Clear();
+				GoodList = goods_list.ToPagedList(pageNumber, pageSize),
+		};
+			ModelState.Clear();			
 			return View(Custom_model);
+			
 		}
 
 		public ActionResult About()
