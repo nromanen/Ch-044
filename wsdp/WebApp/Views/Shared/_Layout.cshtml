@@ -6,8 +6,8 @@
 	<title>@ViewBag.Title - WSDP Application</title>
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
-
-	<link rel="stylesheet" type="text/css" href="~/Content/sidebar-style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/sidebar-style.css">
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.min.css"/>
 </head>
 <body>
 	<div class="navbar navbar-default navbar-fixed-top">
@@ -53,24 +53,26 @@
 
 	<hr />
 	<br />
-	<div class="container body-content">
-		<div class="row">
-			<div class="col-sm-12">
-				@RenderBody()
-				<hr />
-				<footer>
-					<p>&copy; @DateTime.Now.Year - Ch-044</p>
-					<ul class="list-inline text-center">
-						<li>@Html.ActionLink("UA", "Change", "Base", new { language = "uk-UA", url = Request.Url.AbsoluteUri }, null)</li>
-						<li>@Html.ActionLink("RU", "Change", "Base", new { language = "ru-RU", url = Request.Url.AbsoluteUri }, null)</li>
-						<li>@Html.ActionLink("EN", "Change", "Base", new { language = "en", url = Request.Url.AbsoluteUri }, null)</li>
-					</ul>
-				</footer>
-			</div>
-		</div>
-	</div>
+<div class="container body-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @RenderBody()
+            <hr/>
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Ch-044</p>
+                <ul class="list-inline text-center">
+                    <li>@Html.ActionLink("UA", "Change", "Base", new {language = "uk-UA", url = Request.Url.AbsoluteUri}, null)</li>
+                    <li>@Html.ActionLink("RU", "Change", "Base", new {language = "ru-RU", url = Request.Url.AbsoluteUri}, null)</li>
+                    <li>@Html.ActionLink("EN", "Change", "Base", new {language = "en", url = Request.Url.AbsoluteUri}, null)</li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+</div>
+
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery-ui")
 	@Scripts.Render("~/bundles/bootstrap")
 	@Scripts.Render("~/bundles/EditProperties")
 	@Scripts.Render("~/bundles/WebShop")
@@ -79,6 +81,7 @@
 	@Styles.Render("~/content/EditUsers_css")
 	@Scripts.Render("~/bundles/PriceStat")
     @Scripts.Render("~/bundles/executing_tasks")
+    @Scripts.Render("~/bundles/GoodAutocomplete");
 	@Scripts.Render("~/bundles/ExecutingInfo")
 	@Scripts.Render("~/bundles/jquery-timeago")
     @RenderSection("scripts", required: false)

@@ -7,136 +7,137 @@
 @Styles.Render("~/Content/IndexStylesheet")
 @Styles.Render("~/Content/PhoneStylesheet")
 
+
 <style>
-	body
-	{
+    body
+    {
         background-image: url(@Url.Content("~/Content/bg.jpg"));
-	}
+    }
 
-	img{
-		max-height:600px !important;
+    img {
+        max-height: 600px !important;
 
 
-	}
+    }
 
-	.carousel-caption
-			{
-				color: #CCC;
-			}
+    .carousel-caption
+    {
+        color: #CCC;
+    }
 
 
 </style>
 
 <div class="cf wrap container">
-	<header class="header">
-		<div class="top-nav-bg abs">
-			<div class="razdel-box rel">
-				<a href="#" class="razdel adapt-1024 js-mmenu-initiator">
-					<b>Каталог товаров</b>
-				</a>
-				<span class="razdel-opener razdel open no-adapt-1024"><b><small class="glyphicon glyphicon-arrow-down"></small>Каталог товаров</b></span>
+    <header class="header">
+        <div class="top-nav-bg abs">
+            <div class="razdel-box rel">
+                <a href="#" class="razdel adapt-1024 js-mmenu-initiator">
+                    <b>Каталог товаров</b>
+                </a>
+                <span class="razdel-opener razdel open no-adapt-1024"><b><small class="glyphicon glyphicon-arrow-down"></small>Каталог товаров</b></span>
 
-			</div>
-			<div class="search-box">
-				<label for="toggle-1">
-					<b>Поиск</b>
-				</label>
-				<div class="s-form-box">
-					<form action="/Good/GetGoodsByName" method="get" class="open-pup">
-						<input type="submit" value="Поиск" class="but abs" id="doSearch">
-						<div class="s-inp">
-							<input id="searchbox" name="name" type="text" class="search-txt ui-autocomplete-input" data-default="Что вы хотите купить?" value="Что вы хотите купить?" onfocus="javascript:if (this.value == 'Что вы хотите купить?')this.value = ''" onblur="javascript:if (this.value == '')this.value = 'Что вы хотите купить?'" autocomplete="off">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div class="content right row-1024">
-		<aside class="category-menu-wapper float-left">
-			<div class="abs-wrapper">
-				@foreach (var rc in Model.CategoryList)
-				{
-					@Html.Partial("~/Views/CategoryTree/SubCategory.cshtml", rc)
-					<div class="clearfix"></div>
-				}
-			</div>
+            </div>
+            <div class="search-box">
+                <label for="toggle-1">
+                    <b>Поиск</b>
+                </label>
+                <div class="s-form-box">
+                    <form action="/Good/GetGoodsByName" method="get" class="open-pup">
+                        <input type="submit" value="Поиск" class="but abs" id="doSearch">
+                        <div class="s-inp">
+                            <input id="searchbox" name="name" type="text" class="search-txt">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="content right row-1024">
+        <aside class="category-menu-wapper float-left">
+            <div class="abs-wrapper">
+                @foreach (var rc in Model.CategoryList)
+                {
+                    @Html.Partial("~/Views/CategoryTree/SubCategory.cshtml", rc)
+                    <div class="clearfix"></div>
+                }
+            </div>
 
 
-		</aside>
-		<div class="row">
-			<div class="col-sm-9">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
-					</ol>
+        </aside>
+        <div class="row">
+            <div class="col-sm-9">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
 
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner" role="listbox">
-						<div class="item active">
-							<img src="http://htn.su/wp-content/uploads/2015/04/iPhone-7.jpg" alt="Chania" class="img-responsive">
-							<div class="carousel-caption">
-								<h3>iPhone</h3>
-								<p>
-									В iPhone 7 все важнейшие аспекты iPhone значительно улучшены.
-									Это принципиально новая система камер для фото- и видеосъёмки.
-									Максимально мощный и экономичный аккумулятор iPhone.
-								</p>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="http://htn.su/wp-content/uploads/2015/04/iPhone-7.jpg" alt="Chania" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h3>iPhone</h3>
+                                <p>
+                                    В iPhone 7 все важнейшие аспекты iPhone значительно улучшены.
+                                    Это принципиально новая система камер для фото- и видеосъёмки.
+                                    Максимально мощный и экономичный аккумулятор iPhone.
+                                </p>
 
-							</div>
-						</div>
+                            </div>
+                        </div>
 
-						<div class="item">
-							<img class="img-responsive" src="http://thumbs.picclick.com/00/s/NzY4WDEwMjQ=/z/9ZAAAOSwZtJW-RXm/$/Dell-XPS-15-9550-156-4K-UHD-Touch-_57.jpg" alt="Chania">
-							<div class="carousel-caption">
-								<h3>Dell XPS 15</h3>
-								<p>
-									Сочетание передовых технологий
-								</p>
-							</div>
-						</div>
+                        <div class="item">
+                            <img class="img-responsive" src="http://thumbs.picclick.com/00/s/NzY4WDEwMjQ=/z/9ZAAAOSwZtJW-RXm/$/Dell-XPS-15-9550-156-4K-UHD-Touch-_57.jpg" alt="Chania">
+                            <div class="carousel-caption">
+                                <h3>Dell XPS 15</h3>
+                                <p>
+                                    Сочетание передовых технологий
+                                </p>
+                            </div>
+                        </div>
 
-						<div class="item">
-							<img class="img-responsive" src="http://www.captainwalt.com/size/1024x768/cdn-contents/2015/11/27/nostalgia-retro-series-microwave-nostalgia-electrics-retro-microwave-oven.jpg" alt="Flower">
-							<div class="carousel-caption">
-								<h3>Retro Microwave</h3>
-								<p>
-									1980
-								</p>
-							</div>
-						</div>
+                        <div class="item">
+                            <img class="img-responsive" src="http://www.captainwalt.com/size/1024x768/cdn-contents/2015/11/27/nostalgia-retro-series-microwave-nostalgia-electrics-retro-microwave-oven.jpg" alt="Flower">
+                            <div class="carousel-caption">
+                                <h3>Retro Microwave</h3>
+                                <p>
+                                    1980
+                                </p>
+                            </div>
+                        </div>
 
-						<div class="item">
-							<img class="img-responsive" src="https://www.wired.com/wp-content/uploads/2016/07/PikachuTA-EWEATA-1024x768.jpg" alt="Flower">
-							<div class="carousel-caption">
-								<h3>:'(</h3>
-								<p>
-									Don't make pikachu crying
-								</p>
-							</div>
-						</div>
-					</div>
+                        <div class="item">
+                            <img class="img-responsive" src="https://www.wired.com/wp-content/uploads/2016/07/PikachuTA-EWEATA-1024x768.jpg" alt="Flower">
+                            <div class="carousel-caption">
+                                <h3>:'(</h3>
+                                <p>
+                                    Don't make pikachu crying
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-					<!-- Left and right controls -->
-					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-			</div>
-		</div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-		<br />
-		<div id="products" class="row list-group">
-			@foreach (var good in Model.GoodList)
+        <br/>
+        <div id="products" class="row list-group">
+            @foreach (var good in Model.GoodList)
             {
                 <div class="row material-design-block">
                     <div class="media">
@@ -148,7 +149,9 @@
 
                         <div class="media-body">
                             <div class="col-xs-4">
-                                <h4 class="text-success text-center"><a href="@Url.Action("ConcreteGood","Good",new {id = good.Id})">@good.Name</a></h4>
+                                <h4 class="text-success text-center">
+                                    <a href="@Url.Action("ConcreteGood", "Good", new {id = good.Id})">@good.Name</a>
+                                </h4>
                                 @foreach (var item in good.PropertyValues.DictStringProperties)
                                 {
                                     <small class="text-muted">
@@ -158,19 +161,19 @@
                             </div>
                             <div class="col-xs-2">
                                 <b class="text-success">Shop:</b>
-                                <br />
+                                <br/>
                                 <b class="text-muted">@good.WebShop.Name</b>
                             </div>
                             <div class="col-xs-2">
                                 <b class="text-success">Category:</b>
-                                <br />
+                                <br/>
                                 <b class="text-muted">@good.Category.Name</b>
                             </div>
                             @if (@good.OldPrice == null)
                             {
                                 <div class="col-xs-2">
                                     <b class="text-success">Price:</b>
-                                    <br />
+                                    <br/>
                                     <b class="text-muted">@good.Price</b>
                                 </div>
                             }
@@ -178,9 +181,13 @@
                             {
                                 <div class="col-xs-2">
                                     <b class="text-success">Price:</b>
-                                    <br />
-                                    <b class="text-muted"><del><small>@good.OldPrice</small></del></b>
-                                    <br />
+                                    <br/>
+                                    <b class="text-muted">
+                                        <del>
+                                            <small>@good.OldPrice</small>
+                                        </del>
+                                    </b>
+                                    <br/>
                                     <b class="text-danger">@good.Price</b>
                                 </div>
                             }
@@ -190,9 +197,8 @@
                         </div>
                     </div>
                 </div>
-			}
-		</div>
-		<div class="clearfix"></div>
-	</div>
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
 </div>
-<script src="//ulogin.ru/js/ulogin.js"></script>

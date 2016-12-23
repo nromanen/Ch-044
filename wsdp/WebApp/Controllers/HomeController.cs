@@ -22,15 +22,17 @@ namespace WebApp.Controllers
 		private IPropertyManager propertyManager;
 		private IGoodManager goodManager;
 		private IPriceManager priceManager;
+	    private IElasticManager elasticManager;
 	 
 
-		public HomeController(ICategoryManager categoryManager, IGoodManager goodManager, IPropertyManager propertyManager, IWebShopManager shopManager, IPriceManager priceManager)
+		public HomeController(IElasticManager elasticManager, ICategoryManager categoryManager, IGoodManager goodManager, IPropertyManager propertyManager, IWebShopManager shopManager, IPriceManager priceManager)
 		{
 			this.priceManager = priceManager;
 			this.categoryManager = categoryManager;
 			this.goodManager = goodManager;
 			this.propertyManager = propertyManager;
 			this.shopManager = shopManager;
+		    this.elasticManager = elasticManager;
 		}
 
 		public ActionResult Index()
@@ -110,10 +112,12 @@ namespace WebApp.Controllers
 			return Json(iData);
 		}
 
-	    //public JsonResult GetExactGoods(string subName)
-	    //{
-	        
-	    //}
+        [HttpPost]
+        public JsonResult GetExactGoods(string name)
+        {
+            var list = elasticManager.GetExact(name);
+            return Json(list);
+        }
 
-	}
+    }
 }

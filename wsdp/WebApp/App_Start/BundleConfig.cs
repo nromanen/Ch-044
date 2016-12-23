@@ -10,7 +10,10 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 				"~/Scripts/jquery-{version}.js"));
 
-			bundles.Add(new ScriptBundle("~/bundles/EditProperties").Include(
+            bundles.Add(new ScriptBundle("~/bundles/jquery-ui").Include(
+                "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/EditProperties").Include(
 				"~/Scripts/Properties/bootstrap-combobox.js",
 				"~/Scripts/Properties/EditProperties.js")
 				);
@@ -27,7 +30,10 @@ namespace WebApp
 			bundles.Add(new ScriptBundle("~/bundles/WebShop").Include(
 				"~/Scripts/WebShop/webshop.js")
 				);
-			bundles.Add(new ScriptBundle("~/bundles/PriceStat").Include("~/Scripts/PriceStat.js",
+            bundles.Add(new ScriptBundle("~/bundles/GoodAutocomplete").Include(
+                "~/Scripts/WebShop/goodsAutocomplete.js")
+                );
+            bundles.Add(new ScriptBundle("~/bundles/PriceStat").Include("~/Scripts/PriceStat.js",
 				"~/Scripts/Chart.js"));
 
 			bundles.Add(new ScriptBundle("~/Scripts/IteratorPage").Include(
