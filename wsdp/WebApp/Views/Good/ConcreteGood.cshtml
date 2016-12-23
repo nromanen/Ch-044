@@ -9,6 +9,26 @@
 @Scripts.Render("~/bundles/PriceStat")
 @Scripts.Render("~/Scripts/PriceFollowers")
 
+<div class="modal fade" tabindex="-1" role="dialog" id="ModalDelete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">@Resources.Resource.Attention !</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you really want to delete this comment?</p>
+                <form>
+                    <div class="form-group">
+                        <input type="hidden" id="CommentToDeleteid" />
+                    </div>
+                    <a onclick="DeleteCommentAjax();" class="btn btn-danger">@Resources.Resource.Remove</a>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 
 <div class="container">
@@ -205,10 +225,13 @@
                         </div><!-- /col-sm-1 -->
                         <div class="col-sm-10">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
+                                <div class="panel-heading" comment-id="@comment.Id">
                                     <strong>@comment.User.UserName </strong> <span class="text-muted"> commented <time class="timeago" datetime="@comment.Date">-</time></span>
                                     @if(@comment.CheckComment){
-                                        <span class="text-right text-muted">☻</span>
+                                     <span class="text-right text-muted">
+                                         <span class="glyphicon glyphicon-remove btn-right" onclick="DeleteComment(this);" data-toggle="modal" data-target="#ModalDelete"></span>
+                                         <span class="glyphicon glyphicon-pencil btn-right" onclick="UpdateComment(this);"></span>
+                                     </span>
                                     }
                                 </div>
                                 <div class="panel-body">
@@ -310,8 +333,60 @@
     }
 
     function CreateCommentNode(userName, text, date) {
-        return $('<div class="comment"><div class="col-sm-2"><div class="thumbnail"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></div> </div><!-- /col-sm-1 --><div class="col-sm-10"><div class="panel panel-default"><div class="panel-heading"><strong>' + '@User.Identity.Name'+ '</strong> <span class="text-muted">' + date+ '</span><span class="text-right text-muted">☻</span></div><div class="panel-body">'+ text +'</div><!-- /panel-body --></div><!-- /panel panel-default --></div><!-- /col-sm-5 --></div>');
+        return $('<div class="comment"><div class="col-sm-2"><div class="thumbnail"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></div> </div><!-- /col-sm-1 --><div class="col-sm-10"><div class="panel panel-default"><div class="panel-heading"><strong>' + '@User.Identity.Name'+ '</strong> <span class="text-muted">' + date+ '</span><span class="glyphicon glyphicon-remove btn-right" onclick="DeleteComment(this);" data-toggle="modal" data-target="#ModalDelete"></span><span class="glyphicon glyphicon-pencil btn-right" onclick="UpdateComment(this);"></span></div><div class="panel-body">'+ text +'</div><!-- /panel-body --></div><!-- /panel panel-default --></div><!-- /col-sm-5 --></div>');
+    }
+
+    function UpdateComment(node) {
+        console.log($(node).closest(".panel").children(".panel-body"));
+        var prev_text = $(node).closest(".panel").children(".panel-body").html();
+
+        prev_text = prev_text.trim();
+        console.log(prev_text);
+        $(node).closest(".panel").children(".panel-body").html("");
+
+        var textarea = $('<textarea class="form-control textcomment updatetext" id="updateCommentArea" rows="5" style="max-width:1250px;" required maxlength="255">' + prev_text + '</textarea><br />');
+
+        var button = $('<a class="btn btn-success btn-submit btn-xs" onclick="UpdateCommentAjax(this);"><span class="glyphicon glyphicon-send"></span> Update</a>');
+
+        $(node).closest(".panel").children(".panel-body").append(textarea);
+        $(node).closest(".panel").children(".panel-body").append(button);
     }
 
 
+    function UpdateCommentAjax(node) {
+        var new_text = $(node).siblings("textarea").val();
+        
+        var commentId = $(node).closest(".panel").children(".panel-heading").attr("comment-id");
+
+        $.ajax({
+            type: 'POST',
+            url: '/Good/UpdateComment',
+            data: { text: new_text, commentId: commentId },
+            success: function (data) {
+            }
+        });
+
+        $(node).closest(".panel").children(".panel-body").html(new_text);
+    }
+
+    function DeleteComment(node) {
+        var commentId = $(node).closest(".panel").children(".panel-heading").attr("comment-id");
+        $("#CommentToDeleteid").val(commentId);
+    }
+
+    function DeleteCommentAjax() {
+        var commentId = $("#CommentToDeleteid").val();
+        console.log(commentId);
+        $("#ModalDelete").modal("hide");
+         $("div[comment-id='" + commentId + "']").closest(".comment").remove();
+        console.log($("div[comment-id=" + commentId + "]"));
+        $.ajax({
+            type: 'POST',
+            url: '/Good/DeleteComment',
+            data: { commentId: commentId },
+            success: function (data) {
+                
+            }
+        });
+    }
 </script>
