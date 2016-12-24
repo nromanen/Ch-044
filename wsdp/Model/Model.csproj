@@ -89,6 +89,7 @@
     <Compile Include="DTO\ComparingCategoriesDTO.cs" />
     <Compile Include="DTO\ExecutingInfoDTO.cs" />
     <Compile Include="DTO\FridgeDTO.cs" />
+    <Compile Include="DTO\GetCategoryDTO.cs" />
     <Compile Include="DTO\GoodDTO.cs" />
     <Compile Include="DTO\GoodViewDTO.cs" />
     <Compile Include="DTO\GoodViewModelDTO.cs" />

@@ -1,5 +1,5 @@
 ﻿@using PagedList.Mvc;
-@model PagedList.IPagedList<Model.DTO.GoodDTO>
+@model Model.DTO.GetCategoryDTO
 @{
 	ViewBag.Title = "GetCategoryGood";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,9 +8,16 @@
 @Styles.Render("~/Content/IndexStylesheet")
 @Styles.Render("~/Content/PhoneStylesheet")
 
+
 <div class="cf wrap container">
 	<div id="products" class="row list-group">
-		@foreach (var good in Model)
+		<div class="material-design-block">
+			<h2>@Model.CategoryName</h2>
+			<br />
+			<h4><a href="@Url.Action("Index", "Home")">@Resources.Resource.GoHome</a></h4>
+		</div>
+		<div class="clearfix"></div>
+		@foreach (var good in Model.GoodListCategory)
 			{
 			<div class="row material-design-block">
 				<div class="media">
@@ -68,9 +75,9 @@
 			</div>
 			}
 		<div class="col-lg-12 paging">
-			Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+			Page @(Model.GoodListCategory.PageCount < Model.GoodListCategory.PageNumber ? 0 : Model.GoodListCategory.PageNumber) из @Model.GoodListCategory.PageCount
 
-			@Html.PagedListPager(Model, page => Url.Action("GetCategoryGood", new {@c_id=ViewBag.cat_id,@page=page }))
+			@Html.PagedListPager(Model.GoodListCategory, page => Url.Action("GetCategoryGood", new {@c_id=ViewBag.cat_id,@page=page }))
 		</div>
 	</div>
 	</div>

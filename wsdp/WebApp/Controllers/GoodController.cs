@@ -104,12 +104,14 @@ namespace WebApp.Controllers
 			//var goodListCat=elasticmanager.GetByCategoryId(c_Id);
 			var goodListCat = goodmanager.GetAll().Where(i => i.Category_Id == c_Id).ToList();
 			
+			
 			foreach (var item in goodListCat)
 			{
 				item.Category = categoryManager.Get(item.Category_Id);
 
 				item.WebShop = webShopManager.GetById(item.WebShop_Id);
 			}
+			var categoryName = goodListCat.First().Category.Name;
 			if (!goodListCat.Any())
 			{
 				return View("../Error/CategoryNotFound");
@@ -119,7 +121,11 @@ namespace WebApp.Controllers
 				ViewBag.cat_id = c_Id;
 				int pageSize = 10;
 				int pageNumber = (page ?? 1);
-				return View(goodListCat.ToPagedList(pageNumber, pageSize));
+				var modelView = new GetCategoryDTO() {
+					CategoryName = categoryName,
+					GoodListCategory= goodListCat.ToPagedList(pageNumber, pageSize)
+				};
+				return View(modelView);
 			}
 		}
 
