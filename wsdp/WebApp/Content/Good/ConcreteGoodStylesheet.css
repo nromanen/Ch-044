@@ -187,3 +187,20 @@ margin-right: 7px;
 {
     margin-left:10px;
 }
+
+.btn-right
+{
+    float:right;
+    padding:0 5px;
+    cursor:pointer;
+}
+
+.btn-right:hover
+{
+    color:#808080;
+}
+
+.updatetext
+{
+    height:50px !important;
+}

@@ -121,6 +121,7 @@ namespace BAL.Manager {
 			var temp = uOW.CommentRepo.GetByID(comment.Id);
 			if (temp == null)
 				return false;
+            temp.Description = comment.Description;
 			uOW.CommentRepo.Update(temp);
 			return uOW.Save() > 0 ? true : false;
 		}
