@@ -254,6 +254,8 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jquery-timeago")
 <script>
+
+
     $(document).ready(function () {
         $("time.timeago").timeago();
         $("#charts").addClass("active");
@@ -315,47 +317,60 @@
         console.log(good_id);
 
         $("#addCommentArea").val("");
-
-        //$("#comments_list").prepend(CreateCommentNode('@User.Identity.Name', text, "commented right now" ));
-        CreateCommentNode('@User.Identity.Name', text, "commented right now").insertAfter("#add-comment");
-        InsertCommentAjax(text, good_id);
+        var newnode = CreateCommentNode('@User.Identity.Name', text, "commented right now");
+        $(newnode).insertAfter("#add-comment");
+        InsertCommentAjax(text, good_id,newnode);
     }
 
-    function InsertCommentAjax(text, goodId)
+    function InsertCommentAjax(text, goodId,node)
     {
         $.ajax({
             type: 'POST',
             url: '/Good/AddComment',
             data: { text: text, goodId: goodId },
             success: function (data) {
+                console.log(data);
+                $(node).children(".col-sm-10").children(".panel").children(".panel-heading").attr("comment-id", data);
             }
         });
     }
 
     function CreateCommentNode(userName, text, date) {
-        return $('<div class="comment"><div class="col-sm-2"><div class="thumbnail"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></div> </div><!-- /col-sm-1 --><div class="col-sm-10"><div class="panel panel-default"><div class="panel-heading"><strong>' + '@User.Identity.Name'+ '</strong> <span class="text-muted">' + date+ '</span><span class="glyphicon glyphicon-remove btn-right" onclick="DeleteComment(this);" data-toggle="modal" data-target="#ModalDelete"></span><span class="glyphicon glyphicon-pencil btn-right" onclick="UpdateComment(this);"></span></div><div class="panel-body">'+ text +'</div><!-- /panel-body --></div><!-- /panel panel-default --></div><!-- /col-sm-5 --></div>');
+        return $('<div class="comment"><div class="col-sm-2"><div class="thumbnail"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></div> </div><!-- /col-sm-1 --><div class="col-sm-10"><div class="panel panel-default"><div class="panel-heading" comment-id="0"><strong>' + '@User.Identity.Name' + '</strong> <span class="text-muted">' + date + '</span><span class="text-right text-muted"><span class="glyphicon glyphicon-remove btn-right" onclick="DeleteComment(this);" data-toggle="modal" data-target="#ModalDelete"></span><span class="glyphicon glyphicon-pencil btn-right" onclick="UpdateComment(this);"></span></span></div><div class="panel-body">' + text + '</div><!-- /panel-body --></div><!-- /panel panel-default --></div><!-- /col-sm-5 --></div>');
     }
 
     function UpdateComment(node) {
-        console.log($(node).closest(".panel").children(".panel-body"));
+        $(node).closest(".panel").children(".panel-heading").children(".text-right").children(".glyphicon-pencil").hide();
         var prev_text = $(node).closest(".panel").children(".panel-body").html();
 
-        prev_text = prev_text.trim();
-        console.log(prev_text);
+        prev_text = prev_text.trim().toString();
+
         $(node).closest(".panel").children(".panel-body").html("");
 
         var textarea = $('<textarea class="form-control textcomment updatetext" id="updateCommentArea" rows="5" style="max-width:1250px;" required maxlength="255">' + prev_text + '</textarea><br />');
 
-        var button = $('<a class="btn btn-success btn-submit btn-xs" onclick="UpdateCommentAjax(this);"><span class="glyphicon glyphicon-send"></span> Update</a>');
-
+        var button = $('<a class="btn btn-success btn-submit btn-xs"><span class="glyphicon glyphicon-send"></span> Update</a>');
+        $(button).click(function () {
+            UpdateCommentAjax(this);
+        });
+        var cancel_button = $('<a class="btn btn-success btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Cancel</a>');
+        $(cancel_button).click(function () {
+            CancelUpdate(this, prev_text);
+        });
         $(node).closest(".panel").children(".panel-body").append(textarea);
         $(node).closest(".panel").children(".panel-body").append(button);
+        $(node).closest(".panel").children(".panel-body").append(cancel_button);
     }
 
+    function CancelUpdate(node,prev_text) {
+        $(node).closest(".panel").children(".panel-heading").children(".text-right").children(".glyphicon-pencil").show();
+        $(node).closest(".panel").children(".panel-body").html(prev_text);
+    }
 
     function UpdateCommentAjax(node) {
+        $(node).closest(".panel").children(".panel-heading").children(".text-right").children(".glyphicon-pencil").show();
         var new_text = $(node).siblings("textarea").val();
-        
+
         var commentId = $(node).closest(".panel").children(".panel-heading").attr("comment-id");
 
         $.ajax({
@@ -385,7 +400,7 @@
             url: '/Good/DeleteComment',
             data: { commentId: commentId },
             success: function (data) {
-                
+
             }
         });
     }

@@ -7,7 +7,7 @@ using Model.DTO;
 
 namespace BAL.Interface {
 	public interface ICommentManager {
-		bool Insert(CommentDTO webShop);
+		int Insert(CommentDTO webShop);
 
 		bool Update(CommentDTO webShop);
 

@@ -294,14 +294,14 @@ namespace WebApp.Controllers
 
         //[Authorize(Roles = "Administrator, User")]
 		[HttpPost]
-		public string AddComment(string text, int goodId) {
+		public int AddComment(string text, int goodId) {
 			var comment = new CommentDTO() {
 				GoodId = goodId,
 				UserId = Convert.ToInt32(User.Identity.GetUserId()),
 				Description = text,
 				Date = DateTime.Now
 			};
-			return commentManager.Insert(comment) == true ? JsonConvert.SerializeObject(comment) : null;
+            return commentManager.Insert(comment);
 		}
 
 		[Authorize(Roles = "Administrator, User")]

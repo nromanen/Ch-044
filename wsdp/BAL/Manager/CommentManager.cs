@@ -102,12 +102,13 @@ namespace BAL.Manager {
 		/// </summary>
 		/// <param name="comment"></param>
 		/// <returns>Returns true if operation was succesfully and vice versa</returns>
-		public bool Insert(CommentDTO comment) {
+		public int Insert(CommentDTO comment) {
 			if (comment == null)
-				return false;
+				return 0;
 			var temp = Mapper.Map<Comment>(comment);
 			uOW.CommentRepo.Insert(temp);
-			return uOW.Save() > 0 ? true : false;
+            uOW.Save();
+            return temp.Id;
 		}
 
 		/// <summary>
