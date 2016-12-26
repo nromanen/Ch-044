@@ -53,8 +53,8 @@ namespace WebApp.Controllers
 			var Custom_model = new IndexViewDTO()
 			{
 				CategoryList = categories,
-				GoodList = goods_list.ToPagedList(pageNumber, pageSize),
-		};
+				GoodList = goods_list.ToPagedList(pageNumber, pageSize)
+            };
 			ModelState.Clear();			
 			return View(Custom_model);
 			
@@ -115,11 +115,13 @@ namespace WebApp.Controllers
 			return Json(iData);
 		}
 
-        [HttpPost]
-        public JsonResult GetExactGoods(string name)
+
+        public JsonResult GetExactGoods(string term)
         {
-            var list = elasticManager.GetExact(name);
-            return Json(list);
+            var list = elasticManager
+                .GetByPrefix(term, 3)
+                .Select(x=> new {value = x.Name}).Distinct();
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
     }

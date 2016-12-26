@@ -5,8 +5,11 @@
 	ViewBag.Title = "Home Page";
 }
 
+
+
 @Styles.Render("~/Content/IndexStylesheet")
 @Styles.Render("~/Content/PhoneStylesheet")
+
 
 
 <style>
@@ -30,6 +33,10 @@
 </style>
 
 <div class="cf wrap container">
+    <div class="row">
+
+        @*<input type="text" class="search" data-autocomplete-source="@Url.Action("GetExactGoods", "Home")"/>*@
+    </div>
     <header class="header">
         <div class="top-nav-bg abs">
             <div class="razdel-box rel">
@@ -45,9 +52,9 @@
                 </label>
                 <div class="s-form-box">
                     <form action="/Good/GetGoodsByName" method="get" class="open-pup">
-                        <input type="submit" value="Поиск" class="but abs" id="doSearch">
+                        <input type="submit" value="Поиск" class="but abs" id="doSearch"/>
                         <div class="s-inp">
-                            <input id="searchbox" name="name" type="text" class="search-txt">
+                            <input id="searchbox" name="name" type="text" class="search-txt" data-autocomplete-source="@Url.Action("GetExactGoods", "Home")"/>
                         </div>
                     </form>
                 </div>
@@ -201,10 +208,13 @@
             }
         </div>
         <div class="clearfix"></div>
-		<div class="col-lg-12 paging">
-			Page @(Model.GoodList.PageCount < Model.GoodList.PageNumber ? 0 : Model.GoodList.PageNumber) из @Model.GoodList.PageCount
+        <div class="col-lg-12 paging">
+            Page @(Model.GoodList.PageCount < Model.GoodList.PageNumber ? 0 : Model.GoodList.PageNumber) из @Model.GoodList.PageCount
 
-			@Html.PagedListPager(Model.GoodList, page => Url.Action("Index", new { page }))
-		</div>
+            @Html.PagedListPager(Model.GoodList, page => Url.Action("Index", new {page}))
+        </div>
     </div>
 </div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jquery-ui")
+@Scripts.Render("~/bundles/GoodAutocomplete");
