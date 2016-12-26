@@ -54,6 +54,11 @@ namespace DAL.Elastic
         {
             return context.GetExact(value, size);
         }
+
+        public IList<GoodDTO> GetByPrefix(string prefix, int size = 10)
+        {
+            return context.GetByPrefix(prefix, size);
+        }
         public IList<GoodDTO> GetSimilar(string value)
         {
             return context.GetSimilar(value);

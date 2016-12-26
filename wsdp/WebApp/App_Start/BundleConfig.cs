@@ -31,7 +31,7 @@ namespace WebApp
 				"~/Scripts/WebShop/webshop.js")
 				);
             bundles.Add(new ScriptBundle("~/bundles/GoodAutocomplete").Include(
-                "~/Scripts/WebShop/goodsAutocomplete.js")
+                "~/Scripts/goodsAutocomplete.js")
                 );
             bundles.Add(new ScriptBundle("~/bundles/PriceStat").Include("~/Scripts/PriceStat.js",
 				"~/Scripts/Chart.js"));

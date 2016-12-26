@@ -13,6 +13,7 @@ namespace BAL.Interface
         IList<GoodDTO> GetByName(string name);
         IList<GoodDTO> GetExact(string value, int size = 500);
         IList<GoodDTO> GetSimilar(string value);
+        IList<GoodDTO> GetByPrefix(string prefix, int size = 10);
         IList<GoodDTO> GetByCategoryId(int id);
         IList<GoodDTO> GetByWebShopId(int id);
     }

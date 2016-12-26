@@ -19,5 +19,6 @@ namespace DAL.Elastic.Interface
         IList<GoodDTO> GetSimilar(string value);
         IList<GoodDTO> GetByCategoryId(int id);
         IList<GoodDTO> GetByWebShopId(int id);
+        IList<GoodDTO> GetByPrefix(string prefix, int size = 10);
     }
 }

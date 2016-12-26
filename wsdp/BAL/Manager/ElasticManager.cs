@@ -50,6 +50,12 @@ namespace BAL.Manager
         {
             return elasticUOW.Repository.GetSimilar(value);
         }
+
+        public IList<GoodDTO> GetByPrefix(string prefix, int size = 10)
+        {
+            return elasticUOW.Repository.GetByPrefix(prefix, size);
+        }
+
         public IList<GoodDTO> GetExact(string value, int size = 500)
         {
             return elasticUOW.Repository.GetExact(value, size);
