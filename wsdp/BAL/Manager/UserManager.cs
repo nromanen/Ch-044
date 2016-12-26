@@ -142,6 +142,22 @@ namespace BAL.Manager
             return uOW.UserRepo.All.Any(x => x.Email == email);
         }
 
+		public List<UserDTO> GetUsersSize(int skip,int pageSize)
+		{
+			var users = new List<UserDTO>();
+			var data=uOW.UserRepo.All.OrderBy(i=>i.Id).Skip(skip).Take(pageSize).ToList();
+			foreach (var user in data)
+			{
+				var User = uOW.UserRepo.GetByID(user.Id);
+				users.Add(Mapper.Map<UserDTO>(User));
+			}
+			return users;
+		}
+		public int GetUsersSize()
+		{
+			var size = uOW.UserRepo.All.Count();
+			return size;
+		}
         /// <summary>
         /// Check the occount existance by network account id and network
         /// </summary>

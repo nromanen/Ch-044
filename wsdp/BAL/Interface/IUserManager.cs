@@ -1,4 +1,5 @@
-﻿using Model.DTO;
+﻿using Model.DB;
+using Model.DTO;
 using System.Collections.Generic;
 
 namespace BAL.Interface
@@ -18,5 +19,8 @@ namespace BAL.Interface
 		string GetEmail(int Id);
 		bool EmailIsExist(string email);
         bool NetworkAccountExict(string networkAccountId, string network);
-    }
+		List<UserDTO> GetUsersSize(int skip, int pageSize);
+		int GetUsersSize();
+
+	}
 }

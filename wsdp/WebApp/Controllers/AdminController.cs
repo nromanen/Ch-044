@@ -174,7 +174,7 @@ namespace WebApp.Controllers
 			int pageSize = length != null ? Convert.ToInt32(length) : 0;
 			int skip = start != null ? Convert.ToInt32(start) : 0;
 			int totalRecords = 0;
-			var v = (from a in userManager.GetAll() select a);
+			var v = userManager.GetUsersSize(skip, pageSize);
 			var userList = (from us in roleManager.GetAll() select us);
 			foreach (var item in v)
 			{
@@ -182,10 +182,8 @@ namespace WebApp.Controllers
 				item.RoleName = userList.Select(i=>i).Where(u=>u.Id==item.RoleId).Select(u=>u.Name).FirstOrDefault();
 			}
 
-
-			totalRecords = v.Count();
-			var data = v.Skip(skip).Take(pageSize).ToList();
-			return Json(new { draw = draw, recordsFiltered = totalRecords, recordsTotal = totalRecords, data = data }, JsonRequestBehavior.AllowGet);		
+			totalRecords = userManager.GetUsersSize();
+			return Json(new { draw = draw, recordsFiltered = totalRecords, recordsTotal = totalRecords, data = v }, JsonRequestBehavior.AllowGet);		
 		}
 
 		public SecureString ToSecureString(string Source)
