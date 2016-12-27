@@ -11,6 +11,7 @@ using SiteProcessor;
 using HtmlAgilityPack;
 using log4net;
 using DAL.Elastic;
+using System.Text.RegularExpressions;
 
 namespace TaskExecuting.Manager
 {
@@ -140,7 +141,8 @@ namespace TaskExecuting.Manager
                         break;
                     }
                 }
-                resultGood.Name = name.Trim();
+                name = name.Trim();
+                resultGood.Name = StripHTML(name);
             }
             catch(Exception ex)
             {
@@ -309,7 +311,7 @@ namespace TaskExecuting.Manager
                             propertyValues.DictDoubleProperties.Add(propitem.Id, Convert.ToDouble(htmlvalue));
                             break;
                         case PropertyType.String:
-                            propertyValues.DictStringProperties.Add(propitem.Id, htmlvalue);
+                            propertyValues.DictStringProperties.Add(propitem.Id, StripHTML(htmlvalue));
                             break;
                         default:
                             break;
@@ -357,6 +359,13 @@ namespace TaskExecuting.Manager
             char[] arr = value.ToArray().Where(c => char.IsDigit(c) || c == '.').Select(c => c).ToArray();
             return new string(arr);
         }
+
+        private string StripHTML(string input)
+        {
+            var result =  Regex.Replace(input, "<.*?>", String.Empty);
+            return result.Replace("&nbsp;", String.Empty);
+        }
+
 
     }
 }
